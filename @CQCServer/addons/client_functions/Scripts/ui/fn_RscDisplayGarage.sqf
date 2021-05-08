@@ -22,12 +22,9 @@
 #define IDC_RSCDISPLAYGARAGE_ICONVEHICLE					5114
 #define IDC_RSCDISPLAYGARAGE_BUTTONSPAWN					5115
 
-private [ "_mode", "_params" ];
+params [ "_mode", "_params" ];
 
-_mode = _this#0;
-_params = _this#1;
-
-switch _mode do {
+switch (_mode) do {
 
 	case "onLoad": {
 
@@ -71,9 +68,6 @@ switch _mode do {
 	/////////////////////////////////////////////////////////////////////////////////
 
 	case "onUnload": {
-
-
-
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
@@ -425,7 +419,7 @@ switch _mode do {
   
 				private _unt = player;  
 				
-				{ 
+				{ CQC_RscDisplayGarage
 					if (count _x > 0) then {  
 						{ 
 							if (count _x > 0) then {     
