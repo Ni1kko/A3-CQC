@@ -39,19 +39,20 @@ class cfgRemoteExec
 		class BIS_fnc_effectKilledSecondaries		{ allowedTargets = 1; };
 		class BIS_fnc_objectVar						{ allowedTargets = 1; };
 		class BIS_fnc_setCustomSoundController		{ allowedTargets = 1; };
-		class CQC_fnc_playerAddKill 							{ allowedTargets = 1; };
+		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; };
 		class addPlayerScores 						{ allowedTargets = 1; };
-		class BIS_fnc_debugConsoleExec				{ allowedTargets = 1; };
+		class BIS_fnc_debugConsoleExec				{ allowedTargets = 0; };
+		class BIS_fnc_execVM						{ allowedTargets = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; };
-
+		class bis_fnc_curatorrespawn 				{ allowedTargets = 1; };
 	};
 
 	// List of Commands allowed to be sent from client via remoteExec
 	class Commands
 	{
 		mode = 0;
-
-		class CALL     { allowedTargets = 0; jip = 0; };
+		class call     { allowedTargets = 1; jip = 0; };
+		class spawn     { allowedTargets = 1; jip = 0; };
 		class setDir   { allowedTargets = 2; jip = 0; };
 	};
 };
