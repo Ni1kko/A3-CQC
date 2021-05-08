@@ -38,7 +38,7 @@ switch _mode do {
 		{
 
 			_ctrl = _display displayCtrl _x;
-			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this select 0 ), %1 ] ] call CQC_RscDisplayGarage ", _forEachIndex ] ];
+			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this select 0 ), %1 ] ] call CQC_fnc_RscDisplayGarage ", _forEachIndex ] ];
 
 		} forEach [
 			IDC_RSCDISPLAYGARAGE_FILTER2,
@@ -50,7 +50,7 @@ switch _mode do {
 
 		//--- Call filter EH
 		CQC_RscDisplayGarage_filter = missionNamespace getVariable [ "CQC_RscDisplayGarage_filter", 4 ];
-		[ "onFilterChanged", [ _display ] ] call CQC_RscDisplayGarage;
+		[ "onFilterChanged", [ _display ] ] call CQC_fnc_RscDisplayGarage;
 
 		//--- Control ListVehicles
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
@@ -61,7 +61,7 @@ switch _mode do {
 
 		//--- Control ButtonSpawn
 		_ctrlButtonSpawn = _display displayCtrl IDC_RSCDISPLAYGARAGE_BUTTONSPAWN;
-		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this select 0 ) ] ] call CQC_RscDisplayGarage } ];
+		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this select 0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
 
 		//--- Set default control focus
 		ctrlSetFocus _ctrlTreeVehicles;
@@ -195,10 +195,10 @@ switch _mode do {
 		];
 
 		//--- Call treeview select EH
-		[ "onVehicleSelChanged", [ _display ] ] call CQC_RscDisplayGarage;
+		[ "onVehicleSelChanged", [ _display ] ] call CQC_fnc_RscDisplayGarage;
 
 		//--- Add treeview select EH
-		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this select 0 ) ] ] call CQC_RscDisplayGarage } ];
+		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this select 0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
 
 	};
 
@@ -217,7 +217,7 @@ switch _mode do {
 		if ( count _curSel isEqualTo 3 ) then {
 
 			//--- Update options
-			[ "updateOptions", [ _display, _className ] ] call CQC_RscDisplayGarage;
+			[ "updateOptions", [ _display, _className ] ] call CQC_fnc_RscDisplayGarage;
 
 			//--- Enable spawn
 			_ctrlButtonSpawn ctrlEnable true;
