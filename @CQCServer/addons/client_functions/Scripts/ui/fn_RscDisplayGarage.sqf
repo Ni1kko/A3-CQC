@@ -24,21 +24,21 @@
 
 private [ "_mode", "_params" ];
 
-_mode = _this select 0;
-_params = _this select 1;
+_mode = _this#0;
+_params = _this#1;
 
 switch _mode do {
 
 	case "onLoad": {
 
 		//--- Controls
-		_display = ( _params select 0 );
+		_display = ( _params#0 );
 
 		//--- Control Filters
 		{
 
 			_ctrl = _display displayCtrl _x;
-			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this select 0 ), %1 ] ] call CQC_fnc_RscDisplayGarage ", _forEachIndex ] ];
+			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this#0 ), %1 ] ] call CQC_fnc_RscDisplayGarage ", _forEachIndex ] ];
 
 		} forEach [
 			IDC_RSCDISPLAYGARAGE_FILTER2,
@@ -61,7 +61,7 @@ switch _mode do {
 
 		//--- Control ButtonSpawn
 		_ctrlButtonSpawn = _display displayCtrl IDC_RSCDISPLAYGARAGE_BUTTONSPAWN;
-		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this select 0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
+		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this#0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
 
 		//--- Set default control focus
 		ctrlSetFocus _ctrlTreeVehicles;
@@ -81,11 +81,11 @@ switch _mode do {
 	case "onFilterChanged": {
 
 		//--- Controls
-		_display = _params select 0;
+		_display = _params#0;
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
 		_ctrlBackgroundFilter = _display displayCtrl IDC_RSCDISPLAYGARAGE_BACKGROUNDFILTER;
 		_list = CQC_ModuleVehicles_list;
-		_curSel = if ( count _params > 1 ) then { _params select 1 } else { CQC_RscDisplayGarage_filter };
+		_curSel = if ( count _params > 1 ) then { _params#1 } else { CQC_RscDisplayGarage_filter };
 
 		_list = if ( _curSel isEqualTo 4 ) then {
 
@@ -101,7 +101,7 @@ switch _mode do {
 
 		} else {
 
-			_list select _curSel
+			_list#_curSel
 
 		};
 
@@ -115,9 +115,9 @@ switch _mode do {
 		{
 
 			//--- Add faction
-			_displayName = _x select 0;
-			_icon = _x select 1;
-			_vehicleClasses = _x select 2;
+			_displayName = _x#0;
+			_icon = _x#1;
+			_vehicleClasses = _x#2;
 
 			_tvFaction = _ctrlTreeVehicles tvAdd [ [], _displayName ];
 			_ctrlTreeVehicles tvSetPicture [ [ _tvFaction ], _icon ];
@@ -126,8 +126,8 @@ switch _mode do {
 
 				//--- Add vehicle classes
 				private [ "_displayName", "_vehicles" ];
-				_displayName = _x select 0;
-				_vehicles = _x select 1;
+				_displayName = _x#0;
+				_vehicles = _x#1;
 
 				_tvVehicleClass = _ctrlTreeVehicles tvAdd [ [ _tvFaction ], _displayName ];
 
@@ -135,9 +135,9 @@ switch _mode do {
 
 					//--- Add vehicles
 					private [ "_displayName", "_icon", "_className" ];
-					_displayName = _x select 0;
-					_icon = _x select 1;
-					_className = _x select 2;
+					_displayName = _x#0;
+					_icon = _x#1;
+					_className = _x#2;
 
 					_tvVehicle = _ctrlTreeVehicles tvAdd [ [ _tvFaction, _tvVehicleClass ], _displayName ];
 					_tvVehicle = [ _tvFaction, _tvVehicleClass, _tvVehicle ];
@@ -194,11 +194,11 @@ switch _mode do {
 			IDC_RSCDISPLAYGARAGE_FILTER0
 		];
 
-		//--- Call treeview select EH
+		//--- Call treeview#EH
 		[ "onVehicleSelChanged", [ _display ] ] call CQC_fnc_RscDisplayGarage;
 
-		//--- Add treeview select EH
-		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this select 0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
+		//--- Add treeview#EH
+		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this#0 ) ] ] call CQC_fnc_RscDisplayGarage } ];
 
 	};
 
@@ -206,7 +206,7 @@ switch _mode do {
 
 	case "onVehicleSelChanged": {
 
-		_display = _params select 0;
+		_display = _params#0;
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
 		_ctrlComboSkin = _display displayCtrl IDC_RSCDISPLAYGARAGE_COMBOSKIN;
 		_ctrlIconVehicle = _display displayCtrl IDC_RSCDISPLAYGARAGE_ICONVEHICLE;
@@ -238,10 +238,10 @@ switch _mode do {
 
 	case "updateOptions": {
 
-		_display = _params select 0;
+		_display = _params#0;
 		_ctrlIconVehicle = _display displayCtrl IDC_RSCDISPLAYGARAGE_ICONVEHICLE;
 		_ctrlComboSkin = _display displayCtrl IDC_RSCDISPLAYGARAGE_COMBOSKIN;
-		_className = _params select 1;
+		_className = _params#1;
 		_cfg = configFile >> "CfgVehicles" >> _className;
 
 		//--- Update vehicle icon
@@ -285,7 +285,7 @@ switch _mode do {
 
 	case "spawnVehicle": {
 
-		_display = _params select 0;
+		_display = _params#0;
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
 		_ctrlComboSkin = _display displayCtrl IDC_RSCDISPLAYGARAGE_COMBOSKIN;
 		_curSel = tvCurSel _ctrlTreeVehicles;
@@ -370,7 +370,7 @@ switch _mode do {
 				{ 
 					if (count _x > 0) then {  
 						{ if (count _x > 1) then {     
-							_unt addMagazine (_x select 0)}  
+							_unt addMagazine (_x#0)}  
 						} foreach (_x call Fn_Gear_CompatibleMagazines)   
 					}
 				} forEach [primaryWeapon _unt];  
@@ -400,7 +400,7 @@ switch _mode do {
 					if (count _x > 0) then {  
 						{ 
 							if (count _x > 0) then {     
-							_unt addMagazine (_x select 1)}  
+							_unt addMagazine (_x#1)}  
 						} foreach (_x call Fn_Gear_CompatibleMagazines)   
 					}  
 				} forEach [primaryWeapon _unt];  
@@ -429,7 +429,7 @@ switch _mode do {
 					if (count _x > 0) then {  
 						{ 
 							if (count _x > 0) then {     
-							_unt addMagazine (_x select 0)}  
+							_unt addMagazine (_x#0)}  
 						} foreach (_x call Fn_Gear_CompatibleMagazines)   
 					}  
 				} forEach [primaryWeapon _unt];  
@@ -446,10 +446,10 @@ switch _mode do {
 			_vehicle addEventHandler [ "killed", {
 
 				//--- Remove vehicle from spawned array
-				CQC_ModuleVehicles_spawned = CQC_ModuleVehicles_spawned - [ _this select 0 ];
+				CQC_ModuleVehicles_spawned = CQC_ModuleVehicles_spawned - [ _this#0 ];
 
 				//--- Cleanup unit with delay preference
-				[ _this select 0, CQC_ModuleVehicles_garageGC ] call CQC_fnc_cleanupUnit;
+				[ _this#0, CQC_ModuleVehicles_garageGC ] call CQC_fnc_cleanupUnit;
 
 			} ];
 
@@ -464,7 +464,7 @@ switch _mode do {
 			["Your previous vehicle was removed"] spawn CQC_fnc_Notification;
 
 			//--- Delete first spawned vehicle
-			deleteVehicle ( CQC_ModuleVehicles_spawned select 0 );
+			deleteVehicle ( CQC_ModuleVehicles_spawned#0 );
 			[ CQC_ModuleVehicles_spawned ] call BIS_fnc_arrayShift;
 
 		};
