@@ -23,7 +23,7 @@ if (isNull (findDisplay 163)) then {
 	_ctrl ctrlCommit 0;
 	
 	// All the buttons for the list box
-	_ctrl = (findDisplay 163) displayctrl 101;
+	_ctrl = (findDisplay 163) displayctrl 3;
 	_ctrl ctrlSetFont "RobotoCondensed";
 	_ctrl ctrlAddEventHandler ["LBDblClick", { ( _this select 1 ) call CQC_fnc_AH_DBLClick3 } ];
 
