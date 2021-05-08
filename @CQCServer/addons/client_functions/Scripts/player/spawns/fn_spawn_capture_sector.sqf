@@ -11,9 +11,10 @@ if (_jstar_gravia isEqualTo 1) then {
 		closeDialog 1;
 		player setPos Aktjstar_gravia; 
 		player setDir (markerDir "jstar_gravia_1");
-} else {
-	_jstar_gravia = 2;
-};};
+	} else {
+		_jstar_gravia = 2;
+	};
+};
 if (_jstar_gravia isEqualTo 2) then {	
 	Aktjstar_gravia = getMarkerPos "jstar_gravia_2"; 
 	jstar_graviaCheck = getMarkerpos "jstar_gravia_2" nearEntities [["man"], 15];
@@ -21,9 +22,10 @@ if (_jstar_gravia isEqualTo 2) then {
 		closeDialog 1;
 		player setPos Aktjstar_gravia; 
 		player setDir (markerDir "jstar_gravia_2");
-} else {
-	_jstar_gravia = 3;
-};};
+	} else {
+		_jstar_gravia = 3;
+	};
+};
 if (_jstar_gravia isEqualTo 3) then {	
 	Aktjstar_gravia = getMarkerPos "jstar_gravia_3"; 
 	jstar_graviaCheck = getMarkerpos "jstar_gravia_3" nearEntities [["man"], 15];
@@ -31,9 +33,10 @@ if (_jstar_gravia isEqualTo 3) then {
 		closeDialog 1;
 		player setPos Aktjstar_gravia; 
 		player setDir (markerDir "jstar_gravia_3");
-} else {
-	_jstar_gravia = 4;
-};};
+	} else {
+		_jstar_gravia = 4;
+	};
+};
 if (_jstar_gravia isEqualTo 4) then {	
 	Aktjstar_gravia = getMarkerPos "jstar_gravia_4"; 
 	jstar_graviaCheck = getMarkerpos "jstar_gravia_4" nearEntities [["man"], 15];
@@ -41,9 +44,10 @@ if (_jstar_gravia isEqualTo 4) then {
 		closeDialog 1;
 		player setPos Aktjstar_gravia; 
 		player setDir (markerDir "jstar_gravia_4");
-} else {
-	_jstar_gravia = 5;
-};};
+	} else {
+		_jstar_gravia = 5;
+	};
+};
 if (_jstar_gravia isEqualTo 5) then {	
 	Aktjstar_gravia = getMarkerPos "jstar_gravia_5"; 
 	jstar_graviaCheck = getMarkerpos "jstar_gravia_5" nearEntities [["man"], 15];
@@ -51,9 +55,10 @@ if (_jstar_gravia isEqualTo 5) then {
 		closeDialog 1;
 		player setPos Aktjstar_gravia;
 		player setDir (markerDir "jstar_gravia_5");
-} else {
-	_jstar_gravia = 6;
-};};
+	} else {
+		_jstar_gravia = 6;
+	};
+};
 if (_jstar_gravia isEqualTo 6) then {	
 	Aktjstar_gravia = getMarkerPos "jstar_gravia_6"; 
 	jstar_graviaCheck = getMarkerpos "jstar_gravia_6" nearEntities [["man"], 15];

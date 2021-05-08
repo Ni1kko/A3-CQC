@@ -71,7 +71,7 @@ switch (_mode) do {
 		switch (_locationName) do {
 
 			case "OG Arms" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\jstar_og.sqf";
+				[]spawn CQC_fnc_spawn_og;
 			
 				{
 					player removeAction _x;
@@ -81,7 +81,7 @@ switch (_mode) do {
 			};
 			
 			case "Church" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\jstar_church.sqf";
+				[]spawn CQC_fnc_spawn_church;
 				
 				{
 					player removeAction _x;
@@ -90,8 +90,8 @@ switch (_mode) do {
 				[] spawn CQC_fnc_handleDamage;
 			};
 
-			case "Airport" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\jstar_airport.sqf";
+			case "Airport" : { 
+				[]spawn CQC_fnc_spawn_airport;
 				["Airport is for MRAP decamping, don't roach"] spawn CQC_fnc_Notification;
 				player addEventHandler ["HandleDamage", {0}];
 				{if ( _x in primaryWeaponMagazine player ) then { player removeMagazine _x }} forEach magazines player;
@@ -102,7 +102,7 @@ switch (_mode) do {
 			};
 
 			case "Experimental" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\alecw_experimental.sqf";
+				[]spawn CQC_fnc_spawn_experimental;
 				
 				{
 					player removeAction _x;
@@ -111,8 +111,9 @@ switch (_mode) do {
 				[] spawn CQC_fnc_handleDamage;
 			};
 			
-			case "Quarantine" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\alecw_quarantine.sqf";
+			case "Quarantine" : 
+			{
+				[] spawn CQC_fnc_spawn_quarantine;
 				
 				{
 					player removeAction _x;
@@ -121,8 +122,8 @@ switch (_mode) do {
 				[] spawn CQC_fnc_handleDamage;
 			};
 			
-			case "Mushroom" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\alecw_mushroom.sqf";
+			case "Mushroom" : { 
+				[]spawn CQC_fnc_spawn_mushroom;
 				
 				{
 					player removeAction _x;
@@ -132,8 +133,8 @@ switch (_mode) do {
 			};
 
 			Case "Capture Sector" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\jstar_gravia.sqf";
-				
+				[]spawn CQC_fnc_spawn_capture_sector;
+
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
@@ -142,7 +143,7 @@ switch (_mode) do {
 			};
 
 			Case "Capture Alpha" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\CQC_capturealpha.sqf";
+				[]spawn CQC_fnc_spawn_capture_alpha; 
 				
 				{
 					player removeAction _x;
@@ -152,7 +153,7 @@ switch (_mode) do {
 			};
 
 			Case "Fed" : {
-				execVM "scripts\jstar_teleport\jstar_spawns\jstar_fed.sqf";
+				[]spawn CQC_fnc_spawn_fed;
 				
 				{
 					player removeAction _x;

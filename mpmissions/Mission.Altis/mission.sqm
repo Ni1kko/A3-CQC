@@ -540,7 +540,7 @@ class Mission
 				position[]={13535.992,15.439745,12077.684};
 				angles[]={0,0.0017453292,0};
 			};
-			name="NMD_curator";
+			name="CQC_curator";
 			id=148;
 			type="ModuleCurator_F";
 			class CustomAttributes
@@ -36235,7 +36235,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0, ""images\cqcimagenew.paa""];";
+				init="this setObjectTexture [0, ""textures\cqcimagenew.paa""];";
 			};
 			id=4662;
 			type="Land_LightHouse_F";
@@ -42320,7 +42320,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this enableSimulation false;" \n "this setObjectTextureGlobal [0, ""images\cqcimagenew.paa""]; " \n "this setVariable[""persistent"",true];";
+				init="this enableSimulation false;" \n "this setObjectTextureGlobal [0, ""textures\cqcimagenew.paa""]; " \n "this setVariable[""persistent"",true];";
 			};
 			id=4975;
 			type="Land_Billboard_04_blank_F";
@@ -42595,7 +42595,7 @@ class Mission
 				ammo=0;
 				lock="LOCKEDPLAYER";
 				fuel=0;
-				init="CQC_Qilin_Display setVariable [""persistent"",true];" \n "" \n "CQC_Qilin_Display setObjectTextureGlobal [0, ""Skins\MonsterQilin\1.jpg""]; " \n "CQC_Qilin_Display setObjectTextureGlobal [1, ""Skins\MonsterQilin\2.jpg""]; " \n "CQC_Qilin_Display setObjectTextureGlobal [2, ""Skins\MonsterQilin\3.jpg""];";
+				init="CQC_Qilin_Display setVariable [""persistent"",true];" \n "" \n "CQC_Qilin_Display setObjectTextureGlobal [0, ""textures\vehicles\MonsterQilin\1.jpg""]; " \n "CQC_Qilin_Display setObjectTextureGlobal [1, ""textures\vehicles\MonsterQilin\2.jpg""]; " \n "CQC_Qilin_Display setObjectTextureGlobal [2, ""textures\vehicles\MonsterQilin\3.jpg""];";
 				name="CQC_Qilin_Display";
 				disableSimulation=1;
 			};
@@ -42639,7 +42639,7 @@ class Mission
 			class Attributes
 			{
 				lock="LOCKEDPLAYER";
-				init="CQC_Ifrit_Left_Display setVariable [""persistent"",true];" \n "" \n "CQC_Ifrit_Left_Display setVariable [""persistent"",true];" \n "CQC_Ifrit_Left_Display setObjectTextureGlobal [0, ""Skins\GFloydIfrit\1.jpg""]; " \n "CQC_Ifrit_Left_Display setObjectTextureGlobal [1, ""Skins\GFloydIfrit\2.jpg""];";
+				init="CQC_Ifrit_Left_Display setVariable [""persistent"",true];" \n "" \n "CQC_Ifrit_Left_Display setVariable [""persistent"",true];" \n "CQC_Ifrit_Left_Display setObjectTextureGlobal [0, ""textures\vehicles\GFloydIfrit\1.jpg""]; " \n "CQC_Ifrit_Left_Display setObjectTextureGlobal [1, ""textures\vehicles\GFloydIfrit\2.jpg""];";
 				name="CQC_Ifrit_Left_Display";
 				disableSimulation=1;
 			};
@@ -42682,7 +42682,7 @@ class Mission
 			class Attributes
 			{
 				lock="LOCKEDPLAYER";
-				init="CQC_Ifrit_Right_Display setVariable [""persistent"",true];" \n "" \n "CQC_Ifrit_Right_Display setVariable [""persistent"",true];" \n "CQC_Ifrit_Right_Display setObjectTextureGlobal [0, ""Skins\BangIfrit\1.jpg""]; " \n "CQC_Ifrit_Right_Display setObjectTextureGlobal [1, ""Skins\BangIfrit\2.jpg""];";
+				init="CQC_Ifrit_Right_Display setVariable [""persistent"",true];" \n "" \n "CQC_Ifrit_Right_Display setVariable [""persistent"",true];" \n "CQC_Ifrit_Right_Display setObjectTextureGlobal [0, ""textures\vehicles\BangIfrit\1.jpg""]; " \n "CQC_Ifrit_Right_Display setObjectTextureGlobal [1, ""textures\vehicles\BangIfrit\2.jpg""];";
 				name="CQC_Ifrit_Right_Display";
 				disableSimulation=1;
 			};
@@ -43116,7 +43116,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Teleport"",{createDialog ""CQCDisplaySpawns""},"""",4,false,true,"""",'_this distance _target < 5']; this addAction [""Help"",{createDialog ""CQCDisplayHelp""},"""",4,false,true,"""",'_this distance _target < 5'];         this setObjectTexture [0, ""images\cqcsign.paa""]; this setVariable[""persistent"",true];";
+				init="this addAction [""Teleport"",{createDialog ""CQCDisplaySpawns""},"""",4,false,true,"""",'_this distance _target < 5']; this addAction [""Help"",{createDialog ""CQCDisplayHelp""},"""",4,false,true,"""",'_this distance _target < 5'];         this setObjectTexture [0, ""textures\cqcsign.paa""]; this setVariable[""persistent"",true];";
 				name="fragsquad_shop";
 				disableSimulation=1;
 			};

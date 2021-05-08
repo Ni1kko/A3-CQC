@@ -33,7 +33,7 @@ class jstar_itemJStar
 {
 	idd = 500;
 	name= "jstar_itemmenu";
-	onLoad = "_this execVM 'scripts\jstar_itemmenu\jstar_menu.sqf'";
+	onLoad = "_this spawn CQC_fnc_itemmenu";
 	controlsBackground[] = {title, background, footer};
 	controls[] = {button, RscListbox_1500};
 
@@ -92,7 +92,7 @@ class jstar_itemJStar
 		y = 0.3394 * safezoneH + safezoneY;
 		w = 0.201845 * safezoneW;
 		h = 0.2948 * safezoneH;
-		onLBSelChanged = "[_this] execVM 'scripts\jstar_itemmenu\jstar_options.sqf'";
+		onLBSelChanged = "[_this] spawn CQC_fnc_options";
 	};
 
 };
@@ -101,7 +101,7 @@ class jon_KDA
 {
 	idd = 500;
 	name= "jon_kda";
-	onLoad = "_this execVM 'scripts\jstar_itemmenu\jon_kda.sqf'";
+	onLoad = "";
 	controlsBackground[] = {Background};
 	controls[] = {LocationSelect, TeleportText, Close};
 	
@@ -142,7 +142,7 @@ class jon_KDA
 		y = 0.458 * safezoneH + safezoneY;
 		w = 0.118447 * safezoneW;
 		h = 0.168 * safezoneH;
-		onLBSelChanged = "[_this] execVM 'scripts\jstar_itemmenu\jstar_options.sqf'";
+		onLBSelChanged = "[_this] spawn CQC_fnc_options";
 	};
 };
 
@@ -336,7 +336,7 @@ class jstar_veh
 {
 	idd = 634;
 	name= "jstar_veh";
-	onLoad = "_this execVM 'scripts\jstar_repair\jstar_menu.sqf'";
+	onLoad = "_this spawn CQC_fnc_repairmenu";
 	controlsBackground[] = {Background};
 	controls[] = {LocationSelect, TeleportText, Close};
 	
@@ -377,7 +377,7 @@ class jstar_veh
 		y = 0.458 * safezoneH + safezoneY;
 		w = 0.118447 * safezoneW;
 		h = 0.168 * safezoneH;
-		onLBSelChanged = "[_this] execVM 'scripts\jstar_repair\jstar_options.sqf'";
+		onLBSelChanged = "[_this] spawn CQC_fnc_repairoptions";
 	};
 };
 
@@ -385,7 +385,7 @@ class jstar_respawn
 {
 	idd = 500;
 	name = "jstar_respawn";
-	onLoad = "_this execVM ""scripts\jstar_teleport\jstar_menu.sqf""; escKeyEH = (_this select 0) displayAddEventHandler [""KeyDown"", ""if (((_this select 1) isEqualTo 1)) then {true};""];";
+	onLoad = "escKeyEH = (_this select 0) displayAddEventHandler [""KeyDown"", ""if (((_this select 1) isEqualTo 1)) then {true};""];";
 	controlsBackground[] = {Background, Background1};
 	controls[] = {LocationSelect, TeleportText, Spawn};
 
@@ -420,7 +420,7 @@ class jstar_respawn
 	class LocationSelect: JSt4r_RSC_ListBox
 	{
 		idc = 518;
-		onLBSelChanged = "[_this] execVM 'scripts\jstar_teleport\jstar_move.sqf'";
+		onLBSelChanged = "";
 		x = 0.438125 * safezoneW + safezoneX;
 		y = 0.434 * safezoneH + safezoneY;
 		w = 0.125028 * safezoneW;

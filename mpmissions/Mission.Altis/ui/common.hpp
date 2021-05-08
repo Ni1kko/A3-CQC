@@ -121,7 +121,7 @@ class ScrollBar
 	shadow = 0;
 	scrollSpeed = 0.06;
 };
-class NMD_RscObject
+class CQC_RscObject
 {
 	access = 0;
 	type = CT_OBJECT;
@@ -130,7 +130,7 @@ class NMD_RscObject
 	up[] = {0,1,0};
 	shadow = 0;
 };
-class NMD_RscText
+class CQC_RscText
 {
 	deletable = 0;
 	fade = 0;
@@ -155,7 +155,7 @@ class NMD_RscText
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
 };
-class NMD_RscTitle: NMD_RscText
+class CQC_RscTitle: CQC_RscText
 {
 	shadow = 0;
 	style = 0;
@@ -163,14 +163,14 @@ class NMD_RscTitle: NMD_RscText
 	colorBackground[] = { "( profileNamespace getVariable [ 'GUI_BCG_RGB_R', 0.69 ] )", "( profileNamespace getVariable [ 'GUI_BCG_RGB_G', 0.75 ] )", "( profileNamespace getVariable [ 'GUI_BCG_RGB_B', 0.5 ] )", "( profileNamespace getVariable [ 'GUI_BCG_RGB_A', 0.8 ] )" };
 	colorSelect[] = {0.95,0.95,0.95,1};
 };
-class NMD_RscWatermark: NMD_RscText
+class CQC_RscWatermark: CQC_RscText
 {
 	shadow = 0;
 	style = 1;
 	text = "NMD";
 	colorSelect[] = {0.95,0.95,0.95,1};
 };
-class NMD_RscFrame
+class CQC_RscFrame
 {
 	type = CT_STATIC;
 	idc = -1;
@@ -187,7 +187,7 @@ class NMD_RscFrame
 	w = 0.3;
 	h = 0.3;
 };
-class NMD_RscLine: NMD_RscText
+class CQC_RscLine: CQC_RscText
 {
 	idc = -1;
 	style = ST_MULTI + ST_TITLE_BAR + ST_HUD_BACKGROUND;
@@ -199,7 +199,7 @@ class NMD_RscLine: NMD_RscText
 	colorBackground[] = {0,0,0,0};
 	colorText[] = {1,1,1,1};
 };
-class NMD_RscProgress
+class CQC_RscProgress
 {
 	deletable = 0;
 	fade = 0;
@@ -221,7 +221,7 @@ class NMD_RscProgress
 	shadow = 2;
 	texture = "#(argb,8,8,3)color(1,1,1,1)";
 };
-class NMD_RscPicture
+class CQC_RscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -245,16 +245,16 @@ class NMD_RscPicture
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
 };
-class NMD_RscPictureKeepAspect: NMD_RscPicture
+class CQC_RscPictureKeepAspect: CQC_RscPicture
 {
 	style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
 };
-class NMD_RscVideo: NMD_RscPicture
+class CQC_RscVideo: CQC_RscPicture
 {
 	autoplay = 1;
 	loops = 1;
 };
-class NMD_RscVignette: NMD_RscPicture
+class CQC_RscVignette: CQC_RscPicture
 {
 	x = "safezoneXAbs";
 	y = "safezoneY";
@@ -263,7 +263,7 @@ class NMD_RscVignette: NMD_RscPicture
 	text = "\A3\ui_f\data\gui\rsccommon\rscvignette\vignette_gs.paa";
 	colortext[] = {0,0,0,0.3};
 };
-class NMD_RscHTML
+class CQC_RscHTML
 {
 	deletable = 0;
 	fade = 0;
@@ -342,7 +342,7 @@ class NMD_RscHTML
 	nextPage = "\A3\ui_f\data\gui\rsccommon\rschtml\arrow_right_ca.paa";
 	shadow = 2;
 };
-class NMD_RscButton
+class CQC_RscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -397,7 +397,7 @@ class NMD_RscButton
 	offsetPressedY = 0;
 	borderSize = 0;
 };
-class NMD_RscShortcutButton
+class CQC_RscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -512,7 +512,7 @@ class NMD_RscShortcutButton
 		align = "left";
 	};
 };
-class NMD_RscEdit
+class CQC_RscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -544,7 +544,7 @@ class NMD_RscEdit
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
 };
-class NMD_RscCombo
+class CQC_RscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -604,7 +604,7 @@ class NMD_RscCombo
 	wholeHeight = 0.45;
 	colorActive[] = {1,0,0,1};
 };
-class NMD_RscListBox
+class CQC_RscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -659,7 +659,7 @@ class NMD_RscListBox
 	period = 1.2;
 	maxHistoryDelay = 1;
 };
-class NMD_RscListNBox
+class CQC_RscListNBox
 {
 	deletable = 0;
 	fade = 0;
@@ -710,7 +710,7 @@ class NMD_RscListNBox
 	{
 	};
 };
-class NMD_RscXListBox
+class CQC_RscXListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -748,7 +748,7 @@ class NMD_RscXListBox
 	font = "RobotoCondensed";
 	sizeEx = GUI_TEXT_SIZE_MEDIUM;
 };
-class NMD_RscTree
+class CQC_RscTree
 {
 	deletable = 0;
 	fade = 0;
@@ -798,7 +798,7 @@ class NMD_RscTree
 	{
 	};
 };
-class NMD_RscSlider
+class CQC_RscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -813,7 +813,7 @@ class NMD_RscSlider
 	w = 0.3;
 	h = 0.025;
 };
-class NMD_RscXSliderH
+class CQC_RscXSliderH
 {
 	deletable = 0;
 	fade = 0;
@@ -836,7 +836,7 @@ class NMD_RscXSliderH
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
 };
-class NMD_RscActiveText
+class CQC_RscActiveText
 {
 	deletable = 0;
 	fade = 0;
@@ -885,17 +885,17 @@ class NMD_RscActiveText
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
 };
-class NMD_RscActivePicture: NMD_RscActiveText
+class CQC_RscActivePicture: CQC_RscActiveText
 {
 	style = ST_MULTI + ST_TITLE_BAR;
 	color[] = {1,1,1,0.5};
 	colorActive[] = {1,1,1,1};
 };
-class NMD_RscActivePictureKeepAspect: NMD_RscActivePicture
+class CQC_RscActivePictureKeepAspect: CQC_RscActivePicture
 {
 	style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
 };
-class NMD_RscStructuredText
+class CQC_RscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -920,7 +920,7 @@ class NMD_RscStructuredText
 	size = GUI_TEXT_SIZE_MEDIUM;
 	shadow = 1;
 };
-class NMD_RscToolbox
+class CQC_RscToolbox
 {
 	deletable = 0;
 	fade = 0;
@@ -955,7 +955,7 @@ class NMD_RscToolbox
 	font = "RobotoCondensed";
 	sizeEx = GUI_TEXT_SIZE_SMALL;
 };
-class NMD_RscControlsGroup
+class CQC_RscControlsGroup
 {
 	deletable = 0;
 	fade = 0;
@@ -982,7 +982,7 @@ class NMD_RscControlsGroup
 	shadow = 0;
 	style = ST_MULTI;
 };
-class NMD_RscControlsGroupNoScrollbars: NMD_RscControlsGroup
+class CQC_RscControlsGroupNoScrollbars: CQC_RscControlsGroup
 {
 	class VScrollbar: VScrollbar
 	{
@@ -993,21 +993,21 @@ class NMD_RscControlsGroupNoScrollbars: NMD_RscControlsGroup
 		height = 0;
 	};
 };
-class NMD_RscControlsGroupNoHScrollbars: NMD_RscControlsGroup
+class CQC_RscControlsGroupNoHScrollbars: CQC_RscControlsGroup
 {
 	class HScrollbar: HScrollbar
 	{
 		height = 0;
 	};
 };
-class NMD_RscControlsGroupNoVScrollbars: NMD_RscControlsGroup
+class CQC_RscControlsGroupNoVScrollbars: CQC_RscControlsGroup
 {
 	class VScrollbar: VScrollbar
 	{
 		width = 0;
 	};
 };
-class NMD_RscButtonTextOnly: NMD_RscButton
+class CQC_RscButtonTextOnly: CQC_RscButton
 {
 	SizeEx = GUI_TEXT_SIZE_SMALL;
 	colorBackground[] = {1,1,1,0};
@@ -1017,7 +1017,7 @@ class NMD_RscButtonTextOnly: NMD_RscButton
 	colorShadow[] = {1,1,1,0};
 	borderSize = 0;
 };
-class NMD_RscButtonMenu: NMD_RscShortcutButton
+class CQC_RscButtonMenu: CQC_RscShortcutButton
 {
 	idc = -1;
 	type = CT_SHORTCUTBUTTON;
@@ -1103,7 +1103,7 @@ class NMD_RscButtonMenu: NMD_RscShortcutButton
 		1
 	};
 };
-class NMD_RscButtonMenuOK: NMD_RscButtonMenu
+class CQC_RscButtonMenuOK: CQC_RscButtonMenu
 {
 	idc = 1;
 	shortcuts[] =
@@ -1122,7 +1122,7 @@ class NMD_RscButtonMenuOK: NMD_RscButtonMenu
 		1
 	};
 };
-class NMD_RscButtonMenuCancel: NMD_RscButtonMenu
+class CQC_RscButtonMenuCancel: CQC_RscButtonMenu
 {
 	idc = 2;
 	shortcuts[] =
@@ -1131,7 +1131,7 @@ class NMD_RscButtonMenuCancel: NMD_RscButtonMenu
 	};
 	text = "Cancel";
 };
-class NMD_RscButtonMenuSteam: NMD_RscButtonMenu
+class CQC_RscButtonMenuSteam: CQC_RscButtonMenu
 {
 	colorBackground[] = {0.0313726,0.721569,0.917647,1};
 	textureNoShortcut = "\A3\Ui_f\data\GUI\RscCommon\RscButtonMenuSteam\steam_ca.paa";
@@ -1150,7 +1150,7 @@ class NMD_RscButtonMenuSteam: NMD_RscButtonMenu
 		h = 0.03;
 	};
 };
-class NMD_RscMapControl
+class CQC_RscMapControl
 {
 	deletable = 0;
 	fade = 0;
@@ -1552,7 +1552,7 @@ class NMD_RscMapControl
 		color[] = {0,0,0,1};
 	};
 };
-class NMD_RscMapControlEmpty: NMD_RscMapControl
+class CQC_RscMapControlEmpty: CQC_RscMapControl
 {
 	type = CT_MAP_MAIN;
 	ptsPerSquareSea = 1000;
@@ -1779,7 +1779,7 @@ class NMD_RscMapControlEmpty: NMD_RscMapControl
 		size = 0;
 	};
 };
-class NMD_RscCheckBox
+class CQC_RscCheckBox
 {
 	idc = -1;
 	type = CT_CHECKBOX;
@@ -1838,7 +1838,7 @@ class NMD_RscCheckBox
 		1
 	};
 };
-class NMD_RscTextCheckBox
+class CQC_RscTextCheckBox
 {
 	idc = -1;
 	type = CT_CHECKBOXES;
@@ -1864,4 +1864,305 @@ class NMD_RscTextCheckBox
 	columns = 1;
 	strings[] = {"UNCHECKED"};
 	checked_strings[] = {"CHECKED"};
+};
+class CQC_ctrlDefault {
+	access = 0;
+	idc = -1;
+	style = 0;
+	default = 0;
+	show = 1;
+	fade = 0;
+	blinkingPeriod = 0;
+	deletable = 0;
+	x = 0;
+	y = 0;
+	w = 0;
+	h = 0;
+	tooltip = "";
+	tooltipMaxWidth = 0.5;
+	tooltipColorShade[] = {0,0,0,1};
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {0,0,0,0};
+	class ScrollBar {
+		width = 0;
+		height = 0;
+		scrollSpeed = 0.06;
+		arrowEmpty = "\a3\3DEN\Data\Controls\ctrlDefault\arrowEmpty_ca.paa";
+		arrowFull = "\a3\3DEN\Data\Controls\ctrlDefault\arrowFull_ca.paa";
+		border = "\a3\3DEN\Data\Controls\ctrlDefault\border_ca.paa";
+		thumb = "\a3\3DEN\Data\Controls\ctrlDefault\thumb_ca.paa";
+		color[] = {1,1,1,1};
+	};
+};
+
+class CQC_ctrlDefaultText: CQC_ctrlDefault {
+	sizeEx = "4.32 * pixelH * pixelGrid * 0.5";
+	font = "RobotoCondensedLight";
+	shadow = 1;
+};
+
+class CQC_ctrlDefaultButton: CQC_ctrlDefaultText {
+	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
+};
+
+class CQC_ctrlStatic: CQC_ctrlDefaultText {
+	type = 0;
+	colorBackground[] = {0,0,0,0};
+	text = "";
+	lineSpacing = 1;
+	fixedWidth = 0;
+	colorText[] = {1,1,1,1};
+	colorShadow[] = {0,0,0,1};
+	moving = 0;
+	autoplay = 0;
+	loops = 0;
+	tileW = 1;
+	tileH = 1;
+	onCanDestroy = "";
+	onDestroy = "";
+	onMouseEnter = "";
+	onMouseExit = "";
+	onSetFocus = "";
+	onKillFocus = "";
+	onKeyDown = "";
+	onKeyUp = "";
+	onMouseButtonDown = "";
+	onMouseButtonUp = "";
+	onMouseButtonClick = "";
+	onMouseButtonDblClick = "";
+	onMouseZChanged = "";
+	onMouseMoving = "";
+	onMouseHolding = "";
+	onVideoStopped = "";
+};
+
+class CQC_ctrlStaticPicture: CQC_ctrlStatic {
+	style = 48;
+};
+
+class CQC_ctrlStaticPictureKeepAspect: CQC_ctrlStaticPicture {
+	style = "0x30 + 0x800";
+};
+
+class CQC_ctrlStaticPictureTile: CQC_ctrlStatic {
+	style = 144;
+};
+
+class CQC_ctrlStaticFrame: CQC_ctrlStatic {
+	style = 64;
+};
+
+class CQC_ctrlStaticLine: CQC_ctrlStatic {
+	style = 176;
+};
+
+class CQC_ctrlStaticMulti: CQC_ctrlStatic {
+	style = "0x10 + 0x200";
+};
+
+class CQC_ctrlStaticBackground: CQC_ctrlStatic {
+	colorBackground[] = {0.2,0.2,0.2,1};
+};
+
+class CQC_ctrlStaticOverlay: CQC_ctrlStatic {
+	colorBackground[] = {0,0,0,0.5};
+};
+
+class CQC_ctrlStaticTitle: CQC_ctrlStatic {
+	moving = 1;
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
+	colorText[] = {1,1,1,1};
+	colorShadow[] = {0,0,0,0};
+};
+
+class CQC_ctrlStaticFooter: CQC_ctrlStatic {
+	colorBackground[] = {0,0,0,0.3};
+};
+
+class CQC_ctrlStaticBackgroundDisable: CQC_ctrlStatic {
+	x = -4;
+	y = -2;
+	w = 8;
+	h = 4;
+	colorBackground[] = {1,1,1,0.5};
+};
+
+class CQC_ctrlStaticBackgroundDisableTiles: CQC_ctrlStaticPictureTile {
+	x = -4;
+	y = -2;
+	w = 8;
+	h = 4;
+	text = "\a3\3DEN\Data\Displays\Display3DENEditAttributes\backgroundDisable_ca.paa";
+	tileW = "8 / (32 * pixelW)";
+	tileH = "4 / (32 * pixelH)";
+	colorText[] = {1,1,1,0.05};
+};
+
+class CQC_ctrlButton: CQC_ctrlDefaultButton {
+	type = 1;
+	style = "0x02 + 0xC0";
+	colorBackground[] = {0,0,0,1};
+	colorBackgroundDisabled[] = {0,0,0,0.5};
+	colorBackgroundActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
+	colorFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
+	font = "PuristaLight";
+	text = "";
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.25};
+	borderSize = 0;
+	colorBorder[] = {0,0,0,0};
+	colorShadow[] = {0,0,0,0};
+	offsetX = 0;
+	offsetY = 0;
+	offsetPressedX = "pixelW";
+	offsetPressedY = "pixelH";
+	period = 0;
+	periodFocus = 2;
+	periodOver = 0.5;
+	class KeyHints {
+		class A
+		{
+			key = "0x00050000 + 0";
+			hint = "KEY_XBOX_A";
+		};
+	};
+	onCanDestroy = "";
+	onDestroy = "";
+	onMouseEnter = "";
+	onMouseExit = "";
+	onSetFocus = "";
+	onKillFocus = "";
+	onKeyDown = "";
+	onKeyUp = "";
+	onMouseButtonDown = "";
+	onMouseButtonUp = "";
+	onMouseButtonClick = "";
+	onMouseButtonDblClick = "";
+	onMouseZChanged = "";
+	onMouseMoving = "";
+	onMouseHolding = "";
+	onButtonClick = "";
+	onButtonDown = "";
+	onButtonUp = "";
+};
+
+class CQC_ctrlButtonPicture: CQC_ctrlButton {
+	style = "0x02 + 0x30";
+};
+
+class CQC_ctrlButtonPictureKeepAspect: CQC_ctrlButton {
+	style = "0x02 + 0x30 + 0x800";
+};
+
+class CQC_ctrlButtonOK: CQC_ctrlButton {
+	default = 1;
+	idc = 1;
+	text = "$STR_DISP_OK";
+};
+
+class CQC_ctrlButtonCancel: CQC_ctrlButton {
+	idc = 2;
+	text = "$STR_DISP_CANCEL";
+};
+
+class CQC_ctrlButtonClose: CQC_ctrlButtonCancel {
+	text = "$STR_DISP_CLOSE";
+};
+
+class CQC_ctrlButtonToolbar: CQC_ctrlButtonPictureKeepAspect {
+	colorBackground[] = {0,0,0,0};
+	colorBackgroundDisabled[] = {0,0,0,0};
+};
+
+class CQC_ctrlButtonSearch: CQC_ctrlButton {
+	style = "0x02 + 0x30 + 0x800";
+	text = "\a3\3DEN\Data\Displays\Display3DEN\search_start_ca.paa";
+	textSearch = "\a3\3DEN\Data\Displays\Display3DEN\search_end_ca.paa";
+	tooltip = "$STR_3den_display3den_menubar_search_text";
+};
+
+class CQC_ctrlButtonExpandAll: CQC_ctrlButtonToolbar {
+	style = "0x02 + 0x30 + 0x800";
+	text = "\a3\3DEN\Data\Displays\Display3DEN\tree_expand_ca.paa";
+	tooltip = "$STR_3DEN_ctrlButtonExpandAll_text";
+};
+
+class CQC_ctrlButtonCollapseAll: CQC_ctrlButtonToolbar {
+	style = "0x02 + 0x30 + 0x800";
+	text = "\a3\3DEN\Data\Displays\Display3DEN\tree_collapse_ca.paa";
+	tooltip = "$STR_3DEN_ctrlButtonCollapseAll_text";
+};
+
+class CQC_ctrlButtonFilter: CQC_ctrlButton {
+	colorBackground[] = {0,0,0,0};
+	colorBackgroundDisabled[] = {0,0,0,0};
+	colorBackgroundActive[] = {1,1,1,0.3};
+	colorFocused[] = {0,0,0,0};
+};
+
+class CQC_ctrlListbox: CQC_ctrlDefaultText {
+	type = 5;
+	style = "0x00 + 0x10";
+	colorBackground[] = {0,0,0,0.2};
+	colorSelectBackground[] = {1,0.5,0,0.5};
+	colorSelectBackground2[] = {1,0.5,0,0.5};
+	colorShadow[] = {0,0,0,0};
+	colorDisabled[] = {1,1,1,0.25};
+	colorText[] = {1,1,1,1};
+	colorSelect[] = {1,1,1,1};
+	colorSelect2[] = {1,1,1,1};
+	colorTextRight[] = {1,1,1,1};
+	colorSelectRight[] = {1,1,1,1};
+	colorSelect2Right[] = {1,1,1,1};
+	colorPicture[] = {1,1,1,1};
+	colorPictureSelected[] = {1,1,1,1};
+	colorPictureDisabled[] = {1,1,1,0.25};
+	colorPictureRight[] = {1,1,1,1};
+	colorPictureRightSelected[] = {1,1,1,1};
+	colorPictureRightDisabled[] = {1,1,1,0.25};
+	period = 1;
+	rowHeight = "4.32 * pixelH * pixelGrid * 0.5";
+	itemSpacing = 0;
+	maxHistoryDelay = 1;
+	canDrag = 0;
+	soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
+	class ListScrollBar: ScrollBar{};
+	onCanDestroy = "";
+	onDestroy = "";
+	onSetFocus = "";
+	onKillFocus = "";
+	onKeyDown = "";
+	onKeyUp = "";
+	onMouseButtonDown = "";
+	onMouseButtonUp = "";
+	onMouseButtonClick = "";
+	onMouseButtonDblClick = "";
+	onMouseZChanged = "";
+	onMouseMoving = "";
+	onMouseHolding = "";
+	onLBSelChanged = "";
+	onLBDblClick = "";
+	onLBDrag = "";
+	onLBDragging = "";
+	onLBDrop = "";
+};
+
+class CQC_ctrlStructuredText: CQC_ctrlDefaultText {
+	type = 13;
+	colorBackground[] = {0,0,0,0};
+	size = "4.32 * pixelH * pixelGrid * 0.5";
+	text = "";
+	class Attributes {
+		align = "left";
+		color = "#FFFFFF";
+		colorLink = "#c48214";
+		size = 1;
+		font = "RobotoCondensedLight";
+	};
+	onCanDestroy = "";
+	onDestroy = "";
+	onButtonClick = "true";
 };

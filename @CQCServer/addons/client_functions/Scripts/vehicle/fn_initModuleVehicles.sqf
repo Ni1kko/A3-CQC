@@ -14,7 +14,7 @@ switch _mode do {
 	case "preInit": {
 
 		//--- Spawn vehicle array
-		NMD_ModuleVehicles_spawned = [];
+		CQC_ModuleVehicles_spawned = [];
 
 		//--- Process CfgPatches units
 		_list = [ [], [], [], [] ];
@@ -116,14 +116,14 @@ switch _mode do {
 		} forEach ( "true" configClasses (configFile >> "CfgPatches" ) );
 
 		//--- Update global list
-		NMD_ModuleVehicles_list = _list;
+		CQC_ModuleVehicles_list = _list;
 
 	};
 
 	case "postInit": {
 
 		//--- Params
-		NMD_ModuleVehicles_garageLimit = ( [ "NMD_ModuleVehicles_GarageLimit", 4 ] call BIS_fnc_getParamValue );
+		CQC_ModuleVehicles_garageLimit = ( [ "CQC_ModuleVehicles_GarageLimit", 4 ] call BIS_fnc_getParamValue );
 
 	};
 

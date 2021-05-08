@@ -17,22 +17,7 @@ with missionNamespace do {
 	_module = if ( _module != "" ) then { format [ "\modules\%1", _module ] } else { "" };
 
 	//--- Register script for the first time
-	private "_fncName";
-	_fncName = _class;
-
-	if ( isNil _fncName ) then {
-
-		private [ "_scriptPath", "_fncFile" ];
-
-		//--- Set script path
-		_scriptPath = format[ "scripts\jstar_scripts\nmd%1\ui\scripts\%2.sqf", _module, ( [ _class, 4 ] call BIS_fnc_trimString ) ];
-
-		//--- Execute
-		_fncFile = preprocessFileLineNumbers _scriptPath;
-		_fncFile = format [ "scriptname '%1_%2'; _fnc_scriptName = '%1';", _fncName ] + _fncFile;
-		missionNamespace setVariable [ _fncName, compileFinal _fncFile ];
-
-	};
+	private _fncName = format["CQC_fnc_%1",_class];
 
 	//--- Init variable name
 	private "_initVar";

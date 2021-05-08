@@ -12,11 +12,11 @@ switch (_index) do {
 
 		case 0 : {
 			closeDialog 500;
-			execVM "scripts\jstar_scripts\jstar_repair.sqf";
+			[] spawn CQC_fnc_repairVehicle;
 		};
 		
 		case 1 : {
 			closeDialog 500;
-			execVM "scripts\jstar_scripts\jstar_flip.sqf";
+			[] spawn CQC_fnc_flipVehicle;
 		};
 	};

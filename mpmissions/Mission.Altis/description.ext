@@ -1,9 +1,10 @@
 author = "Frag Squad Development Team";
 onLoadName = "Frag Squad CQC";
-loadScreen = "images\cqcimagenew.paa";
-overviewPicture = "images\cqcimagenew.paa";
+loadScreen = "textures\cqcimagenew.paa";
+overviewPicture = "textures\cqcimagenew.paa";
 skipLobby = 1;
 joinUnassigned = 0;
+respawnTemplates[] = {"CQC"};
 enableDebugConsole[] = {
 	"76561198048125586",
 	"76561197960272723",
@@ -19,10 +20,17 @@ class Header
 	maxPlayers = 20;
 };
 
-class CfgFunctions 
+class CfgRespawnTemplates
 {
-	#include "scripts\jstar_scripts\nmd\cfgFunctions.hpp"
-	#include "scripts\jstar_scripts\nmd\modules\vehicles\cfgFunctions.hpp"
+	class CQC
+	{
+		isCall=1;
+		onPlayerKilled="Extremo_fnc_player_killed";
+		onPlayerRespawn="Extremo_fnc_player_respawned";
+		respawnDelay=0;
+		respawnOnStart=0;
+		respawnButton=1;
+	};
 };
 
 class cfgRemoteExec 
@@ -63,15 +71,17 @@ class cfgRemoteExec
 
 class Params 
 {
-	#include "scripts\jstar_scripts\nmd\modules\vehicles\params.hpp"	
+	class CQC_ModuleVehicles_GarageLimit
+	{
+		title = "How many vehicles a player can have out at once before being despawned";
+		values[] = { -1, 1, 2 };
+		texts[] = { "No limit", "1", "2" };
+		default = 1;
+	};
 };
 
-#include "scripts\jstar_scripts\nmd\common.hpp"
-#include "scripts\jstar_scripts\nmd\modules\vehicles\include.hpp"
 #include "ui\Dialogs.hpp"
-#include "ui\jstar_defines.hpp"
-#include "ui\jstar_dialogs.hpp"
-
+ 
 class RscTitles 
 {
 		class JSTARBasePictureHUD {
@@ -145,7 +155,7 @@ class RscTitles
 		class controls {
 			class JSTAR_MUTED : JSTARBasePictureHUD {
 				idc = 1101;
-				text = "images\jstar_muted.paa";
+				text = "textures\jstar_muted.paa";
 				x = 0.95575 * safezoneW + safezoneX;
 				y = 0.624 * safezoneH + safezoneY;
 				w = 0.020625 * safezoneW;
@@ -164,7 +174,7 @@ class RscTitles
 		class controls {
 			class JSTAR_GRASS : JSTARBasePictureHUD {
 				idc = 1101;
-				text = "images\jstar_nograss.paa";
+				text = "textures\jstar_nograss.paa";
 				x = 0.979531 * safezoneW + safezoneX;
 				y = 0.621 * safezoneH + safezoneY;
 				w = 0.020625 * safezoneW;

@@ -6,7 +6,21 @@
 * @Last Modified time: 2014-09-25 09:10:39
 */
 
-#include "define.inc"
+#define IDD_RSCDISPLAYGARAGE								5100
+#define IDC_RSCDISPLAYGARAGE_TITLE							5100
+#define IDC_RSCDISPLAYGARAGE_BACKGROUND						5101
+#define IDC_RSCDISPLAYGARAGE_BACKGROUNDFILTER				5102
+#define IDC_RSCDISPLAYGARAGE_FILTER0						5103
+#define IDC_RSCDISPLAYGARAGE_FILTER1						5104
+#define IDC_RSCDISPLAYGARAGE_FILTER2						5105
+#define IDC_RSCDISPLAYGARAGE_FILTER3						5106
+#define IDC_RSCDISPLAYGARAGE_FILTER4						5107
+#define IDC_RSCDISPLAYGARAGE_TREEVEHICLES					5108
+#define IDC_RSCDISPLAYGARAGE_TEXTSKIN						5109
+#define IDC_RSCDISPLAYGARAGE_COMBOSKIN						5110
+#define IDC_RSCDISPLAYGARAGE_BACKGROUNDICONVEHICLE			5113
+#define IDC_RSCDISPLAYGARAGE_ICONVEHICLE					5114
+#define IDC_RSCDISPLAYGARAGE_BUTTONSPAWN					5115
 
 private [ "_mode", "_params" ];
 
@@ -24,7 +38,7 @@ switch _mode do {
 		{
 
 			_ctrl = _display displayCtrl _x;
-			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this select 0 ), %1 ] ] call NMD_RscDisplayGarage ", _forEachIndex ] ];
+			_ctrl ctrlAddEventHandler [ "ButtonClick",  format [ " [ 'onFilterChanged', [ ctrlParent ( _this select 0 ), %1 ] ] call CQC_RscDisplayGarage ", _forEachIndex ] ];
 
 		} forEach [
 			IDC_RSCDISPLAYGARAGE_FILTER2,
@@ -35,8 +49,8 @@ switch _mode do {
 		];
 
 		//--- Call filter EH
-		NMD_RscDisplayGarage_filter = missionNamespace getVariable [ "NMD_RscDisplayGarage_filter", 4 ];
-		[ "onFilterChanged", [ _display ] ] call NMD_RscDisplayGarage;
+		CQC_RscDisplayGarage_filter = missionNamespace getVariable [ "CQC_RscDisplayGarage_filter", 4 ];
+		[ "onFilterChanged", [ _display ] ] call CQC_RscDisplayGarage;
 
 		//--- Control ListVehicles
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
@@ -47,7 +61,7 @@ switch _mode do {
 
 		//--- Control ButtonSpawn
 		_ctrlButtonSpawn = _display displayCtrl IDC_RSCDISPLAYGARAGE_BUTTONSPAWN;
-		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this select 0 ) ] ] call NMD_RscDisplayGarage } ];
+		_ctrlButtonSpawn ctrlAddEventHandler [ "ButtonClick",  { [ "spawnVehicle", [ ctrlParent ( _this select 0 ) ] ] call CQC_RscDisplayGarage } ];
 
 		//--- Set default control focus
 		ctrlSetFocus _ctrlTreeVehicles;
@@ -70,8 +84,8 @@ switch _mode do {
 		_display = _params select 0;
 		_ctrlTreeVehicles = _display displayCtrl IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
 		_ctrlBackgroundFilter = _display displayCtrl IDC_RSCDISPLAYGARAGE_BACKGROUNDFILTER;
-		_list = NMD_ModuleVehicles_list;
-		_curSel = if ( count _params > 1 ) then { _params select 1 } else { NMD_RscDisplayGarage_filter };
+		_list = CQC_ModuleVehicles_list;
+		_curSel = if ( count _params > 1 ) then { _params select 1 } else { CQC_RscDisplayGarage_filter };
 
 		_list = if ( _curSel isEqualTo 4 ) then {
 
@@ -143,7 +157,7 @@ switch _mode do {
 		} forEach _list;
 
 		//--- Update filters visual
-		_delay = if ( NMD_RscDisplayGarage_init ) then { 0.1 } else { 0 };
+		_delay = if ( CQC_RscDisplayGarage_init ) then { 0.1 } else { 0 };
 
 		{
 
@@ -156,7 +170,7 @@ switch _mode do {
 
 				_alpha = 1;
 				_scale = 1;
-				NMD_RscDisplayGarage_filter = _forEachIndex;
+				CQC_RscDisplayGarage_filter = _forEachIndex;
 
 			};
 
@@ -181,10 +195,10 @@ switch _mode do {
 		];
 
 		//--- Call treeview select EH
-		[ "onVehicleSelChanged", [ _display ] ] call NMD_RscDisplayGarage;
+		[ "onVehicleSelChanged", [ _display ] ] call CQC_RscDisplayGarage;
 
 		//--- Add treeview select EH
-		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this select 0 ) ] ] call NMD_RscDisplayGarage } ];
+		_ctrlTreeVehicles ctrlAddEventHandler [ "TreeSelChanged",  { [ "onVehicleSelChanged", [ ctrlParent ( _this select 0 ) ] ] call CQC_RscDisplayGarage } ];
 
 	};
 
@@ -203,7 +217,7 @@ switch _mode do {
 		if ( count _curSel isEqualTo 3 ) then {
 
 			//--- Update options
-			[ "updateOptions", [ _display, _className ] ] call NMD_RscDisplayGarage;
+			[ "updateOptions", [ _display, _className ] ] call CQC_RscDisplayGarage;
 
 			//--- Enable spawn
 			_ctrlButtonSpawn ctrlEnable true;
@@ -240,9 +254,9 @@ switch _mode do {
 		_ctrlComboSkin lbSetValue [ 0, -1 ];
 		_ctrlComboSkin lbSetCurSel 0;
 
-		//--- Check for skins from NMD_CfgVehicleSkins
+		//--- Check for skins from CQC_CfgVehicleSkins
 		{
-			private _cfgSkin = missionConfigFile >> "NMD_CfgVehicleSkins" >> _x;
+			private _cfgSkin = missionConfigFile >> "CQC_CfgVehicleSkins" >> _x;
 			{
 				//--- Add skins to array
 				if ( isClass _cfg ) then {
@@ -427,31 +441,31 @@ switch _mode do {
 		player moveInAny _vehicle;
 
 		//--- Cleanup when killed
-		if ( NMD_ModuleVehicles_garageGC > -1 ) then {
+		if ( CQC_ModuleVehicles_garageGC > -1 ) then {
 
 			_vehicle addEventHandler [ "killed", {
 
 				//--- Remove vehicle from spawned array
-				NMD_ModuleVehicles_spawned = NMD_ModuleVehicles_spawned - [ _this select 0 ];
+				CQC_ModuleVehicles_spawned = CQC_ModuleVehicles_spawned - [ _this select 0 ];
 
 				//--- Cleanup unit with delay preference
-				[ _this select 0, NMD_ModuleVehicles_garageGC ] call NMD_fnc_cleanupUnit;
+				[ _this select 0, CQC_ModuleVehicles_garageGC ] call CQC_fnc_cleanupUnit;
 
 			} ];
 
 		};
 
 		//--- Add vehicle to spawned array
-		NMD_ModuleVehicles_spawned pushBack _vehicle;
+		CQC_ModuleVehicles_spawned pushBack _vehicle;
 
 		//--- Enforce spawn limit
-		if ( NMD_ModuleVehicles_garageLimit > 0 && { count NMD_ModuleVehicles_spawned > NMD_ModuleVehicles_garageLimit } ) then {
+		if ( CQC_ModuleVehicles_garageLimit > 0 && { count CQC_ModuleVehicles_spawned > CQC_ModuleVehicles_garageLimit } ) then {
 
 			["Your previous vehicle was removed"] spawn CQC_fnc_Notification;
 
 			//--- Delete first spawned vehicle
-			deleteVehicle ( NMD_ModuleVehicles_spawned select 0 );
-			[ NMD_ModuleVehicles_spawned ] call BIS_fnc_arrayShift;
+			deleteVehicle ( CQC_ModuleVehicles_spawned select 0 );
+			[ CQC_ModuleVehicles_spawned ] call BIS_fnc_arrayShift;
 
 		};
 

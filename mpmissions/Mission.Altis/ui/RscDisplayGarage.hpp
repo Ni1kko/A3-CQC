@@ -5,23 +5,39 @@
 * @Last Modified by:   DnA
 * @Last Modified time: 2014-09-29 03:39:26
 */
- 
-#include "scripts\define.inc"
 
-class NMD_RscDisplayGarage
+#define true 1
+#define false 0
+#define IDD_RSCDISPLAYGARAGE								5100
+#define IDC_RSCDISPLAYGARAGE_TITLE							5100
+#define IDC_RSCDISPLAYGARAGE_BACKGROUND						5101
+#define IDC_RSCDISPLAYGARAGE_BACKGROUNDFILTER				5102
+#define IDC_RSCDISPLAYGARAGE_FILTER0						5103
+#define IDC_RSCDISPLAYGARAGE_FILTER1						5104
+#define IDC_RSCDISPLAYGARAGE_FILTER2						5105
+#define IDC_RSCDISPLAYGARAGE_FILTER3						5106
+#define IDC_RSCDISPLAYGARAGE_FILTER4						5107
+#define IDC_RSCDISPLAYGARAGE_TREEVEHICLES					5108
+#define IDC_RSCDISPLAYGARAGE_TEXTSKIN						5109
+#define IDC_RSCDISPLAYGARAGE_COMBOSKIN						5110
+#define IDC_RSCDISPLAYGARAGE_BACKGROUNDICONVEHICLE			5113
+#define IDC_RSCDISPLAYGARAGE_ICONVEHICLE					5114
+#define IDC_RSCDISPLAYGARAGE_BUTTONSPAWN					5115
+
+class CQC_RscDisplayGarage
 {
 	idd = IDD_RSCDISPLAYGARAGE;
-	onLoad = "[ _this, ""NMD_RscDisplayGarage"", ""vehicles"" ] call NMD_fnc_initDisplay";
+	onLoad = "[ _this, ""CQC_RscDisplayGarage"", ""vehicles"" ] call CQC_fnc_initDisplay";
 
 	class ControlsBackground
 	{
 
-		class Vignette: NMD_RscVignette
+		class Vignette: CQC_RscVignette
 		{
 			idc = 114998;
 		};
 
-		class TileGroup: NMD_RscControlsGroupNoScrollbars
+		class TileGroup: CQC_RscControlsGroupNoScrollbars
 		{
 			idc = 115099;
 			x = "safezoneX";
@@ -33,7 +49,7 @@ class NMD_RscDisplayGarage
 			class Controls
 			{
 
-				class TileFrame: NMD_RscFrame
+				class TileFrame: CQC_RscFrame
 				{
 					idc = 114999;
 					x = 0;
@@ -43,7 +59,7 @@ class NMD_RscDisplayGarage
 					colortext[] = { 0,0,0,1 };
 				};
 
-				class Tile_0_0: NMD_RscText
+				class Tile_0_0: CQC_RscText
 				{
 					idc = 115000;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -53,7 +69,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_0_1: NMD_RscText
+				class Tile_0_1: CQC_RscText
 				{
 					idc = 115001;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -63,7 +79,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_0_2: NMD_RscText
+				class Tile_0_2: CQC_RscText
 				{
 					idc = 115002;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -73,7 +89,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_0_3: NMD_RscText
+				class Tile_0_3: CQC_RscText
 				{
 					idc = 115003;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -83,7 +99,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_0_4: NMD_RscText
+				class Tile_0_4: CQC_RscText
 				{
 					idc = 115004;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -93,7 +109,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_0_5: NMD_RscText
+				class Tile_0_5: CQC_RscText
 				{
 					idc = 115005;
 					x = "( 0 * 1/6 ) * safezoneW";
@@ -103,7 +119,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_0: NMD_RscText
+				class Tile_1_0: CQC_RscText
 				{
 					idc = 115010;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -113,7 +129,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_1: NMD_RscText
+				class Tile_1_1: CQC_RscText
 				{
 					idc = 115011;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -123,7 +139,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_2: NMD_RscText
+				class Tile_1_2: CQC_RscText
 				{
 					idc = 115012;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -133,7 +149,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_3: NMD_RscText
+				class Tile_1_3: CQC_RscText
 				{
 					idc = 115013;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -143,7 +159,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_4: NMD_RscText
+				class Tile_1_4: CQC_RscText
 				{
 					idc = 115014;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -153,7 +169,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_1_5: NMD_RscText
+				class Tile_1_5: CQC_RscText
 				{
 					idc = 115015;
 					x = "( 1 * 1/6 ) * safezoneW";
@@ -163,7 +179,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_0: NMD_RscText
+				class Tile_2_0: CQC_RscText
 				{
 					idc = 115020;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -173,7 +189,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_1: NMD_RscText
+				class Tile_2_1: CQC_RscText
 				{
 					idc = 115021;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -183,7 +199,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_2: NMD_RscText
+				class Tile_2_2: CQC_RscText
 				{
 					idc = 115022;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -193,7 +209,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_3: NMD_RscText
+				class Tile_2_3: CQC_RscText
 				{
 					idc = 115023;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -203,7 +219,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_4: NMD_RscText
+				class Tile_2_4: CQC_RscText
 				{
 					idc = 115024;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -213,7 +229,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_2_5: NMD_RscText
+				class Tile_2_5: CQC_RscText
 				{
 					idc = 115025;
 					x = "( 2 * 1/6 ) * safezoneW";
@@ -223,7 +239,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_0: NMD_RscText
+				class Tile_3_0: CQC_RscText
 				{
 					idc = 115030;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -233,7 +249,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_1: NMD_RscText
+				class Tile_3_1: CQC_RscText
 				{
 					idc = 115031;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -243,7 +259,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_2: NMD_RscText
+				class Tile_3_2: CQC_RscText
 				{
 					idc = 115032;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -253,7 +269,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_3: NMD_RscText
+				class Tile_3_3: CQC_RscText
 				{
 					idc = 115033;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -263,7 +279,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_4: NMD_RscText
+				class Tile_3_4: CQC_RscText
 				{
 					idc = 115034;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -273,7 +289,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_3_5: NMD_RscText
+				class Tile_3_5: CQC_RscText
 				{
 					idc = 115035;
 					x = "( 3 * 1/6 ) * safezoneW";
@@ -283,7 +299,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_0: NMD_RscText
+				class Tile_4_0: CQC_RscText
 				{
 					idc = 115040;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -293,7 +309,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_1: NMD_RscText
+				class Tile_4_1: CQC_RscText
 				{
 					idc = 115041;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -303,7 +319,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_2: NMD_RscText
+				class Tile_4_2: CQC_RscText
 				{
 					idc = 115042;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -313,7 +329,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_3: NMD_RscText
+				class Tile_4_3: CQC_RscText
 				{
 					idc = 115043;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -323,7 +339,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_4: NMD_RscText
+				class Tile_4_4: CQC_RscText
 				{
 					idc = 115044;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -333,7 +349,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_4_5: NMD_RscText
+				class Tile_4_5: CQC_RscText
 				{
 					idc = 115045;
 					x = "( 4 * 1/6 ) * safezoneW";
@@ -343,7 +359,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_0: NMD_RscText
+				class Tile_5_0: CQC_RscText
 				{
 					idc = 115050;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -353,7 +369,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_1: NMD_RscText
+				class Tile_5_1: CQC_RscText
 				{
 					idc = 115051;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -363,7 +379,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_2: NMD_RscText
+				class Tile_5_2: CQC_RscText
 				{
 					idc = 115052;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -373,7 +389,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_3: NMD_RscText
+				class Tile_5_3: CQC_RscText
 				{
 					idc = 115053;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -383,7 +399,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_4: NMD_RscText
+				class Tile_5_4: CQC_RscText
 				{
 					idc = 115054;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -393,7 +409,7 @@ class NMD_RscDisplayGarage
 					colorBackground[] = { 0,0,0,0.1 };
 				};
 
-				class Tile_5_5: NMD_RscText
+				class Tile_5_5: CQC_RscText
 				{
 					idc = 115055;
 					x = "( 5 * 1/6 ) * safezoneW";
@@ -412,7 +428,7 @@ class NMD_RscDisplayGarage
 	class Controls 
 	{
 
-		class Title: NMD_RscTitle 
+		class Title: CQC_RscTitle 
 		{
 			idc = IDC_RSCDISPLAYGARAGE_TITLE;
 			x = "8.5 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -423,7 +439,7 @@ class NMD_RscDisplayGarage
 			text = "GARAGE";
 		};
 
-		class Watermark: NMD_RscWatermark 
+		class Watermark: CQC_RscWatermark 
 		{
 			idc = IDC_RSCDISPLAYGARAGE_TITLE;
 			x = "27.5 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -432,7 +448,7 @@ class NMD_RscDisplayGarage
 			h = "1 * 					( ( ( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) / 25 )";
 		};
 
-		class Background: NMD_RscText
+		class Background: CQC_RscText
 		{
 			idc = IDC_RSCDISPLAYGARAGE_BACKGROUND;
 			x = "8.5 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -443,7 +459,7 @@ class NMD_RscDisplayGarage
 			colorBackground[] = { 0, 0, 0, 0.7 };
 		};
 
-		class BackgroundFilter: NMD_RscText 
+		class BackgroundFilter: CQC_RscText 
 		{
 			idc = IDC_RSCDISPLAYGARAGE_BACKGROUNDFILTER;
 			x = "9 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -454,7 +470,7 @@ class NMD_RscDisplayGarage
 			colorBackground[] = { 1, 1, 1, 0.1 };
 		};
 
-		class Filter0: NMD_RscActivePictureKeepAspect
+		class Filter0: CQC_RscActivePictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_FILTER0;
 			x = "9 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -466,7 +482,7 @@ class NMD_RscDisplayGarage
 			tooltip = "All";
 		};
 
-		class Filter1: NMD_RscActivePictureKeepAspect
+		class Filter1: CQC_RscActivePictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_FILTER1;
 			x = "13.4 * 				( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -478,7 +494,7 @@ class NMD_RscDisplayGarage
 			tooltip = "BLUEFOR";
 		};
 
-		class Filter2: NMD_RscActivePictureKeepAspect
+		class Filter2: CQC_RscActivePictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_FILTER2;
 			x = "17.8 * 				( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -490,7 +506,7 @@ class NMD_RscDisplayGarage
 			tooltip = "OPFOR";
 		};
 
-		class Filter3: NMD_RscActivePictureKeepAspect
+		class Filter3: CQC_RscActivePictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_FILTER3;
 			x = "22.2 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -502,7 +518,7 @@ class NMD_RscDisplayGarage
 			tooltip = "Independant";
 		};
 
-		class Filter4: NMD_RscActivePictureKeepAspect
+		class Filter4: CQC_RscActivePictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_FILTER4;
 			x = "26.6 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -514,7 +530,7 @@ class NMD_RscDisplayGarage
 			tooltip = "Civilian";
 		};
 
-		class TreeVehicles: NMD_RscTree
+		class TreeVehicles: CQC_RscTree
 		{
 			idc = IDC_RSCDISPLAYGARAGE_TREEVEHICLES;
 			x = "9 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -526,7 +542,7 @@ class NMD_RscDisplayGarage
 			sizeEx = "1 * 				( ( ( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) / 25 )";
 		};
 
-		class TextSkin: NMD_RscText
+		class TextSkin: CQC_RscText
 		{
 			idc = IDC_RSCDISPLAYGARAGE_TEXTSKIN;
 			x = "9 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -538,7 +554,7 @@ class NMD_RscDisplayGarage
 			text = "Skin";
 		};
 
-		class ComboSkin: NMD_RscCombo
+		class ComboSkin: CQC_RscCombo
 		{
 			idc = IDC_RSCDISPLAYGARAGE_COMBOSKIN;
 			x = "9 * 					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -553,7 +569,7 @@ class NMD_RscDisplayGarage
 			onSetFocus = "( _this select 0 ) ctrlSetBackgroundColor [ 0, 0, 0, 1 ]";
 		};
 
-		class BackgroundIconVehicle: NMD_RscText
+		class BackgroundIconVehicle: CQC_RscText
 		{
 			idc = IDC_RSCDISPLAYGARAGE_BACKGROUNDICONVEHICLE;
 			x = "20.5 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -564,7 +580,7 @@ class NMD_RscDisplayGarage
 			colorBackground[] = { 1, 1, 1, 0.1 };
 		};
 
-		class IconVehicle: NMD_RscPictureKeepAspect
+		class IconVehicle: CQC_RscPictureKeepAspect
 		{
 			idc = IDC_RSCDISPLAYGARAGE_ICONVEHICLE;
 			x = "20.5 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -573,7 +589,7 @@ class NMD_RscDisplayGarage
 			h = "4 *	 				( ( ( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) / 25 )";
 		};
 		
-		class ButtonCancel: NMD_RscButtonMenuCancel
+		class ButtonCancel: CQC_RscButtonMenuCancel
 		{
 			x = "8.5 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
 			y = "24 *					( (	( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) / 25 ) + ( safezoneY + ( safezoneH - ( ( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) ) / 2 )";
@@ -581,7 +597,7 @@ class NMD_RscDisplayGarage
 			h = "1 *	 				( ( ( ( safezoneW / safezoneH ) min 1.2 ) / 1.2 ) / 25 )";
 		};
 
-		class ButtonSpawn: NMD_RscButtonMenu
+		class ButtonSpawn: CQC_RscButtonMenu
 		{
 			idc = IDC_RSCDISPLAYGARAGE_BUTTONSPAWN;
 			x = "26.5 *					( ( ( safezoneW / safezoneH ) min 1.2 ) / 40 ) + ( safezoneX + ( safezoneW - ( ( safezoneW / safezoneH ) min 1.2 ) ) / 2 )";
@@ -594,4 +610,64 @@ class NMD_RscDisplayGarage
 		
 	};
 
+};
+
+class CQC_CfgVehicleSkins {
+
+	// Ifrit
+	class O_MRAP_02_F {
+		class Skin0 {
+			displayName = "Purple Ifrit (VIP)";
+			textures[] = { "textures\vehicles\PurpleIfrit\1.jpg", "textures\vehicles\IfritBlackBack.jpg" };
+			VIP = true;
+		};
+
+		class Skin1 {
+			displayName = "Red Ifrit (VIP)";
+			textures[] = { "textures\vehicles\RedIfrit\1.jpg", "textures\vehicles\IfritBlackBack.jpg" };
+			VIP = true;
+		};
+
+		class Skin2 {
+			displayName = "George Floyd Ifrit (VIP)";
+			textures[] = { "textures\vehicles\GFloydIfrit\1.jpg", "textures\vehicles\GFloydIfrit\2.jpg" };
+			VIP = true;
+		};
+
+		class Skin3 {
+			displayName = "Bang Energy Ifrit (VIP)";
+			textures[] = { "textures\vehicles\BangIfrit\1.jpg", "textures\vehicles\BangIfrit\2.jpg" };
+			VIP = true;
+		};
+	};
+
+	// Qilin (Unarmed)
+	class O_T_LSV_02_unarmed_F {
+		class Skin0 {
+			displayName = "Brazzers Qilin (VIP)";
+			textures[] = { "textures\vehicles\BrazzersQilin\1.jpg", "textures\vehicles\BrazzersQilin\2.jpg", "textures\vehicles\BrazzersQilin\3.jpg" };
+			VIP = true;
+		};
+
+		class Skin1 {
+			displayName = "Monster Qilin (VIP)";
+			textures[] = { "textures\vehicles\MonsterQilin\1.jpg", "textures\vehicles\MonsterQilin\2.jpg", "textures\vehicles\MonsterQilin\3.jpg" };
+			VIP = true;
+		};
+	};
+	
+	// Hunter
+	class B_MRAP_01_F {
+		class Skin0 {
+			displayName = "James Charles Hunter (VIP)";
+			textures[] = { "textures\vehicles\JCharlesHunter\1.jpg", "textures\vehicles\JCharlesHunter\2.jpg" };
+			VIP = true;
+		};
+
+		class Skin1 {
+			displayName = "";
+			textures[] = { "", "" };
+			VIP = true;
+		};
+	};
 };

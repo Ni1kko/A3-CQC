@@ -73,7 +73,7 @@ call compile toString [112, 108, 97, 121, 101, 114, 111, 119, 110, 101, 114, 32,
 				if (player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
 				if (alecw_healing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
 				if !(dialog) then {
-					createDialog "NMD_RscDisplayGarage";
+					createDialog "CQC_RscDisplayGarage";
 					_handled = true;
 				};
 			};

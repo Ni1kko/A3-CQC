@@ -13,6 +13,8 @@ params [
 
 if(_steamIDDB != getPlayerUID player)exitWith{};
 
+["preInit"] spawn CQC_fnc_initModuleVehicles;
+
 CQC_var_AdminRank = compileFinal str _AdminRankDB;
 CQC_var_DonatorRank = compileFinal str _DonatorRankDB;
 isDonator = compileFinal "((call CQC_var_DonatorRank) > 0)";
@@ -103,17 +105,45 @@ MISSION_ROOT = call {
 
 // First Menu
 waitUntil { if !( isNull ( findDisplay 46 ) ) then { true } else { uiSleep 0.5; false } };
-createDialog "CQCDisplayHelp"
+createDialog "CQCDisplayHelp";
 
 // Scripts
-execVM "playercounter.sqf" // Player Count
-execVM "p_hud.sqf"; // HUD
- 
+[] spawn {
+	while {true} do {
+		cntPly = {
+			_x distance player < 500;
+		} count allPlayers;
+		uiSleep 1;
+	};
+};
+
+[] spawn {	
+	while {true} do {
+		uiSleep 1;
+	
+		if (player distance (markerPos "spawnMarker") > 200) then {
+			atSpawn = false;
+		} else {
+			atSpawn = true;
+		};
+		
+		if ( cntPly isEqualTo 1 && !atSpawn ) then {
+			uiSleep 4;
+			["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
+			canTeleport = true;
+		} else {
+			canTeleport = false;
+		};
+	};	
+};	
+
 [] spawn CQC_fnc_Keyhandler; // Key Handler
-execVM "scripts\jstar_scripts\jstar_jump.sqf"; // Jump
-execVM "scripts\jstar_scripts\jstar_escmenu.sqf"; // Escape Menu
-[] spawn CQC_fnc_signs; // Sign Text
-[] spawn CQC_fnc_afkkick;// AFK Kick
+[] spawn CQC_fnc_jump; 		 // player jamp
+[] spawn CQC_fnc_escmenu;	 // escape menu
+[] spawn CQC_fnc_signs; 	 // Sign Text
+[] spawn CQC_fnc_afkkick;	 // AFK Kick
+
+["postInit"] spawn CQC_fnc_initModuleVehicles;
 diag_log "[Frag Squad CQC] Scripts Loaded";
 
 // Player Icons

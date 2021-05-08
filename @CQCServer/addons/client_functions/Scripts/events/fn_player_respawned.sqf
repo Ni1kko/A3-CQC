@@ -2,16 +2,16 @@ private _defaultLoadout = [[],[],[],["U_C_Poloshirt_tricolour",[]],["V_PlateCarr
 private _customLoadout = profileNamespace getVariable [ "CQC_Custom_Loadout", _defaultLoadout ];
 player setUnitLoadout (_customLoadout);
 
-execVM "scripts\jstar_scripts\alecw_heal.sqf";
+[] spawn CQC_fnc_healplayer;
 player switchCamera "EXTERNAL";
 alecw_healing = false;
 player addRating -1000000; 
 
-if(isNil "CQC_fnc_potatiHud")then{
+if(isNil "CQC_fnc_customHudInit")then{
 	[]spawn{
-		waitUntil{!isNil "CQC_fnc_potatiHud"};
-		[] spawn CQC_fnc_potatiHud;
+		waitUntil{!isNil "CQC_fnc_customHudInit"};
+		[] spawn CQC_fnc_customHudInit;
 	};
 }else{
-	[] spawn CQC_fnc_potatiHud;
+	[] spawn CQC_fnc_customHudInit;
 };

@@ -29,7 +29,7 @@ if ((is3DEN || is3DENMultiplayer) AND !isMultiplayer) then {
     1, // seconds to delete dropped weapons (0 means don't delete)
     0, // seconds to deleted planted explosives (0 means don't delete)
     1 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-] execVM 'scripts\jstar_scripts\jstar_repetitive_cleanup.sqf';
+] spawn CQC_fnc_repetitive_cleanup;
 
 publicVariable "CQC_fnc_compatibleItems";
 
