@@ -20,19 +20,6 @@ class Header
 	maxPlayers = 20;
 };
 
-class CfgRespawnTemplates
-{
-	class CQC
-	{
-		isCall=1;
-		onPlayerKilled="Extremo_fnc_player_killed";
-		onPlayerRespawn="Extremo_fnc_player_respawned";
-		respawnDelay=0;
-		respawnOnStart=0;
-		respawnButton=1;
-	};
-};
-
 class cfgRemoteExec 
 {
 	// List of Functions allowed to be sent from client via remoteExec

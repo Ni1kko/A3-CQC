@@ -1,10 +1,7 @@
+// CQC_fnc_eventHandlers
 
-player addEventHandler ["HandleDamage",
-	{
-		private _unit = _this select 0;
-		private _part = _this select 1;
-		private _damage = _this select 2;
-		private _source = _this select 3;
+player addEventHandler ["HandleDamage", {
+		params [ "_unit", "_part", "_damage", "_source" ];
 		private _vehicle = vehicle _source;
 
 		if ((vehicle _source isKindOf "LandVehicle") && ((driver _vehicle) isEqualTo _source)) then {
@@ -16,8 +13,7 @@ player addEventHandler ["HandleDamage",
 	}
 ];
 
-player addEventHandler [ "Killed", 
-	{
+player addEventHandler [ "Killed", {
 		params [ "_killed", "_killer" ];
 		if ( !( _killer isEqualTo _killed ) && { isPlayer _killer && { side _killer isEqualTo side group _killed }} ) then {
 			[ _killer, [ 2, 0, 0, 0, 0 ] ] remoteExec[ "addPlayerScores", 2 ];
@@ -29,12 +25,9 @@ player addEventHandler [ "Killed",
 	}
 ];
 
-
-
-player addEventHandler ["InventoryOpened", 
-	{
-		[_this select 0, _this select 1] spawn {   
-			waituntil {!(isnull (finddisplay 602)) && ((_this select 1) isEqualTo backpackContainer cursorTarget or (!alive cursorTarget && cursorTarget isKindOf "man")) };
+player addEventHandler ["InventoryOpened", {
+		[_this#0, _this#1] spawn {   
+			waituntil {!(isnull (finddisplay 602)) && ((_this#1) isEqualTo backpackContainer cursorTarget or (!alive cursorTarget && cursorTarget isKindOf "man")) };
 			["You cannot look in players inventory's"] spawn CQC_fnc_Notification;
 			closeDialog 602
 		};
@@ -42,8 +35,7 @@ player addEventHandler ["InventoryOpened",
 	}
 ];
 
-0 = player addEventHandler ["HandleHeal", 
-	{
+player addEventHandler ["HandleHeal", {
 		_this spawn {
 			params ["_injured","_healer"];
 			_damage = damage _injured;
@@ -56,3 +48,6 @@ player addEventHandler ["InventoryOpened",
 		};
 	}
 ];
+
+player addEventHandler [ "Killed", { [_this] spawn CQC_fnc_player_Killed; } ];
+player addEventHandler [ "Respawn", { [_this] spawn CQC_fnc_player_respawn; } ];

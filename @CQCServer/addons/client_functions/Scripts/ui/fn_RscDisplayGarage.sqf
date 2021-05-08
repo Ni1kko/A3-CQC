@@ -436,7 +436,7 @@ switch _mode do {
 			};
 		};
 		
-		[] spawn CQC_fnc_handleDamage;
+		[] spawn CQC_fnc_eventHandlers;
 		
 		player moveInAny _vehicle;
 

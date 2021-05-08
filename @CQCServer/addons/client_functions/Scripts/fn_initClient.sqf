@@ -55,7 +55,7 @@ player enableFatigue false;
 // Local Event Handlers
 player addMPEventHandler ["MPRespawn", {player enableFatigue false; player setCustomAimCoef 0.00;}];
 player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
-player addEventHandler ["Respawn",{waitUntil {!isNull player}; [] spawn CQC_fnc_handleDamage; createDialog "CQCDisplaySpawns"; }];
+player addEventHandler ["Respawn",{waitUntil {!isNull player}; [] spawn CQC_fnc_eventHandlers; createDialog "CQCDisplaySpawns"; }];
 [missionNamespace,"arsenalClosed",{_this call CQC_fnc_arsenalClosed}] call BIS_fnc_addScriptedEventHandler;
 
 // Loads all the statis
