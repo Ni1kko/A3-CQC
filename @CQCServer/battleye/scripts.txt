@@ -1,0 +1,5 @@
+//new2
+//1 "" !="this allowDamage false;" !="this enableSimulation false;"
+//3 "script_test_"
+//5 "sqfsafe_encryption" !="private _key=missionNamespace getVariable['sqfsafe_encryption',[0]];{_fncArr pushBack(_x-(_key select(_foreachIndex%count _key)));"
+ 

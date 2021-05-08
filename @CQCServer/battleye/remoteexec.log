@@ -1,0 +1,4467 @@
+05.04.2021 00:01:38: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "oleexec [2,{private _convert = {     params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert}]"
+05.04.2021 00:01:41: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "oleexec [2,{private _convert = {     params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert}]"
+05.04.2021 00:01:50: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert}]"
+05.04.2021 00:01:51: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert}]"
+05.04.2021 00:01:51: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert}]"
+05.04.2021 00:02:36: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:37: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:37: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:38: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:38: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:39: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:39: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:39: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:39: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:40: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:40: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:41: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:41: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:42: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:42: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:42: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:43: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:43: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:45: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:45: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:46: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [1,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:46: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:46: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:47: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:47: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:47: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:51: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [0,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:51: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:52: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:52: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 00:02:52: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "leexec [2,{private _convert = {      params ["_mode","_val"]; 
+    switch (_mode) do { 
+        case "ARRAY": {_val = (call compile format["%1", [_val] call DB_fnc_mresToArray])}; 
+        case "BOOL": {_val = [_val,1] call DB_fnc_bool}; 
+        case "INT": {_val = parseNumber _val}; 
+        case "MONEY": {_val = parseNumber([_val] call DB_fnc_numberSafe)}; 
+    }; 
+    _val 
+};["MONEY",    "45553"] call _convert;["45553"] call DB_fnc_numberSafe}]"
+05.04.2021 02:46:26: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[`test`]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:01: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[`test`]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "[]" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:07: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[`test`]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:07: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[`test`]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:08: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[`test`]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:18: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:18: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:19: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:23: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:23: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:24: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:24: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:25: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:47:25: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", """[`test`]""", 
+  "playerid", "'76561198276956558'", 
+  "cash", "2222", 
+  "bankacc", "2222", 
+  "gear", """[]""" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:48:29: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:48:30: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:48:31: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:56:14: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:56:14: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:56:14: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_messageID]#1); 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ ["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 02:57:14: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:43: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:44: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:45: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:57:45: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 02:59:43: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 03:00:32: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name", "'Nikko2'", 
+  "aliases", "'[``test``]'", 
+  "playerid", "'76561198276956558'", 
+  "cash", 2222, 
+  "bankacc", 2222, 
+  "gear", "'[]'" 
+ ] 
+]]call Extremo_fnc_sendRequest; 
+}]"
+05.04.2021 03:00:47: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+}]"
+05.04.2021 03:00:47: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+}]"
+05.04.2021 03:00:48: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+}]"
+05.04.2021 03:00:48: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+}]"
+05.04.2021 03:00:48: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+}]"
+05.04.2021 03:01:06: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+};}]"
+05.04.2021 03:01:06: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+};}]"
+05.04.2021 03:01:13: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:14: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:15: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:15: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:15: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:15: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:16: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:16: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:18: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:19: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:19: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:20: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:01:20: Nikko (192.168.0.121:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+Extremo_fnc_sendRequest}]"
+05.04.2021 03:06:55: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+["CREATE", "players", [ 
+ [  "name",  ["DB","STRING", "Nikko2"] call Extremo_fnc_parseData, 
+  "aliases",  ["DB","ARRAY", ["test"]] call Extremo_fnc_parseData, 
+  "playerid", ["DB","STRING", "76561198276956558"] call Extremo_fnc_parseData,, 
+  "cash",  ["DB","MONEY", 0] call Extremo_fnc_parseData, 
+  "bankacc",  ["DB","MONEY", 10000] call Extremo_fnc_parseData, 
+  "gear",  ["DB","ARRAY", ["test"]] call Extremo_fnc_parseData 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 03:10:46: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "bis_fnc_debugconsoleexec [2,{Extremo_fnc_parseData = compile preprocessFile "\extremo_server\Functions\DB\fn_parseData.sqf";}]"
+05.04.2021 03:11:29: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "al)-1 do 
+    { 
+     _sel = _val#_i; 
+     if (_sel == 96) then{ 
+      _val set[_i,39]; 
+     }; 
+    }; 
+    _val = call compile format["%1",toString(_val)];  
+   }; 
+   case "STRING": {   
+    _val = toArray _val; 
+    { 
+     if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+      _val deleteAt _forEachIndex; 
+     }; 
+    } forEach _val; 
+    _val = toString _val; 
+   }; 
+   case "BOOL": {  
+    if (!(_val isEqualType 0)) then { 
+     _val = false; 
+    }else{ 
+     switch (_val) do { 
+      case 0: {_val = false}; 
+      case 1: {_val = true}; 
+     }; 
+    }; 
+   }; 
+   case "INT": {_val = parseNumber _val}; 
+   case "MONEY": { 
+    private _a = ""; 
+    _val = _val call bis_fnc_numberDigits; 
+    {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+    _val = _a; 
+   }; 
+  }; 
+ }; 
+}; 
+ 
+_val 
+};}]"
+05.04.2021 03:11:30: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "al)-1 do 
+    { 
+     _sel = _val#_i; 
+     if (_sel == 96) then{ 
+      _val set[_i,39]; 
+     }; 
+    }; 
+    _val = call compile format["%1",toString(_val)];  
+   }; 
+   case "STRING": {   
+    _val = toArray _val; 
+    { 
+     if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+      _val deleteAt _forEachIndex; 
+     }; 
+    } forEach _val; 
+    _val = toString _val; 
+   }; 
+   case "BOOL": {  
+    if (!(_val isEqualType 0)) then { 
+     _val = false; 
+    }else{ 
+     switch (_val) do { 
+      case 0: {_val = false}; 
+      case 1: {_val = true}; 
+     }; 
+    }; 
+   }; 
+   case "INT": {_val = parseNumber _val}; 
+   case "MONEY": { 
+    private _a = ""; 
+    _val = _val call bis_fnc_numberDigits; 
+    {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+    _val = _a; 
+   }; 
+  }; 
+ }; 
+}; 
+ 
+_val 
+};}]"
+05.04.2021 03:11:36: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "= "extDB2" callExtension _qstring; 
+ 
+  if(_mode in ["CREATE","UPDATE","DELETE"])exitWith{_res}; 
+  
+  private _key = (call compile format["%1",_res])#1; 
+ 
+  private _extRes = "extDB2" callExtension format["4:%1", _key]; 
+ 
+  if (_extRes isEqualTo "[3]") then { 
+  for "_i" from 0 to 1 step 0 do { 
+   if (!(_extRes isEqualTo "[3]")) exitWith {}; 
+   _extRes = "extDB2" callExtension format["4:%1", _key]; 
+  }; 
+ }; 
+  
+  if (_extRes isEqualTo "[5]") then { 
+  private _loop = true; 
+  for "_i" from 0 to 1 step 0 do { 
+   _extRes = ""; 
+   for "_i" from 0 to 1 step 0 do { 
+    private _pipe = "extDB2" callExtension format["5:%1", _key]; 
+    if (_pipe isEqualTo "") exitWith {_loop = false}; 
+    _extRes = _extRes + _pipe; 
+   }; 
+   if (!_loop) exitWith {}; 
+  }; 
+ }; 
+ 
+ _extRes = call compile _extRes; 
+ 
+  if ((_extRes#0) isEqualTo 0) exitWith { 
+  _res = ["DB:Read:Task-failure",false]; 
+  diag_log format ["%1: Protocol Error: %2", _res#0, _extRes];  
+  _res 
+ }; 
+ 
+  _res = (_extRes#1); 
+ 
+  if (_single && count _res > 0) then { 
+  _res = (_res#0); 
+ }; 
+  
+ _res 
+}; 
+ 
+ 
+["CREATE", "players", [ 
+ [  "name",  ["DB","STRING", "Nikko2"] call Extremo_fnc_parseData, 
+  "aliases",  ["DB","ARRAY", ["test"]] call Extremo_fnc_parseData, 
+  "playerid", ["DB","STRING", "76561198276956558"] call Extremo_fnc_parseData,, 
+  "cash",  ["DB","MONEY", 0] call Extremo_fnc_parseData, 
+  "bankacc",  ["DB","MONEY", 10000] call Extremo_fnc_parseData, 
+  "gear",  ["DB","ARRAY", ["test"]] call Extremo_fnc_parseData 
+ ] 
+]]call Extremo_fnc_sendRequest;}]"
+05.04.2021 03:12:02: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:02: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:03: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:03: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:03: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:04: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:04: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:05: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:05: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:05: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:05: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:05: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:06: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:06: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:06: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:07: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:07: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:07: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:07: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:08: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:08: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:08: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};Extremo_fnc_parseData}]"
+05.04.2021 03:12:25: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:25: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:25: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:25: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:26: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:26: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:26: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:26: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:27: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:27: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:27: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"
+05.04.2021 03:12:28: Nikko (127.0.0.1:2316) aa5f0cad25d8668cf430a41dfc52b986 - Compile Block "o 
+     { 
+      _sel = _val#_i; 
+      if (_sel == 96) then{ 
+       _val set[_i,39]; 
+      }; 
+     }; 
+     _val = call compile format["%1",toString(_val)];  
+    }; 
+    case "STRING": {   
+     _val = toArray _val; 
+     { 
+      if (_x in (toArray "'/\`:|;,{}-""<>")) then { 
+       _val deleteAt _forEachIndex; 
+      }; 
+     } forEach _val; 
+     _val = toString _val; 
+    }; 
+    case "BOOL": {  
+     if (!(_val isEqualType 0)) then { 
+      _val = false; 
+     }else{ 
+      switch (_val) do { 
+       case 0: {_val = false}; 
+       case 1: {_val = true}; 
+      }; 
+     }; 
+    }; 
+    case "INT": {_val = parseNumber _val}; 
+    case "MONEY": { 
+     private _a = ""; 
+     _val = _val call bis_fnc_numberDigits; 
+     {_a = _a + str _x;if ((_foreachindex - ((count _val - 1) % (param [1,3,[0]]))) % (param [1,3,[0]]) isEqualTo 0 && _foreachindex != (count _val - 1)) then {_a = _a + "";};} forEach _val; 
+     _val = _a; 
+    }; 
+   }; 
+  }; 
+ }; 
+ 
+ _val 
+};_fnc_parseData}]"

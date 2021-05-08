@@ -1,0 +1,174 @@
+author = "Frag Squad Development Team";
+onLoadName = "Frag Squad CQC";
+loadScreen = "images\cqcimagenew.paa";
+overviewPicture = "images\cqcimagenew.paa";
+skipLobby = 1;
+joinUnassigned = 0;
+enableDebugConsole[] = {
+	"76561198048125586",
+	"76561197960272723",
+	"76561198119520123", 
+	"76561199110944525"
+};
+
+class Header 
+{
+	gameType = Sandbox;
+	minPlayers = 1;
+	maxPlayers = 20;
+};
+
+class CfgFunctions 
+{
+	#include "scripts\jstar_scripts\nmd\cfgFunctions.hpp"
+	#include "scripts\jstar_scripts\nmd\modules\vehicles\cfgFunctions.hpp"
+};
+
+class cfgRemoteExec 
+{
+	// List of Functions allowed to be sent from client via remoteExec
+	class Functions
+	{
+		// RemoteExec modes:
+		// 0 - disabled
+		// 1 - allowed, taking whitelist into account
+		// 2 - allowed, ignoring whitelist (default, because of backward compatibility)
+		mode = 1;
+
+		// Ability to send JIP messages:
+		// 0 - disable JIP messages
+		// 1 - allow JIP messages (default)
+		jip = 1;
+		class BIS_fnc_effectKilledAirDestruction	{ allowedTargets = 1; };
+		class BIS_fnc_effectKilledSecondaries		{ allowedTargets = 1; };
+		class BIS_fnc_objectVar						{ allowedTargets = 1; };
+		class BIS_fnc_setCustomSoundController		{ allowedTargets = 1; };
+		class CQC_fnc_playerAddKill 							{ allowedTargets = 1; };
+		class addPlayerScores 						{ allowedTargets = 1; };
+		class BIS_fnc_debugConsoleExec				{ allowedTargets = 1; };
+		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; };
+
+	};
+
+	// List of Commands allowed to be sent from client via remoteExec
+	class Commands
+	{
+		mode = 0;
+
+		class CALL     { allowedTargets = 0; jip = 0; };
+		class setDir   { allowedTargets = 2; jip = 0; };
+	};
+};
+
+class Params 
+{
+	#include "scripts\jstar_scripts\nmd\modules\vehicles\params.hpp"	
+};
+
+#include "scripts\jstar_scripts\nmd\common.hpp"
+#include "scripts\jstar_scripts\nmd\modules\vehicles\include.hpp"
+#include "ui\Dialogs.hpp"
+#include "ui\jstar_defines.hpp"
+#include "ui\jstar_dialogs.hpp"
+
+class RscTitles 
+{
+		class JSTARBasePictureHUD {
+		access = 0;
+		type = CT_STATIC;
+		style = 0x30 + 0x800;
+		idc = -1;
+		colorBackground[] = {0,0,0,0};
+		colorText[] = {1,1,1,1};
+		font = "puristaMedium";
+		sizeEx = 0;
+		lineSpacing = 0;
+		text = "";
+		fixedWidth = 0;
+		shadow = 0;
+		x = 0;
+		y = 0;
+		w = 0.2;
+		h = 0.15;
+	};
+
+	class TAG_JSTARHUD {
+	idd = -1; 
+	duration = 1e+1000; 
+	fadeIn = 0; 
+	fadeOut = 0; 
+	onLoad = "uiNamespace setVariable ['TAG_JSTAR_display', _this select 0];"; 
+			
+		class Controls {
+			class jstar_credits {
+				type = CT_STATIC;
+				style = ST_CENTER;
+				idc = 1003;
+				text = " Frag Squad CQC";
+				x = 0.00051252 * safezoneW + safezoneX;
+				//x = -0.00531252 * safezoneW + safezoneX;
+				y = 0.976 * safezoneH + safezoneY;
+				w = 0.061875 * safezoneW;
+				h = 0.022 * safezoneH;
+				font = "PuristaMedium";
+				colorBackground[] = {0,0,0,0};
+				colorText[] = {1,1,1,1};
+				sizeEx = 0.03;
+			};
+			
+			class alecw_playersnear {
+				type = CT_STATIC;
+				style = ST_LEFT;
+				idc = 1004;
+				text = "";
+				x = 0.00512252 * safezoneW + safezoneX;
+				y = 0.963 * safezoneH + safezoneY;
+				w = 0.061875 * safezoneW;
+				h = 0.022 * safezoneH;
+				font = "PuristaMedium";
+				colorBackground[] = {0,0,0,0};
+				colorText[] = {1,1,1,1};
+				sizeEx = 0.03;
+				class Attributes {align = "LEFT";};	
+			};
+		};
+	};
+
+	// Earplugs Icon
+	class JSTARMUTED {
+		idd = 1000;
+		movingEnable=0;
+		duration=1e+011;
+		onLoad = "uiNamespace setVariable ['JSTARMUTED', _this select 0];";
+
+		class controls {
+			class JSTAR_MUTED : JSTARBasePictureHUD {
+				idc = 1101;
+				text = "images\jstar_muted.paa";
+				x = 0.95575 * safezoneW + safezoneX;
+				y = 0.624 * safezoneH + safezoneY;
+				w = 0.020625 * safezoneW;
+				h = 0.033 * safezoneH;
+			};
+		};
+	};
+
+	// Grass Icon
+	class JSTARGRASS {
+		idd = 1000;
+		movingEnable=0;
+		duration=1e+011;
+		onLoad = "uiNamespace setVariable ['JSTARGRASS', _this select 0];";
+
+		class controls {
+			class JSTAR_GRASS : JSTARBasePictureHUD {
+				idc = 1101;
+				text = "images\jstar_nograss.paa";
+				x = 0.979531 * safezoneW + safezoneX;
+				y = 0.621 * safezoneH + safezoneY;
+				w = 0.020625 * safezoneW;
+				h = 0.035 * safezoneH;
+			};
+		};
+	};
+};
