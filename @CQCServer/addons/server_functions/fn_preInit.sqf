@@ -20,7 +20,7 @@ private _compileFinal = ([_config, "compileFinal", 1] call BIS_fnc_returnConfigE
 {_dontCompile pushBackUnique tolower format["%_fnc_%2",_scriptPrefix,_x]} forEach ["preinit","postinit"];
 
 private _isLiveServer = (!("Dev" in servername) || !_compileFinal);
-private _serverCommandPass = "hjfdhuifdhidhiu";
+private _serverCommandPass = "ggfhryy3$$";
 
 try {
 	//Lock server at start 
