@@ -419,7 +419,7 @@ switch (_mode) do {
   
 				private _unt = player;  
 				
-				{ CQC_RscDisplayGarage
+				{
 					if (count _x > 0) then {  
 						{ 
 							if (count _x > 0) then {     
