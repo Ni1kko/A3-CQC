@@ -15,7 +15,7 @@ CQC_fnc_callExtDB = compileFinal (switch (true) do {
 });
 
 //Version
-private  _hiveSetup = false;
+private _hiveSetup = false;
 private _version = ['VERSION'] call CQC_fnc_callDatabase;
 
 if (typeName(_version) isEqualTo 'SCALAR') then
@@ -31,27 +31,25 @@ if (typeName(_version) isEqualTo 'SCALAR') then
 } else {
     "Failed to initialize" call CQC_fnc_database_log;
     uiNamespace setVariable ['CQC_var_DBInitialized', compileFinal str(false)];
-}; 
+};
 
-if(_hiveSetup)then{
+if(_hiveSetup)then
+{
     //Get a new random session ID
     uiNamespace setVariable ['CQC_var_DBprotocolID', compileFinal str([] call CQC_fnc_database_protocolID)];  
 
     try{
         //Add [Database] from extDB3 config as databaase
-        ['ADD_DATABASE:Database'] call CQC_fnc_callDatabase;
-
+        if ((['ADD_DATABASE:Database'] call CQC_fnc_callDatabase) isEqualTo [0,"Database Connection Error"]) throw false;
         //Set Protocol for [Database] and (TEXT2) as SQL Option
-        ['ADD_DATABASE_PROTOCOL:Database:SQL:' + (call(uiNamespace getVariable 'CQC_var_DBprotocolID')) + ':TEXT2'] call CQC_fnc_callDatabase;
+        if ((['ADD_DATABASE_PROTOCOL:Database:SQL:' + (call(uiNamespace getVariable 'CQC_var_DBprotocolID')) + ':TEXT2'] call CQC_fnc_callDatabase) isEqualTo [0,"Failed to Load Protocol"]) throw false;
     } catch {
-        //Log error & Kill Server 1 min after
-        //[(format["%1",_exception]),1] call CQC_fnc_serverShutdown;
-        _hiveSetup = false;
+        _hiveSetup = _exception;
     };
 
     if(_hiveSetup)then{
         //Lock [Database] from extDB3 config as databaase
-        ['LOCK'] call CQC_fnc_callDatabase;
+        diag_log str(['LOCK'] call CQC_fnc_callDatabase);
 
         //Log succses
         (format["Online [v%1]",_version]) call CQC_fnc_database_log;

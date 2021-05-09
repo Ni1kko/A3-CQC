@@ -11,33 +11,24 @@ params[
 
 private _passwordAdmin = '34567';
 
+
+private _logNew = compile 'diag_log "";{diag_log format ["<CQC> %1",_x];if(_forEachIndex mod 2 isEqualTo 0)then{diag_log ""}}forEach _this;diag_log ""; true';
+
 // Start DB
 if !([_serverCommandPass] call CQC_fnc_startDatabase)exitwith{
-    _serverCommandPass spawn{
-        while {true} do {
-            [[],{
-                (findDisplay 49) closeDisplay 2;
-                uiSleep 0.5;
-                (findDisplay 46) closeDisplay 2;
-                failMission "end1";
-                endMission "end1";
-            }]remoteExecCall ["spawn",-2];
-            uiSleep 60;
-            _this serverCommand "#debug Database: Not loaded";
-            uiSleep 30;
-            _this serverCommand "#shutdown";
-        };
+    if(["Database: Error occured","Server: Shutting Down"] call _logNew)then{
+        _serverCommandPass serverCommand "#shutdown";
     };
 };
 
 _serverCommandPass serverCommand "#debug Database: Connected";
 
 //Add Connection Event Handlers
-CQC_var_ClientConnected = call compile ("addMissionEventHandler ['PlayerConnected', {[_this#1,_this#2,_this#3,_this#4,"+str(_clientData)+","+str(_isLiveServer)+"] spawn CQC_fnc_onplayerconnected}]");
-CQC_var_ClientDisconnected = call compile ("addMissionEventHandler ['PlayerDisconnected', {[_this#1,_this#2,_this#3,_this#4] spawn CQC_fnc_onplayerdisconnected}]");
+CQC_var_ClientConnected = addMissionEventHandler ["PlayerConnected", CQC_fnc_onplayerconnected, [_clientData, _isLiveServer]];
+CQC_var_ClientDisconnected = addMissionEventHandler ["PlayerDisconnected", CQC_fnc_onplayerdisconnected, []];
 
-if ((is3DEN || is3DENMultiplayer) AND !isMultiplayer) then {
-    ["3DEN",profileName,true,2,_clientData,_isLiveServer] spawn CQC_fnc_onplayerconnected;
+if (is3DEN || is3DENMultiplayer || !isDedicated || !isServer || hasInterface) exitwith {
+    ["Server Not A Server","Aborting scope","Server addon must be on server and not a client"] call _logNew;
 };
 
 publicVariable "CQC_fnc_compatibleItems";
@@ -57,8 +48,10 @@ if(_useAntiHack)then{
         _serverCommandPass serverCommand "#unlock";
     };
 }else{
-    for "_i" from 0 to 10 do {diag_log "Warning: ANTIHACK DISABLED"};
-    _serverCommandPass serverCommand "#unlock";
+    _msgs = [];
+    _msgs resize 5;
+    (_msgs apply {"Warning: ANTIHACK DISABLED"}) call _logNew;
+    _serverCommandPass serverCommand "#unlock"; 
 };
 
 diag_log "Server started";

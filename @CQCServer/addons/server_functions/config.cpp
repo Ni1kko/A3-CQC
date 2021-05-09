@@ -20,6 +20,8 @@ class CfgPatches
 	};
 };
 
+rptFileLimit=1;
+
 class CfgFunctions
 {
     class AutoCompile

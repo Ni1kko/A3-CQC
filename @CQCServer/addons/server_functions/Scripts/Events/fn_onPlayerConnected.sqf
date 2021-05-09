@@ -3,18 +3,21 @@
 	FragSquad CQC
 */
 
-params [
-	['_steamid','',['']],
-	['_ProfileName','',['']],
-	['_didJip',false,[false]],
-	['_ownerID',2,[0]],
-    ["_clientData",[[],false],[[]]],
-	['_isLiveServer',true,[false]]
-];
- 
-//Players only
-if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {false};
+//Args
+if (_this params [
+	["_id",-100,[0]],			// Number - is the unique DirectPlay ID. Quite useless as the number is too big for in-built string representation and gets rounded. It is also the same id used for user placed markers.
+	["_steamID","",[""]],		// String - is getPlayerUID of the joining player. In Arma 3 it is also the same as Steam ID.
+	["_ProfileName","",[""]],	// String - is profileName of the joining player.
+	["_didJip",false,[false]], 	// Boolean - is a flag that indicates whether or not the player joined after the mission has started (Joined In Progress). true when the player is JIP, otherwise false. (since Arma 3 v1.49)
+	["_ownerID",-100,[0]],		// Number - is owner id of the joining player. Can be used for kick or ban purposes or just for publicVariableClient. (since Arma 3 v1.49) 
+	["_idstr","",[""]]			// String - same as _id but in string format, so could be exactly compared to user marker ids. (since Arma 3 v1.95) 
+] isEqualTo false) exitWith {diag_log "Bad Args"; false};
 
+//User-Defined - custom passed args (since Arma 3 v2.04) 
+if (_thisArgs params [["_clientData",[[],false],[[]]],['_isLiveServer',true,[false]]] isEqualTo false) exitWith {diag_log "Bad Custom Args"; false};
+
+//Players only
+if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {diag_log "Bad OwnerID"; false};
 
 //Check Profilename for bad chars
 _ProfileName = [_ProfileName] call CQC_fnc_database_nameSafe;
