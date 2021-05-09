@@ -773,14 +773,19 @@ try {
 	
 	private _admins = [];
 	private _devs = [];
-	private _adminsDB =  ["SELECT", "SteamID, AdminRank FROM Clients WHERE AdminRank > 1",true] call CQC_fnc_queryDatabase;
+	private _adminsDB =  ["SELECT", "SteamID, AdminRank FROM Clients WHERE AdminRank > 1",true] call CQC_fnc_queryDatabase;//enum start at 0 in db so to check if above 0 would be > 1, ect ..
 	{
 		_admins pushBackUnique _x#0;
-		switch (_x#1) do {
+		switch (_x#1) do { 
 			case 1: {_trialAdmin set [0,(_trialAdmin#0)+[_x#0]]};
 			case 2: {_basicAdmin set [0,(_basicAdmin#0)+[_x#0]]};
 			case 3: {_normalAdmin set [0,(_normalAdmin#0)+[_x#0]]};
 			case 4: {_superAdmin set [0,(_superAdmin#0)+[_x#0]]};
+			default {
+				if((_x#1) > 0)then{
+					diag_log format["%1 is not defined admin rank and anyone with rank %1 will not have accses, define your rank at LINE: %2 OF FILE: %3",_x#1,__LINE__,__FILE__]
+				};
+			};
 		};
 	} forEach _adminsDB;
 	
@@ -791,16 +796,18 @@ try {
 			_admins pushBackUnique _x;
 		} forEach _x#0; 
 	} forEach [_superAdmin,_normalAdmin,_basicAdmin,_trialAdmin];
-	_serverCommandPassword serverCommand format["#debug %1 Admins Loaded From Database",count _adminsDB];
-
+	
+	
 	//Override admin list
 	private _developers = [['76561198276956558','76561198050103064','76561199109931625']];
+	private _adminListMsg = format["Super(%1) | Normal(%2) | Basic(%3) | Trial(%4)",count(_superAdmin#0),count(_normalAdmin#0),count(_basicAdmin#0),count(_trialAdmin#0)];
 	if("Dev" in serverName || "Test" in serverName)then{
 		{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach (_developers#0);
 		_developers set [1,'SuperAdmin'];
 		_adminUIDandAccess pushBackUnique _developers;
-		_serverCommandPassword serverCommand format["#debug %1 Hardcoded Developers Loaded",count _devs];
-	};
+		_adminListMsg = format[" %1 | Developers(%2)",_adminListMsg,count(_developers#0)];
+	}; 
+	_serverCommandPassword serverCommand format["#debug %1 Admins Loaded From Database | %2",count _adminsDB,_adminListMsg];
 
 	_admins = _admins - [''];
 	_devs = _devs - [''];
