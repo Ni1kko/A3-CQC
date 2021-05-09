@@ -68,6 +68,11 @@ class Params
 	};
 };
 
+class CfgCommands
+{
+	allowedHTMLLoadURIs[]={"http://*"};
+};
+
 #include "ui\Dialogs.hpp"
  
 class RscTitles 

@@ -20,11 +20,11 @@ private _compileFinal = ([_config, "compileFinal", 1] call BIS_fnc_returnConfigE
 {_dontCompile pushBackUnique tolower format["%_fnc_%2",_scriptPrefix,_x]} forEach ["preinit","postinit"];
 
 private _isLiveServer = (!("Dev" in servername) || !_compileFinal);
-private _serverCommandPass = "ggfhryy3$$";
+private _serverCommandPass = 'ggfhryy3$$';
 
 try {
 	//Lock server at start 
-	if (_isLiveServer AND !(_serverCommandPass serverCommand "#lock")) throw "Error: Server Command Password INCORECT!";
+	if (_isLiveServer AND !(_serverCommandPass serverCommand "#lock") OR !(_serverCommandPass serverCommand "#exec users")) throw "Error: Server Command Password INCORECT!";
 
 	private _clientFunctions = []; 
 
