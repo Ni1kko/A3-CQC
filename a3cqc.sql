@@ -49,7 +49,7 @@ CREATE TABLE `clients` (
   `Money` int(100) NOT NULL DEFAULT 0,
   `Gear` text NOT NULL,
   `AdminRank` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
-  `DonatorRank` enum('0','1') NOT NULL DEFAULT '0',
+  `HasDonated` enum('0','1') NOT NULL DEFAULT '0',
   `Joined` timestamp NOT NULL DEFAULT current_timestamp(),
   `LastActive` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -58,7 +58,7 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`ID`, `ProfileName`, `KnownNames`, `steamID`, `Money`, `Gear`, `AdminRank`, `DonatorRank`, `Joined`, `LastActive`) VALUES(2, 'Nikko', '\"[`Nikko`]\"', '76561199109931625', 0, '\"[]\"', '0', '1', '2021-05-08 10:40:32', '2021-05-08 10:54:39');
+INSERT INTO `clients` (`ID`, `ProfileName`, `KnownNames`, `steamID`, `Money`, `Gear`, `AdminRank`, `HasDonated`, `Joined`, `LastActive`) VALUES(2, 'Nikko', '\"[`Nikko`]\"', '76561199109931625', 0, '\"[]\"', '0', '1', '2021-05-08 10:40:32', '2021-05-08 10:54:39');
 
 -- --------------------------------------------------------
 

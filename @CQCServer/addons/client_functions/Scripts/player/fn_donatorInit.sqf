@@ -1,25 +1,7 @@
-systemChat "Donator Loaded";
-diag_log "Donator started";
+if !(call isDonator)exitwith {(findDisplay 46) closeDisplay 2};//bad... open me without perms and get disconected
 
-switch (call CQC_var_DonatorRank) do {
-	case 1: 
-	{
+diag_log "Donator Init started";
 
-	};
-	case 2: 
-	{ 
+systemChat ("Welcome "+profileName+", Thanks for being a donator your support is much appricated");
 
-	};
-	case 3: 
-	{ 
-
-	};
-	case 4: 
-	{ 
-		
-	};
-	case 5: 
-	{ 
-		
-	};
-};
+diag_log "Donator Init Finished";

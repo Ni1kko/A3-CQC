@@ -8,16 +8,15 @@ params [
 	["_ProfileNameDB","",[""]],
 	["_GearDB",[],[[]]], 
 	["_AdminRankDB",0,[0]],
-	["_DonatorRankDB",0,[0]]
+	["_HasDonatedDB",0,[0]]
 ];
 
 if(_steamIDDB != getPlayerUID player)exitWith{};
 
 ["preInit"] spawn CQC_fnc_initModuleVehicles;
 
-CQC_var_AdminRank = compileFinal str _AdminRankDB;
-CQC_var_DonatorRank = compileFinal str _DonatorRankDB;
-isDonator = compileFinal "((call CQC_var_DonatorRank) > 0)";
+CQC_var_AdminRank = compileFinal str _AdminRankDB; 
+isDonator = compileFinal (""+str _HasDonatedDB+" isEqualTo 1");
 isAdmin = compileFinal "((call CQC_var_AdminRank) > 0)";
 
 CQC_var_clientGear = _GearDB;

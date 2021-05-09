@@ -20,13 +20,13 @@ if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {false};
 _ProfileName = [_ProfileName] call CQC_fnc_database_nameSafe;
 
 //Check if in database
-private _databaseQuery = ["SELECT","SteamID,ProfileName,KnownNames,Gear,AdminRank,DonatorRank FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
+private _databaseQuery = ["SELECT","SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
 
 //Add client too database
 private _databaseError = false;
 if(count _databaseQuery < 1)then{
 	["INSERT", "Clients (ProfileName,KnownNames,SteamID,Gear) VALUES('"+_ProfileName+"', '"+([_ProfileName]call CQC_fnc_database_mresArray)+"', '"+_steamID+"','""[]""')"] call CQC_fnc_queryDatabase;
- 	_databaseQuery = ["SELECT", "SteamID,ProfileName,KnownNames,Gear,AdminRank,DonatorRank FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
+ 	_databaseQuery = ["SELECT", "SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
 	_databaseError = (count _databaseQuery < 1);
 };
 
@@ -44,7 +44,7 @@ _databaseQuery params [
 	["_KnownNamesDB",""],
 	["_GearDB",""],
 	["_AdminRankDB",0],
-	["_DonatorRankDB",0]
+	["_HasDonatedDB",0]
 ];
 
 //parse data from database
@@ -70,7 +70,7 @@ if( not(_ProfileName in _KnownNamesDB))then{
 	_ProfileNameDB,
 	_GearDB,
 	_AdminRankDB,
-	_DonatorRankDB
+	_HasDonatedDB
 ]],{
 	params [
 		["_clientData",[[],false]],
