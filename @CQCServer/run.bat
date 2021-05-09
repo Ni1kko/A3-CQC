@@ -2,8 +2,8 @@
 
 set servername=Administrator
 set serverexe=arma3server
-set serverpath=E:\ExtremoServer
-set servermod=CQCServer
+set serverpath=c:\FragSquad
+set servermod=@CQCServer
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
