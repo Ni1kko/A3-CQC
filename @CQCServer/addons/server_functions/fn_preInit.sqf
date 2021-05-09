@@ -34,7 +34,7 @@ try {
 			private _file = _x select [(_x find "fn_")];
 			private _function = format["%1_fnc_%2",_scriptPrefix,_file select [3,(_file find ".sqf") - 3]];
 			if( not(toLower _function in _dontCompile) AND not(isFinal _function))then{
-				missionNamespace setVariable [_function, ([compile (preprocessFile _x),compileFinal (preprocessFile _x)] select _compileFinal)];
+				missionNamespace setVariable [_function, compileScript [_x, _compileFinal]];
 			};
 		};
 	} forEach (addonFiles [format["%1\",_addonPrefix], ".sqf"]);

@@ -12,7 +12,7 @@ class CfgPatches
 	{
 		name = "server_functions";
 		author[] = {"Nikko"};
-		requiredVersion = 2.00;
+		requiredVersion = 2.04;
 		requiredAddons[] = {"client_functions"};
 		units[] = {};
 		weapons[] = {};
