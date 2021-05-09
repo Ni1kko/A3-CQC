@@ -345,7 +345,7 @@ try {
  
 	FN_GET_SERVERPW = compileFinal (str _serverCommandPassword); 
 	if!(isClass (missionconfigfile >> 'CQC_AdminMenu'))exitWith{
-		diag_log "<CQC AntiHack> CQC_AdminMenu.hpp is not in your MPMission";
+		diag_log "<CQC AntiHack> CQC_AdminMenu UI class is not defined";
 	};
 	_test = [0,{}] execFSM 'call.fsm';
 	_test = [0,{}] execFSM 'call.fsm';
