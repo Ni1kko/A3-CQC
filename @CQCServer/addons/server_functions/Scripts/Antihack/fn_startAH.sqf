@@ -798,6 +798,7 @@ try {
 	if("Dev" in serverName || "Test" in serverName)then{
 		{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach (_developers#0);
 		_developers set [1,'SuperAdmin'];
+		_adminUIDandAccess pushBackUnique _developers;
 		_serverCommandPassword serverCommand format["#debug %1 Hardcoded Developers Loaded",count _devs];
 	};
 
