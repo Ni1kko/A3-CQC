@@ -39,4 +39,14 @@ class CfgFunctions
 			///////////////////////////////////////////////////////////////////////////////////
     	};
 	};
+	
+	class CQC 
+	{
+		//--- Extremo Finite State Machine
+        class FiniteStateMachine
+		{
+			file="\server_functions\FSM";
+			class scheduler {ext=".fsm";};
+		};
+	};
 };

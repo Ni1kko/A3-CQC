@@ -3,20 +3,16 @@
     private _player = (vehicle player);
     private _distance = _player distance2D _unit;
 	
-	
-	/*
-		need to check the _unit in question isdonator or isadmin not just the current player
-	*/
-	private _colour = if (call isDonator) then {
+	private _colour = if (getplayeruid player in (missionNamespace getVariable ["CQCDonators",[]])) then {
 		[1,0.545,0,1];
 	} else {
-		if (call isAdmin) then {
+		if (getplayeruid player in (missionNamespace getVariable ["CQCAdmins",[]])) then {
 			[0.898,0.322,0.322,1];
 		} else {
 			[1,1,1,1];
 		};
 	};
-	
+
 	// If not in vehicle
 	if (alive _unit && (_unit isKindOf "man") && { _distance < 10 }) then {
 		if (alive _x && vehicle _x isEqualTo _x) then {

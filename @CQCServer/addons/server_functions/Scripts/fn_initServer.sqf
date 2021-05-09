@@ -11,7 +11,6 @@ params[
 
 private _passwordAdmin = '34567';
 
-
 private _logNew = compile 'diag_log "";{diag_log format ["<CQC> %1",_x];if(_forEachIndex mod 2 isEqualTo 0)then{diag_log ""}}forEach _this;diag_log ""; true';
 
 // Start DB
@@ -53,5 +52,8 @@ if(_useAntiHack)then{
     (_msgs apply {"Warning: ANTIHACK DISABLED"}) call _logNew;
     _serverCommandPass serverCommand "#unlock"; 
 };
+
+CQC_ESPAdminFSM = [(3 * 60),CQC_fnc_broadcast_AdminList,"broadcast_AdminList",2,true,false] call CQC_fnc_scheduler;
+CQC_ESPDonatorFSM = [(3 * 60),CQC_fnc_broadcast_DonatorList,"broadcast_DonatorList",2,true,false] call CQC_fnc_scheduler;
 
 diag_log "Server started";
