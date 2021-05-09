@@ -11,10 +11,6 @@ with missionNamespace do {
 	private [ "_params", "_class", "_module" ];
 	_params = [ _this, 0, [] ] call BIS_fnc_param;
 	_class = [ _this, 1, "", [""] ] call BIS_fnc_param;
-	_module = [ _this, 2, "", [""] ] call BIS_fnc_param;
-
-	//--- Module directory
-	_module = if ( _module != "" ) then { format [ "\modules\%1", _module ] } else { "" };
 
 	//--- Register script for the first time
 	private _fncName = format["CQC_fnc_%1",_class];

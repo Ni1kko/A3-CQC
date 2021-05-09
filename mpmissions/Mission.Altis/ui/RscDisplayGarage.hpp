@@ -27,7 +27,7 @@
 class CQC_RscDisplayGarage
 {
 	idd = IDD_RSCDISPLAYGARAGE;
-	onLoad = "[ _this, ""CQC_RscDisplayGarage"", ""vehicles"" ] call CQC_fnc_initDisplay";
+	onLoad = "[ _this, ""RscDisplayGarage"", ""vehicles"" ] call CQC_fnc_initDisplay";
 
 	class ControlsBackground
 	{
