@@ -358,6 +358,111 @@ try {
 			diag_log format['<CQC AntiHack> %1 - CQC will not START if files are not in place!',time+10];
 		};
 	};
+
+		private _superAdmin = [[],[
+		'SuperAdmin','Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
+		'spectating','AdminConsole','Delete Vehicle','FlyUp','EjectTarget','ToggleVehLock','ShowGear',
+		'HealSelf','HealRepairNear','AdminStart','AdminLog','Freeze Target','UnFreeze Target',
+		'==== Loadouts ====','==== WeatherLord ====','==== Base Deleter ====','==== VirtualItems ====',
+		'==== Weapons ====','==== Magazines ====','==== Bags ====','==== Vehicles ====','==== Objects ====','==== AltisLife Money ====',
+		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle','Parachute Target',
+		'Spawn UAV','Spawn Cloak','Spawn Sapper','Spawn SapperB','Eject','Eject Crew','Kill','Explode','MineField (around target)','Zeus','Force Disconnect',
+		'Kick (Silent)','Kick (Announce)','Ban (Silent)','Ban (Announce)',
+		'Default Epoch Player ESP','Default Epoch Vehicle ESP','CQC Player ESP 1',
+		'CQC Player ESP 2','CQC Dead ESP','CQC AI ESP',
+		'CQC LockBox ESP','CQC Shelf ESP','CQC PlotPole ESP','Fake Epoch group to nearest PlotPole',
+		'CQC MapIcons','PlotPole Marker','Vehicle Marker','Construction Marker','LockBox Marker','DeadPlayer Marker',
+		'God Mode','Vehicle God Mode','Lower Terrain','Vehboost','UnlimAmmo','noRecoil','FastFire','Stealth / Invisible',
+		'Disable Announces','Show FPS','Give All Licenses','Call EMP','Mass Message','DayTime','NightTime','Add / Remove Crypto',
+		'Spawn Epoch-Box','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
+		'Spawn Ammo','showinfo','Login as Arma Admin','BIS FreeRoam Cam (works with ESP)','FreeRoam Cam (does not work with ESP)',
+		'Request Steam Name','Dump unique client variables',
+		'Restrain','Unrestrain',
+		'Arsenal'
+	]];
+	private _normalAdmin = [[],[
+		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
+		'spectating','AdminConsole','Delete Vehicle','FlyUp','EjectTarget','ToggleVehLock','ShowGear',
+		'HealSelf','HealRepairNear','AdminStart','AdminLog','Freeze Target','UnFreeze Target',
+		'==== Loadouts ====','==== WeatherLord ====','==== Base Deleter ====','==== VirtualItems ====',
+		'==== Weapons ====','==== Magazines ====','==== Bags ====','==== Vehicles ====','==== Objects ====','==== AltisLife Money ====',
+		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle','Parachute Target',
+		'Spawn UAV','Spawn Cloak','Spawn Sapper','Spawn SapperB','Eject','Eject Crew','Kill','Explode','MineField (around target)','Zeus','Force Disconnect',
+		'Kick (Silent)','Kick (Announce)','Ban (Silent)','Ban (Announce)',
+		'Default Epoch Player ESP','Default Epoch Vehicle ESP','CQC Player ESP 1',
+		'CQC Player ESP 2','CQC Dead ESP','CQC AI ESP',
+		'CQC LockBox ESP','CQC Shelf ESP','CQC PlotPole ESP','Fake Epoch group to nearest PlotPole',
+		'CQC MapIcons','PlotPole Marker','Vehicle Marker','Construction Marker','LockBox Marker','DeadPlayer Marker',
+		'God Mode','Vehicle God Mode','Lower Terrain','Vehboost','UnlimAmmo','noRecoil','FastFire','Stealth / Invisible',
+		'Disable Announces','Show FPS','Give All Licenses','Call EMP','Mass Message','DayTime','NightTime','Add / Remove Crypto',
+		'Spawn Epoch-Box','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
+		'Spawn Ammo','showinfo','Login as Arma Admin','BIS FreeRoam Cam (works with ESP)','FreeRoam Cam (does not work with ESP)',
+		'Request Steam Name','Dump unique client variables',
+		'Restrain','Unrestrain',
+		'Arsenal'
+	]];
+	private _basicAdmin = [[],[
+		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
+		'spectating','EjectTarget','ToggleVehLock','ShowGear',
+		'HealSelf','HealRepairNear','AdminStart','Freeze Target','UnFreeze Target',
+		'==== Loadouts ====','==== Weapons ====','==== Magazines ====','==== Bags ====',
+		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle',
+		'Eject','Eject Crew','Force Disconnect',
+		'Kick (Announce)','DeadPlayer Marker','God Mode','Vehicle God Mode','Lower Terrain','Stealth / Invisible',
+		'Show FPS','Mass Message','DayTime','NightTime',
+		'Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
+		'Spawn Ammo','showinfo','Request Steam Name'
+	]];
+	private _trialAdmin = [[],[
+		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target',
+		'spectating','ShowGear','HealSelf','HealRepairNear','Freeze Target','UnFreeze Target',
+		'==== Loadouts ====','==== Weapons ====','==== Magazines ====','==== Bags ====',
+		'Remove Gear','Revive','Heal','AdminStart','Move In My Vehicle','Move In Target Vehicle',
+		'Eject','Eject Crew','Force Disconnect','God Mode','Vehicle God Mode','Lower Terrain','Stealth / Invisible',
+		'Mass Message','DayTime','NightTime','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
+		'showinfo','Request Steam Name'
+	]];
+	
+	//Get all admin from database and handle there admin abilty by rank and give them accses to a premade admin class
+	private _admins = []; 
+	private _adminsDB =  ["SELECT", "SteamID, AdminRank FROM Clients WHERE AdminRank > 1",true] call CQC_fnc_queryDatabase;//enum start at 0 in db so to check if above 0 would be > 1, ect ..
+	{
+		_admins pushBackUnique _x#0;
+		switch (_x#1) do { 
+			case 1: {_trialAdmin set [0,(_trialAdmin#0)+[_x#0]]};
+			case 2: {_basicAdmin set [0,(_basicAdmin#0)+[_x#0]]};
+			case 3: {_normalAdmin set [0,(_normalAdmin#0)+[_x#0]]};
+			case 4: {_superAdmin set [0,(_superAdmin#0)+[_x#0]]};
+			default {
+				if((_x#1) > 0)then{
+					diag_log format["%1 is not defined admin rank and anyone with rank %1 will not have accses, define your rank at LINE: %2 OF FILE: %3",_x#1,__LINE__,__FILE__]
+				};
+			};
+		};
+	} forEach _adminsDB;
+
+	//push all premade admin classes in to main accses array
+	private _adminUIDandAccess = [];
+	{
+		_adminUIDandAccess pushBackUnique _x;
+		{
+			_admins pushBackUnique _x;
+		} forEach _x#0; 
+	} forEach [_superAdmin,_normalAdmin,_basicAdmin,_trialAdmin];
+	private _adminListMsg = format["Super(%1) | Normal(%2) | Basic(%3) | Trial(%4)",count(_superAdmin#0),count(_normalAdmin#0),count(_basicAdmin#0),count(_trialAdmin#0)];
+
+	//Get all developers from descpition.ext
+	private _devs = []; 
+	if("Dev" in serverName || "Test" in serverName)then{ 
+		{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach getArray(missionConfigFile >> "enableDebugConsole");//add into admin and dev (one is adminmenu other is anticheat bypass)
+		_adminUIDandAccess pushBackUnique [_devs,['SuperAdmin']];//add full accses to admin menu
+		_adminListMsg = format[" %1 | Developers(%2)",_adminListMsg,count _devs];
+	};
+	_serverCommandPassword serverCommand format["#debug %1 Admins Loaded From Database | %2",count _adminsDB,_adminListMsg];
+
+	//Remove any empty uids from arrays
+	_admins = _admins - [''];
+	_devs = _devs - [''];
  
 	fn_CQC_ObjName = compileFinal "if(alive _this)then{_n = name _this;_this setVariable['playerName',_n];_n}else{_n = _this getVariable['playerName',''];if(_n isEqualTo '')then{if!(getPlayerUID _this isEqualTo '')then{_n = name _this;_this setVariable['playerName',_n];};};_n}";
 	publicVariable "fn_CQC_ObjName";
@@ -707,111 +812,7 @@ try {
 	";
 	fnc_deleteObject = compileFinal _A3AHPREstring;
 
-  	private _superAdmin = [[],['SuperAdmin',
-		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
-		'spectating','AdminConsole','Delete Vehicle','FlyUp','EjectTarget','ToggleVehLock','ShowGear',
-		'HealSelf','HealRepairNear','AdminStart','AdminLog','Freeze Target','UnFreeze Target',
-		'==== Loadouts ====','==== WeatherLord ====','==== Base Deleter ====','==== VirtualItems ====',
-		'==== Weapons ====','==== Magazines ====','==== Bags ====','==== Vehicles ====','==== Objects ====','==== AltisLife Money ====',
-		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle','Parachute Target',
-		'Spawn UAV','Spawn Cloak','Spawn Sapper','Spawn SapperB','Eject','Eject Crew','Kill','Explode','MineField (around target)','Zeus','Force Disconnect',
-		'Kick (Silent)','Kick (Announce)','Ban (Silent)','Ban (Announce)',
-		'Default Epoch Player ESP','Default Epoch Vehicle ESP','CQC Player ESP 1',
-		'CQC Player ESP 2','CQC Dead ESP','CQC AI ESP',
-		'CQC LockBox ESP','CQC Shelf ESP','CQC PlotPole ESP','Fake Epoch group to nearest PlotPole',
-		'CQC MapIcons','PlotPole Marker','Vehicle Marker','Construction Marker','LockBox Marker','DeadPlayer Marker',
-		'God Mode','Vehicle God Mode','Lower Terrain','Vehboost','UnlimAmmo','noRecoil','FastFire','Stealth / Invisible',
-		'Disable Announces','Show FPS','Give All Licenses','Call EMP','Mass Message','DayTime','NightTime','Add / Remove Crypto',
-		'Spawn Epoch-Box','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
-		'Spawn Ammo','showinfo','Login as Arma Admin','BIS FreeRoam Cam (works with ESP)','FreeRoam Cam (does not work with ESP)',
-		'Request Steam Name','Dump unique client variables',
-		'Restrain','Unrestrain',
-		'Arsenal'
-	]];
-	private _normalAdmin = [[],[
-		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
-		'spectating','AdminConsole','Delete Vehicle','FlyUp','EjectTarget','ToggleVehLock','ShowGear',
-		'HealSelf','HealRepairNear','AdminStart','AdminLog','Freeze Target','UnFreeze Target',
-		'==== Loadouts ====','==== WeatherLord ====','==== Base Deleter ====','==== VirtualItems ====',
-		'==== Weapons ====','==== Magazines ====','==== Bags ====','==== Vehicles ====','==== Objects ====','==== AltisLife Money ====',
-		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle','Parachute Target',
-		'Spawn UAV','Spawn Cloak','Spawn Sapper','Spawn SapperB','Eject','Eject Crew','Kill','Explode','MineField (around target)','Zeus','Force Disconnect',
-		'Kick (Silent)','Kick (Announce)','Ban (Silent)','Ban (Announce)',
-		'Default Epoch Player ESP','Default Epoch Vehicle ESP','CQC Player ESP 1',
-		'CQC Player ESP 2','CQC Dead ESP','CQC AI ESP',
-		'CQC LockBox ESP','CQC Shelf ESP','CQC PlotPole ESP','Fake Epoch group to nearest PlotPole',
-		'CQC MapIcons','PlotPole Marker','Vehicle Marker','Construction Marker','LockBox Marker','DeadPlayer Marker',
-		'God Mode','Vehicle God Mode','Lower Terrain','Vehboost','UnlimAmmo','noRecoil','FastFire','Stealth / Invisible',
-		'Disable Announces','Show FPS','Give All Licenses','Call EMP','Mass Message','DayTime','NightTime','Add / Remove Crypto',
-		'Spawn Epoch-Box','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
-		'Spawn Ammo','showinfo','Login as Arma Admin','BIS FreeRoam Cam (works with ESP)','FreeRoam Cam (does not work with ESP)',
-		'Request Steam Name','Dump unique client variables',
-		'Restrain','Unrestrain',
-		'Arsenal'
-	]];
-	private _basicAdmin = [[],[
-		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target','Teleport In Facing Direction (10m steps)',
-		'spectating','EjectTarget','ToggleVehLock','ShowGear',
-		'HealSelf','HealRepairNear','AdminStart','Freeze Target','UnFreeze Target',
-		'==== Loadouts ====','==== Weapons ====','==== Magazines ====','==== Bags ====',
-		'Remove Gear','Revive','Heal','Restore','Move In My Vehicle','Move In Target Vehicle',
-		'Eject','Eject Crew','Force Disconnect',
-		'Kick (Announce)','DeadPlayer Marker','God Mode','Vehicle God Mode','Lower Terrain','Stealth / Invisible',
-		'Show FPS','Mass Message','DayTime','NightTime',
-		'Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
-		'Spawn Ammo','showinfo','Request Steam Name'
-	]];
-	private _trialAdmin = [[],[
-		'Teleport On Map Click','Teleport - Target To Me','Teleport - Me To Target',
-		'spectating','ShowGear','HealSelf','HealRepairNear','Freeze Target','UnFreeze Target',
-		'==== Loadouts ====','==== Weapons ====','==== Magazines ====','==== Bags ====',
-		'Remove Gear','Revive','Heal','AdminStart','Move In My Vehicle','Move In Target Vehicle',
-		'Eject','Eject Crew','Force Disconnect','God Mode','Vehicle God Mode','Lower Terrain','Stealth / Invisible',
-		'Mass Message','DayTime','NightTime','Spawn Support-Box1','Spawn Support-Box2','Spawn Support-Box3',
-		'showinfo','Request Steam Name'
-	]];
-	
-	private _admins = [];
-	private _devs = [];
-	private _adminsDB =  ["SELECT", "SteamID, AdminRank FROM Clients WHERE AdminRank > 1",true] call CQC_fnc_queryDatabase;//enum start at 0 in db so to check if above 0 would be > 1, ect ..
-	{
-		_admins pushBackUnique _x#0;
-		switch (_x#1) do { 
-			case 1: {_trialAdmin set [0,(_trialAdmin#0)+[_x#0]]};
-			case 2: {_basicAdmin set [0,(_basicAdmin#0)+[_x#0]]};
-			case 3: {_normalAdmin set [0,(_normalAdmin#0)+[_x#0]]};
-			case 4: {_superAdmin set [0,(_superAdmin#0)+[_x#0]]};
-			default {
-				if((_x#1) > 0)then{
-					diag_log format["%1 is not defined admin rank and anyone with rank %1 will not have accses, define your rank at LINE: %2 OF FILE: %3",_x#1,__LINE__,__FILE__]
-				};
-			};
-		};
-	} forEach _adminsDB;
-	
-	private _adminUIDandAccess = [];
-	{
-		_adminUIDandAccess pushBackUnique _x;
-		{
-			_admins pushBackUnique _x;
-		} forEach _x#0; 
-	} forEach [_superAdmin,_normalAdmin,_basicAdmin,_trialAdmin];
-	
-	
-	//Override admin list
-	private _developers = [['76561198276956558','76561198050103064','76561199109931625']];
-	private _adminListMsg = format["Super(%1) | Normal(%2) | Basic(%3) | Trial(%4)",count(_superAdmin#0),count(_normalAdmin#0),count(_basicAdmin#0),count(_trialAdmin#0)];
-	if("Dev" in serverName || "Test" in serverName)then{
-		{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach (_developers#0);
-		_developers set [1,'SuperAdmin'];
-		_adminUIDandAccess pushBackUnique _developers;
-		_adminListMsg = format[" %1 | Developers(%2)",_adminListMsg,count(_developers#0)];
-	}; 
-	_serverCommandPassword serverCommand format["#debug %1 Admins Loaded From Database | %2",count _adminsDB,_adminListMsg];
-
-	_admins = _admins - [''];
-	_devs = _devs - [''];
-
+    
 	_A3AHstring = "
 	"+_adminsA+" = "+str _admins+";
 	_server_setToken={
