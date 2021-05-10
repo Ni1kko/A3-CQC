@@ -13,10 +13,32 @@ player setCustomAimCoef 0.00;
 setViewDistance 325;
 setObjectViewDistance 325;
 
-/* 
-	!!!! TO BE REMOVED !!!
+//Temp Check If Not In DB
+if !(call isAdmin) then{  
+	if (getplayeruid player in [
+		// Staff Team
+		'76561198048125586', // Alec
+		'76561198119520123', // Callum HD
+		'76561198334203836', // Tom Cliffoff
+		'76561198095796413', // Shipman
+		'76561197967469192', // Scottish
+		'76561198101131022', // Helmut
+		'76561199034504598', //dabest
+		'76561199089637134', //house
 
-	VIPs = [
+		// Development Team
+		'76561198250806228', // Martinez
+		'76561198339636384', // Jigggg
+		'76561199110944525', // Xlax
+		'76561198283428669'  // Ryn
+	]) then {
+		titleText ["<t color='#ff0000' size='5'>Please visit discord and @Developer requesting you be added to the database!</t>", "PLAIN", -1, true, true];
+	};
+};
+
+//Temp Check If Not In DB
+if!(call isDonator)then{ 
+	if (getplayeruid player in [
 		'76561198393606454', // Yab (Friend)
 		'76561198276144474', // Liamm
 		'76561198092176053', // TyRant
@@ -48,33 +70,13 @@ setObjectViewDistance 325;
 		'76561198270967902', //spencer
 		'76561198203772432', //McPooperson
 		'76561198942538304'  // Actually Shock
+	]) then {
+		titleText ["<t color='#ff0000' size='5'>Please visit discord and @Developer requesting you be added to the VIP!</t>", "PLAIN", -1, true, true];
+	};
+};
+	
 
-	]; 
-
-	!!!! TO BE REMOVED !!!
-
-	Admins = [
-		// Staff Team
-		'76561198048125586', // Alec
-		'76561198119520123', // Callum HD
-		'76561198334203836', // Tom Cliffoff
-		'76561198095796413', // Shipman
-		'76561197967469192', // Scottish
-		'76561198101131022', // Helmut
-		'76561199034504598', //dabest
-		'76561199089637134', //house
-
-		// Development Team
-		'76561198250806228', // Martinez
-		'76561198339636384', // Jigggg
-		'76561199110944525', // Xlax
-		'76561198283428669'  // Ryn
-	]; 
-
-	!!!! TO BE REMOVED !!!
-*/
-
-
+ 
 [] spawn CQC_fnc_eventHandlers;
 
 // Player Icons nameTags
