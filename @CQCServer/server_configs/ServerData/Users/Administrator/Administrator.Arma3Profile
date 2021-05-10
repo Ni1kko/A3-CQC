@@ -50,7 +50,7 @@ gamma=1;
 brightness=1;
 activeKeys[]=
 {
-	"BIS_cqc.Altis_done"
+	"CQC_CustomProfile"
 };
 soundEnableEAX=1;
 soundEnableHW=0;

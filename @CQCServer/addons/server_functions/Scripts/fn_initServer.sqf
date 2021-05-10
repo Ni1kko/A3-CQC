@@ -30,6 +30,10 @@ if (is3DEN || is3DENMultiplayer || !isDedicated || !isServer || hasInterface) ex
     ["Server Not A Server","Aborting scope","Server addon must be on server and not a client"] call _logNew;
 };
 
+if (!isKeyActive "CQC_CustomProfile") exitwith {
+    ["Server Profile Error","Aborting scope","Server Profile ActiveKey Not Found"] call _logNew;
+};
+
 publicVariable "CQC_fnc_compatibleItems";
 
 [
