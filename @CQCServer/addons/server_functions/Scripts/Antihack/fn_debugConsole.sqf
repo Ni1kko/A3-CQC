@@ -2,7 +2,8 @@ fnc_admin_c = compile 'compile _this';
 fnc_admin_cc = compile 'call compile _this';
 fnc_admin_ccc = compile 'if(!isNil {call compile _this})then{call compile _this}else{''ANY''}';
 fnc_createctrl = {
-	params['_display','_type','_idc'];
+	params[['_display',displayNull],'_type','_idc'];
+	if(isNull _display)exitwith{controlNull};
 	ctrlDelete (_display displayCtrl _idc);
 	_ctrl = _display ctrlCreate[_type, _idc];
 	_ctrl

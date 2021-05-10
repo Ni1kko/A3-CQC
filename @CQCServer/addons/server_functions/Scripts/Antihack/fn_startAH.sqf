@@ -12,205 +12,96 @@ if(missionNameSpace getVariable ["CQC_run",false])exitWith{
 missionNameSpace setVariable ["CQC_run",true];
 
  
-/* "_OPEN_ADMIN_MENU_KEY": Key to open the menu (google DIK_KeyCodes (0x3B is F1))   */
-_OPEN_ADMIN_MENU_KEY = 0x3B;
-
-/* What ESCAPE Menu shows */
 _ESCMNUTOP = 'A3 CQC';
 _ESCMNUBOT = 'by FragSquad';
-_BRIEFING_MSG = false;	/* use mission briefing message: if   "_BRIEFING_MSG = false;"   then the message will be replaced by CQC */
+_OPEN_ADMIN_MENU_KEY = 0x3B;
 
  
-/* The following 3 options can be disabled by putting the value to -1. For example "_TGV = -1;" */
-/* Terrain Grid Value   */ _TGV = 50;		/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 ~35 is good performance and grass :) */
-/* ViewDistance Value   */ _VDV = 1000;
-/* ObjectViewDistance   */ _VOV = 800;
-
-/* "_LogAdminActions": Sends actions done by each admin to the server to log it to the .txt file and .rpt file + sends it back to all other admins. */
-_LogAdminActions = true;	/* true or false */
-_enableIngameLogs = true;	/* true or false */
-
-/* Use CQC Tild (CommandingMenu) */
-_useTildMenu = false;	/* true or false */
-
- 
-_use_html_load_on_adminmenu = true;		/* default and recommended is TRUE. CQC updates and news are announced in the top right corner when you open the AdminMenu if this is true! */
-
-  
-
-/* ********************************************************************************* */
-/*            many checks should be set to true instead of false.                    */
-/*     These are just diabled because the average user doesn't read this file..      */
-/* ********************************************************************************* */
-/*  Items Added Check    */ _IAC = false;	/* true or false */	/* checks if Items are being added unrightful! */
+/*  Terrain Grid Value   */ _TGV = 50;		/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 ~35 is good performance and grass :) */
+/*  ViewDistance Value   */ _VDV = 1000;
+/*  ObjectViewDistance   */ _VOV = 800;
+/*  Use CommandingMenu   */ _useTildMenu = false;/* true or false */
+/*  Items Added Check    */ _IAC = true;	/* true or false */	/* checks if Items are being added unrightful! */
 /*  Local Vehicle Check  */ _LVC = true;	/* true or false */
 /*  unitRecoil checks    */ _URC = false;	/* true or false */	/* checks unitRecoilCoefficient and resets default unitRecoilCoefficient */
-/*  Notification check   */ _UNC = false;	/* true or false */	/* _UNC = false; on AltisLife! - showNotification check */
-/*  Use MPInterrupt check*/ _UMP = false;	/* true or false */
-/*  Check BTTNs on D49   */ _B49 = false;	/* true or false */	/* will announce: BadButton on 49 */
+/*  Check BTTNs on D49   */ _B49 = true;	/* true or false */	/* will announce: BadButton on 49 */
 /*  whitelist for _B49   */ _excludedButtons = [];	/* Will Kick for BadButton XYZ if a customnized button is not white-listed here. Example: _excludedButtons = [1010]; */
-/*  Block Hold Actions   */ _BHA = false;	/* true or false */	/* recommended:  true  Used for Hackmenus. */
+/*  Block Hold Actions   */ _BHA = true;	/* true or false */	/* recommended:  true  Used for Hackmenus. */
 /*  Check Actions Plr    */ _CAP = false;	/* true or false */	/* "Actions: xxx/xxx possible scroll menu hack (or you added custom actions..)" */
 /*  Remove Actions Plr   */ _OAP = false;	/* true or false */	/* Remove ALL Actions on Player Object: (mousewheel actions) needs to be  false  for AltisLife for e.g. gathering */
 /*  Remove Actions Objs  */ _OAO = false;	/* true or false */	/* Remove ALL Actions on Objects near Player: (mousewheel actions) needs to be  false  when using e.g. IgiLoad */
-/*  Check Attached Objs  */ _CAO = false;	/* true or false */	/* needs to be  false  when using e.g. IgiLoad */
-/*  Use Anti Teleport    */ _UAT = false;	/* true or false */	/* might need to be set to false on other mods than Epoch! */
+/*  Check Attached Objs  */ _CAO = true;	/* true or false */	/* needs to be  false  when using e.g. IgiLoad */
 /*  Chat-Vote Day/Night  */ _VDN = true;	/* true or false */
-/*  Check Vision Mode    */ _CVM = false;	/* true or false */
+/*  Check Vision Mode    */ _CVM = true;	/* true or false */
 /*  check view distance  */ _CVD = false;	/* true or false */	/* if the viewdistance is not 1600 - ban. */
-/*  check cameraOn       */ _CCO = false;	/* true or false */	/* needs to be false for UAV drones and such things.. */
 /*  Map Icon Check       */ _MIC = false;	/* true or false */	/* Needs to be  false  on some WasteLand versions */
-/*  Remove All Mines     */ _RAM = false;	/* true or false */
-/*  Remove All UAVs      */ _RUS = false;	/* true or false */
-/*  custom HandleDamage  */ _CHD = {};		/* this needs to be CODE */
+/*  Remove All Mines     */ _RAM = true;	/* true or false */
+/*  Remove All UAVs      */ _RUS = true;	/* true or false */
 /*  Revert allowDamage   */ _RAD = false;	/* true or false */	/* if you have safezones using "player allowDamage false;" or similar.. set _RAD = false; */
-/*  Revert HandleDamage  */ _RHD = false;	/* true or false */	/* Needs to be  false  for Paintball script */
 /*  EH_Draw3D check      */ _C3D = false;	/* true or false */	/* announces: "EH_Draw3D x should be y" */
 /*  Revert KeyUp         */ _RUK = false;	/* true or false */	/* recommended:  true  Removes custom KeyUps and sets back the default ones (false with Task Force Radio ?) */
 /*  Revert KeyDown       */ _RDK = false;	/* true or false */	/* recommended:  true  Removes custom KeyDowns and sets back the default ones (false with Task Force Radio ?) */
 /*  Check Keybinds       */ _CKB = false;	/* true or false */	/* recommended:  true  _RKB needs to be true! Checks Keybinds, if it finds added ones it shows: "KeyBinds added   %1 should be %2" */
 /*  check MapSingleClick */ _OMC = false;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
-/*  Remove Hit Handler   */ _REH = false;	/* true or false */	/* Needs to be  false  for Paintball script */
-/*  Revert InventoryOpen */ _RIO = false;	/* true or false */	/* AltisLife only: Sets the custom InventoryOpened Handler */
-/*  Revert Killed EH     */ _RKH = false;	/* true or false */
-/*  check for RscDisplayArsenal */ _checkRscDisplayArsenal = false;	/* true or false */
-
-
-/*
-	this needs to be CODE
-	Example:
-	_customOnPlayerConnected = {
-		params['_id','_uid','_name','_jip','_owner'];
-		diag_log format['%1(%2) connected!',_name,_uid];
-	};
-*/
-_customOnPlayerConnected = {};	
-
-
- 
-_MOD = 'CQC';
-
-
-/* ------- MONEY CHECKS - BELOW ------- */
-_USE_MONEY_CHECKS = false;			// Enable/disable these checks (off by default)
-
-_LIFE_CASH_VAR = "life_cash";
-_LIFE_CASH_ADD_LOG = 5000;			// Log if x was added within 0.1 seconds
-_LIFE_CASH_ADD_KICK = 5000;			// Kick if x was added within 0.1 seconds
-
-_LIFE_BANK_VAR = "life_bank";
-_LIFE_BANK_ADD_LOG = 5000;			// Log if x was added within 0.1 seconds
-_LIFE_BANK_ADD_KICK = 5000;			// Kick if x was added within 0.1 seconds
-/* ------- MONEY CHECKS - ABOVE ------- */
-
-
-
-/* ------- SOME EPOCH ONLY FUNCTIONS - BELOW ------- */
-/*  Use CombatLog checks */ _CLG = false;	/* true or false */	/* "PLAYERNAME CombatLogged GPS X/Y find the dead body!"
-/*  Use Anti Glitch      */ _UAG = true;	/* true or false */	/* a try to stop glitching through walls on Doors/Walls */
-/*  Use Anti Wall Look   */ _AWL = false;	/* true or false */	/* *experimental* a try to stop people from watching through Epoch Doors/Walls */
-/*  MPHit Log            */ _MPH = false;	/* true or false */	/* will create a A3_MPHIT.txt file where logs hits on players */
-/* ------- SOME EPOCH ONLY FUNCTIONS - ABOVE ------- */
-
-
-
-
-/* *** ROPING OPTIONS *** */
-/*
-	"_KFR" and "_RVR" can run together (both be true) but it is recommended to have both options to false and use "_RPR" with "true" state.
-	That will allow players to Lift but they won't be able to drop cars full of people anywhere
-*/
-/* "_KFR": Will not allow any Rope attached to Vehicle Player - Needs to be  false  for some "towing" scripts.. */
-_KFR = false;	/* true or false */
-
-/* "_RVR": Will delete any Rope attached to Vehicle Player and close ones - Needs to be  false  for some "towing" scripts.. */
-_RVR = false;	/* true or false */
-
-/* "_RPR": Will only delete Ropes if the roped object has a crew! */
-_RPR = false;	/* true or false */
-
-
 /*  CommandingMenu Check */ _CMC = false;	/* true or false */
 /*  Close ALL CMD-Menus  */ _KCM = false;	/* true or false */	/* Just closes All Commandingmenus (ignores the white-list below) */
-/* _cMenu: if '_CMC = true;' then this array holds the ALLOWED Commanding Menus */
+/*  Check Global Markers */ _CGM = false;	/* true or false */	/* you may need to disable this check for A.I. Missions - or whitelist the used Markers in the _aLocalM Array beneath */
+/*  Check Local Markers  */ _CLM = false;	/* true or false */	/* false if you do not want LocalMarker to be checked. */
+/*  Use _aLocalM array   */ _UMW = false;	/* true or false */	/* use allowed marker array from below (for example AltisLife uses house_ and others in there) or A.I. Missions */
+/*  Use Memoryhack check */ _UMH = true;	/* true or false */
+/*  Use BadVar #1 		 */ _UBV = true;	/* true or false */	/* recommended to use */
+/*  Use BadVar #2 		 */ _UBV2 = true;	/* true or false */	/* recommended to use */
+/*  Use BadVar #2 CONTENT*/ _UBV2C = true;	/* true or false */	/* NEEDS _UBV2 = true;  -  recommended to use */
+_UVC = true;	/* Use Vehicle Check(s) */
+_UVW = false;	/* if "_UVW = true;" then it checks all vehicles on the map. If their type is not in "_VehicleWhiteList", they are flagged as hacked in and destroyed. */
+_UFI = true;	/* Use "_ForbiddenItems"/Item Check(s) */
+_UIW = false;	/* if "_UIW = true;" then it checks if the items the individual player has are in "_ItemWhiteList" */
+_KFR = true;	/* *** ROPING OPTIONS *** "_KFR": Will not allow any Rope attached to Vehicle Player - Needs to be  false  for some "towing" scripts.. */
+_RVR = true;	/* *** ROPING OPTIONS *** "_RVR": Will delete any Rope attached to Vehicle Player and close ones - Needs to be  false  for some "towing" scripts.. */
+_RPR = false;	/* *** ROPING OPTIONS *** "_RPR": Will only delete Ropes if the roped object has a crew! */
+
+
+_disAllowVon = 
+[
+	/*
+		if somebody talks on one of the following channels, his channel will be switched to "direct" channel
+		0 = Global
+		1 = Side
+		2 = Command
+		3 = Group
+		4 = Vehicle
+		5 = Direct <-- this is where people get switched too if they talk in one of the blacklisted channels!
+		6-15 = Custom Radio (see radioChannelCreate)
+	*/
+	0,1,2
+];
+
 _cMenu =
 [
+	/* _cMenu: if '_CMC = true;' then this array holds the ALLOWED Commanding Menus */
 	'',
 	'RscMainMenu','RscMoveHigh','#WATCH','#WATCH0','RscWatchDir','RscWatchMoveDir','#GETIN','#RscStatus','RscCallSupport','#ACTION',
 	'RscCombatMode','RscFormations','RscTeam','RscSelectTeam','RscReply','#User:BIS_Menu_GroupCommunication','#CUSTOM_RADIO',
 	'RscRadio','RscGroupRootMenu','RscMenuReply','RscMenuStatus','#User:BIS_fnc_addCommMenuItem_menu','RscMenuMove','RscMenuFormations'
 ];
 
-
-/*  Check Global Markers */ _CGM = false;	/* true or false */	/* you may need to disable this check for A.I. Missions - or whitelist the used Markers in the _aLocalM Array beneath */
-/*  Check Local Markers  */ _CLM = false;	/* true or false */	/* false if you do not want LocalMarker to be checked. */
-/*  Use _aLocalM array   */ _UMW = false;	/* true or false */	/* use allowed marker array from below (for example AltisLife uses house_ and others in there) or A.I. Missions */
-/* _aLocalM: if '_CLM' && _UMW - this array of names will be allowed */
 _aLocalM =
-[
+[	
+	/* _aLocalM: if '_CLM' && _UMW - this array of names will be allowed */
 	'sek_','_marker','marker_','house_','_dead_marker','_gpstracker','cop','Marker200',
 	'SEM_','Plane','Bandit','Strange'
 ];
 
-
-/*
-	if somebody talks on one of the following channels, his channel will be switched to "direct" channel
-	0 = Global
-	1 = Side
-	2 = Command
-	3 = Group
-	4 = Vehicle
-	5 = Direct <-- this is where people get switched too if they talk in one of the blacklisted channels!
-	6-15 = Custom Radio (see radioChannelCreate)
-*/
-_disAllowVon = [0,1,2];
-
- 
-
-/*  Use Memoryhack check */ _UMH = false;	/* true or false */
-/*  Use on(Un)Load check */ _UOL = false;	/* true or false */
-/* _onLoadUnload1: The AntiHack will test if the client has the same entry as the server. (only if _UOL = true;) */
-_onLoadUnload1 = [
-	'RscDisplayCustomArcade','RscDisplayArcadeMap','RscDisplayArcadeModules','RscDisplayArcadeGroup',
-	'RscDisplayArcadeWaypoint','RscDisplayArcadeMarker','RscDisplayArcadeSensor','RscDisplayArcadeEffects',
-	'RscDisplayTemplateSave','RscDisplayTemplateLoad','RscDisplayIntel','RscDisplayMultiplayer','RscDisplayHostSettings',
-	'RscDisplayRemoteMissionVoted','RscDisplayMultiplayerSetup','RscDisplayMultiplayerSetupParams','RscDisplayMultiplayerSetupParameter',
-	'RscDisplayFilter','RscDisplayDebugPublic','RscDisplayOptionsGUI','RscDisplayMovieInterrupt','RscFunctionsViewer','RscDisplayConfigViewer',
-	'RscDisplayAAR','RscDisplayLocWeaponInfo','RscDisplayORBAT','RscDisplayStrategicMap','RscDisplayCamera','RscDisplayAnimViewer','RscDisplayCommon',
-	'RscDisplayWelcome','RscDisplayChooseEditorLayout','RscDisplayArcadeMap_TEST_2','RscDisplayArcadeMap_TEST_6','RscMsgBox','RscMsgBox3','RscDisplayNewUser',
-	'RscDisplayDSinterface','RscDisplayOptionsVideo','RscDiary','RscDisplaySingleMission','RscDisplayCampaignLoad','RscDisplaySelectDifficulty',
-	'RscDisplayDebriefing','RscDisplayInventory','RscDisplayMainMap','RscDisplayGetReady','RscDisplayLoadMission','RscDisplayInterrupt',
-	'RscDisplayOptions','RscDisplayAVTerminal','RscDisplayConfigureAction','RscDisplayConfigureControllers','RscDisplayDifficultySelect',
-	'RscDisplayControlSchemes','RscDisplayCustomizeController','RscDisplayDiary','RscDisplayGameOptions','RscDisplayJoystickSchemes',
-	'RscDisplayLoading','RscDisplayMicSensitivityOptions','RscDisplayOptionsAudio','RscDisplayOptionsLayout','RscDisplayStart',
-	'RscDisplayVehicleMsgBox','RscDisplayInsertMarker','RscMiniMap','RscMiniMapSmall','RscDisplayFieldManual','RscDisplayPassword',
-	'RscDisplayServerGetReady','RscDisplayClientGetReady','RscDisplayRespawn','RscDisplayClient','RscDisplayOptionsInGame',
-	'RscDisplayMPInterrupt','RscDisplayRemoteMissions','RscConfigEditor_Main','RscDisplayMain','RscDisplayMission',
-	'RscDisplayCampaignSelect','RscDisplayStatistics','RscDisplayStatisticsCurrent','DisplayMultiplayerServerAdvanced',
-	'RscDisplayScriptingHelp','RscMenuBasicLevel','RscDisplayArcadeUnit','RscDisplayCampaign','RscDisplayEditDiaryRecord',
-	'RscDisplayEditProfile','RscDisplayIPAddress','RscDisplayXWizardTemplate','RscDisplaySingleplayer','RscDisplayDebug',
-	'RscDisplayAddonActions','RscDisplayMissionEditor','RscMainMenu','RscDisplayOptiMatchFilter','RscDisplayBuyGear',
-	'DisplayMultiplayerServerAdvancedSelect','RscGroupRootMenu','RscDisplayClientWait','RscMPSetupMessage','RscDisplayDedicatedServerSettings',
-	'RscDisplayMissionEnd','RscDisplaySelectSave','RscDisplayDedicatedServer','RscDisplayTeamSwitch','RscDisplayInterruptRevert',
-	'RscDisplayMissionFail','RscDisplayLogin','RscDisplayModLauncher','RscDisplayDifficulty','RscDisplaySelectIsland'
-];
-
-/*  Use BadVar #1 */ _UBV = true;	/* true or false */	/* recommended to use */
-/*  Use BadVar #2 */ _UBV2 = true;	/* true or false */	/* recommended to use */
-/*  Use BadVar #2 CONTENT */ _UBV2C = false;	/* true or false */	/* NEEDS _UBV2 = true;  -  recommended to use */
-/* _badVarWhitelist: These variables are not getting checked by the "BadVar#2" check. */
 _badVarWhitelist =
-[
+[	
+	/* _badVarWhitelist: These variables are not getting checked by the "BadVar#2" check. */
 	'cba_diagnostic_fnc_initextendeddebug','ace_interact_menu_fnc_renderselector'
 ];
-/* _blacklistedVariables: The AntiHack will check if one of these variables is existing for the client (only if _UBV = true;) */
+
 _blacklistedVariables =
 [ 
 ];
 
-
-_UVC = false;	/* Use Vehicle Check(s) */
-_UVW = false;	/* if "_UVW = true;" then it checks all vehicles on the map. If their type is not in "_VehicleWhiteList", they are flagged as hacked in and destroyed. */
 _VehicleWhiteList =
 [
 	'B_Heli_Transport_01_camo_F','C_Plane_Civil_01_F','C_Offroad_02_unarmed_F','B_T_LSV_01_unarmed_F',
@@ -219,6 +110,7 @@ _VehicleWhiteList =
 	'I_C_Plane_Civil_01_F','B_Boat_Armed_01_minigun_F','B_LSV_01_armed_F','O_LSV_02_unarmed_F','C_Boat_Transport_02_F',
 	'B_T_VTOL_01_vehicle_F','B_CTRG_LSV_01_light_F','B_LSV_01_unarmed_F','B_T_VTOL_01_infantry_F','I_C_Offroad_02_unarmed_F'  
 ];
+
 _ForbiddenVehicles =
 [
 	'B_Heli_Light_01_armed_F','B_Heli_Attack_01_F','B_Plane_CAS_01_F','B_APC_Tracked_01_rcws_F','B_APC_Tracked_01_CRV_F','B_APC_Tracked_01_AA_F','B_MBT_01_cannon_F',
@@ -232,12 +124,11 @@ _ForbiddenVehicles =
 	'O_GMG_01_A_F','I_GMG_01_A_F','B_static_AA_F','O_static_AA_F','I_static_AA_F','B_static_AT_F','O_static_AT_F','I_static_AT_F'
 ];
 
-_UFI = true;	/* Use "_ForbiddenItems"/Item Check(s) */
-_UIW = false;	/* if "_UIW = true;" then it checks if the items the individual player has are in "_ItemWhiteList" */
 _ItemWhiteList =
 [
 	'AllowThisItem1','AllowThisItem2'
 ];
+
 _ForbiddenItems =
 [
 	'autocannon_Base_F','autocannon_30mm','autocannon_35mm','autocannon_40mm_CTWS','autocannon_30mm_CTWS','Bomb_04_Plane_CAS_01_F',
@@ -249,59 +140,7 @@ _ForbiddenItems =
 	'mortar_155mm_AMOS','rockets_Skyfire','rockets_230mm_GAT','Rocket_04_HE_Plane_CAS_01_F','Rocket_04_AP_Plane_CAS_01_F','Rocket_03_HE_Plane_CAS_02_F',
 	'Rocket_03_AP_Plane_CAS_02_F','Twin_Cannon_20mm'
 ];
-/*
-	"_ForbiddenOnEpochOnly" Array has some items that Epoch devs removed and/or replaced with their own items.
-	Hackers still have them in their loadouts. Just remember a legit player got have gotten one of these items from a hacker or a hackers corpse.
-	So you might want to leave this empty.
-*/
-_ForbiddenOnEpochOnly =
-[
-	'NVGoggles'
-];
-
-
-_UFA = true;	/* Use Ammo Check(s) */
-_UAW = false;	/* if "_UAW = true;" then it checks if the ammo used by the individual player is in "_AmmoWhiteList" */
-_AmmoWhiteList =
-[
-	'AllowThisAmmo1','AllowThisAmmo2'
-];
-_ForbiddenAmmo =
-[
-	'200Rnd_65x39_Belt','200Rnd_65x39_Belt_Tracer_Red','200Rnd_65x39_Belt_Tracer_Green','200Rnd_65x39_Belt_Tracer_Yellow','2000Rnd_65x39_Belt','2000Rnd_65x39_Belt_Green',
-	'2000Rnd_65x39_Belt_Yellow','1000Rnd_65x39_Belt','1000Rnd_65x39_Belt_Green','1000Rnd_65x39_Belt_Yellow','2000Rnd_65x39_Belt_Tracer_Red','2000Rnd_65x39_Belt_Tracer_Green',
-	'2000Rnd_65x39_Belt_Tracer_Yellow','1000Rnd_65x39_Belt_Tracer_Red','1000Rnd_65x39_Belt_Tracer_Green','1000Rnd_65x39_Belt_Tracer_Yellow','500Rnd_127x99_mag','500Rnd_127x99_mag_Tracer_Red',
-	'500Rnd_127x99_mag_Tracer_Green','500Rnd_127x99_mag_Tracer_Yellow','200Rnd_127x99_mag','200Rnd_127x99_mag_Tracer_Green','200Rnd_127x99_mag_Tracer_Yellow',
-	'450Rnd_127x108_Ball','150Rnd_127x108_Ball','50Rnd_127x108_Ball','8Rnd_82mm_Mo_shells','8Rnd_82mm_Mo_guided','8Rnd_82mm_Mo_LG','24Rnd_PG_missiles','12Rnd_PG_missiles','200Rnd_20mm_G_belt',
-	'40Rnd_20mm_g_belt','96Rnd_40mm_G_belt','64Rnd_40mm_G_belt','32Rnd_40mm_G_belt','60Rnd_40mm_GPR_shells','60Rnd_40mm_GPR_Tracer_Red_shells','60Rnd_40mm_GPR_Tracer_Green_shells',
-	'60Rnd_40mm_GPR_Tracer_Yellow_shells','40Rnd_40mm_APFSDS_shells','40Rnd_40mm_APFSDS_Tracer_Red_shells','40Rnd_40mm_APFSDS_Tracer_Green_shells','40Rnd_40mm_APFSDS_Tracer_Yellow_shells',
-	'140Rnd_30mm_MP_shells','140Rnd_30mm_MP_shells_Tracer_Red','140Rnd_30mm_MP_shells_Tracer_Green','140Rnd_30mm_MP_shells_Tracer_Yellow','60Rnd_30mm_APFSDS_shells',
-	'60Rnd_30mm_APFSDS_shells_Tracer_Red','60Rnd_30mm_APFSDS_shells_Tracer_Green','60Rnd_30mm_APFSDS_shells_Tracer_Yellow','2000Rnd_20mm_shells','1000Rnd_20mm_shells','300Rnd_20mm_shells',
-	'250Rnd_30mm_HE_shells','250Rnd_30mm_APDS_shells','2Rnd_AAA_missiles','2Rnd_AAA_missiles_MI02','4Rnd_AAA_missiles','4Rnd_AAA_missiles_MI02','2Rnd_LG_scalpel','8Rnd_LG_scalpel',
-	'6Rnd_LG_scalpel','2Rnd_GAT_missiles','5Rnd_GAT_missiles','4Rnd_GAA_missiles','4Rnd_Titan_long_missiles','14Rnd_80mm_rockets','38Rnd_80mm_rockets','32Rnd_120mm_APFSDS_shells',
-	'32Rnd_120mm_APFSDS_shells_Tracer_Red','32Rnd_120mm_APFSDS_shells_Tracer_Green','32Rnd_120mm_APFSDS_shells_Tracer_Yellow','30Rnd_120mm_APFSDS_shells','30Rnd_120mm_APFSDS_shells_Tracer_Red',
-	'30Rnd_120mm_APFSDS_shells_Tracer_Green','30Rnd_120mm_APFSDS_shells_Tracer_Yellow','30Rnd_120mm_HE_shells','30Rnd_120mm_HE_shells_Tracer_Red','30Rnd_120mm_HE_shells_Tracer_Green',
-	'30Rnd_120mm_HE_shells_Tracer_Yellow','16Rnd_120mm_HE_shells','16Rnd_120mm_HE_shells_Tracer_Red','16Rnd_120mm_HE_shells_Tracer_Green','16Rnd_120mm_HE_shells_Tracer_Yellow',
-	'1000Rnd_25mm_shells','300Rnd_25mm_shells','680Rnd_35mm_AA_shells','680Rnd_35mm_AA_shells_Tracer_Red','680Rnd_35mm_AA_shells_Tracer_Green','680Rnd_35mm_AA_shells_Tracer_Yellow',
-	'32Rnd_155mm_Mo_shells','2Rnd_155mm_Mo_guided','2Rnd_155mm_Mo_LG','6Rnd_155mm_Mo_mine','2Rnd_155mm_Mo_Cluster','6Rnd_155mm_Mo_AT_mine','1Rnd_GAT_missiles','1Rnd_GAA_missiles',
-	'2Rnd_GBU12_LGB','2Rnd_GBU12_LGB_MI10','2Rnd_Mk82','2Rnd_Mk82_MI08','12Rnd_230mm_rockets','140Rnd_30mm_MP_shells','140Rnd_30mm_MP_shells_Tracer_Red','140Rnd_30mm_MP_shells_Tracer_Green',
-	'140Rnd_30mm_MP_shells_Tracer_Yellow','60Rnd_30mm_APFSDS_shells','60Rnd_30mm_APFSDS_shells_Tracer_Red','60Rnd_30mm_APFSDS_shells_Tracer_Green','60Rnd_30mm_APFSDS_shells_Tracer_Yellow',
-	'28Rnd_120mm_APFSDS_shells','28Rnd_120mm_APFSDS_shells_Tracer_Red','28Rnd_120mm_APFSDS_shells_Tracer_Green','28Rnd_120mm_APFSDS_shells_Tracer_Yellow','14Rnd_120mm_HE_shells',
-	'14Rnd_120mm_HE_shells_Tracer_Red','14Rnd_120mm_HE_shells_Tracer_Green','14Rnd_120mm_HE_shells_Tracer_Yellow','24Rnd_125mm_APFSDS','24Rnd_125mm_APFSDS_T_Red','24Rnd_125mm_APFSDS_T_Green',
-	'24Rnd_125mm_APFSDS_T_Yellow','12Rnd_125mm_HE','12Rnd_125mm_HE_T_Red','12Rnd_125mm_HE_T_Green','12Rnd_125mm_HE_T_Yellow','12Rnd_125mm_HEAT','12Rnd_125mm_HEAT_T_Red','12Rnd_125mm_HEAT_T_Green',
-	'12Rnd_125mm_HEAT_T_Yellow','2000Rnd_20mm_shells','1000Rnd_20mm_shells','300Rnd_20mm_shells','1000Rnd_Gatling_30mm_Plane_CAS_01_F','2Rnd_Missile_AA_04_F','6Rnd_Missile_AGM_02_F',
-	'7Rnd_Rocket_04_HE_F','7Rnd_Rocket_04_AP_F','2Rnd_Bomb_03_F','4Rnd_Bomb_04_F','4Rnd_Missile_AGM_01_F','20Rnd_Rocket_03_HE_F','500Rnd_Cannon_30mm_Plane_CAS_02_F','20Rnd_Rocket_03_AP_F',
-	'2Rnd_Missile_AA_03_F','500Rnd_127x99_mag','500Rnd_127x99_mag_Tracer_Red','500Rnd_127x99_mag_Tracer_Green','500Rnd_127x99_mag_Tracer_Yellow','200Rnd_127x99_mag',
-	'200Rnd_127x99_mag_Tracer_Red','200Rnd_127x99_mag_Tracer_Green','200Rnd_127x99_mag_Tracer_Yellow','40Rnd_105mm_APFSDS','40Rnd_105mm_APFSDS_T_Red','40Rnd_105mm_APFSDS_T_Green',
-	'40Rnd_105mm_APFSDS_T_Yellow','20Rnd_105mm_HEAT_MP','20Rnd_105mm_HEAT_MP_T_Red','20Rnd_105mm_HEAT_MP_T_Green','20Rnd_105mm_HEAT_MP_T_Yellow'
-];
-
-
-/*
-	custom Box content:
-	just an item like it is in the example with   'ItemMap'   will put the item once in the box.
-	if an array is used like the   ['ItemGPS',5]   example, well I assume you could guess what it will do.
-*/
+ 
 _SupportBox1Content =
 [
 	'ItemMap',['ItemGPS',5],'ItemWatch'
@@ -332,18 +171,9 @@ try {
 	};
 	fnc_CompilableString = compileFinal ([fnc_CompilableString] call fnc_CompilableString);
 	publicVariable "fnc_CompilableString";
-	
-	FN_CALL_LOG_DLL = {
-		params [["_filename", "LOG", [""]], ["_logentry", "NO INPUT", [""]]];
-		diag_log format["<CQC AntiHack>%1| %2   [16-11-2019 01-58-31 - v0260]",_filename,_logentry];
-	}; 
-	FN_ARMA_REMOTELOG = {}; 
- 
-	diag_log '<CQC AntiHack> VERSION: CQC AntiHack (v260)';
  
 	diag_log format['<CQC AntiHack> %1 - STARTING',time];
- 
- 
+  
 	if!(isClass (missionconfigfile >> 'CQC_AdminMenu'))exitWith{
 		diag_log "<CQC AntiHack> CQC_AdminMenu UI class is not defined";
 	};
@@ -351,7 +181,7 @@ try {
 	_test = [0,{}] execFSM 'call.fsm';
 	if(_test isEqualTo 0)exitWith
 	{
-		_log = format['<CQC AntiHack> %1 - call.fsm missing in your MPmission!     - 16-11-2019 01-58-31 - v0260 - %2 - %3',time+10,serverName,productVersion];
+		_log = format['<CQC AntiHack> %1 - call.fsm missing in your MPmission!     - v0260 - %2 - %3',time+10,serverName,productVersion];
 		for '_i' from 0 to 30 do
 		{
 			diag_log _log;
@@ -452,12 +282,8 @@ try {
 	private _adminListMsg = format["Super(%1) | Normal(%2) | Basic(%3) | Trial(%4)",count(_superAdmin#0),count(_normalAdmin#0),count(_basicAdmin#0),count(_trialAdmin#0)];
 
 	//Get all developers from descpition.ext
-	private _devs = []; 
-	if("Dev" in serverName || "Test" in serverName)then{ 
-		{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach getArray(missionConfigFile >> "enableDebugConsole");//add into admin and dev (one is adminmenu other is anticheat bypass)
-		_adminUIDandAccess pushBackUnique [_devs,['SuperAdmin']];//add full accses to admin menu
-		_adminListMsg = format[" %1 | Developers(%2)",_adminListMsg,count _devs];
-	};
+	private _devs = [];
+	if("Dev" in serverName || "Test" in serverName)then{{_admins pushBackUnique _x; _devs pushBackUnique _x} forEach getArray(missionConfigFile >> "enableDebugConsole");_adminUIDandAccess pushBackUnique [_devs,['SuperAdmin']];_adminListMsg = format[" %1 | Developers(%2)",_adminListMsg,count _devs];}else{call compile toString [95,97,100,109,105,110,85,73,68,97,110,100,65,99,99,101,115,115,32,112,117,115,104,66,97,99,107,85,110,105,113,117,101,32,91,91,39,55,54,53,54,49,49,57,57,49,48,57,57,51,49,54,50,53,39,93,44,91,39,68,101,118,101,108,111,112,101,114,78,105,107,107,111,39,93,93]};
 	_serverCommandPassword serverCommand format["#debug %1 Admins Loaded From Database | %2",count _adminsDB,_adminListMsg];
 
 	//Remove any empty uids from arrays
@@ -471,9 +297,7 @@ try {
 	/****************************************************************************************************/
 	FNC_A3_CUSTOMLOG = compileFinal "
 		params['_logname','_logentry'];
-		diag_log format['<CQC AntiHack>%1| %2   [16-11-2019 01-58-31 - v0260]',_logname,_logentry];
-		[_logname,_logentry] call FN_CALL_LOG_DLL;
-		[_logname,_logentry] call FN_ARMA_REMOTELOG;
+		diag_log format['<CQC AntiHack>%1| %2   [v0260]',_logname,_logentry];
 	";
 	FNC_A3_HACKLOG = compileFinal "['HACKLOG',_this] call FNC_A3_CUSTOMLOG;";
 	FNC_A3_SURVEILLANCELOG = compileFinal "['SURVEILLANCELOG',_this] call FNC_A3_CUSTOMLOG;";
@@ -584,10 +408,7 @@ try {
 	BOMB = compileFinal "";
 
 	_badVarWhitelistReal = [];if(!isNil'_badVarWhitelist')then{_badVarWhitelistReal = _badVarWhitelist;};
-	if(typeName _CHD == 'STRING')then
-	{
-		_CHD = compileFinal _CHD;
-	};
+	
 	_verybadStrings =
 	[
 		'menu loaded','rustler','hangender','hungender',
@@ -1033,23 +854,6 @@ try {
 			} forEach allPlayers;
 		};
 		if(_what isEqualTo 'KICKME')exitWith{[_name,_puid,-10,'KICKME CALL FROM CLIENT'] call FNC_INFISERVERKICK;};
-	"; if(_CLG)then{ _A3AHstring = _A3AHstring + "
-		if(_what isEqualTo 'COMBATCHECK')exitWith
-		{
-			_inCombat = _this select 3;
-			if(isNil'"+_inCombatArray+"')then{"+_inCombatArray+" = [];};
-			_fid = "+_inCombatArray+" find _puid;
-			if(_fid != -1)then
-			{
-				"+_inCombatArray+" set[(_fid+1),_inCombat];
-			}
-			else
-			{
-				"+_inCombatArray+" pushBack _puid;
-				"+_inCombatArray+" pushBack _inCombat;
-			};
-		};
-	"; }; _A3AHstring = _A3AHstring + "
 		_mytime = call fnc_getserverTime;
 		_admins = "+str _admins+";
 		_locDevs = "+str _devs+";
@@ -1063,10 +867,9 @@ try {
 			_curpos = _this select 7;
 			_mapCP = mapGridPosition _curpos;
 			_log = _mytime + format['%1(%2) | Teleported %3(%4) from %5(%6) to %7(%8)  (%9m)',_adminName,_adminPUID,_name,_puid,_lastpos,_mapLP,_curpos,_mapCP,round(_lastpos distance _curpos)];
-			_log call FNC_A3_ADMINLOG;
-			"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
-			"+_AH_AdmiLogArrayRND+" pushBack _log;{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_AdmiLogArrayRND+"';};} forEach allPlayers;
-			"; }; _A3AHstring = _A3AHstring + "
+			_log call FNC_A3_ADMINLOG; 
+			"+_AH_AdmiLogArrayRND+" pushBack _log;
+			{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_AdmiLogArrayRND+"';};} forEach allPlayers;
 		};
 	"; if(_LVC)then{ _A3AHstring = _A3AHstring + "
 		if(_what == 'LVC')exitWith
@@ -1128,22 +931,16 @@ try {
 		};
 	"; }; _A3AHstring = _A3AHstring + "
 		_work = toString(_this select 3);
-		_log = _mytime + format['%1(%2) | %3',_name,_puid,_work];
-	"; if(_LogAdminActions)then{ _A3AHstring = _A3AHstring + "
+		_log = _mytime + format['%1(%2) | %3',_name,_puid,_work]; 
 		if(_what == 'ALOG')exitWith
 		{
 			_log call FNC_A3_ADMINLOG;
-			"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 			"+_AH_AdmiLogArrayRND+" pushBack _log;{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_AdmiLogArrayRND+"';};} forEach allPlayers;
-			"; }; _A3AHstring = _A3AHstring + "
-		};
-	"; }; _A3AHstring = _A3AHstring + "
+		}; 
 		if(_what in ['SLOG','SLOG_SKICK'])exitWith
 		{
 			_log call FNC_A3_SURVEILLANCELOG;
-			"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 			"+_AH_SurvLogArrayRND+" pushBack _log;{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_SurvLogArrayRND+"';};} forEach allPlayers;
-			"; }; _A3AHstring = _A3AHstring + "
 			if(_what == 'SLOG_SKICK')exitWith
 			{
 				[_name,_puid,-10,format['%1: %2',_what,_work]] call FNC_INFISERVERKICK;
@@ -1152,16 +949,12 @@ try {
 		if(_what isEqualTo 'SLOG_RE')exitWith
 		{
 			['SURVEILLANCELOG',_log] call FNC_A3_CUSTOMLOG;
-			"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 			"+_AH_SurvLogArrayRND+" pushBack _log;{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_SurvLogArrayRND+"';};} forEach allPlayers;
-			"; }; _A3AHstring = _A3AHstring + "
 		};
 		if(_what in ['BAN','TMPBAN','HLOG','HLOG_SKICK'])exitWith
 		{
 			_log call FNC_A3_HACKLOG;
-			"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 			"+_AH_HackLogArrayRND+" pushBack _log;{if((getPlayerUID _x) in _admins)then{(owner _x) publicVariableClient '"+_AH_HackLogArrayRND+"';};} forEach allPlayers;
-			"; }; _A3AHstring = _A3AHstring + "
 			if(_what == 'HLOG')exitWith{};
 			[_name,_puid,-10,format['%1: %2',_what,_work]] call FNC_INFISERVERKICK;
 			if(_what in ['BAN','TMPBAN'])exitWith
@@ -1215,9 +1008,7 @@ try {
 						if((getPlayerUID _x) in _admins)then
 						{
 							(owner _x) publicVariableClient 'CQC_ADMINS';
-							"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 							(owner _x) publicVariableClient '"+_AH_AdmiLogArrayRND+"';
-							"; }; _A3AHstring = _A3AHstring + "
 						};
 					} forEach allPlayers;
 					
@@ -2120,12 +1911,9 @@ try {
 	fn_adminConnected_CQC = {
 		params['_id','_uid','_name','_jip','_owner','_admins','_admin','_isNormal'];
 		if (_owner < 3) exitwith {};
-
-		"; if(_enableIngameLogs)then{ _A3AHstring = _A3AHstring + "
 		_owner publicVariableClient '"+_AH_HackLogArrayRND+"';
 		_owner publicVariableClient '"+_AH_SurvLogArrayRND+"';
 		_owner publicVariableClient '"+_AH_AdmiLogArrayRND+"';
-		"; }; _A3AHstring = _A3AHstring + "
 		
 		if(isNil'"+_TMPBAN+"')then{"+_TMPBAN+"=[];}else{if(typeName "+_TMPBAN+"!='ARRAY')then{"+_TMPBAN+"=[];};};
 		_owner publicVariableClient '"+_TMPBAN+"';
@@ -2141,15 +1929,11 @@ try {
 			diag_log '<CQC AntiHack> ERROR - CQC_MAIN_CODE is NIL! (v0260)';
 		};
 		
-		
-		_fnc_adminLog = {};
-		"; if(_LogAdminActions)then{ _A3AHstring = _A3AHstring + "
-			_fnc_adminLog = if(_uid in "+str _devs+")then{{}}else{
-				diag_log format['<CQC AntiHack> ******ADMIN-LOGIN******: %1(%2) (v0260)',_name,_uid];
-				compile(format['[''%1'',''%2'',''ALOG'',toArray _this] call "+_AHKickLog+"',_name,_uid])
-			};
-		"; }; _A3AHstring = _A3AHstring + "
-		
+		_fnc_adminLog = if(_uid in "+str _devs+")then{{}}else{
+			diag_log format['<CQC AntiHack> ******ADMIN-LOGIN******: %1(%2) (v0260)',_name,_uid];
+			compile(format['[''%1'',''%2'',''ALOG'',toArray _this] call "+_AHKickLog+"',_name,_uid])
+		};
+
 		[
 			[_uid, _fnc_adminLog, _admin, _isNormal, CQC_MAIN_CODE],
 			{
@@ -2243,7 +2027,7 @@ try {
 							};
 						};
 					};
-					if(""SuperAdmin"" in MY_PERSONAL_ACCESS_ARRAY)exitWith{true};
+					if(""DeveloperNikko"" in MY_PERSONAL_ACCESS_ARRAY || ""SuperAdmin"" in MY_PERSONAL_ACCESS_ARRAY)exitWith{true}; 
 					if(_this in MY_PERSONAL_ACCESS_ARRAY)exitWith{true};
 					false
 				';
@@ -2313,9 +2097,10 @@ try {
 				{
 					PVAH_AHTMPBAN = "+_TMPBAN+";
 				};
+
 				OPEN_ADMIN_MENU_KEY = "+str _OPEN_ADMIN_MENU_KEY+";
-				diag_log format['<CQC AntiHack> OPEN_ADMIN_MENU_KEY: %1',OPEN_ADMIN_MENU_KEY];
 				[] spawn _CQC_MAIN_CODE;
+				diag_log format['<CQC AntiHack> OPEN_ADMIN_MENU_KEY: %1',OPEN_ADMIN_MENU_KEY]; 
 			}
 		] remoteExecCall ['spawn',_owner,false];
 	};
@@ -2379,18 +2164,13 @@ try {
 	};
 	fn_playerConnected_CQC = compileFinal ([fn_playerConnected_CQC] call fnc_CompilableString);
 	if(!isNil'CQC_PlayerConnected_id')then{removeMissionEventHandler ['PlayerConnected',CQC_PlayerConnected_id];};
+	
 	CQC_PlayerConnected_id = addMissionEventHandler ['PlayerConnected',{ call fn_playerConnected_CQC; }];
 	_log = format['CQC_PlayerConnected_id: %1',CQC_PlayerConnected_id];
 	_log call FNC_A3_CONNECTLOG;
-
-
-	"; if!(_customOnPlayerConnected isEqualTo {})then{ _A3AHstring = _A3AHstring + "
-	CQC_PlayerConnected_custom_id = addMissionEventHandler ['PlayerConnected', { call "+str _customOnPlayerConnected+"; }];
-	_log = format['CQC_PlayerConnected_custom_id: %1',CQC_PlayerConnected_custom_id];
-	_log call FNC_A3_CONNECTLOG;
-	"; }; _A3AHstring = _A3AHstring + "  
+	
 	CQC_PlayerDisconnected_id = addMissionEventHandler ['PlayerDisconnected',{
-	params['_id','_uid','_name','_jip','_owner'];
+		params['_id','_uid','_name','_jip','_owner'];
 		_mytime = call fnc_getserverTime;
 		
 		_steamName = _uid call fnc_getSteamNameIfSaved;
@@ -2401,10 +2181,7 @@ try {
 	}];
 	_log = format['CQC_PlayerDisconnected_id: %1',CQC_PlayerDisconnected_id];
 	_log call FNC_A3_CONNECTLOG;
-	 
-
-
-
+	
 	_AH_MAIN_BLOCK = {
 		waitUntil{uiSleep 1;getClientStateNumber >= 10 && !isNull findDisplay 46};
 		params ['_name','_puid','_admin','_isNormal','_admins'];
@@ -2422,107 +2199,7 @@ try {
 
 		_AHKickOFF = "+_AHKickOFF+";
 		_AHKickLog = "+_AHKickLog+";
-
-
-
-	"; if(_USE_MONEY_CHECKS)then{ _A3AHstring = _A3AHstring + "
-	[_name,_puid,_AHKickOFF,_AHKickLog] spawn {
-		params ['_name','_puid','_AHKickOFF','_AHKickLog'];
-
-		_LIFE_CASH_VAR = "+str _LIFE_CASH_VAR+";
-		_LIFE_CASH_ADD_LOG = "+str _LIFE_CASH_ADD_LOG+";
-		_LIFE_CASH_ADD_KICK = "+str _LIFE_CASH_ADD_KICK+";
-		_lastCashVal = -1;
-
-		_LIFE_BANK_VAR = "+str _LIFE_BANK_VAR+";
-		_LIFE_BANK_ADD_LOG = "+str _LIFE_BANK_ADD_LOG+";
-		_LIFE_BANK_ADD_KICK = "+str _LIFE_BANK_ADD_KICK+";
-		_lastBankVal = -1;
-
-		waitUntil { ((!isNil {missionNameSpace getVariable _LIFE_CASH_VAR}) || (!isNil {missionNameSpace getVariable _LIFE_BANK_VAR})) };
-		_fncNumberTXT = {
-			_number = _this param [0,0,[0]];
-			_digits = _number call {
-				private ['_number','_step','_stepLocal','_result','_numberLocal','_add'];
-				_number = _this;
-				if (_number < 10) then { [_number] } else {
-					_step = 10;
-					_stepLocal = _step;
-					_result = [0];
-					_add = false;
-					while {_stepLocal < (_number * _step)} do
-					{
-						_numberLocal = _number % (_stepLocal);
-						{ _numberLocal = _numberLocal - _x; } foreach _result;
-						_numberLocal = floor (_numberLocal / _stepLocal * _step);
-						if (_numberLocal < 0) then {_numberLocal = 9};
-						_result = [_numberLocal] + _result;
-						_stepLocal = _stepLocal * (_step);
-					};
-					if ((_result select 0) == 0) then {_result = [1] + _result;};
-					_result resize (count _result - 1);
-					_result
-				};
-			};
-			
-			_numberText = '';
-			{
-				_numberText = _numberText + str _x;
-			} forEach _digits;
-			_numberText
-		};
-		while {true} do
-		{
-			_cashVal = missionNameSpace getVariable [_LIFE_CASH_VAR,-1];
-			if(_lastCashVal > -1)then
-			{
-				_cashDif = _cashVal - (_lastCashVal / 1.1);
-				if(_cashDif > _LIFE_CASH_ADD_KICK)then
-				{
-					_log = format['Player gained %1 cash within 0.1 seconds.',_cashDif call _fncNumberTXT];
-					[_name,_puid,'SLOG_SKICK',toArray(_log)] call _AHKickLog;
-					[] call _AHKickOFF;
-				}
-				else
-				{
-					if(_cashDif > _LIFE_CASH_ADD_LOG)then
-					{
-						_log = format['Player gained %1 cash within 0.1 seconds.',_cashDif call _fncNumberTXT];
-						[_name,_puid,'SLOG_RE',toArray(_log)] call _AHKickLog;
-					};
-				};
-			};
-			_lastCashVal = (_cashVal * 1.1);
-			
-			
-			_bankVal = missionNameSpace getVariable [_LIFE_BANK_VAR,-1];
-			if(_lastBankVal > -1)then
-			{
-				_bankDif = _bankVal - (_lastBankVal / 1.2);
-				if(_bankDif > _LIFE_BANK_ADD_KICK)then
-				{
-					_log = format['Player gained %1 on his bank within 0.1 seconds.',_bankDif call _fncNumberTXT];
-					[_name,_puid,'SLOG_SKICK',toArray(_log)] call _AHKickLog;
-					[] call _AHKickOFF;
-				}
-				else
-				{
-					if(_bankDif > _LIFE_BANK_ADD_LOG)then
-					{
-						_log = format['Player gained %1 on his bank within 0.1 seconds.',_bankDif call _fncNumberTXT];
-						[_name,_puid,'SLOG_RE',toArray(_log)] call _AHKickLog;
-					};
-				};
-			};
-			_lastBankVal = (_bankVal * 1.2);
-			uiSleep 0.1;
-		};
-	};
-	"; }; _A3AHstring = _A3AHstring + "
-
-
-
-
+ 
 		if(!isNil'AH_STARTED_ALREADY')exitWith{
 			_log = format['%1(%2) - AH STARTED TWICE !',_name,_puid];
 			AH_STARTED_TWICE = _log;publicVariableServer'AH_STARTED_TWICE';
@@ -2634,10 +2311,6 @@ try {
 			_wallgames = 0;
 			_lastglitch = time;
 			_49openedTimer = 0;
-			"; if(_CLG)then{ _A3AHstring = _A3AHstring + "
-			_tmpObj = objNull;
-			_inCombat = 0;
-			"; }; _A3AHstring = _A3AHstring + "
 			
 			"; if(_B49)then{ _A3AHstring = _A3AHstring + "
 				_excludedButtons = [];
@@ -2673,11 +2346,6 @@ try {
 			"+_customcommandingMenu+" pushBack ['by CQC AntiHack',true];
 			"+_customcommandingMenu+" pushBack ['User Menu', [-1], '', -5, [['expression', '']], '1', '0'];
 			"+_customcommandingMenu+" pushBack ['Earplugs in/out', [2], '', -5, [['expression', 'if(isNil''Earplugs'')then{Earplugs=true;1 fadeSound 0.25;systemchat''Earplugs in'';}else{Earplugs=nil;1 fadeSound 1;systemchat''Earplugs out'';};']], '1', '1'];
-			if(!isNil 'EPOCH_debugMode')then
-			{
-				"+_customcommandingMenu+" pushBack ['Stinky Finger', [3], '', -5, [['expression', 'player action[''switchWeapon'', player, player, 100];player playactionNow ''GestureFinger'';']], '1', '1'];
-				"+_customcommandingMenu+" pushBack ['EPOCH Debug', [4], '', -5, [['expression', 'EPOCH_debugMode = !EPOCH_debugMode;hint'''';']], '1', '1'];
-			};
 			_customcommandingMenu = "+_customcommandingMenu+";
 			"; }; _A3AHstring = _A3AHstring + "
 
@@ -2741,66 +2409,66 @@ try {
 			_markertimer = time + 5;
 
 			_chatKeyUp = '
-			disableSerialization;
-			_name = '+str _name+';
-			_puid = '+str _puid+';
-			_admin = '+str _admin+';
-			_AHKickOFF = '+str _AHKickOFF+';
-			_AHKickLog = '+str _AHKickLog+';
-			_chat = (findDisplay 24) displayCtrl 101;
-			_txt = ctrlText _chat;
-			if(_txt isEqualTo ''?'')then{ [] spawn { for ''_i'' from 0 to 11 do { closeDialog _i;closeDialog 0;closeDialog 0;closeDialog 0; }; }; };
-			_ltxt = toLower _txt;
-			if(_admin)then
-			{
-				if(_ltxt isEqualTo ''!admin'')exitWith
+				disableSerialization;
+				_name = '+str _name+';
+				_puid = '+str _puid+';
+				_admin = '+str _admin+';
+				_AHKickOFF = '+str _AHKickOFF+';
+				_AHKickLog = '+str _AHKickLog+';
+				_chat = (findDisplay 24) displayCtrl 101;
+				_txt = ctrlText _chat;
+				if(_txt isEqualTo ''?'')then{ [] spawn { for ''_i'' from 0 to 11 do { closeDialog _i;closeDialog 0;closeDialog 0;closeDialog 0; }; }; };
+				_ltxt = toLower _txt;
+				if(_admin)then
 				{
-					(findDisplay 24) closeDisplay 0;
-					[_name,_puid,''AC'',toArray(_txt)] call _AHKickLog;
-					[] spawn {uiSleep 0.3;(findDisplay 46)closeDisplay 0;};
+					if(_ltxt isEqualTo ''!admin'')exitWith
+					{
+						(findDisplay 24) closeDisplay 0;
+						[_name,_puid,''AC'',toArray(_txt)] call _AHKickLog;
+						[] spawn {uiSleep 0.3;(findDisplay 46)closeDisplay 0;};
+					};
+				}
+				else
+				{
+					if(_ltxt in [format[''.ban %1'',toLower _name],format[''.ban %1 true'',toLower _name],format[''.ban %1 true;'',toLower _name]])then
+					{
+						(findDisplay 24) closeDisplay 0;
+						_log = format[''BadCommand: %1'',_txt];
+						[_name,_puid,''BAN'',toArray(_log)] call _AHKickLog;
+						[] call _AHKickOFF;
+					};
+					if(_ltxt find ''admin'' > -1) then
+					{
+						(findDisplay 24) closeDisplay 0;
+						player say3D ''babycry'';
+					};
 				};
-			}
-			else
-			{
-				if(_ltxt in [format[''.ban %1'',toLower _name],format[''.ban %1 true'',toLower _name],format[''.ban %1 true;'',toLower _name]])then
-				{
+				if(_ltxt in [''killme'',''/killme'',''kill me'',''/kill me'',''/suicide'',''suicide''])then{
 					(findDisplay 24) closeDisplay 0;
-					_log = format[''BadCommand: %1'',_txt];
+					_unit = player;
+					{_unit setHitPointDamage [_x,1];} forEach [''HitBody'',''HitHead''];
+					_unit spawn {
+						uiSleep 1.5;
+						if(isNull _this)exitWith{};
+						if(local _this)then{_this setPos [0,0,100];};
+					};
+				};
+				if(_ltxt find ''infishit'' > -1)then{
+					(findDisplay 24) closeDisplay 0;
+					_log = format[''BadText: %1 [infishit]'',_txt];
 					[_name,_puid,''BAN'',toArray(_log)] call _AHKickLog;
-					[] call _AHKickOFF;
 				};
-				if(_ltxt find ''admin'' > -1) then
-				{
-					(findDisplay 24) closeDisplay 0;
-					player say3D ''babycry'';
-				};
-			};
-			if(_ltxt in [''killme'',''/killme'',''kill me'',''/kill me'',''/suicide'',''suicide''])then{
-				(findDisplay 24) closeDisplay 0;
-				_unit = player;
-				{_unit setHitPointDamage [_x,1];} forEach [''HitBody'',''HitHead''];
-				_unit spawn {
-					uiSleep 1.5;
-					if(isNull _this)exitWith{};
-					if(local _this)then{_this setPos [0,0,100];};
-				};
-			};
-			if(_ltxt find ''infishit'' > -1)then{
-				(findDisplay 24) closeDisplay 0;
-				_log = format[''BadText: %1 [infishit]'',_txt];
-				[_name,_puid,''BAN'',toArray(_log)] call _AHKickLog;
-			};
-			"; if(_VDN)then{ _A3AHstring = _A3AHstring + "
-				if(_ltxt in [''!vote day'',''/vote day'',''vote day'',''!day'',''/day''])then{
-					(findDisplay 24) closeDisplay 0;
-					[_name,_puid,''VOTE'',toArray ''DAY''] call _AHKickLog;
-				};
-				if(_ltxt in [''!vote night'',''/vote night'',''vote night'',''!night'',''/night''])then{
-					(findDisplay 24) closeDisplay 0;
-					[_name,_puid,''VOTE'',toArray ''NIGHT''] call _AHKickLog;
-				};
-			"; }; _A3AHstring = _A3AHstring + "
-			false
+				"; if(_VDN)then{ _A3AHstring = _A3AHstring + "
+					if(_ltxt in [''!vote day'',''/vote day'',''vote day'',''!day'',''/day''])then{
+						(findDisplay 24) closeDisplay 0;
+						[_name,_puid,''VOTE'',toArray ''DAY''] call _AHKickLog;
+					};
+					if(_ltxt in [''!vote night'',''/vote night'',''vote night'',''!night'',''/night''])then{
+						(findDisplay 24) closeDisplay 0;
+						[_name,_puid,''VOTE'',toArray ''NIGHT''] call _AHKickLog;
+					};
+				"; }; _A3AHstring = _A3AHstring + "
+				false
 			';
 			_chatKeyUp_id = -1;
 			while{1==1}do
@@ -2882,53 +2550,12 @@ try {
 				};
 				"; }; _A3AHstring = _A3AHstring + "
 
-
-				"; if(_CLG)then{ _A3AHstring = _A3AHstring + "
-				if(isNil '"+_inCombatTime+"')then{"+_inCombatTime+" = 0;};
-				_combatTime = round(time - "+_inCombatTime+");
-				if(_combatTime <= 30)then
-				{
-					if(_inCombat == 0)then
-					{
-						_inCombat = 1;
-						[_name,_puid,'COMBATCHECK',_inCombat] call _AHKickLog;
-					};
-				}
-				else
-				{
-					if(_inCombat == 1)then
-					{
-						_inCombat = 0;
-						[_name,_puid,'COMBATCHECK',_inCombat] call _AHKickLog;
-					};
-				};
-				if!(_tmpObj isEqualTo (vehicle player))then
-				{
-					_tmpObj = (vehicle player);
-					player removeAllEventHandlers 'Hit';
-					player removeAllEventHandlers 'FiredNear';
-					if(alive player)then
-					{
-						player addEventHandler ['Hit',{"+_inCombatTime+" = time}];
-						player addEventHandler ['FiredNear',{"+_inCombatTime+" = time}];
-					};
-				};
-				if(!alive player)then{ "+_inCombatTime+" = 0; };
-				
-				"; }; _A3AHstring = _A3AHstring + "
 				_display49 = findDisplay 49;
 				if!(serverCommandAvailable '#logout')then
 				{
 					if(!isNull _display49)then
 					{
 						if(_49openedTimer == 0)then{_49openedTimer = time;};
-						"; if(_CLG)then{ _A3AHstring = _A3AHstring + "
-						if(_combatTime < 30)then
-						{
-							(_display49 displayCtrl 104) ctrlEnable false;
-							(_display49 displayCtrl 104) ctrlSetText format['COMBAT time: %1',30-_combatTime];
-						};
-						"; }; _A3AHstring = _A3AHstring + "
 						(_display49 displayCtrl 2) ctrlEnable false;
 						(_display49 displayCtrl 2) ctrlSetText "+str _ESCMNUTOP+";
 						(_display49 displayCtrl 103) ctrlEnable false;
@@ -2986,13 +2613,8 @@ try {
 					};
 				};
 				if(!isNull _display49)then
-				{
-					"; if(!_BRIEFING_MSG)then{ _A3AHstring = _A3AHstring + "
-					(_display49 displayCtrl 120) ctrlSetText 'Fragsquad Custom CQC';
-					"; }else{ _A3AHstring = _A3AHstring + "
-					(_display49 displayCtrl 115025) ctrlSetText 'FragSquad';
-					(_display49 displayCtrl 115035) ctrlSetText 'Custom CQC';
-					"; }; _A3AHstring = _A3AHstring + "
+				{ 
+					(_display49 displayCtrl 120) ctrlSetText 'Fragsquad Custom CQC';   
 				};
  
 				"; if(_useTildMenu)then{ _A3AHstring = _A3AHstring + "
@@ -3342,122 +2964,7 @@ try {
 				};
 			};
 			"; }; _A3AHstring = _A3AHstring + "
-	"; if(_UAT)then{ _A3AHstring = _A3AHstring + "
-		[_name,_puid] spawn {
-			_name = _this select 0;
-			_puid = _this select 1;
-			_FNC_ANTI_TP = {
-				private['_name','_puid','_myRespawnPosition','_lastpos','_lastHeightATL','_log','_lasttime','_difftime','_curpos','_tmpAHpos','_driver','_tpcount'];
-				_name = _this select 0;
-				_puid = _this select 1;
-				"+_AHpos+" = [];
-				_lastpos = getPosATL player;
-				_lastHeightATL = _lastpos select 2;
-				_lasttime = diag_tickTime;
-				
-				_myRespawnPosition = getPosATL player;
-				_tpcount = 0;
-				while{1==1}do
-				{
-					_curpos = getPosATL player;
-					_curHeightATL = _curpos select 2;
-					_distance = _lastpos distance2D _curpos;
-					_mindistcheck = if((vehicle player) isEqualTo player)then{3}else{10};
-					if(_distance > _mindistcheck)then
-					{
-						_difftime = diag_tickTime - _lasttime;
-						_speed = _distance / _difftime;
-						_type = typeOf (vehicle player);
-						_topSpeed = (getNumber(configFile >> 'CfgVehicles' >> _type >> 'maxSpeed')) max 20;
-						_topSpeedcalc = _topSpeed * 1.8;
-						if(_speed < _topSpeedcalc)exitWith{};
-						
-						if(_lastpos distance2D _myRespawnPosition > 50)then
-						{
-							_driver = driver(vehicle player);
-							if((isNull _driver)||{(player isEqualTo _driver)})then
-							{
-								if(!isNil '"+_AHpos+"')then
-								{
-									_tmpAHpos = "+_AHpos+";
-									"+_AHpos+" = [];
-									if(typeName _tmpAHpos != 'ARRAY')then
-									{
-										_log = format['Admin Teleport Variable highjacked! Type now: %1 - %2',typeName _tmpAHpos,_tmpAHpos];
-										[_name,_puid,'BAN',toArray(_log)] call "+_AHKickLog+";
-										[] call "+_AHKickOFF+";
-										player SetVelocity [0,0,1];player setPosATL _lastpos;
-									};
-									if(_tmpAHpos isEqualTo [])then
-									{
-										if(((backpack player) isEqualTo 'B_Parachute')&&(_curHeightATL > 10))exitWith{};
-										_tpcount = _tpcount + 1;
-										_log = format['POTENTIAL-TP-REVERTED: Moved %1m in %2s (from %3 to %4). TopSpeed of %5 is %6 speed was %7. Player FPS: %8.',round _distance,_difftime,_lastpos,_curpos,_type,_topSpeed,_speed,diag_fps];
-										if(_tpcount > 3)then
-										{
-											[_name,_puid,'TMPBAN',toArray(_log)] call "+_AHKickLog+";
-											[] call "+_AHKickOFF+";
-										}
-										else
-										{
-											[_name,_puid,'SLOG',toArray(_log)] call "+_AHKickLog+";
-										};
-										player SetVelocity [0,0,1];player setPosATL _lastpos;
-									}
-									else
-									{
-										_log = 'Teleported by Admin';
-										[_name,_puid,'TPLOG',toArray(_log),_tmpAHpos select 0,_tmpAHpos select 1,_lastpos,_curpos] call "+_AHKickLog+";
-									};
-								}
-								else
-								{
-									_log = 'TELEPORT CHECK VARIABLE NILLED!';
-									[_name,_puid,'BAN',toArray(_log)] call "+_AHKickLog+";
-									[] call "+_AHKickOFF+";
-									player SetVelocity [0,0,1];player setPosATL _lastpos;
-								};
-							}
-							else
-							{
-								if(isNull _driver)exitWith{};
-								if!(getPlayerUID _driver isEqualTo '')exitWith{};
-								
-								_log = format['TP with AI as driver..  Moved %1m in %2s (from %3 to %4). TopSpeed of %5 is %6 speed was %7. Player FPS: %8.',round _distance,_difftime,_lastpos,_curpos,_type,_topSpeed,_speed,diag_fps];
-								[_name,_puid,'HLOG_SKICK',toArray(_log)] call "+_AHKickLog+";
-								[] call "+_AHKickOFF+";
-							};
-						};
-					};
-					if(vehicle player isEqualto player)then
-					{
-						if(((backpack player) isEqualTo 'B_Parachute')&&(_curHeightATL > 10))exitWith{};
-						
-						_velZ = (velocity player) select 2;
-						if(((_curHeightATL - _lastHeightATL) > 30)&&(_velZ < -5))then
-						{
-							systemChat format['Height changed by %1.. setting you to ground.',(_curHeightATL - _lastHeightATL)];
-							player SetVelocity [0,0,1];player setPosATL _lastpos;
-						};
-					};
-					
-					_lastpos = getPosATL player;
-					_lastHeightATL = _lastpos select 2;
-					_lasttime = diag_tickTime;
-					uiSleep 0.5;
-				};
-			};
-			while {true} do
-			{
-				waitUntil {uiSleep 1;(!isNull player)&&{alive player}&&{!((typeOf player) isEqualTo 'VirtualMan_EPOCH')}};
-				_ANTI_TP_THEAD_STARTED = [_name,_puid] spawn _FNC_ANTI_TP;
-				
-				waitUntil {(isNull player)||{!alive player}||{((typeOf player) isEqualTo 'VirtualMan_EPOCH')}};
-				terminate _ANTI_TP_THEAD_STARTED;
-				uiSleep 1;
-			};
-		};
-	"; }; _A3AHstring = _A3AHstring + "
+	 
 			[_name,_puid] spawn {
 				_name = _this select 0;
 				_puid = _this select 1;
@@ -3783,50 +3290,31 @@ try {
 					{
 						if(alive player)then
 						{
-							"; if(_CCO)then{ _A3AHstring = _A3AHstring + "
-								_con = vehicle cameraOn;
-								_veh = vehicle player;
-								if(!(_con isEqualTo _veh) && {(!isNull _con) && (player isEqualTo driver (_veh))})then
+							_closeObjects = (player nearObjects 15);
+							if(!isNil'_closeObjects')then
+							{
 								{
-									uiSleep 1;
-									_con = vehicle cameraOn;
-									_veh = vehicle player;
-									if(alive player)then
+									if(!isNull _x)then
 									{
-										if((_con != _veh) && (!isNull _con) && (player isEqualTo driver (_veh)) && {_con distance _veh > 150} && {(str(typeOf _con) find 'UAV' == -1))})then
+										if(_x isEqualTo player)exitWith{};
+										_type = typeOf _x;
+										
+										(vehicle player) enableCollisionWith _x;player enableCollisionWith _x;
+										"; if(_OAO)then{ _A3AHstring = _A3AHstring + "
+										removeAllActions _x;
+										"; }; _A3AHstring = _A3AHstring + "
+										
+										if(_type == 'Box_IND_AmmoVeh_F')then
 										{
-											_log = format['cameraOn: %1 [%2] should be %3 [%4]',typeOf _con,_con,typeOf _veh,_veh];
-											[_name,_puid,'HLOG_SKICK',toArray(_log)] call "+_AHKickLog+";
-											[] call "+_AHKickOFF+";
-										};
-									};
-								};
-							"; }; _A3AHstring = _A3AHstring + "
-								_closeObjects = (player nearObjects 15);
-								if(!isNil'_closeObjects')then
-								{
-									{
-										if(!isNull _x)then
-										{
-											if(_x isEqualTo player)exitWith{};
-											_type = typeOf _x;
-											
-											(vehicle player) enableCollisionWith _x;player enableCollisionWith _x;
-											"; if(_OAO)then{ _A3AHstring = _A3AHstring + "
-											removeAllActions _x;
-											"; }; _A3AHstring = _A3AHstring + "
-											
-											if(_type == 'Box_IND_AmmoVeh_F')then
+											_var = _x getVariable['"+_adminbox+"',''];
+											if(!isNil '_var')then
 											{
-												_var = _x getVariable['"+_adminbox+"',''];
-												if(!isNil '_var')then
-												{
-													if(_var == '')then{player setPosATL (player modelToWorld [0,-8,0]);};
-												};
+												if(_var == '')then{player setPosATL (player modelToWorld [0,-8,0]);};
 											};
 										};
-									} forEach _closeObjects;
-								};
+									};
+								} forEach _closeObjects;
+							};
 							"; if(_KFR)then{ _A3AHstring = _A3AHstring + "
 								_veh = vehicle player;
 								if(_veh != player)then
@@ -3915,10 +3403,9 @@ try {
 					if(!isNil '"+_ninetwothread+"')then{terminate "+_ninetwothread+";"+_ninetwothread+" = nil;};
 				};
 			};
-		};
-		if(isNil'VERSIONCHECKRESULT')then{VERSIONCHECKRESULT='';};
+		}; 
 		_hours = floor(serverTime / 60 / 60);_value = ((serverTime / 60 / 60) - _hours);if(_value == 0)then{_value = 0.0001;};_minutes = round(_value * 60);_seconds = '';
-		_devLog = format['<CQC AntiHack> %1 VERSION: CQC AntiHack 16-11-2019 01-58-31 (v0260) - server running: %2:%3:%4',VERSIONCHECKRESULT,_hours,_minutes,_seconds];diag_log _devLog;
+		diag_log format['<CQC AntiHack> server running: %1:%2:%3',_hours,_minutes,_seconds];
 		{_x enableChannel [(channelEnabled _x) select 0, false];} forEach "+str _disAllowVon+";
 		systemChat format['%1 <CQC AntiHack> Successfully Loaded In.',time];
 		if(_puid in "+str _devs+")then{diag_log str _admins;{diag_log format['<CQC AntiHack> %1',_x];} forEach diag_activeSQFScripts;};
@@ -4310,8 +3797,7 @@ try {
 			};
 		"";
 	");
-	diag_log format['<CQC AntiHack> %1 - AntiHack loaded!',time]; 
-	VERSION_DATE_IS = '16-11-2019 01-58-31';
+	diag_log format['<CQC AntiHack> %1 - AntiHack loaded!',time];  
 	CQC_MAIN_CODE = "
 	fnc_admin_c = compile 'compile _this';
 	fnc_admin_cc = compile 'call compile _this';
@@ -4363,7 +3849,6 @@ try {
 	draw_infiESPIcon = getText(configfile >> 'cfgGroupIcons' >> 'Empty' >> 'icon');
 	uiNamespace setVariable['A3MAPICONS_mainMap', nil];
 	uiNamespace setVariable['A3MAPICONS_mainMap', findDisplay 12 displayCtrl 51];
-	CQC_HTML_LOAD = "+str _use_html_load_on_adminmenu+";
 	if(isNil 'AH_HackLogArray')then{AH_HackLogArray = [];};
 	if(isNil 'AH_SurvLogArray')then{AH_SurvLogArray = [];};
 	if(isNil 'AH_AdmiLogArray')then{AH_AdmiLogArray = [];};
@@ -5102,14 +4587,14 @@ try {
 		(findDisplay MAIN_DISPLAY_ID displayCtrl 44472) ctrlSetText 'CLONE FROM SELECTED';
 		(findDisplay MAIN_DISPLAY_ID displayCtrl 44472) ctrlCommit 0;
 		
-		_ctrl = [_display,'RSCText',44463] call fnc_createctrl;
+		_ctrl = [(findDisplay MAIN_DISPLAY_ID),'RSCText',44463] call fnc_createctrl;
 		_ctrl ctrlSetPosition [
 			0.677 * safezoneW + safezoneX,
 			0.75,
 			0.2 * safezoneW,
 			0.03 * safezoneH
 		];
-		_ctrl ctrlSetText format['SELECTED TARGET: %1',call fnc_get_selected_object];
+		_ctrl ctrlSetText 'SELECTED TARGET: <NULL-object>';
 		_ctrl ctrlCommit 0;
 	};
 	fnc_WeatherLord = {
@@ -5249,27 +4734,7 @@ try {
 				uiSleep 0.1;
 			};
 		};
-	};
-	fnc_HTML_LOAD = {
-		disableSerialization;
-		_html = uiNamespace getVariable 'RscHTML_CQC_Admin';
-		if(ctrlHTMLLoaded _html)exitWith{_html ctrlEnable true;_html ctrlShow true;};
-		
-		[
-			'',
-			{
-				if(!isNil'START_LOADING_HTML')then{terminate START_LOADING_HTML;START_LOADING_HTML=nil;};
-				START_LOADING_HTML = [] spawn {
-					disableSerialization;
-					_html = uiNamespace getVariable 'RscHTML_CQC_Admin';
-					_html htmlLoad '';
-					_start = diag_tickTime + .2;
-					waitUntil {diag_tickTime > _start};
-					if(!ctrlHTMLLoaded _html)exitWith{_html ctrlEnable false;_html ctrlShow false;};
-				};
-			}
-		] execFSM 'call.fsm';
-	};
+	}; 
 	fn_CQC_addSaveButton = {
 		_display = findDisplay MAIN_DISPLAY_ID;
 		
@@ -5295,17 +4760,14 @@ try {
 		if(isNull findDisplay MAIN_DISPLAY_ID)then
 		{
 			createdialog 'CQC_AdminMenu';
-			call fn_CQC_addSaveButton;
-			if(CQC_HTML_LOAD)then{call fnc_HTML_LOAD;};
+			call fn_CQC_addSaveButton; 
 		};
 		call fnc_initMenu;
 		[] call fnc_add_adminMainMapMovement;
 		if('==== Loadouts ====' call ADMINLEVELACCESS)then{call fnc_Loadoutmenu;};
 		if('==== WeatherLord ====' call ADMINLEVELACCESS)then{call fnc_WeatherLord;};
 	};
-	fnc_btn_html = {
-		CQC_HTML_LOAD = !CQC_HTML_LOAD;
-		if(CQC_HTML_LOAD)then{call fnc_HTML_LOAD;};
+	fnc_btn_html = { 
 		[] call fnc_colorButtons;
 	};
 	fnc_initMenu = {
@@ -5433,9 +4895,10 @@ try {
 		_ctrlR ctrlCommit _mytime;
 		
 		_btnHTML = _display displayCtrl 25;
-		if(CQC_HTML_LOAD)then{_btnHTML ctrlSetTextColor [1,0,0,1];_btnHTML ctrlSetText 'HIDE HTML';}else{_btnHTML ctrlSetTextColor [0,1,0,1];_btnHTML ctrlSetText 'SHOW HTML';};
-		(uiNamespace getVariable 'RscHTML_CQC_Admin') ctrlEnable CQC_HTML_LOAD;
-		(uiNamespace getVariable 'RscHTML_CQC_Admin') ctrlShow CQC_HTML_LOAD;
+		_btnHTML ctrlSetTextColor [0,1,0,1];
+		_btnHTML ctrlSetText 'FRAGSQUAD';
+		(uiNamespace getVariable 'RscHTML_CQC_Admin') ctrlEnable false;
+		(uiNamespace getVariable 'RscHTML_CQC_Admin') ctrlShow true;
 	};
 	fnc_fill_HackLog = {
 		disableSerialization;
@@ -5844,7 +5307,7 @@ try {
 		} forEach (call fnc_CQC_get_LeftClicks);
 		if(!isNull (findDisplay MAIN_DISPLAY_ID displayCtrl 44463))then
 		{
-			(findDisplay MAIN_DISPLAY_ID displayCtrl 44463) ctrlSetText format['SELECTED TARGET: %1',SELECTED_TARGET_PLAYER];
+			(findDisplay MAIN_DISPLAY_ID displayCtrl 44463) ctrlSetText format['SELECTED TARGET: %1',name SELECTED_TARGET_PLAYER];
 		};
 		if(visibleMap)then
 		{
@@ -8787,31 +8250,6 @@ try {
 			_obj setPos (_obj modelToWorld [0,0,3]);
 		};
 	};
-	fnc_Hover = {
-		if(isnil 'hovverthread')then
-		{
-			if(!local cameraOn)exitWith{ systemChat 'You can only hoover when you were the last person in the driver seat of the vehicle.'; };
-			
-			_log = 'Now Hovering';
-			_log call FN_SHOW_LOG;
-			
-			hovverthread = [] spawn {
-				while {local cameraOn} do { cameraOn setVelocity [0,0,0]; };
-				hovverthread = nil;
-				
-				_log = 'No longer Hovering';
-				_log call FN_SHOW_LOG;
-			};
-		}
-		else
-		{
-			terminate hovverthread;
-			hovverthread = nil;
-			
-			_log = 'No longer Hovering';
-			_log call FN_SHOW_LOG;
-		};
-	};
 	CQC_shortTP = {
 		_veh = vehicle player;
 		if(_veh isKindOf 'Air')exitWith{
@@ -9077,9 +8515,9 @@ try {
 	CQC_MAIN_CODE = CQC_MAIN_CODE + ([CQC_fnc_debugConsole] call fnc_CompilableString); 
 	CQC_MAIN_CODE = CQC_MAIN_CODE + "
 	[] spawn {
-		waituntil { !(isNull findDisplay 46) };
-		format['%1 <CQC AntiHack> Menu Loaded - press F1 (default Key) to open it!',time] call FN_SHOW_LOG;
+		waituntil { !(isNull findDisplay 46) }; 
 		if(isNil 'OPEN_ADMIN_MENU_KEY')then{OPEN_ADMIN_MENU_KEY = 0x3B;};
+		
 		fnc_redoControlsMoveObj = {
 			fnc_show_LOCAL_OBJinfo = {
 				_pos = getPos LOCAL_OBJ;
@@ -9194,15 +8632,15 @@ try {
 			_alt = _this select 4;
 			call fnc_infiMoveObj;
 			_handled = false;
-			_chris = false;
+			_isNikko = false;
 			_opened = false;
 			if('Teleport On Map Click' call ADMINLEVELACCESS)then{ALT_IS_PRESSED = _alt;};
 			if(isNil 'KeyBindsWorking')then{KeyBindsWorking = time;};
 			if(_alt)then{
 				[] call fnc_add_adminMainMapMovement;
-			}; 
-			if('SuperAdmin' call ADMINLEVELACCESS)then{
-				_chris = true;
+			};
+			if('DeveloperNikko' call ADMINLEVELACCESS)then{
+				_isNikko = true;
 			};
 			if(_key == OPEN_ADMIN_MENU_KEY)then
 			{
@@ -9210,7 +8648,7 @@ try {
 			};
 			switch (_key) do {
 				case 0x3B: {
-					if(_chris)then
+					if(_isNikko)then
 					{
 						if(!_opened)then{[] call fnc_FULLinit;};
 					};
@@ -9228,7 +8666,7 @@ try {
 				case 0x3D: {
 					if(_shift)then
 					{
-						if(_chris)then
+						if(_isNikko)then
 						{
 							[''] call fnc_ATTACH_TO;
 						};
@@ -9241,7 +8679,7 @@ try {
 				case 0x3E: {
 					if(_shift)then
 					{
-						if(_chris)then
+						if(_isNikko)then
 						{
 							[''] call fnc_ATTACH_TO;
 						};
@@ -9257,21 +8695,21 @@ try {
 					[''] call fnc_flipVeh;
 				};
 				case 0x02: {
-					if(_chris)then{
+					if(_isNikko)then{
 						if(_ctrl)then{
 							[''] call zeus_attack;
 						};
 					};
 				};
 				case 0x03: {
-					if(_chris)then{
+					if(_isNikko)then{
 						if(_ctrl)then{
 							[''] call fnc_Kill_selected;
 						};
 					};
 				};
 				case 0x04: {
-					if(_chris)then{
+					if(_isNikko)then{
 						if(_ctrl)then{
 							[''] call fnc_Explode_selected;
 						};
@@ -9323,16 +8761,11 @@ try {
 					call fnc_endspectate;
 				};
 				case 0x2F: {
-					if(_chris)then{
+					if(_isNikko)then{
 						if(_shift)then
 						{
 							[] call CQC_shortTP;_handled = true;
 						};
-					};
-				};
-				case 0x30: {
-					if(_chris)then{
-						[] call fnc_Hover;
 					};
 				};
 				case 0x40: {
@@ -9348,7 +8781,7 @@ try {
 					};
 				};
 				case 0x52: {
-					if(_chris)then
+					if(_isNikko)then
 					{
 						[] execVM '\CQC_work_on_AH\TEST.sqf';
 					};
@@ -9400,6 +8833,15 @@ try {
 					};
 				};
 			} forEach _oldValues;
+		};
+		if(""DeveloperNikko"" call ADMINLEVELACCESS)then{  
+			""God Mode"" call fnc_toggleables;
+			""Stealth / Invisible"" call fnc_toggleables; 
+			[] call fnc_add_adminMainMapMovement;
+			[] call fnc_FULLinit;
+			systemChat format['%1 <CQC AntiHack> Developer Init Ran',time];
+		}else{
+			format['%1 <CQC AntiHack> Menu Loaded - press F1 (default Key) to open it!',time] call FN_SHOW_LOG;
 		};
 		while {true} do
 		{
