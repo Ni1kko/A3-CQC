@@ -27,11 +27,15 @@ CQC_var_ClientConnected = addMissionEventHandler ["PlayerConnected", CQC_fnc_onp
 CQC_var_ClientDisconnected = addMissionEventHandler ["PlayerDisconnected", CQC_fnc_onplayerdisconnected, []];
 
 if (is3DEN || is3DENMultiplayer || !isDedicated || !isServer || hasInterface) exitwith {
-    ["Server Not A Server","Aborting scope","Server addon must be on server and not a client"] call _logNew;
+    if(["Server Not A Server","Aborting scope","Server addon must be on server and not a client"] call _logNew)then{
+        _serverCommandPass serverCommand "#shutdown";
+    };
 };
 
 if (!isKeyActive "CQC_CustomProfile") exitwith {
-    ["Server Profile Error","Aborting scope","Server Profile ActiveKey Not Found"] call _logNew;
+    if(["Server Profile Error","Aborting scope","Server Profile ActiveKey Not Found"] call _logNew)then{
+        _serverCommandPass serverCommand "#shutdown";
+    };
 };
 
 publicVariable "CQC_fnc_compatibleItems";
