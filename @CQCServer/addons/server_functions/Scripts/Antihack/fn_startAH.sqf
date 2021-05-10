@@ -5173,14 +5173,7 @@ try {
 		_btnSortAlpha = _display displayCtrl 10;if(!isNil 'SortAlphaPlease')then{lbSort _ctrl;_btnSortAlpha ctrlSetTextColor [0,1,0,1];} else {_btnSortAlpha ctrlSetTextColor [1,1,1,1];};
 		_btnSortGroups = _display displayCtrl 11;if(!isNil 'SortGroupsPlease')then{_btnSortGroups ctrlSetTextColor [0,1,0,1];} else {_btnSortGroups ctrlSetTextColor [1,1,1,1];};
 		_btnSortRange = _display displayCtrl 12;if(!isNil 'SortRangePlease')then{_btnSortRange ctrlSetTextColor [0,1,0,1];} else {_btnSortRange ctrlSetTextColor [1,1,1,1];};
-		_ctrl lbAdd '-----------------------------------';
-	  	_index = _ctrl lbAdd '[civilian]';_ctrl lbSetColor [_index,[0.67,0.97,0.97,1]];
-		_index = _ctrl lbAdd '[west]';_ctrl lbSetColor [_index,[0.047,0.502,1,1]];
-		_index = _ctrl lbAdd '[east]';_ctrl lbSetColor [_index,[1,0.17,0.17,1]];
-		_index = _ctrl lbAdd '[resistance]';_ctrl lbSetColor [_index,[0,0.65,0,1]];
-		_index = _ctrl lbAdd '[Admin]';_ctrl lbSetColor [_index,[0,1,0,1]];
-		_index = _ctrl lbAdd '[Dead Player]';_ctrl lbSetColor [_index,[1,1,1,1]];
-		for '_i' from 0 to 10 do {_ctrl lbAdd '';};
+		for '_i' from 0 to 17 do {_ctrl lbAdd '';};
 		filling_CQC_Player = nil;
 	};
 	fnc_fill_CQC_Player = {
@@ -5208,7 +5201,11 @@ try {
 				_puid = getPlayerUID _x;
 				if(_puid != '')then
 				{
-					_search = format['%1 [%2]',name _x,side _x];
+					_search = switch (true) do {
+						case (_PUIDX in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
+						case (_PUIDX in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
+						default {format['%1 [Player]',_name]};
+					};
 					if(_search == _target)then
 					{
 						_break = true;
@@ -5229,7 +5226,11 @@ try {
 			_puid = getPlayerUID _x;
 			if(_puid != '')then
 			{
-				_search = format['%1 [%2]',name _x,side _x];
+				_search = switch (true) do {
+					case (_PUIDX in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
+					case (_PUIDX in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
+					default {format['%1 [Player]',_name]};
+				};
 				if(_search == _target)then
 				{
 					_break = true;
@@ -5328,7 +5329,11 @@ try {
 						_uid = getPlayerUID _x;
 						if(_uid != '')then
 						{
-							_search = format['%1 [%2]',name _x,side _x];
+							_search = switch (true) do {
+								case (_PUIDX in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
+								case (_PUIDX in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
+								default {format['%1 [Player]',_name]};
+							};
 							if(_search == _target)then
 							{
 								_break = true;
