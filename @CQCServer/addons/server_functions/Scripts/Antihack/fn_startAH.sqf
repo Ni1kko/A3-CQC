@@ -24,8 +24,6 @@ _OPEN_ADMIN_MENU_KEY = 0x3B;
 /*  Items Added Check    */ _IAC = true;	/* true or false */	/* checks if Items are being added unrightful! */
 /*  Local Vehicle Check  */ _LVC = true;	/* true or false */
 /*  unitRecoil checks    */ _URC = false;	/* true or false */	/* checks unitRecoilCoefficient and resets default unitRecoilCoefficient */
-/*  Check BTTNs on D49   */ _B49 = true;	/* true or false */	/* will announce: BadButton on 49 */
-/*  whitelist for _B49   */ _excludedButtons = [];	/* Will Kick for BadButton XYZ if a customnized button is not white-listed here. Example: _excludedButtons = [1010]; */
 /*  Block Hold Actions   */ _BHA = true;	/* true or false */	/* recommended:  true  Used for Hackmenus. */
 /*  Check Actions Plr    */ _CAP = false;	/* true or false */	/* "Actions: xxx/xxx possible scroll menu hack (or you added custom actions..)" */
 /*  Remove Actions Plr   */ _OAP = false;	/* true or false */	/* Remove ALL Actions on Player Object: (mousewheel actions) needs to be  false  for AltisLife for e.g. gathering */
@@ -2310,37 +2308,7 @@ try {
 			{ctrlDelete ((findDisplay 12) displayCtrl _x);} forEach [1086,1087,1088,1089,1090];
 			_wallgames = 0;
 			_lastglitch = time;
-			_49openedTimer = 0;
-			
-			"; if(_B49)then{ _A3AHstring = _A3AHstring + "
-				_excludedButtons = [];
-				_excludedButtonsTMP = "+str _excludedButtons+";
-				{_excludedButtons pushBack format['Control #%1',_x];} forEach _excludedButtonsTMP;
-				
-				{
-					for '_i' from 0 to (count _x - 1) do
-					{
-						_ctrlCfg = _x select _i;
-						if(getText (_ctrlCfg >> 'action') != '' || getText (_ctrlCfg >> 'onButtonClick') != '')exitWith
-						{
-							_BTN_TEXT = getText (_ctrlCfg >> 'text');
-							if!(_BTN_TEXT in ['RHS - Game Options','AGM Options','MCC keys'])then
-							{
-								_log = format['BadButton on ESC: %1',_BTN_TEXT];
-								[_name,_puid,'BAN',toArray(_log)] call _AHKickLog;
-								[] call _AHKickOFF;
-							};
-						};
-					};
-				}
-				forEach
-				[
-					configFile >> 'RscDisplayMPInterrupt' >> 'controls',
-					configFile >> 'RscDisplayMPInterrupt' >> 'controlsBackground'
-				];
-			"; }; _A3AHstring = _A3AHstring + "
-
-
+			_49openedTimer = 0; 
 			"; if(_useTildMenu)then{ _A3AHstring = _A3AHstring + "
 			"+_customcommandingMenu+" = [];
 			"+_customcommandingMenu+" pushBack ['by CQC AntiHack',true];
@@ -2563,30 +2531,7 @@ try {
 						(_display49 displayCtrl 523) ctrlSetText profileName;
 						(_display49 displayCtrl 109) ctrlSetText _puid;
 						(_display49 displayCtrl 122) ctrlEnable false;
-						(_display49 displayCtrl 122) ctrlShow false;
-						"; if(_B49)then{ _A3AHstring = _A3AHstring + "
-							_cnt =  { 
-								_controltype = ctrlType _x;
-								if(_controltype == 16)then
-								{
-									_action = buttonAction _x;
-									if(_action != '')then
-									{
-										if!(str _x in _excludedButtons)then
-										{
-											if((str _x == 'Control #-1')||(_action != ""(findDisplay 49) closeDisplay 0; 0 spawn {_n=  createDialog 'RHS_Options_Menu';0 spawn rhs_fnc_menuOptions;};""))then
-											{
-												_log = format['BadButton on 49: %1, %2',_x,_action];
-												[_name,_puid,'HLOG_SKICK',toArray(_log)] call _AHKickLog;
-												[] call _AHKickOFF;
-											};
-										};
-									};
-								};
-								true
-							} count (allcontrols _display49);
-						"; }; _A3AHstring = _A3AHstring + "
-						 
+						(_display49 displayCtrl 122) ctrlShow false; 
 					}
 					else
 					{
