@@ -17,7 +17,6 @@ setObjectViewDistance 325;
 if !(call isAdmin) then{  
 	if (getplayeruid player in [
 		// Staff Team
-		'76561198048125586', // Alec
 		'76561198119520123', // Callum HD
 		'76561198334203836', // Tom Cliffoff
 		'76561198095796413', // Shipman
@@ -27,9 +26,7 @@ if !(call isAdmin) then{
 		'76561199089637134', //house
 
 		// Development Team
-		'76561198250806228', // Martinez
-		'76561198339636384', // Jigggg
-		'76561199110944525', // Xlax
+		'76561198250806228', // Martinez 
 		'76561198283428669'  // Ryn
 	]) then {
 		titleText ["<t color='#ff0000' size='5'>Please visit discord and @Developer requesting you be added to the database!</t>", "PLAIN", -1, true, true];
@@ -53,7 +50,6 @@ if!(call isDonator)then{
 		'76561198169146689', // Joike
 		'76561198285522367', // Nathan
 		'76561198272394878', // Vince
-		'76561198011953438', // Reece
 		'76561198075617538', // Clark
 		'76561198121847178', // Butch
 		'76561198271611896', // hawky
@@ -63,11 +59,8 @@ if!(call isDonator)then{
 		'76561198114101981', // Damon
 		'76561199066320068', // Shado 
 		'76561198172489513', // Harry.
-		'76561198387894795', // .Max
 		'76561198102381199', // Ghost2k
 		'76561199034504598', //dabest
-		'76561199089637134', //house
-		'76561198270967902', //spencer
 		'76561198203772432', //McPooperson
 		'76561198942538304'  // Actually Shock
 	]) then {
