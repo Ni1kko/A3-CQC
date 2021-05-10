@@ -5202,9 +5202,9 @@ try {
 				if(_puid != '')then
 				{
 					_search = switch (true) do {
-						case (_puid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
-						case (_puid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
-						default {format['%1 [Player]',_name]};
+						case (_puid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',name _x]};
+						case (_puid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',name _x]};
+						default {format['%1 [Player]',name _x]};
 					};
 					if(_search == _target)then
 					{
@@ -5227,9 +5227,9 @@ try {
 			if(_puid != '')then
 			{
 				_search = switch (true) do {
-					case (_puid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
-					case (_puid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
-					default {format['%1 [Player]',_name]};
+					case (_puid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',name _x]};
+					case (_puid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',name _x]};
+					default {format['%1 [Player]',name _x]};
 				};
 				if(_search == _target)then
 				{
@@ -5330,9 +5330,9 @@ try {
 						if(_uid != '')then
 						{
 							_search = switch (true) do {
-								case (_uid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',_name]};
-								case (_uid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',_name]};
-								default {format['%1 [Player]',_name]};
+								case (_uid in (missionNamespace getVariable ['CQCAdmins',[]])): {format['%1 [Admin]',name _x]};
+								case (_uid in (missionNamespace getVariable ['CQCDonators',[]])): {format['%1 [VIP Player]',name _x]};
+								default {format['%1 [Player]',name _x]};
 							};
 							if(_search == _target)then
 							{
