@@ -5174,8 +5174,13 @@ try {
 		_btnSortGroups = _display displayCtrl 11;if(!isNil 'SortGroupsPlease')then{_btnSortGroups ctrlSetTextColor [0,1,0,1];} else {_btnSortGroups ctrlSetTextColor [1,1,1,1];};
 		_btnSortRange = _display displayCtrl 12;if(!isNil 'SortRangePlease')then{_btnSortRange ctrlSetTextColor [0,1,0,1];} else {_btnSortRange ctrlSetTextColor [1,1,1,1];};
 		_ctrl lbAdd '-----------------------------------';
-	  
-		for '_i' from 0 to 16 do {_ctrl lbAdd '';};
+	  	_index = _ctrl lbAdd '[civilian]';_ctrl lbSetColor [_index,[0.67,0.97,0.97,1]];
+		_index = _ctrl lbAdd '[west]';_ctrl lbSetColor [_index,[0.047,0.502,1,1]];
+		_index = _ctrl lbAdd '[east]';_ctrl lbSetColor [_index,[1,0.17,0.17,1]];
+		_index = _ctrl lbAdd '[resistance]';_ctrl lbSetColor [_index,[0,0.65,0,1]];
+		_index = _ctrl lbAdd '[Admin]';_ctrl lbSetColor [_index,[0,1,0,1]];
+		_index = _ctrl lbAdd '[Dead Player]';_ctrl lbSetColor [_index,[1,1,1,1]];
+		for '_i' from 0 to 10 do {_ctrl lbAdd '';};
 		filling_CQC_Player = nil;
 	};
 	fnc_fill_CQC_Player = {
