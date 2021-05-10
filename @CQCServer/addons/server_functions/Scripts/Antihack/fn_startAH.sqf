@@ -8790,14 +8790,13 @@ try {
 	fnc_Hover = {
 		if(isnil 'hovverthread')then
 		{
-			if(!cameraOn isKindOf 'Air')exitWith{ systemChat 'You can only hoover with AIR vehicles.'; };
 			if(!local cameraOn)exitWith{ systemChat 'You can only hoover when you were the last person in the driver seat of the vehicle.'; };
 			
 			_log = 'Now Hovering';
 			_log call FN_SHOW_LOG;
 			
 			hovverthread = [] spawn {
-				while {cameraOn isKindOf 'Air' && local cameraOn} do { cameraOn setVelocity [0,0,0]; };
+				while {local cameraOn} do { cameraOn setVelocity [0,0,0]; };
 				hovverthread = nil;
 				
 				_log = 'No longer Hovering';

@@ -1,4 +1,3 @@
-// CQC_fnc_eventHandlers
 
 player addEventHandler ["HandleDamage", {
 		params [ "_unit", "_part", "_damage", "_source" ];
@@ -49,5 +48,5 @@ player addEventHandler ["HandleHeal", {
 	}
 ];
 
-player addEventHandler [ "Killed", { [_this] spawn CQC_fnc_player_Killed; } ];
-player addEventHandler [ "Respawn", { [_this] spawn CQC_fnc_player_respawn; } ];
+player addEventHandler [ "Killed", CQC_fnc_player_Killed ];
+player addEventHandler [ "Respawn", CQC_fnc_player_respawned ];

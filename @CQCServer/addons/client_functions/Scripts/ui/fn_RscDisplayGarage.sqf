@@ -430,8 +430,6 @@ switch (_mode) do {
 			};
 		};
 		
-		[] spawn CQC_fnc_eventHandlers;
-		
 		player moveInAny _vehicle;
 
 		//--- Cleanup when killed

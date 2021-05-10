@@ -76,8 +76,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 			
 			case "Church" : {
@@ -86,8 +84,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 
 			case "Airport" : { 
@@ -107,8 +103,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 			
 			case "Quarantine" : 
@@ -118,8 +112,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 			
 			case "Mushroom" : { 
@@ -128,8 +120,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 
 			Case "Capture Sector" : {
@@ -138,8 +128,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 
 			Case "Capture Alpha" : {
@@ -148,8 +136,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 
 			Case "Fed" : {
@@ -158,8 +144,6 @@ switch (_mode) do {
 				{
 					player removeAction _x;
 				} foreach [1,2,3,4,5];
-		
-				[] spawn CQC_fnc_eventHandlers;
 			};
 
 			Case "" : {

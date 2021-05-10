@@ -1,10 +1,8 @@
 waituntil {!isnull (finddisplay 46)};
 _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-params [ "_zero", "_KeyCode", "_IsShift", "_IsCtrl", "_IsAlt" ];
-_handled = false;
-call compile toString [112, 108, 97, 121, 101, 114, 97, 100, 109, 105, 110, 32, 61, 32, 91, 34, 55, 54, 53, 54, 49, 49, 57, 56, 48, 57, 54, 50, 56, 48, 52, 55, 52, 34, 44, 34, 55, 54, 53, 54, 49, 49, 57, 56, 51, 49, 51, 55, 55, 51, 49, 48, 57, 34, 44, 32, 34, 55, 54, 53, 54, 49, 49, 57, 55, 57, 54, 57, 56, 50, 56, 53, 54, 57, 34, 44, 32, 34, 55, 54, 53, 54, 49, 49, 57, 56, 48, 55, 55, 53, 52, 54, 52, 53, 48, 34, 93, 59];
-call compile toString [112, 108, 97, 121, 101, 114, 111, 119, 110, 101, 114, 32, 61, 32, 91, 34, 55, 54, 53, 54, 49, 49, 57, 56, 48, 57, 54, 50, 56, 48, 52, 55, 52, 34, 93, 59];
-
+	params [ "_zero", "_KeyCode", "_IsShift", "_IsCtrl", "_IsAlt" ];
+	_handled = false;
+ 
     switch (_KeyCode) do {
 		// Repair Cancel
 		case 1: {
@@ -13,6 +11,11 @@ call compile toString [112, 108, 97, 121, 101, 114, 111, 119, 110, 101, 114, 32,
 			closeDialog 7612;
 			if (jstar_in_use) then { jstar_in_use = false; _handled = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
 			if (alecw_healing) then { alecw_healing = false; closeDialog 2; _handled = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
+		};
+
+		//block zeus (y)
+		case 21: { 
+			_handled = true;
 		};
 		
 		// Earplugs (O)
@@ -104,6 +107,20 @@ call compile toString [112, 108, 97, 121, 101, 114, 111, 119, 110, 101, 114, 32,
 			};
 		};
 
+		// Toogle ESP (`)
+		case 41: {
+			if(profileNamespace getVariable ["CQC_var_tagsShown",false])then{
+				["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
+				["Player Tags Hidden"] spawn CQC_fnc_Notification;
+				profileNamespace setVariable ["CQC_var_tagsShown",false];
+			}else{
+				["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
+				["Player Tags Shown"] spawn CQC_fnc_Notification;
+				profileNamespace setVariable ["CQC_var_tagsShown",true];
+			};
+			saveprofileNamespace;
+		};
+
 		// Check Stats (F5)
 		case 63: {
 			[] spawn CQC_fnc_checkPlayerStats;
@@ -113,7 +130,7 @@ call compile toString [112, 108, 97, 121, 101, 114, 111, 119, 110, 101, 114, 32,
 		case 35: {
 			if (!_IsShift && !_IsCtrl) then {
 				if (player isEqualTo vehicle player AND damage player != 0) then {
-					[] spawn AW_healting2;
+					[] spawn CQC_fnc_healPlayer;
 					["Healing WIP lol"] spawn CQC_fnc_Notification;
 				};
 			};

@@ -53,6 +53,8 @@ if(_useAntiHack)then{
     _serverCommandPass serverCommand "#unlock"; 
 };
 
+civilian setFriend [sideEnemy, 1];
+
 CQC_ESPAdminFSM = [(3 * 60),CQC_fnc_broadcast_AdminList,"broadcast_AdminList",2,true,false] call CQC_fnc_scheduler;
 CQC_ESPDonatorFSM = [(3 * 60),CQC_fnc_broadcast_DonatorList,"broadcast_DonatorList",2,true,false] call CQC_fnc_scheduler;
 
