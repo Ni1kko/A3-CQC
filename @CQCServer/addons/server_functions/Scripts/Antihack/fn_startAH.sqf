@@ -2586,26 +2586,7 @@ try {
 								true
 							} count (allcontrols _display49);
 						"; }; _A3AHstring = _A3AHstring + "
-						
-						if(_isNormal)then
-						{
-							{
-								_ctrl = _display49 displayCtrl _x;
-								_ctrl ctrlShow false;
-								_ctrl buttonSetAction '(findDisplay 49) closeDisplay 0;(findDisplay 46) closeDisplay 0;';
-							} forEach [11884,12284,13291];
-							{
-								_ctrl = _display49 displayCtrl _x;
-								_ctrl ctrlShow false;
-								_ctrl buttonSetAction '(findDisplay 49) closeDisplay 0;(findDisplay 46) closeDisplay 0;';
-								if(!isNull _ctrl)then
-								{
-									_log = format['BadControl on 49: %1 - %2',_ctrl,_x];
-									[_name,_puid,'BAN',toArray(_log)] call _AHKickLog;
-									[] call _AHKickOFF;
-								};
-							} forEach [65464,65465,65466];
-						};
+						 
 					}
 					else
 					{
