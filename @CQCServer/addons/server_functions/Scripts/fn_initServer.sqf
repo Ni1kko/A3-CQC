@@ -9,7 +9,7 @@ params[
 	["_isLiveServer",true,[false]]
 ];
 
-private _passwordAdmin = '34567';
+private _passwordAdmin = 'v1rd86Rtv9b';
 
 private _logNew = compile 'diag_log "";{diag_log format ["<CQC> %1",_x];if(_forEachIndex mod 2 isEqualTo 0)then{diag_log ""}}forEach _this;diag_log ""; true';
 
