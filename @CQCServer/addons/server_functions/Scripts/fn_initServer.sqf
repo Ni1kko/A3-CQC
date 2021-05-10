@@ -61,6 +61,28 @@ if(_useAntiHack)then{
     _serverCommandPass serverCommand "#unlock"; 
 };
 
+CQC_var_EntityKilledEH = addMissionEventHandler ["EntityKilled",
+{
+	params ["_victim", "_killer", "_instigator"];
+    private _killedByVehicle = false;
+	if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0}; // UAV/UGV player operated road kill
+	if (isNull _instigator) then {_killedByVehicle = true;_instigator = _killer}; // player driven vehicle road kill
+    
+     
+    if(!isNull _victim AND !isNull _killer AND !isNull _instigator)then{ 
+        private _message = format ["%1 (KILLED) %2", name _instigator, name _victim];
+        private _admins = missionNamespace getVariable ['CQCAdmins',[]];
+	    private _donators = missionNamespace getVariable ['CQCDonators',[]];
+        if(getPlayerUID _instigator in (_admins + _donators))then{
+            private _quotes = ["slaughtered","wrecked","fragged","dominated","killed","defeated","destroyed"];
+            private _quote = [selectRandom _quotes, "squashed"] select _killedByVehicle;
+            _message = format ["%1 (%2) %3", name _instigator, toUpper _quote, name _victim];
+        };
+        _message remoteExec ["systemChat",-2];
+    };
+}];
+//removeMissionEventHandler ["EntityKilled",CQC_var_EntityKilledEH]
+
 civilian setFriend [sideEnemy, 1];
 
 CQC_ESPAdminFSM = [(3 * 60),CQC_fnc_broadcast_AdminList,"broadcast_AdminList",2,true,false] call CQC_fnc_scheduler;

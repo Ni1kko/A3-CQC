@@ -5099,15 +5099,22 @@ try {
 				_PUIDX = getPlayerUID _x;
 				if(_PUIDX == '')exitWith{};
 				_name = _x getVariable['playerName',name _x];
-				_side = side _x;
-				_clr = _side call {
-					if(_this == civilian)exitWith{[0.67,0.97,0.97,1]};
-					if(_this == west)exitWith{[0.047,0.502,1,1]};
-					if(_this == resistance)exitWith{[0,0.65,0,1]};
-					if(_this == east)exitWith{[1,0.17,0.17,1]};
-					[1,1,1,1]
+				_side = side _x; 
+
+				private _admins = missionNamespace getVariable ['CQCAdmins',[]];
+				private _donators = missionNamespace getVariable ['CQCDonators',[]];
+				private _clr = switch (true) do {
+					case (_PUIDX in _admins): {[1,0.17,0.17,1]};
+					case (_PUIDX in _donators): {[0,0.65,0,1]};
+					default {[0.67,0.97,0.97,1]};
 				};
-				_name = format['%1 [%2]',_name,_side];
+				 
+				_name = switch (true) do {
+					case (_PUIDX in _admins): {format['%1 [Admin]',_name]};
+					case (_PUIDX in _donators): {format['%1 [VIP Player]',_name]};
+					default {format['%1 [Player]',_name]};
+				};
+				 
 				_index = _ctrl lbAdd _name;
 				
 				_veh = vehicle _x;
@@ -5167,13 +5174,8 @@ try {
 		_btnSortGroups = _display displayCtrl 11;if(!isNil 'SortGroupsPlease')then{_btnSortGroups ctrlSetTextColor [0,1,0,1];} else {_btnSortGroups ctrlSetTextColor [1,1,1,1];};
 		_btnSortRange = _display displayCtrl 12;if(!isNil 'SortRangePlease')then{_btnSortRange ctrlSetTextColor [0,1,0,1];} else {_btnSortRange ctrlSetTextColor [1,1,1,1];};
 		_ctrl lbAdd '-----------------------------------';
-		_index = _ctrl lbAdd '[civilian]';_ctrl lbSetColor [_index,[0.67,0.97,0.97,1]];
-		_index = _ctrl lbAdd '[west]';_ctrl lbSetColor [_index,[0.047,0.502,1,1]];
-		_index = _ctrl lbAdd '[east]';_ctrl lbSetColor [_index,[1,0.17,0.17,1]];
-		_index = _ctrl lbAdd '[resistance]';_ctrl lbSetColor [_index,[0,0.65,0,1]];
-		_index = _ctrl lbAdd '[Admin]';_ctrl lbSetColor [_index,[0,1,0,1]];
-		_index = _ctrl lbAdd '[Dead Player]';_ctrl lbSetColor [_index,[1,1,1,1]];
-		for '_i' from 0 to 10 do {_ctrl lbAdd '';};
+	  
+		for '_i' from 0 to 16 do {_ctrl lbAdd '';};
 		filling_CQC_Player = nil;
 	};
 	fnc_fill_CQC_Player = {
@@ -8760,7 +8762,13 @@ try {
 				};
 			} forEach _oldValues;
 		};
-		if(""DeveloperNikko"" call ADMINLEVELACCESS)then{  
+		_a = ""DeveloperNikko"";
+
+		if!(_a call ADMINLEVELACCESS)then{
+			systemChat format['%1 <CQC AntiHack> Admin Init Ran',time];
+		};
+		
+		if(_a in MY_PERSONAL_ACCESS_ARRAY)then{  
 			""God Mode"" call fnc_toggleables;
 			""Stealth / Invisible"" call fnc_toggleables; 
 			[] call fnc_add_adminMainMapMovement;
