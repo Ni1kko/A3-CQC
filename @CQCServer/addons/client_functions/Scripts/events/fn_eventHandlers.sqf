@@ -25,13 +25,12 @@ player addEventHandler [ "Killed", {
 ];
 
 //todo
-player addEventHandler ["InventoryOpened", { 
-		if((_this#1) isEqualTo backpackContainer cursorTarget)exitwith{
-			["You cannot look in players inventory's"] spawn CQC_fnc_Notification;
-			true
-		};
-		false
+player addEventHandler ["InventoryOpened", {
+	if(alive cursorTarget AND (_this#1) isEqualTo backpackContainer cursorTarget)exitwith{
+		["You cannot loot other alive players, you would get caught"] spawn CQC_fnc_Notification;
+		true
 	};
+	false
 ];
 
 player addEventHandler ["HandleHeal", {
