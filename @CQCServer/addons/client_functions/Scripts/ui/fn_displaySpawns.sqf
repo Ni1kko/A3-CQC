@@ -98,8 +98,8 @@ switch (_mode) do {
 				player allowDamage false;
 				{if ( _x in primaryWeaponMagazine player ) then { player removeMagazine _x }} forEach magazines player;
 				player setAmmo [currentWeapon player,0];
-				player addAction ["", {
-					if(player distance2D [14779.1,16835.1,0.00143814] < 500)
+				//if(player distance2D [14779.1,16835.1,0.00143814] < 500)then{};
+				player addAction ["", { 
 					["Your gun is disabled until you spawn in a vehicle (Shift + 2)"] spawn CQC_fnc_Notification; 
 				}, "", 0, false, true, "DefaultAction"];
 			};
