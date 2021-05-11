@@ -95,9 +95,65 @@ player addEventHandler ["InventoryClosed", {
 		["_player",objNull,[objNull]], 
 		["_inventorycontainer",objNull]
 	];
-
+ 
 	_player switchMove "";
-	[] call CQC_fnc_saveGear;
+
+	private _curInventory = [_player,getUnitLoadout _player];
+
+	if(CQC_var_lastInventory isNotEqualTo _curInventory)then{
+		CQC_var_lastInventory = _curInventory;
+		[] call CQC_fnc_saveGear;
+	};
 
 	false
+}];
+
+player removeAllEventHandlers "Take";
+player addEventHandler ["Take", {
+	params ["_unit", "_container", "_item"];
+	private _curInventory = [_player,getUnitLoadout _player];
+	
+	if(CQC_var_lastInventory isNotEqualTo _curInventory)then{
+		CQC_var_lastInventory = _curInventory;
+		[] call CQC_fnc_saveGear;
+	};
+}];
+
+player removeAllEventHandlers "Put";
+player addEventHandler ["Put", {
+	params ["_unit", "_container", "_item"];
+	private _curInventory = [_player,getUnitLoadout _player];
+	
+	if(CQC_var_lastInventory isNotEqualTo _curInventory)then{
+		CQC_var_lastInventory = _curInventory;
+		[] call CQC_fnc_saveGear;
+	};
+}];
+
+player removeAllEventHandlers "FiredNear";
+player addEventHandler ["FiredNear", {
+	params [
+		"_unit", 	 // unit: Object - Object the event handler is assigned to
+		"_firer",    // firer: Object - Object which fires a weapon near the unit
+		"_distance", // distance: Number - Distance in meters between the unit and firer (max. distance ~69m)
+		"_weapon", 	 // weapon: String - Fired weapon
+		"_muzzle", 	 //  muzzle: String - Muzzle that was used
+		"_mode", 	 // mode: String - Current mode of the fired weapon
+		"_ammo",     // ammo: String - Ammo used 
+		"_gunner"    // gunner: Object - gunner, whose weapons are fired
+	];
+	
+	CQC_var_combatTimer = diag_tickTime + 25;
+}];
+
+player removeAllEventHandlers "Hit";
+player addEventHandler ["Hit", {
+	params [
+		"_unit", 		// unit: Object - Object the event handler is assigned to
+		"_source", 		// source: Object - Object that caused the damage – contains unit in case of collisions
+		"_damage",      // damage: Number - Level of damage caused by the hit
+		"_instigator"   // instigator: Object - Person who pulled the trigger
+	];
+
+	CQC_var_combatTimer = diag_tickTime + 25;
 }];

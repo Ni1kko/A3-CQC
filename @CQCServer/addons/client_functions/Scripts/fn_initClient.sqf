@@ -26,6 +26,9 @@ CQC_var_enemyRendered = false;
 CQC_var_firstSpawn = true; 
 CQC_var_canTeleport = false;
 CQC_var_inSpawnArea = true;
+CQC_var_lastInventory = [objNull,[]];
+CQC_var_combatTimer = diag_tickTime;
+CQC_var_inCombat = false;
 
 enableEnvironment false;// Disbales Environment
 player disableConversation true;// Disables being able to talk to each other
@@ -46,7 +49,7 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [] spawn CQC_fnc_escmenu;	 // escape menu
 [] spawn CQC_fnc_signs; 	 // Sign Text
 [] spawn CQC_fnc_afkkick;	 // AFK Kick
-
+[] spawn CQC_fnc_player_inCombat;
 
 //check if in spawn
 [] spawn {
@@ -64,6 +67,8 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 		uiSleep 5;
 	};
 };
+
+
 
 // Loads HUD
 [] spawn CQC_fnc_healthhud;

@@ -1,56 +1,51 @@
-private["_abortButton","_respawnButton","_fieldManual","_escSync","_canUseControls"];
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
 disableSerialization;
 
-_escSync = {
-	private["_abortButton","_thread","_syncManager"];
-	disableSerialization;
-	
-	_syncManager = {
-		disableSerialization;
-		private["_abortButton","_timeStamp"];
-		_abortButton = (findDisplay 49) displayCtrl 104;
-		_respawnButton = (findDisplay 49) displayCtrl 103; // LHM
-		_timeStamp = diag_tickTime + 2;
+private _display = displayNull;
+private _escapeTime = 5;
+
+while {true} do 
+{
+	//Escape opened 
+	waitUntil{_display = findDisplay 49; !isNull _display};
+
+	//Set esacpe time var
+	private _timeTillAbort = diag_tickTime + _escapeTime;
+
+	//Get Controls
+	private _abortButton = _display displayCtrl 104;
+	private _respawnButton = _display displayCtrl 103;
+	private _fieldManual = _display displayCtrl 122;
+
+	//Lock Controls until timer has expired   
+	waitUntil {
+		//Block off buttons.
+		_abortButton ctrlEnable false;
+		_respawnButton ctrlEnable false;
+		_fieldManual ctrlEnable false; 
 		
-		waitUntil {
-			_abortButton ctrlSetText format["Abort available in %1",[(_timeStamp - diag_tickTime),"SS.MS"] call BIS_fnc_secondsToString];
-			_abortButton ctrlSetTooltip "To Lobby";
-			_abortButton ctrlCommit 0;
-			round(_timeStamp - diag_tickTime) <= 0 || isNull (findDisplay 49)
-		};
-		
-		_abortButton ctrlSetText "Abort";
+		//Update buttons
+		_timeTillAbort = if(CQC_var_inCombat)then{CQC_var_combatTimer}else{_timeTillAbort};//tweat esacpe time var if in combat
+		_abortButton ctrlSetText format["Abort available in %1",[(_timeTillAbort - diag_tickTime),"SS.MS"] call BIS_fnc_secondsToString];//show time on abort button
 		_abortButton ctrlCommit 0;
+
+		//Can we break out?
+		round(_timeTillAbort - diag_tickTime) <= 0 || isNull _display
 	};
-	
-	_abortButton = (findDisplay 49) displayCtrl 104;
-	
-	if (_this) then {
-		_thread = [] spawn _syncManager;
-		waitUntil{scriptDone _thread OR isNull (findDisplay 49)};
+
+	//Unlock Controls
+	if(!isNull _abortButton)then{
+		_abortButton ctrlSetText "Abort";
+		_abortButton ctrlSetTooltip "Leave CQC Sever";
+		_abortButton ctrlSetEventHandler ["ButtonClick","[] spawn CQC_fnc_outtro; (findDisplay 49) closeDisplay 2; true"];
+		_abortButton ctrlCommit 2.5;
 		_abortButton ctrlEnable true;
-		
 	};
-};
-	
-while {true} do {
-	waitUntil{!isNull (findDisplay 49)};
-	_abortButton = (findDisplay 49) displayCtrl 104;
-	_respawnButton = (findDisplay 49) displayCtrl 103;
-	_fieldManual = (findDisplay 49) displayCtrl 122;
-	
-	//Block off our buttons first.
-	_abortButton ctrlEnable false;
-	_respawnButton ctrlEnable false;
-	_fieldManual ctrlEnable false;
-	_fieldManual ctrlShow false;
-	_respawnButton ctrlSetText "By tyrone & AlecW";
-	_abortButton ctrlSetEventHandler ["ButtonClick","[] spawn CQC_fnc_outtro; (findDisplay 49) closeDisplay 2; true"];
-	
-	private _usebleCtrl = true;
-	_usebleCtrl spawn _escSync;
-	if(_usebleCtrl) then {
-		_respawnButton ctrlEnable false; //Enable the button.
-	};
-	waitUntil{isNull (findDisplay 49)};
+
+	//Escape closed
+	waitUntil{_display};
 };

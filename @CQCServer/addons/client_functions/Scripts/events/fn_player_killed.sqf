@@ -14,6 +14,8 @@ if ((_victim isNotEqualTo _killer) AND isPlayer _killer) then {
 	[] remoteExec ["CQC_fnc_playerAddKill", owner _killer];
 };
 
+CQC_var_combatTimer = diag_tickTime + 25;
+
 //Remove from vehicle
 if !((vehicle _victim) isEqualTo _victim) then
 {
