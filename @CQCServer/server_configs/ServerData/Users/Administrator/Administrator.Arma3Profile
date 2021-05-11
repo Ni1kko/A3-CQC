@@ -21,7 +21,7 @@ class DifficultyPresets
 			weaponCrosshair=1;
 			visionAid=0;
 			thirdPersonView=1;
-			cameraShake=1;
+			cameraShake=0;
 			scoreTable=0;
 			deathMessages=0;
 			vonID=0;
