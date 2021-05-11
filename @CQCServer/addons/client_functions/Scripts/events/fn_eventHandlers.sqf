@@ -119,16 +119,6 @@ player addEventHandler ["Take", {
 	};
 }];
 
-player removeAllEventHandlers "Put";
-player addEventHandler ["Put", {
-	params ["_unit", "_container", "_item"];
-	private _curInventory = [_player,getUnitLoadout _player];
-	
-	if(CQC_var_lastInventory isNotEqualTo _curInventory)then{
-		CQC_var_lastInventory = _curInventory;
-		[] call CQC_fnc_saveGear;
-	};
-}];
 
 player removeAllEventHandlers "FiredNear";
 player addEventHandler ["FiredNear", {
