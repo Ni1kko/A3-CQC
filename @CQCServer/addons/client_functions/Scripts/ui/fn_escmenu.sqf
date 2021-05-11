@@ -47,5 +47,5 @@ while {true} do
 	};
 
 	//Escape closed
-	waitUntil{_display};
+	waitUntil{isNull _display};
 };
