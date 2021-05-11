@@ -6,7 +6,7 @@
 disableSerialization;
 
 private _display = displayNull;
-private _escapeTime = 5;
+private _escapeTime = getNumber(missionConfigFile >> "escapeTimer");
 
 while {true} do 
 {

@@ -4,6 +4,8 @@ loadScreen = "textures\cqcimagenew.paa";
 overviewPicture = "textures\cqcimagenew.paa";
 skipLobby = 1;
 joinUnassigned = 0;
+combatTimer = 25;
+escapeTimer = 5;
 enableDebugConsole[] = {
 	"76561198048125586",
 	"76561197960272723",
