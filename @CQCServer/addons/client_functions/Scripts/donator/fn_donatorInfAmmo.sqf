@@ -1,5 +1,11 @@
-AW_IA = !(missionNamespace getVariable ["AW_IA",false]);
-if (AW_IA) then {
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
+CQC_var_infiniteAmmoActive = !(missionNamespace getVariable ["CQC_var_infiniteAmmoActive",false]);
+
+if (CQC_var_infiniteAmmoActive) then {
 	player addEventHandler ["Fired", {(_this select 0) setAmmo [primaryWeapon player, 200]}];
 	["Infinite ammo On"] spawn CQC_fnc_Notification;
 	closeDialog 0;

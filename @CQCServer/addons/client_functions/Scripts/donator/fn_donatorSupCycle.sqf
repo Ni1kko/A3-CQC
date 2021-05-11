@@ -1,6 +1,11 @@
-_weapon = currentWeapon player;
-_class = (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "MuzzleSlot" >> "compatibleItems");
-_sups = _class call CQC_fnc_compatibleItems;
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
+private _weapon = currentWeapon player;
+private _class = (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "MuzzleSlot" >> "compatibleItems");
+private _sups = _class call CQC_fnc_compatibleItems;
 
 if (isNil "CQC_Sup_Index") then {
 	CQC_Sup_Index = 0;
