@@ -70,9 +70,7 @@ switch (_mode) do {
 
 		//Temp fix for airport
 		player allowDamage true;
-		if(currentWeapon player <= 0)then{
-			player setAmmo [currentWeapon player,500];
-		};
+		player setAmmo [currentWeapon player,500];
 
 		switch (_locationName) do {
 
