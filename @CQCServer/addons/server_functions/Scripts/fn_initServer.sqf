@@ -98,6 +98,7 @@ CQC_var_EntityKilledEH = addMissionEventHandler ["EntityKilled",
 //removeMissionEventHandler ["EntityKilled",CQC_var_EntityKilledEH]
 
 civilian setFriend [sideEnemy, 1];
+[0,0] remoteExec ["setFog",0];// Removes all Fog
 
 [] spawn CQC_fnc_broadcast_AdminList;
 [] spawn CQC_fnc_broadcast_DonatorList;

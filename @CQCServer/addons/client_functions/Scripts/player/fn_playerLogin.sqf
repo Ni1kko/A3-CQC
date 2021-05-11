@@ -7,11 +7,14 @@ waitUntil {!isNull player};
 
 player enableFatigue false; 
 player setCustomAimCoef 0.00;
-
+player switchCamera "EXTERNAL";
+player addRating -1000000;
+CQC_var_isHealing = false;
 
 // Sets View Distances
 setViewDistance 325;
 setObjectViewDistance 325;
+setTerrainGrid 50;
 
 //Temp Check If Not In DB
 if !(call isAdmin) then{  
@@ -68,14 +71,6 @@ if!(call isDonator)then{
 	};
 };
 	
-
- 
-[] spawn CQC_fnc_eventHandlers;
-
-// Player Icons nameTags
-["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
-//["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
-
 // Loads all the statis
 // Loads Kills
 if (isNil {profileNamespace getVariable "cqc_kills"}) then {profileNamespace setVariable ["cqc_kills", 0];};
@@ -106,7 +101,13 @@ diag_log format ["[Frag Squad CQC] Player Stats Loaded. { Kills: %1 }, { Deaths:
 5 enableChannel [true, true];
 diag_log "[Frag Squad CQC] Chats Removed";
 
+ 
+[] spawn CQC_fnc_eventHandlers;
 [] spawn CQC_fnc_initActions;// scroll actions
+
+// Player Icons nameTags
+["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
+//["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
 
 // Custom Loadout Bullshit
 private _customLoadout = profileNamespace getVariable [ "CQC_Custom_Loadout", [] ];
@@ -122,14 +123,22 @@ if (count (_customLoadout) > 0) then {
 	};
 };
 
-if(call isDonator)then{
-	[] spawn CQC_fnc_donatorInit;
-};
-
- 
 if(CQC_var_firstSpawn)then{
 	CQC_var_firstSpawn = false;
-	createDialog "CQCDisplayHelp";
+	if(call isDonator /*|| call isAdmin*/)then{
+		[] spawn CQC_fnc_donatorInit;
+	}else{
+		createDialog "CQCDisplayHelp";
+	};
 }else{
 	createDialog "CQCDisplaySpawns";
+};
+
+if(isNil "CQC_fnc_customHudInit")then{
+	[]spawn{
+		waitUntil{!isNil "CQC_fnc_customHudInit"};
+		[] spawn CQC_fnc_customHudInit;
+	};
+}else{
+	[] spawn CQC_fnc_customHudInit;
 };

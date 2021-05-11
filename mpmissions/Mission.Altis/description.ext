@@ -96,12 +96,12 @@ class RscTitles
 		h = 0.15;
 	};
 
-	class TAG_JSTARHUD {
+	class CQC_Rsc_PlayerHUD {
 	idd = -1; 
 	duration = 1e+1000; 
 	fadeIn = 0; 
 	fadeOut = 0; 
-	onLoad = "uiNamespace setVariable ['TAG_JSTAR_display', _this select 0];"; 
+	onLoad = "uiNamespace setVariable ['CQC_Rsc_PlayerHUD', _this select 0];"; 
 			
 		class Controls {
 			class jstar_credits {

@@ -152,4 +152,4 @@ switch (_mode) do {
 		};
 	};
 };
-canTeleport = false;
+CQC_var_canTeleport = false;

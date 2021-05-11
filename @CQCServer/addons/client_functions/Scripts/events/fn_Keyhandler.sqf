@@ -10,7 +10,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 			closeDialog 7529;
 			closeDialog 7612;
 			if (jstar_in_use) then { jstar_in_use = false; _handled = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-			if (alecw_healing) then { alecw_healing = false; closeDialog 2; _handled = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
+			if (CQC_var_isHealing) then { CQC_var_isHealing = false; closeDialog 2; _handled = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
 		};
 
 		//block zeus (y)
@@ -74,7 +74,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 				if (player distance fragsquad_shop < 15) exitWith {["You can't spawn vehicles in spawn."] spawn CQC_fnc_Notification;};
 				if (player distance experimental_marker < 150) exitWith {["You can't spawn vehicles at experimental."] spawn CQC_fnc_Notification;};
 				if (player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
-				if (alecw_healing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
+				if (CQC_var_isHealing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
 				if !(dialog) then {
 					createDialog "CQC_RscDisplayGarage";
 					_handled = true;
@@ -160,7 +160,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		
 		// Spawn Menu (Shift + T)
 		case 20: {
-			if (_IsShift && !_IsCtrl && !atSpawn && ((canTeleport) || (call isAdmin))) then {
+			if (_IsShift && !_IsCtrl && !CQC_var_inSpawnArea && ((CQC_var_canTeleport) || (call isAdmin))) then {
 				createDialog "CQCDisplaySpawns";
 			};
 		};

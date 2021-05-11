@@ -8,7 +8,7 @@ if !(alive player) exitwith {};
 ["Press ESC to stop"] call CQC_fnc_Notification;
 _healValue = 0;
 disableSerialization;
-alecw_healing = true;
+CQC_var_isHealing = true;
 
 private _stance = stance player;
 
@@ -37,9 +37,9 @@ with uiNamespace do {
 	};
 	
 	if(!alive player) exitWith{		ctrlDelete ((findDisplay 46) displayCtrl 5);};
-	if((!alecw_healing) && (_stance == "STAND")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"; ["1"] call JSt4r_fnc_notification_system;};		
-	if((!alecw_healing) && (_stance == "CROUCH")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"; ["2"] call JSt4r_fnc_notification_system;};
-	if((!alecw_healing) && (_stance == "PRONE")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPpneMstpSrasWrflDnon_AmovPpneMstpSrasWrflDnon"; ["3"] call JSt4r_fnc_notification_system;};
+	if((!CQC_var_isHealing) && (_stance == "STAND")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"; ["1"] call JSt4r_fnc_notification_system;};		
+	if((!CQC_var_isHealing) && (_stance == "CROUCH")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"; ["2"] call JSt4r_fnc_notification_system;};
+	if((!CQC_var_isHealing) && (_stance == "PRONE")) exitWith{ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "AinvPpneMstpSrasWrflDnon_AmovPpneMstpSrasWrflDnon"; ["3"] call JSt4r_fnc_notification_system;};
 
 	if (_healValue > 0.99) exitWith{
 		["Player healed"] call CQC_fnc_Notification;
@@ -48,7 +48,7 @@ with uiNamespace do {
 		if (_stance == "STAND") then {player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon";};
 		if (_stance == "CROUCH") then {player switchMove "AinvPknlMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon";};
 		if (_stance == "PRONE") then {player switchMove "AinvPpneMstpSrasWrflDnon_AmovPpneMstpSrasWrflDnon";};
-		alecw_healing = false;
+		CQC_var_isHealing = false;
 		ctrlDelete ((findDisplay 46) displayCtrl 5);
 		closeDialog 7612;
 		};
