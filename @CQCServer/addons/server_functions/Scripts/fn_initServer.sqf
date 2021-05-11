@@ -67,16 +67,30 @@ CQC_var_EntityKilledEH = addMissionEventHandler ["EntityKilled",
     private _killedByVehicle = false;
 	if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0}; // UAV/UGV player operated road kill
 	if (isNull _instigator) then {_killedByVehicle = true;_instigator = _killer}; // player driven vehicle road kill
-    
-     
-    if(!isNull _victim AND !isNull _killer AND !isNull _instigator)then{ 
+    if (!isNull _victim AND !isNull _killer AND !isNull _instigator) then {
         private _message = format ["%1 (KILLED) %2", name _instigator, name _victim];
-        private _admins = missionNamespace getVariable ['CQCAdmins',[]];
-	    private _donators = missionNamespace getVariable ['CQCDonators',[]];
-        if(getPlayerUID _instigator in (_admins + _donators))then{
-            private _quotes = ["slaughtered","wrecked","fragged","dominated","killed","defeated","destroyed"];
-            private _quote = [selectRandom _quotes, "squashed"] select _killedByVehicle;
-            _message = format ["%1 (%2) %3", name _instigator, toUpper _quote, name _victim];
+        if (_victim isEqualTo _instigator) then {
+            _message = format ["%1 (DIED)", name _victim];
+        }else{
+            private _admins = missionNamespace getVariable ['CQCAdmins',[]];
+            private _donators = missionNamespace getVariable ['CQCDonators',[]];
+            if(getPlayerUID _instigator in (_admins + _donators))then{
+                if(_killedByVehicle)then{
+                   private _quotes = ["squashed" ,"crushed"]; 
+                    _message = format ["%1 (%2) %3", name _instigator, toUpper(selectRandom _quotes), name _victim];
+                }else{
+                    private _quotes = ["slaughtered","fragged","dominated","defeated","destroyed","wrecked","rekt","stomped","wasted","screwed","toasted","terminated","killed","annihilated","hammered","neutralized","pulverized","smashed","shredded"];
+                    private _quoteMessage = format ["%1 (%2) %3", name _instigator, toUpper(selectRandom _quotes), name _victim];
+
+                    private _distance = _victim distance2D _instigator; 
+                    private _distanceMessage = format ["From (%1%2)",_distance,["m","km"] select (_distance >= 1000)];
+                    
+                    private _weapon = getText(configFile >> "CfgWeapons" >> currentWeapon _instigator >> "displayName");
+                    private _weaponMessage = if(_weapon isNotEqualTo "")then{format ["With (%1)",_weapon]}else{""};
+
+                    _message = format ["%1 %2 %3",_quoteMessage, _distanceMessage,_weaponMessage];
+                };
+            };
         };
         _message remoteExec ["systemChat",-2];
     };
