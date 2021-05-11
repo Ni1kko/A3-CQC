@@ -12,14 +12,11 @@ params [
 ];
 
 waitUntil {!isNull (findDisplay 46)};
-["preInit"] spawn CQC_fnc_initModuleVehicles;
-
 waitUntil {!isNull player};
 if(_steamIDDB != getPlayerUID player)exitWith{(findDisplay 46) closeDisplay 2};
 
-
 isAdmin = compileFinal (""+str _AdminRankDB+" > 0");
-isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR ("+str _AdminRankDB+" >= 2))");
+isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR (if("+str(getNumber(missionConfigFile >> "adminDonator"))+" isEqualTo 1)then{"+str _AdminRankDB+" >= 2}else{false}))");
 
 CQC_var_clientGear = _GearDB;
 CQC_var_enemyRendered = false;
@@ -29,6 +26,7 @@ CQC_var_inSpawnArea = true;
 CQC_var_lastInventory = [objNull,[]];
 CQC_var_combatTimer = diag_tickTime;
 CQC_var_inCombat = false;
+CQC_var_spawnedVehicles = [];
 
 enableEnvironment false;// Disbales Environment
 player disableConversation true;// Disables being able to talk to each other
@@ -42,8 +40,9 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
 [true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
 
-// Scripts 
+// Scripts
 [] spawn CQC_fnc_playerLogin;
+[] spawn CQC_fnc_initModuleVehicles;
 [] spawn CQC_fnc_Keyhandler; // Key Handler
 [] spawn CQC_fnc_jump; 		 // player jamp
 [] spawn CQC_fnc_escmenu;	 // escape menu
@@ -72,8 +71,7 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 
 // Loads HUD
 [] spawn CQC_fnc_healthhud;
-["Initialize"] call BIS_fnc_dynamicGroups; 
-["postInit"] spawn CQC_fnc_initModuleVehicles;
+["Initialize"] call BIS_fnc_dynamicGroups;
 
 // End Line
 diag_log "[Frag Squad CQC] Client Init completed";

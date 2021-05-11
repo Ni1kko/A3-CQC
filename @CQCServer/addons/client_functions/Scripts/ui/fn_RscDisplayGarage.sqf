@@ -433,12 +433,11 @@ switch (_mode) do {
 		player moveInAny _vehicle;
 
 		//--- Cleanup when killed
-		if ( CQC_ModuleVehicles_garageGC > -1 ) then {
-
+		if ( CQC_ModuleVehicles_garageGC > -1 ) then { 
 			_vehicle addEventHandler [ "killed", {
 
 				//--- Remove vehicle from spawned array
-				CQC_ModuleVehicles_spawned = CQC_ModuleVehicles_spawned - [ _this#0 ];
+				CQC_var_spawnedVehicles = CQC_var_spawnedVehicles - [ _this#0 ];
 
 				//--- Cleanup unit with delay preference
 				[ _this#0, CQC_ModuleVehicles_garageGC ] call CQC_fnc_cleanupUnit;
@@ -448,16 +447,16 @@ switch (_mode) do {
 		};
 
 		//--- Add vehicle to spawned array
-		CQC_ModuleVehicles_spawned pushBack _vehicle;
+		CQC_var_spawnedVehicles pushBack _vehicle;
 
 		//--- Enforce spawn limit
-		if ( CQC_ModuleVehicles_garageLimit > 0 && { count CQC_ModuleVehicles_spawned > CQC_ModuleVehicles_garageLimit } ) then {
-
+		private _limit = getNumber(missionConfigFile >> "vehicleLimit");
+		if (_limit > 0 && count CQC_var_spawnedVehicles > _limit) then { 
 			["Your previous vehicle was removed"] spawn CQC_fnc_Notification;
 
 			//--- Delete first spawned vehicle
-			deleteVehicle ( CQC_ModuleVehicles_spawned#0 );
-			[ CQC_ModuleVehicles_spawned ] call BIS_fnc_arrayShift;
+			deleteVehicle ( CQC_var_spawnedVehicles#0 );
+			[ CQC_var_spawnedVehicles ] call BIS_fnc_arrayShift;
 
 		};
 

@@ -19,7 +19,7 @@ switch (_stance) do {
 };
 
 with uiNamespace do {
-	_bar = findDisplay 46 ctrlCreate ["JSt4r_RSC_Progress", 5]; 
+	_bar = findDisplay 46 ctrlCreate ["CQC_Rsc_DisplayProgress", 5]; 
 	_bar ctrlSetPosition [0.1,1.2,0.7,0.04]; 
 	_bar ctrlCommit 0;
 	_bar progressSetPosition 0.5;

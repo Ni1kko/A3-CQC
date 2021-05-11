@@ -1,3 +1,8 @@
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
 waituntil {!isnull (finddisplay 46)};
 _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	params [ "_zero", "_KeyCode", "_IsShift", "_IsCtrl", "_IsAlt" ];
@@ -20,39 +25,42 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		
 		// Earplugs (O)
 		case 24: {
+
+			private _resource = "CQC_Rsc_MuteIcon";
+
             if (!_isAlt && !_isCtrl && _IsShift) then {
 				switch (player getVariable["Earplugs",0]) do {
-					case 0: {["Earplugs 10%"] spawn CQC_fnc_Notification; 0 fadeSound 0.9; player setVariable ["Earplugs", 10]; player setVariable ["Plugs", true]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 10: {["Earplugs 25%"]  spawn CQC_fnc_Notification; 0 fadeSound 0.75; player setVariable ["Earplugs", 25]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 25: {["Earplugs 50%"] spawn CQC_fnc_Notification; 0 fadeSound 0.5; player setVariable ["Earplugs", 50]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 50: {["Earplugs 75%"] spawn CQC_fnc_Notification; 0 fadeSound 0.25; player setVariable ["Earplugs", 75]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 75: {["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 90: {["Earplugs 95%"] spawn CQC_fnc_Notification; 0 fadeSound 0.05; player setVariable ["Earplugs", 95]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 95: {["Earplugs 98%"] spawn CQC_fnc_Notification; 0 fadeSound 0.02; player setVariable ["Earplugs", 98]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 98: {["Earplugs 100%"] spawn CQC_fnc_Notification; 0 fadeSound 0; player setVariable ["Earplugs", 100]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 100: {["Earplugs at max"] spawn CQC_fnc_Notification; 0 fadeSound 0; player setVariable ["Earplugs", 100]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
+					case 0: {["Earplugs 10%"] spawn CQC_fnc_Notification; 0 fadeSound 0.9; player setVariable ["Earplugs", 10]; player setVariable ["Plugs", true]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 10: {["Earplugs 25%"]  spawn CQC_fnc_Notification; 0 fadeSound 0.75; player setVariable ["Earplugs", 25]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 25: {["Earplugs 50%"] spawn CQC_fnc_Notification; 0 fadeSound 0.5; player setVariable ["Earplugs", 50]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 50: {["Earplugs 75%"] spawn CQC_fnc_Notification; 0 fadeSound 0.25; player setVariable ["Earplugs", 75]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 75: {["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 90: {["Earplugs 95%"] spawn CQC_fnc_Notification; 0 fadeSound 0.05; player setVariable ["Earplugs", 95]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 95: {["Earplugs 98%"] spawn CQC_fnc_Notification; 0 fadeSound 0.02; player setVariable ["Earplugs", 98]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 98: {["Earplugs 100%"] spawn CQC_fnc_Notification; 0 fadeSound 0; player setVariable ["Earplugs", 100]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 100: {["Earplugs at max"] spawn CQC_fnc_Notification; 0 fadeSound 0; player setVariable ["Earplugs", 100]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
 				};
 			};
 			
 			if (!_isAlt && !_isShift && _IsCtrl) then {
 				switch (player getVariable["Earplugs",0]) do {
-					case 0: {["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; ("jstar_muted" call BIS_fnc_rscLayer) cutText ["","PLAIN"]; };
-					case 10: {["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; player setVariable ["Plugs", false]; ("jstar_muted" call BIS_fnc_rscLayer) cutText ["","PLAIN"]; };
-					case 25: {["Earplugs 10%"]  spawn CQC_fnc_Notification; 0 fadeSound 0.9; player setVariable ["Earplugs", 10]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 50: {["Earplugs 25%"] spawn CQC_fnc_Notification; 0 fadeSound 0.75; player setVariable ["Earplugs", 25]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 75: {["Earplugs 50%"] spawn CQC_fnc_Notification; 0 fadeSound 0.5; player setVariable ["Earplugs", 50]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 90: {["Earplugs 75%"] spawn CQC_fnc_Notification; 0 fadeSound 0.25; player setVariable ["Earplugs", 75]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 95: {["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 98: {["Earplugs 95%"] spawn CQC_fnc_Notification; 0 fadeSound 0.05; player setVariable ["Earplugs", 95]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
-					case 100: {["Earplugs 98%"] spawn CQC_fnc_Notification; 0 fadeSound 0.02; player setVariable ["Earplugs", 98]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"]; };
+					case 0: {["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; (_resource call BIS_fnc_rscLayer) cutText ["","PLAIN"]; };
+					case 10: {["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; player setVariable ["Plugs", false]; (_resource call BIS_fnc_rscLayer) cutText ["","PLAIN"]; };
+					case 25: {["Earplugs 10%"]  spawn CQC_fnc_Notification; 0 fadeSound 0.9; player setVariable ["Earplugs", 10]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 50: {["Earplugs 25%"] spawn CQC_fnc_Notification; 0 fadeSound 0.75; player setVariable ["Earplugs", 25]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 75: {["Earplugs 50%"] spawn CQC_fnc_Notification; 0 fadeSound 0.5; player setVariable ["Earplugs", 50]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 90: {["Earplugs 75%"] spawn CQC_fnc_Notification; 0 fadeSound 0.25; player setVariable ["Earplugs", 75]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 95: {["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 98: {["Earplugs 95%"] spawn CQC_fnc_Notification; 0 fadeSound 0.05; player setVariable ["Earplugs", 95]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
+					case 100: {["Earplugs 98%"] spawn CQC_fnc_Notification; 0 fadeSound 0.02; player setVariable ["Earplugs", 98]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"]; };
 				};
 			};
 			
 			if (!_isShift && !_IsCtrl && _isAlt ) then {
 				if (!(player getVariable "Plugs")) then {
-					["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; player setVariable ["Plugs", true]; ("jstar_muted" call BIS_fnc_rscLayer) cutRsc ["JSTARMUTED","PLAIN"];
+					["Earplugs 90%"] spawn CQC_fnc_Notification; 0 fadeSound 0.1; player setVariable ["Earplugs", 90]; player setVariable ["Plugs", true]; (_resource call BIS_fnc_rscLayer) cutRsc [_resource,"PLAIN"];
 				} else {
-					["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; player setVariable ["Plugs", false]; ("jstar_muted" call BIS_fnc_rscLayer) cutText ["","PLAIN"];
+					["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; player setVariable ["Plugs", false]; (_resource call BIS_fnc_rscLayer) cutText ["","PLAIN"];
 				};
 			};
 		};
@@ -61,7 +69,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		case 2: {
 			if (_IsShift) then {
 				if(!dialog) then {
-					createDialog "jstar_itemJStar";
+					createDialog "CQC_Rsc_DisplayItem";
 					_handled = true;
 				};
 			};
@@ -76,7 +84,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 				if (player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
 				if (CQC_var_isHealing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
 				if !(dialog) then {
-					createDialog "CQC_RscDisplayGarage";
+					createDialog "CQC_Rsc_DisplayGarage";
 					_handled = true;
 				};
 			};
@@ -161,7 +169,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		// Spawn Menu (Shift + T)
 		case 20: {
 			if (_IsShift && !_IsCtrl && !CQC_var_inSpawnArea && ((CQC_var_canTeleport) || (call isAdmin))) then {
-				createDialog "CQCDisplaySpawns";
+				createDialog "CQC_Rsc_DisplaySpawns";
 			};
 		};
     };

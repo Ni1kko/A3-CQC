@@ -1,3 +1,8 @@
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
 #define CT_STATIC           0
 #define CT_BUTTON           1
 #define CT_EDIT             2
@@ -1865,7 +1870,8 @@ class CQC_RscTextCheckBox
 	strings[] = {"UNCHECKED"};
 	checked_strings[] = {"CHECKED"};
 };
-class CQC_ctrlDefault {
+class CQC_ctrlDefault 
+{
 	access = 0;
 	idc = -1;
 	style = 0;
@@ -1894,21 +1900,21 @@ class CQC_ctrlDefault {
 		color[] = {1,1,1,1};
 	};
 };
-
-class CQC_ctrlDefaultText: CQC_ctrlDefault {
+class CQC_ctrlDefaultText: CQC_ctrlDefault 
+{
 	sizeEx = "4.32 * pixelH * pixelGrid * 0.5";
 	font = "RobotoCondensedLight";
 	shadow = 1;
 };
-
-class CQC_ctrlDefaultButton: CQC_ctrlDefaultText {
+class CQC_ctrlDefaultButton: CQC_ctrlDefaultText 
+{
 	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
 	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
 	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
 	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
 };
-
-class CQC_ctrlStatic: CQC_ctrlDefaultText {
+class CQC_ctrlStatic: CQC_ctrlDefaultText 
+{
 	type = 0;
 	colorBackground[] = {0,0,0,0};
 	text = "";
@@ -1938,59 +1944,59 @@ class CQC_ctrlStatic: CQC_ctrlDefaultText {
 	onMouseHolding = "";
 	onVideoStopped = "";
 };
-
-class CQC_ctrlStaticPicture: CQC_ctrlStatic {
+class CQC_ctrlStaticPicture: CQC_ctrlStatic 
+{
 	style = 48;
 };
-
-class CQC_ctrlStaticPictureKeepAspect: CQC_ctrlStaticPicture {
+class CQC_ctrlStaticPictureKeepAspect: CQC_ctrlStaticPicture 
+{
 	style = "0x30 + 0x800";
 };
-
-class CQC_ctrlStaticPictureTile: CQC_ctrlStatic {
+class CQC_ctrlStaticPictureTile: CQC_ctrlStatic 
+{
 	style = 144;
 };
-
-class CQC_ctrlStaticFrame: CQC_ctrlStatic {
+class CQC_ctrlStaticFrame: CQC_ctrlStatic 
+{
 	style = 64;
 };
-
-class CQC_ctrlStaticLine: CQC_ctrlStatic {
+class CQC_ctrlStaticLine: CQC_ctrlStatic 
+{
 	style = 176;
 };
-
-class CQC_ctrlStaticMulti: CQC_ctrlStatic {
+class CQC_ctrlStaticMulti: CQC_ctrlStatic 
+{
 	style = "0x10 + 0x200";
 };
-
-class CQC_ctrlStaticBackground: CQC_ctrlStatic {
+class CQC_ctrlStaticBackground: CQC_ctrlStatic 
+{
 	colorBackground[] = {0.2,0.2,0.2,1};
 };
-
-class CQC_ctrlStaticOverlay: CQC_ctrlStatic {
+class CQC_ctrlStaticOverlay: CQC_ctrlStatic 
+{
 	colorBackground[] = {0,0,0,0.5};
 };
-
-class CQC_ctrlStaticTitle: CQC_ctrlStatic {
+class CQC_ctrlStaticTitle: CQC_ctrlStatic 
+{
 	moving = 1;
 	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",1};
 	colorText[] = {1,1,1,1};
 	colorShadow[] = {0,0,0,0};
 };
-
-class CQC_ctrlStaticFooter: CQC_ctrlStatic {
+class CQC_ctrlStaticFooter: CQC_ctrlStatic 
+{
 	colorBackground[] = {0,0,0,0.3};
 };
-
-class CQC_ctrlStaticBackgroundDisable: CQC_ctrlStatic {
+class CQC_ctrlStaticBackgroundDisable: CQC_ctrlStatic 
+{
 	x = -4;
 	y = -2;
 	w = 8;
 	h = 4;
 	colorBackground[] = {1,1,1,0.5};
 };
-
-class CQC_ctrlStaticBackgroundDisableTiles: CQC_ctrlStaticPictureTile {
+class CQC_ctrlStaticBackgroundDisableTiles: CQC_ctrlStaticPictureTile 
+{
 	x = -4;
 	y = -2;
 	w = 8;
@@ -2000,8 +2006,8 @@ class CQC_ctrlStaticBackgroundDisableTiles: CQC_ctrlStaticPictureTile {
 	tileH = "4 / (32 * pixelH)";
 	colorText[] = {1,1,1,0.05};
 };
-
-class CQC_ctrlButton: CQC_ctrlDefaultButton {
+class CQC_ctrlButton: CQC_ctrlDefaultButton 
+{
 	type = 1;
 	style = "0x02 + 0xC0";
 	colorBackground[] = {0,0,0,1};
@@ -2048,62 +2054,62 @@ class CQC_ctrlButton: CQC_ctrlDefaultButton {
 	onButtonDown = "";
 	onButtonUp = "";
 };
-
-class CQC_ctrlButtonPicture: CQC_ctrlButton {
+class CQC_ctrlButtonPicture: CQC_ctrlButton 
+{
 	style = "0x02 + 0x30";
 };
-
-class CQC_ctrlButtonPictureKeepAspect: CQC_ctrlButton {
+class CQC_ctrlButtonPictureKeepAspect: CQC_ctrlButton 
+{
 	style = "0x02 + 0x30 + 0x800";
 };
-
-class CQC_ctrlButtonOK: CQC_ctrlButton {
+class CQC_ctrlButtonOK: CQC_ctrlButton 
+{
 	default = 1;
 	idc = 1;
 	text = "$STR_DISP_OK";
 };
-
-class CQC_ctrlButtonCancel: CQC_ctrlButton {
+class CQC_ctrlButtonCancel: CQC_ctrlButton 
+{
 	idc = 2;
 	text = "$STR_DISP_CANCEL";
 };
-
-class CQC_ctrlButtonClose: CQC_ctrlButtonCancel {
+class CQC_ctrlButtonClose: CQC_ctrlButtonCancel 
+{
 	text = "$STR_DISP_CLOSE";
 };
-
-class CQC_ctrlButtonToolbar: CQC_ctrlButtonPictureKeepAspect {
+class CQC_ctrlButtonToolbar: CQC_ctrlButtonPictureKeepAspect 
+{
 	colorBackground[] = {0,0,0,0};
 	colorBackgroundDisabled[] = {0,0,0,0};
 };
-
-class CQC_ctrlButtonSearch: CQC_ctrlButton {
+class CQC_ctrlButtonSearch: CQC_ctrlButton 
+{
 	style = "0x02 + 0x30 + 0x800";
 	text = "\a3\3DEN\Data\Displays\Display3DEN\search_start_ca.paa";
 	textSearch = "\a3\3DEN\Data\Displays\Display3DEN\search_end_ca.paa";
 	tooltip = "$STR_3den_display3den_menubar_search_text";
 };
-
-class CQC_ctrlButtonExpandAll: CQC_ctrlButtonToolbar {
+class CQC_ctrlButtonExpandAll: CQC_ctrlButtonToolbar 
+{
 	style = "0x02 + 0x30 + 0x800";
 	text = "\a3\3DEN\Data\Displays\Display3DEN\tree_expand_ca.paa";
 	tooltip = "$STR_3DEN_ctrlButtonExpandAll_text";
 };
-
-class CQC_ctrlButtonCollapseAll: CQC_ctrlButtonToolbar {
+class CQC_ctrlButtonCollapseAll: CQC_ctrlButtonToolbar 
+{
 	style = "0x02 + 0x30 + 0x800";
 	text = "\a3\3DEN\Data\Displays\Display3DEN\tree_collapse_ca.paa";
 	tooltip = "$STR_3DEN_ctrlButtonCollapseAll_text";
 };
-
-class CQC_ctrlButtonFilter: CQC_ctrlButton {
+class CQC_ctrlButtonFilter: CQC_ctrlButton 
+{
 	colorBackground[] = {0,0,0,0};
 	colorBackgroundDisabled[] = {0,0,0,0};
 	colorBackgroundActive[] = {1,1,1,0.3};
 	colorFocused[] = {0,0,0,0};
 };
-
-class CQC_ctrlListbox: CQC_ctrlDefaultText {
+class CQC_ctrlListbox: CQC_ctrlDefaultText 
+{
 	type = 5;
 	style = "0x00 + 0x10";
 	colorBackground[] = {0,0,0,0.2};
@@ -2149,8 +2155,8 @@ class CQC_ctrlListbox: CQC_ctrlDefaultText {
 	onLBDragging = "";
 	onLBDrop = "";
 };
-
-class CQC_ctrlStructuredText: CQC_ctrlDefaultText {
+class CQC_ctrlStructuredText: CQC_ctrlDefaultText 
+{
 	type = 13;
 	colorBackground[] = {0,0,0,0};
 	size = "4.32 * pixelH * pixelGrid * 0.5";
@@ -2166,8 +2172,8 @@ class CQC_ctrlStructuredText: CQC_ctrlDefaultText {
 	onDestroy = "";
 	onButtonClick = "true";
 };
-
-class RscListBox_CQC {
+class RscListBox_CQC 
+{
 	access=0;
 	type=5;
 	style=0;
@@ -2215,7 +2221,8 @@ class RscListBox_CQC {
 	shadow=0;
 	};
 };
-class RscText_CQC {
+class RscText_CQC 
+{
 	access=0;
 	idc=-1;
 	type=0;
@@ -2228,7 +2235,8 @@ class RscText_CQC {
 	sizeex=0.0400;
 	fixedWidth=0;
 };
-class RscEdit_CQC {
+class RscEdit_CQC 
+{
 	access=0;
 	type=2;
 	style=0;
@@ -2243,7 +2251,8 @@ class RscEdit_CQC {
 	size=0.2;
 	shadow=0;
 };
-class RscButton_CQC {
+class RscButton_CQC 
+{
 	access=0;
 	idc=-1;
 	type=1;
@@ -2271,7 +2280,8 @@ class RscButton_CQC {
 	offsetPressedY=0.002;
 	borderSize=0;
 };
-class RscHTML_CQC {
+class RscHTML_CQC 
+{
 	colorText[]={1,1,1,1};
 	colorBold[]={1,1,1,0.75};
 	colorLink[]={"63/255","212/255","252/255",1};
@@ -2316,7 +2326,8 @@ class RscHTML_CQC {
 	sizeEx="18 * pixelH";
 	};
 };
-class RscEdit_CQC_multi:RscEdit_CQC {
+class RscEdit_CQC_multi:RscEdit_CQC 
+{
 	idc=1339;
 	x=0.1 * safezoneW + safezoneX;
 	y=0.038 * safezoneH + safezoneY;
@@ -2328,7 +2339,8 @@ class RscEdit_CQC_multi:RscEdit_CQC {
 	sizeEx="0.65 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	show=1;
 };
-class RscEdit_CQC_ss:RscEdit_CQC {
+class RscEdit_CQC_ss:RscEdit_CQC 
+{
 	x=0;
 	y=(safeZoneY + 0.01)+1;
 	w=1;
@@ -2339,4 +2351,332 @@ class RscEdit_CQC_ss:RscEdit_CQC {
 	sizeEx="0.65 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	show=1;
 	autocomplete="scripting";
+};
+class CQC_RscHudIcon 
+{
+	access = 0;
+	type = CT_STATIC;
+	style = 0x30 + 0x800;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = "puristaMedium";
+	sizeEx = 0;
+	lineSpacing = 0;
+	text = "";
+	fixedWidth = 0;
+	shadow = 0;
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+class CQC_RSC_StructuredText
+{
+    deletable = 0;
+    fade = 0;
+    access = 0;
+    type = 13;
+    idc = -1;
+    style = 0;
+    colorText[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    class Attributes
+    {
+        font = "PuristaMedium";
+        color = "#ffffff";
+        align = "center";
+        shadow = 1;
+    };
+    x = 0;
+    y = 0;
+    h = 0.035;
+    w = 0.1;
+    text = "";
+    size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    shadow = 1;
+};
+class CQC_RSC_ListBox
+{
+    deletable = 0;
+    fade = 0;
+    access = 0;
+    type = 5;
+    w = 0.4;
+    h = 0.4;
+    rowHeight = 0;
+    colorText[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    colorDisabled[] =
+    {
+        1,
+        1,
+        1,
+        0.25
+    };
+    coloJSt4r_RSC_rollbar[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    colorSelect[] =
+    {
+        0,
+        0,
+        0,
+        1
+    };
+    colorSelect2[] =
+    {
+        0,
+        0,
+        0,
+        1
+    };
+    colorSelectBackground[] =
+    {
+        0.95,
+        0.95,
+        0.95,
+        1
+    };
+    colorSelectBackground2[] =
+    {
+        1,
+        1,
+        1,
+        0.5
+    };
+    colorBackground[] =
+    {
+        0,
+        0,
+        0,
+        0.3
+    };
+    soundSelect[] =
+    {
+        "\A3\ui_f\data\sound\RscListbox\soundSelect",
+        0.09,
+        1
+    };
+    autoScrollSpeed = -1;
+    autoScrollDelay = 5;
+    autoScrollRewind = 0;
+    arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+    arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+    colorPicture[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    colorPictureSelected[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    colorPictudeDisabled[] =
+    {
+        1,
+        1,
+        1,
+        0.25
+    };
+    tooltipColorText[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    tooltipColorBox[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    tooltipColorShade[] =
+    {
+        0,
+        0,
+        0,
+        0.65
+    };
+    class ListScrollBar
+    {
+        color[] =
+        {
+            1,
+            1,
+            1,
+            1
+        };
+        autoScrollEnabled = 1;
+    };
+    style = 16;
+    font = "PuristaMedium";
+    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    shadow = 0;
+    colorShadow[] =
+    {
+        0,
+        0,
+        0,
+        0.5
+    };
+    period = 1.2;
+    maxHistoryDelay = 1;
+    colorPictureDisabled[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+};
+class CQC_RSC_Button
+{
+    deletable = 0;
+    fade = 0;
+    access = 0;
+    type = 1;
+    text = "";
+    colorText[] =
+    {
+        1,
+        1,
+        1,
+        1
+    };
+    colorDisabled[] =
+    {
+        1,
+        1,
+        1,
+        0.25
+    };
+    colorBackground[] =
+    {
+        0,
+        0,
+        0,
+        0.5
+    };
+    colorBackgroundDisabled[] =
+    {
+        0,
+        0,
+        0,
+        0.5
+    };
+    colorBackgroundActive[] =
+    {
+        0,
+        0,
+        0,
+        1
+    };
+    colorFocused[] =
+    {
+        0,
+        0,
+        0,
+        1
+    };
+    colorShadow[] =
+    {
+        0,
+        0,
+        0,
+        0
+    };
+    colorBorder[] =
+    {
+        0,
+        0,
+        0,
+        1
+    };
+    soundEnter[] =
+    {
+        "\A3\ui_f\data\sound\RscButton\soundEnter",
+        0.09,
+        1
+    };
+    soundPush[] =
+    {
+        "\A3\ui_f\data\sound\RscButton\soundPush",
+        0.09,
+        1
+    };
+    soundClick[] =
+    {
+        "\A3\ui_f\data\sound\RscButton\soundClick",
+        0.09,
+        1
+    };
+    soundEscape[] =
+    {
+        "\A3\ui_f\data\sound\RscButton\soundEscape",
+        0.09,
+        1
+    };
+    style = 2;
+    x = 0;
+    y = 0;
+    w = 0.095589;
+    h = 0.039216;
+    shadow = 2;
+    font = "PuristaMedium";
+    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    offsetX = 0;
+    offsetY = 0;
+    offsetPressedX = 0;
+    offsetPressedY = 0;
+    borderSize = 0;
+};
+class CQC_RSC_IGUIBack
+{
+    type = 0;
+    idc = 124;
+    style = 128;
+    text = "";
+    colorText[] =
+    {
+        0,
+        0,
+        0,
+        0
+    };
+    font = "PuristaMedium";
+    sizeEx = 0;
+    shadow = 0;
+    x = 0.1;
+    y = 0.1;
+    w = 0.1;
+    h = 0.1;
+    colorbackground[] =
+    {
+        "(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
+        "(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
+        "(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])",
+        "(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"
+    };
 };

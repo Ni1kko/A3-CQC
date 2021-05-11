@@ -35827,7 +35827,7 @@ class Mission
 			{
 				name="jstar__107";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35848,7 +35848,7 @@ class Mission
 			{
 				name="jstar__108";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35869,7 +35869,7 @@ class Mission
 			{
 				name="jstar__109";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35890,7 +35890,7 @@ class Mission
 			{
 				name="jstar__110";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -36151,7 +36151,7 @@ class Mission
 			{
 				name="jstar__111";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -36172,7 +36172,7 @@ class Mission
 			{
 				name="jstar__112";
 				condition="vehicle player in thisList";
-				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{}; player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]) OR (getPlayerUid player in (missionNamespace getVariable [""CQC_var_admin_spawnbuddys"",[]])))exitWith{}; player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -36235,7 +36235,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0, ""textures\cqcimagenew.paa""];";
+				init="this setObjectTexture [0, ""textures\logo.paa""];";
 			};
 			id=4662;
 			type="Land_LightHouse_F";
@@ -42320,7 +42320,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this enableSimulation false;" \n "this setObjectTextureGlobal [0, ""textures\cqcimagenew.paa""]; " \n "this setVariable[""persistent"",true];";
+				init="this enableSimulation false;" \n "this setObjectTextureGlobal [0, ""textures\logo.paa""]; " \n "this setVariable[""persistent"",true];";
 			};
 			id=4975;
 			type="Land_Billboard_04_blank_F";
@@ -43116,7 +43116,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Teleport"",{createDialog ""CQCDisplaySpawns""},"""",4,false,true,"""",'_this distance _target < 5']; this addAction [""Help"",{createDialog ""CQCDisplayHelp""},"""",4,false,true,"""",'_this distance _target < 5'];         this setObjectTexture [0, ""textures\cqcsign.paa""]; this setVariable[""persistent"",true];";
+				init="this addAction [""Teleport"",{createDialog ""CQC_Rsc_DisplaySpawns""},"""",4,false,true,"""",'_this distance _target < 5']; this addAction [""Help"",{createDialog ""CQC_Rsc_DisplayHelp""},"""",4,false,true,"""",'_this distance _target < 5'];         this setObjectTexture [0, ""textures\logoSmall.paa""]; this setVariable[""persistent"",true];";
 				name="fragsquad_shop";
 				disableSimulation=1;
 			};

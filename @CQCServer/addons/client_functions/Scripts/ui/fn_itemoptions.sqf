@@ -1,3 +1,8 @@
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
 disableSerialization;
 
 _selection = _this select 0;
@@ -12,11 +17,11 @@ switch (_index) do {
 		if(player distance experimental_marker < 150) exitWith {["You can't spawn vehicles at experimental."] spawn CQC_fnc_Notification;};
 		if(player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
 		if(CQC_var_isHealing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
-		createDialog "CQC_RscDisplayGarage";
+		createDialog "CQC_Rsc_DisplayGarage";
 	};
 	
 	case 1 : {
 		closeDialog 500;
-		createDialog "jstar_items";
+		createDialog "CQC_Rsc_DisplayItems";
 	};
 };

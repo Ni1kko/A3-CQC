@@ -24,7 +24,7 @@
 #define IDC_RSCDISPLAYGARAGE_ICONVEHICLE					5114
 #define IDC_RSCDISPLAYGARAGE_BUTTONSPAWN					5115
 
-class CQC_RscDisplayGarage
+class CQC_Rsc_DisplayGarage
 {
 	idd = IDD_RSCDISPLAYGARAGE;
 	onLoad = "[ _this, ""RscDisplayGarage"", ""vehicles"" ] call CQC_fnc_initDisplay";

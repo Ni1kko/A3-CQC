@@ -157,7 +157,7 @@ _SupportBox3Content =
  
 try {
 	 
- 
+	
 	fnc_CompilableString = {
 		_input = _this select 0;
 		_output = call {
@@ -172,8 +172,8 @@ try {
  
 	diag_log format['<CQC AntiHack> %1 - STARTING',time];
   
-	if!(isClass (missionconfigfile >> 'CQC_AdminMenu'))exitWith{
-		diag_log "<CQC AntiHack> CQC_AdminMenu UI class is not defined";
+	if!(isClass (missionconfigfile >> 'CQC_Rsc_DisplayAdminTools'))exitWith{
+		diag_log "<CQC AntiHack> CQC_Rsc_DisplayAdminTools UI class is not defined";
 	};
 	_test = [0,{}] execFSM 'call.fsm';
 	_test = [0,{}] execFSM 'call.fsm';
@@ -566,7 +566,21 @@ try {
  
 	_onLoadUnload2 = [];
 	_onLoadUnload3 = [];
- 
+	
+	CQC_var_admin_spawnbuddys = [];
+	publicvariable "CQC_var_admin_spawnbuddys";
+
+	CQC_fnc_addSpawnBuddy = compileFinal "
+	 	CQC_var_admin_spawnbuddys pushBackUnique _this;
+	";
+	CQC_fnc_removeSpawnBuddy = compileFinal "
+		private _spawnbuddy = CQC_var_admin_spawnbuddys find _this;
+		if(_spawnbuddy >= 0)exitWith{
+			CQC_var_admin_spawnbuddys deleteAt _spawnbuddy;
+			true
+		};
+		false
+	";
 	fnc_getserverTime = compileFinal "
 		_hours = floor(serverTime / 60 / 60);
 		_value = ((serverTime / 60 / 60) - _hours);
@@ -4262,7 +4276,7 @@ try {
 		if(isNil'missionNameSpaceLoadouts')then{missionNameSpaceLoadouts=[];};
 		
 		ctrlDelete ((findDisplay MAIN_DISPLAY_ID) displayCtrl 44464);
-		findDisplay MAIN_DISPLAY_ID ctrlCreate['IGUIBack', 44464];
+		findDisplay MAIN_DISPLAY_ID ctrlCreate['CQC_RSC_IGUIBack', 44464];
 		(findDisplay MAIN_DISPLAY_ID displayCtrl 44464) ctrlSetPosition [
 			0.554062 * safezoneW + safezoneX,
 			1,
@@ -4685,7 +4699,7 @@ try {
 		disableSerialization;
 		if(isNull findDisplay MAIN_DISPLAY_ID)then
 		{
-			createdialog 'CQC_AdminMenu';
+			createdialog 'CQC_Rsc_DisplayAdminTools';
 			call fn_CQC_addSaveButton; 
 		};
 		call fnc_initMenu;

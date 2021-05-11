@@ -128,10 +128,10 @@ if(CQC_var_firstSpawn)then{
 	if(call isDonator)then{
 		[] spawn CQC_fnc_donatorInit;
 	}else{
-		createDialog "CQCDisplayHelp";
+		createDialog "CQC_Rsc_DisplayHelp";
 	};
 }else{
-	createDialog "CQCDisplaySpawns";
+	createDialog "CQC_Rsc_DisplaySpawns";
 };
 
 if(isNil "CQC_fnc_customHudInit")then{
