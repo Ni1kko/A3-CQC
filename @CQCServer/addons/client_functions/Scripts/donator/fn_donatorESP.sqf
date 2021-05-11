@@ -9,7 +9,7 @@ if (CQC_var_donatorESPActive) then {
 	Fragsquad_CQC_ESP = addMissionEventHandler ["Draw3D",
 		{
 			{
-				if ((isPlayer _x) && ((side _x) isEqualTo (side player)) && ((player distance _x) < 250) && (getplayeruid _x != "") !isObjectHidden _x) then {
+				if (isPlayer _x AND (player distance _x) <= 250 AND !(isObjectHidden _x)) then {
 					_pos = getposatl _x;
 					_eyepos = ASLtoATL eyepos _x;
 					if ((getTerrainHeightASL [_pos select 0,_pos select 1]) < 0) then {
