@@ -10,7 +10,7 @@ private _currentdeath = profileNamespace getVariable "cqc_death";
 private _newdeath = _currentdeath + 1;
 profileNameSpace setVariable ["cqc_death", _newdeath];
 [] call CQC_fnc_updatePlayerKDA;
-if ((_victim isEqualNotTo _killer) AND isPlayer _killer) then {
+if ((_victim isNotEqualTo _killer) AND isPlayer _killer) then {
 	[] remoteExec ["CQC_fnc_playerAddKill", owner _killer];
 };
 
