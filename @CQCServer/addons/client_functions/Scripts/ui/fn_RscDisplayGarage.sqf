@@ -464,6 +464,7 @@ switch (_mode) do {
 		//--- Close display
 		closeDialog 1;
 
+		player allowDamage true;
 	};
 
 };

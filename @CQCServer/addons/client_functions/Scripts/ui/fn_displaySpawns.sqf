@@ -25,8 +25,8 @@ switch (_mode) do {
 			"Experimental",
 			"Quarantine",
 			"Mushroom",
-			"Capture_Sector",
-			"Capture_Alpha",
+			//"Capture_Sector",
+			//"Capture_Alpha",
 			"Fed"
 		];
 
@@ -68,6 +68,8 @@ switch (_mode) do {
 		private _location = _list lbData (lbCurSel _list);
 		private _locationName = _list lbText (lbCurSel _list);
 
+		player allowDamage true;
+
 		switch (_locationName) do {
 
 			case "OG Arms" : {
@@ -89,7 +91,7 @@ switch (_mode) do {
 			case "Airport" : { 
 				[]spawn CQC_fnc_spawn_airport;
 				["Airport is for MRAP decamping, don't roach"] spawn CQC_fnc_Notification;
-				player addEventHandler ["HandleDamage", {0}];
+				player allowDamage false;
 				{if ( _x in primaryWeaponMagazine player ) then { player removeMagazine _x }} forEach magazines player;
 				player setAmmo [currentWeapon player,0];
 				player addAction ["", { 
