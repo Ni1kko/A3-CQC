@@ -1,20 +1,31 @@
-_currentdeath = profileNamespace getVariable "cqc_death";
-_newdeath = _currentdeath + 1;
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
 
+params [ "_victim", "_killer" ]; 
+
+//A mess needs looked at
+private _currentdeath = profileNamespace getVariable "cqc_death";
+private _newdeath = _currentdeath + 1;
 profileNameSpace setVariable ["cqc_death", _newdeath];
-
 [] call CQC_fnc_updatePlayerKDA;
-
-if !((vehicle player) isEqualTo player) then
-{
-	unassignVehicle player; 
-	player action ["GetOut", vehicle player]; 
-	player action ["Eject", vehicle player];
+if ((_victim isEqualNotTo _killer) AND isPlayer _killer) then {
+	[] remoteExec ["CQC_fnc_playerAddKill", owner _killer];
 };
+
+//Remove from vehicle
+if !((vehicle _victim) isEqualTo _victim) then
+{
+	unassignVehicle _victim; 
+	_victim action ["GetOut", vehicle _victim]; 
+	_victim action ["Eject", vehicle _victim];
+};
+
 //double checks if player still in a vehicle, happens sometimes in cases like dead vehicles.
-if !((vehicle player) isEqualTo player) then { 
+if !((vehicle _victim) isEqualTo _victim) then { 
 	_pX = floor random -5; 
 	_pY = floor random -5; 
-	_position = vehicle player modelToWorld [_pX,_pY,0]; 
-	player setpos _position; 
+	_position = vehicle _victim modelToWorld [_pX,_pY,0]; 
+	_victim setpos _position; 
 };

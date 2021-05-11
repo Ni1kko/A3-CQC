@@ -1,73 +1,103 @@
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
 
+player removeAllEventHandlers "HandleDamage";
 player addEventHandler ["HandleDamage", {
-		params [ "_unit", "_part", "_damage", "_source" ];
+		params ["_unit", "_part", "_damage", "_source"];
 		private _vehicle = vehicle _source;
-
-		if ((vehicle _source isKindOf "LandVehicle") && ((driver _vehicle) isEqualTo _source)) then {
-			if (_source != _unit AND {alive _unit} AND {isPlayer _source}) then {
+		if ((_vehicle isKindOf "LandVehicle") && ((driver _vehicle) isEqualTo _source)) then {
+			if (_source != _unit AND alive _unit AND isPlayer _source) then {
 				_damage = 0.001;
 			};
 		};
 		_damage;
-	}
-];
+}];
 
-player addEventHandler [ "Killed", {
-		params [ "_killed", "_killer" ];
-		if ( !( _killer isEqualTo _killed ) && { isPlayer _killer && { side _killer isEqualTo side group _killed }} ) then {
-			[ _killer, [ 2, 0, 0, 0, 0 ] ] remoteExec[ "addPlayerScores", 2 ];
-		};
-
-		if (_killer isEqualTo player) then {
-			[] remoteExec ["CQC_fnc_playerAddKill", _killer]
-		};
-	}
-];
-
-//todo
-player addEventHandler ["InventoryOpened", { 
-	if (count _this isEqualTo 1) exitWith {false};
-	private _backpackOwner = _this#0;
-	private _backpack = _this#1;
-
-	if (_backpack isKindOf "Man" && alive _backpack) exitWith {
-		["You cannot loot other alive players, you would get caught"] spawn CQC_fnc_Notification;
-		true;
-	};
-
-	if (true in (["LandVehicle","Ship","Air"] apply {_backpack isKindOf _x})) exitWith {
-		if (container getVariable ["locked",true]) exitWith {
-			["You cannot loot locked cargo"] spawn CQC_fnc_Notification;
-			true;
-		};
-		false
-	};
-
-	false
-];
-
-player addEventHandler ["InventoryClose", { 
-	private _backpack = _this#0;
-	if (_backpack isKindOf "Man" isEqualTo false) exitWith {false};
-	if (call isDonator) then {
-		[] call CQC_fnc_saveGear;
-	};
-	false
-];
-
+player removeAllEventHandlers "HandleHeal";
 player addEventHandler ["HandleHeal", {
-		_this spawn {
-			params ["_injured","_healer"];
-			_damage = damage _injured;
-			if (_injured isEqualTo _healer) then {
-				waitUntil {damage _injured != _damage};
-				if (damage _injured < _damage) then {
-					_injured setDamage 0;
-				};
+	_this spawn {
+		params ["_injured","_healer"];
+		private _damage = damage _injured;
+		if (_injured isEqualTo _healer) then {
+			waitUntil {damage _injured != _damage};
+			if (damage _injured < _damage) then {
+				_injured setDamage 0;
 			};
 		};
-	}
-];
+	};
+}];
 
-player addEventHandler [ "Killed", CQC_fnc_player_Killed ];
-player addEventHandler [ "Respawn", CQC_fnc_player_respawned ];
+player removeAllEventHandlers "Killed";
+player addEventHandler ["Killed", CQC_fnc_player_Killed];
+
+player removeAllEventHandlers "Respawn";
+player addEventHandler ["Respawn", CQC_fnc_player_respawned];
+
+player removeAllEventHandlers "InventoryOpened";
+player addEventHandler ["InventoryOpened", { 
+	params [ 
+		["_player",objNull,[objNull]], 
+		["_inventorycontainer",objNull], 
+		["_inventorycontainer2",objNull]
+	];
+	
+	private _inventoryAcssesDistance = 10;//too small of a value will prevent users intertacting with certian vehicles due to the med lod points (Default: 10 | Recommended: 6.5 - 15) 
+	private _Selfinventory = (true in (["Man","LandVehicle","Ship","Air"] apply {if(cursorObject isKindOf _x)then{cursorObject distance2D player <= _inventoryAcssesDistance}else{false}})) isEqualTo false;
+	private _blockAction = true;
+
+	if(alive _player)then
+	{
+		//Self inventory
+		if(_Selfinventory)then{
+			_blockAction = false;
+		}else{
+			//Too Far
+			if (cursorObject distance2D _player > _inventoryAcssesDistance)then{
+				["You cannot loot that far away"] spawn CQC_fnc_Notification;
+			}else{
+				//Players inventory
+				if (cursorObject isKindOf "Man" || getNumber(configFile >> "CfgVehicles" >> (backpack cursorObject) >> "isBackpack") isEqualTo 1) then {
+					["You cannot loot other alive players, you would get caught"] spawn CQC_fnc_Notification;
+				}else{
+					//Vehicles inventory
+					if (true in (["LandVehicle","Ship","Air"] apply {cursorObject isKindOf _x})) then {
+						if (locked cursorObject >= 2) exitWith {
+							["You cannot loot locked vehicles"] spawn CQC_fnc_Notification;
+						};
+						_blockAction = false;
+					}else{
+						//Containers  inventory
+						if(getNumber(configFile >> "CfgVehicles" >> typeOf _inventorycontainer >> "isBackpack") isEqualTo 0)then{ 
+							["You cannot loot containers"] spawn CQC_fnc_Notification;
+						};
+					};
+				};
+			};
+		}; 
+	};
+
+	if(_blockAction)then{ 
+		_player spawn{
+			_this switchMove "";
+			waitUntil {_this switchMove ""; isNull(finddisplay 602)}; 
+			_this switchMove ""; 
+		};
+	};
+
+	_blockAction
+}];
+
+player removeAllEventHandlers "InventoryClosed";
+player addEventHandler ["InventoryClosed", {
+	params [ 
+		["_player",objNull,[objNull]], 
+		["_inventorycontainer",objNull]
+	];
+
+	_player switchMove "";
+	[] call CQC_fnc_saveGear;
+
+	false
+}];

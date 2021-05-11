@@ -26,7 +26,6 @@ CQC_var_enemyRendered = false;
 CQC_var_firstSpawn = true; 
 CQC_var_canTeleport = false;
 CQC_var_inSpawnArea = true;
-CQC_var_arsenalSave = scriptNull;
 
 enableEnvironment false;// Disbales Environment
 player disableConversation true;// Disables being able to talk to each other
@@ -37,6 +36,8 @@ enableSaving [false, false];// Disables Auto Saving
 // Local Event Handlers
 player addMPEventHandler ["MPRespawn", {[] spawn CQC_fnc_playerLogin}];
 player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
+[true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
+[true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
 
 // Scripts 
 [] spawn CQC_fnc_playerLogin;
@@ -45,7 +46,7 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [] spawn CQC_fnc_escmenu;	 // escape menu
 [] spawn CQC_fnc_signs; 	 // Sign Text
 [] spawn CQC_fnc_afkkick;	 // AFK Kick
-[missionNamespace,"arsenalClosed",{_this call CQC_fnc_arsenalClosed}] call BIS_fnc_addScriptedEventHandler;
+
 
 //check if in spawn
 [] spawn {
