@@ -26,6 +26,7 @@ CQC_var_enemyRendered = false;
 CQC_var_firstSpawn = true; 
 CQC_var_canTeleport = false;
 CQC_var_inSpawnArea = true;
+CQC_var_arsenalSave = scriptNull;
 
 enableEnvironment false;// Disbales Environment
 player disableConversation true;// Disables being able to talk to each other

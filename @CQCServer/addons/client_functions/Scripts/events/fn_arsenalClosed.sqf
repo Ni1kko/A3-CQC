@@ -1,9 +1,12 @@
 if (call isAdmin) exitWith {["Bigman arsenal opened"] spawn CQC_fnc_Notification;};
 
+
 params ["_virtualItems","_permittedItems"];
 
 private _virtualItems = CQC_arsenal getVariable ["bis_addvirtualweaponcargo_cargo",[]];
 private _permittedItems = [];
+
+terminate CQC_var_arsenalSave;
 
 {_permittedItems append _x;} foreach _virtualItems;
 
@@ -30,4 +33,7 @@ ARRAY_VALIDATE(handgunMagazine player,player removeMagazine);
 
 ["If you had restricted items they have been removed."] spawn CQC_fnc_Notification;
 
-[] call CQC_fnc_saveGear;
+CQC_var_arsenalSave = [] spawn {
+	uiSleep 5; 
+	[] call CQC_fnc_saveGear;
+};
