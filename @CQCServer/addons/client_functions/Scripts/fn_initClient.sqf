@@ -49,7 +49,7 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [] spawn {
 	while {true} do {
 		CQC_var_inSpawnArea = player distance (markerPos "spawnMarker") <= 200;
-		waitUntil {uiSleep 1; CQC_var_inSpawnArea isNotEqualTo (player distance (markerPos "spawnMarker") > 200)};
+		waitUntil {uiSleep 1; CQC_var_inSpawnArea isNotEqualTo (player distance (markerPos "spawnMarker") <= 200)};
 	};
 };
 
