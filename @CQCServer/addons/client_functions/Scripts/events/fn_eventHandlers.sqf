@@ -43,7 +43,7 @@ player addEventHandler ["InventoryOpened", {
 		["_inventorycontainer2",objNull]
 	];
 	
-	private _inventoryAcssesDistance = 10;//too small of a value will prevent users intertacting with certian vehicles due to the med lod points (Default: 10 | Recommended: 6.5 - 15) 
+	private _inventoryAcssesDistance = 6.8;//too small of a value will prevent users intertacting with certian vehicles due to the med lod points (Default: 10 | Recommended: 6.5 - 15) 
 	private _Selfinventory = (true in (["Man","LandVehicle","Ship","Air"] apply {if(cursorObject isKindOf _x)then{cursorObject distance2D player <= _inventoryAcssesDistance}else{false}})) isEqualTo false;
 	private _blockAction = true;
 
