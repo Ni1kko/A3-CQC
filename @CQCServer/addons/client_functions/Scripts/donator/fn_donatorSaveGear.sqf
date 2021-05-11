@@ -3,5 +3,5 @@
 	FragSquad CQC
 */
 
-profileNamespace setVariable ['CQC_Custom_Loadout', getUnitLoadout player];
+[] call CQC_fnc_saveGear;
 ["Gear saved"] spawn CQC_fnc_Notification;

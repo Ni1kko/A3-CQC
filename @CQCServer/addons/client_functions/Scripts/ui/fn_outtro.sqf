@@ -1,5 +1,5 @@
 disableSerialization;
-profileNamespace setVariable ["CQC_Custom_Loadout", getUnitLoadout player];
+[] call CQC_fnc_saveGear;
 player allowDamage false;
 disableUserInput true;
 showChat false;

@@ -267,7 +267,7 @@ switch (_mode) do {
 		} forEach ( [ _cfg, true ] call BIS_fnc_returnParents );
 
 		//--- Enable/disable skins combo
-		if ((call isDonator) OR (call isAdmin)) then {
+		if (call isDonator) then {
 			_ctrlComboSkin ctrlEnable ( lbSize _ctrlComboSkin > 1 );
 		} else {
 			_ctrlComboSkin ctrlEnable false;

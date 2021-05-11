@@ -110,22 +110,22 @@ diag_log "[Frag Squad CQC] Chats Removed";
 //["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
 
 // Custom Loadout Bullshit
-private _customLoadout = profileNamespace getVariable [ "CQC_Custom_Loadout", [] ];
-if (count (_customLoadout) > 0) then {
-	player setUnitLoadout _customLoadout;
+if ((call isDonator) AND count (CQC_var_clientGear) > 0) then {
+	player setUnitLoadout CQC_var_clientGear;
 }else{
-	// Checks if they have a loadout saved if they do not it doesnt do jack shit if they do it will grab it from the var that we set.
-	if (count (CQC_var_clientGear) > 0) then {
-		player setUnitLoadout CQC_var_clientGear;
+	private _customLoadout = profileNamespace getVariable [ "CQC_Custom_Loadout", [] ];
+	if ( count (_customLoadout) > 0) then {
+		player setUnitLoadout _customLoadout;
 	}else{
 		//fail safe (no custom, no db saved)
 		player setUnitLoadout [[],[],[],["U_C_Poloshirt_tricolour",[]],["V_PlateCarrier2_blk",[]],[],"H_Hat_brown","",["Rangefinder","","","",[],[],""],["ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",""]];
+		[] call CQC_fnc_saveGear;
 	};
 };
 
 if(CQC_var_firstSpawn)then{
 	CQC_var_firstSpawn = false;
-	if(call isDonator /*|| call isAdmin*/)then{
+	if(call isDonator)then{
 		[] spawn CQC_fnc_donatorInit;
 	}else{
 		createDialog "CQCDisplayHelp";

@@ -17,8 +17,9 @@ waitUntil {!isNull (findDisplay 46)};
 waitUntil {!isNull player};
 if(_steamIDDB != getPlayerUID player)exitWith{(findDisplay 46) closeDisplay 2};
 
-isDonator = compileFinal (""+str _HasDonatedDB+" isEqualTo 1");
+
 isAdmin = compileFinal (""+str _AdminRankDB+" > 0");
+isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR ("+str _AdminRankDB+" > 0))");
 
 CQC_var_clientGear = _GearDB;
 CQC_var_enemyRendered = false;

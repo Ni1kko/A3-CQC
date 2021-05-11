@@ -101,7 +101,7 @@ _keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		
 		// VIP menu (Shift + 6)
 		case 7: {
-			if ((call isDonator) OR (call isAdmin)) then {
+			if (call isDonator) then {
 				call CQC_fnc_VIPMenu;
 				_handled = true;
 			};

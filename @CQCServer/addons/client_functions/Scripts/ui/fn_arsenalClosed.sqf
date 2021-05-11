@@ -1,5 +1,3 @@
-profileNamespace setVariable ["CQC_Custom_Loadout", getUnitLoadout player];
-
 if (call isAdmin) exitWith {["Bigman arsenal opened"] spawn CQC_fnc_Notification;};
 
 params ["_virtualItems","_permittedItems"];
@@ -32,4 +30,4 @@ ARRAY_VALIDATE(handgunMagazine player,player removeMagazine);
 
 ["If you had restricted items they have been removed."] spawn CQC_fnc_Notification;
 
-profileNamespace setVariable ["CQC_Custom_Loadout", getUnitLoadout player];
+[] call CQC_fnc_saveGear;

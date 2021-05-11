@@ -25,10 +25,32 @@ player addEventHandler [ "Killed", {
 ];
 
 //todo
-player addEventHandler ["InventoryOpened", {
-	if(alive cursorTarget AND (_this#1) isEqualTo backpackContainer cursorTarget)exitwith{
+player addEventHandler ["InventoryOpened", { 
+	if (count _this isEqualTo 1) exitWith {false};
+	private _backpackOwner = _this#0;
+	private _backpack = _this#1;
+
+	if (_backpack isKindOf "Man" && alive _backpack) exitWith {
 		["You cannot loot other alive players, you would get caught"] spawn CQC_fnc_Notification;
-		true
+		true;
+	};
+
+	if (true in (["LandVehicle","Ship","Air"] apply {_backpack isKindOf _x})) exitWith {
+		if (container getVariable ["locked",true]) exitWith {
+			["You cannot loot locked cargo"] spawn CQC_fnc_Notification;
+			true;
+		};
+		false
+	};
+
+	false
+];
+
+player addEventHandler ["InventoryClose", { 
+	private _backpack = _this#0;
+	if (_backpack isKindOf "Man" isEqualTo false) exitWith {false};
+	if (call isDonator) then {
+		[] call CQC_fnc_saveGear;
 	};
 	false
 ];
