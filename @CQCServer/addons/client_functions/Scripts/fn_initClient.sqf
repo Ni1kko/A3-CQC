@@ -56,12 +56,9 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 //Allow teleport if nobody in area
 [] spawn {	
 	while {true} do { 
-		CQC_var_canTeleport = ({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea;
-	 	waitUntil {uiSleep 1; CQC_var_canTeleport isNotEqualTo (({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea)}; 
-		if(CQC_var_canTeleport)then{
-			["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
-			uiSleep 5;
-		};
+	 	waitUntil {uiSleep 1; CQC_var_canTeleport = (({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea); CQC_var_canTeleport}; 
+		["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
+		uiSleep 5;
 	};
 };
   
