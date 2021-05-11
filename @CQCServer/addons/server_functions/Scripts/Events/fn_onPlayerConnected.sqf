@@ -23,18 +23,13 @@ if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {diag_log "Bad OwnerID
 _ProfileName = [_ProfileName] call CQC_fnc_database_nameSafe;
 
 //Check if in database
-private _databaseQuery = ["SELECT","SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
+private _databaseQuery = [_steamID] call CQC_fnc_sessionInsert;
 
-//Add client too database
-private _databaseError = false;
-if(count _databaseQuery < 1)then{
-	["INSERT", "Clients (ProfileName,KnownNames,SteamID,Gear) VALUES('"+_ProfileName+"', '"+([_ProfileName]call CQC_fnc_database_mresArray)+"', '"+_steamID+"','""[]""')"] call CQC_fnc_queryDatabase;
- 	_databaseQuery = ["SELECT", "SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;
-	_databaseError = (count _databaseQuery < 1);
-};
+//Clear var
+missionNamespace setVariable [format["CQC_var_%1SessionTries",_steamID],0,true];
 
 //Failed adding client too database
-if(_databaseError)exitWith{
+if(count _databaseQuery < 1)exitWith{
 	(format["Failed Too Add Client (%1)[%2]",_ProfileName,_steamID]) call CQC_fnc_database_log;
 };
 
