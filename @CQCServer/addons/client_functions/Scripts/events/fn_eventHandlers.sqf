@@ -132,9 +132,10 @@ player addEventHandler ["FiredNear", {
 		"_ammo",     // ammo: String - Ammo used 
 		"_gunner"    // gunner: Object - gunner, whose weapons are fired
 	];
-	
-	if(!CQC_var_inSpawnArea)then{
-		CQC_var_combatTimer = diag_tickTime + (getNumber(missionConfigFile >> "combatTimer"));
+
+	private _combatTimer = getNumber(missionConfigFile >> "combatTimer");
+	if(!CQC_var_inSpawnArea AND _combatTimer > 0)then{
+		CQC_var_combatTimer = diag_tickTime + _combatTimer;
 	};
 }];
 
@@ -147,7 +148,8 @@ player addEventHandler ["Hit", {
 		"_instigator"   // instigator: Object - Person who pulled the trigger
 	];
 
-	if(!CQC_var_inSpawnArea)then{
-		CQC_var_combatTimer = diag_tickTime + (getNumber(missionConfigFile >> "combatTimer"));
+	private _combatTimer = getNumber(missionConfigFile >> "combatTimer");
+	if(!CQC_var_inSpawnArea AND _combatTimer > 0)then{
+		CQC_var_combatTimer = diag_tickTime + _combatTimer;
 	};
 }];

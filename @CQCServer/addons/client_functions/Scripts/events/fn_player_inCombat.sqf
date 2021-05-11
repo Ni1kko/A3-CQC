@@ -3,6 +3,9 @@
 	FragSquad CQC
 */
 
+//Diabled
+if(getNumber(missionConfigFile >> "combatTimer") <= 0)exitWith{};
+
 //Check and toggle `CQC_var_inCombat` if timer changes
 [] spawn {while {true} do {waitUntil {CQC_var_inCombat = (round(CQC_var_combatTimer - diag_tickTime) max 0) >= 1; CQC_var_inCombat}}};
 while {true} do 

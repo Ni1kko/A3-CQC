@@ -14,8 +14,9 @@ if ((_victim isNotEqualTo _killer) AND isPlayer _killer) then {
 	[] remoteExec ["CQC_fnc_playerAddKill", owner _killer];
 };
 
+//Remove Combat timer
 if(!CQC_var_inSpawnArea)then{
-	CQC_var_combatTimer = diag_tickTime + (getNumber(missionConfigFile >> "combatTimer") / 2);
+	CQC_var_combatTimer = diag_tickTime;
 };
 
 //Remove from vehicle
