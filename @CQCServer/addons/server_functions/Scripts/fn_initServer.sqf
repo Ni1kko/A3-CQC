@@ -83,7 +83,7 @@ CQC_var_EntityKilledEH = addMissionEventHandler ["EntityKilled",
                     private _quoteMessage = format ["%1 (%2) %3", name _instigator, toUpper(selectRandom _quotes), name _victim];
 
                     private _distance = _victim distance2D _instigator; 
-                    private _distanceMessage = format ["From (%1%2)",_distance,["m","km"] select (_distance >= 1000)];
+                    private _distanceMessage = format ["From (%1%2)",round ([_distance,_distance / 1000] select (_distance >= 1000)),["m","km"] select (_distance >= 1000)];
                     
                     private _weapon = getText(configFile >> "CfgWeapons" >> currentWeapon _instigator >> "displayName");
                     private _weaponMessage = if(_weapon isNotEqualTo "")then{format ["With (%1)",_weapon]}else{""};
@@ -99,6 +99,8 @@ CQC_var_EntityKilledEH = addMissionEventHandler ["EntityKilled",
 
 civilian setFriend [sideEnemy, 1];
 [0,0] remoteExec ["setFog",0];// Removes all Fog
+
+["Initialize"] call BIS_fnc_dynamicGroups; 
 
 [] spawn CQC_fnc_broadcast_AdminList;
 [] spawn CQC_fnc_broadcast_DonatorList;

@@ -24,14 +24,14 @@ player addEventHandler [ "Killed", {
 	}
 ];
 
-player addEventHandler ["InventoryOpened", {
-		[_this#0, _this#1] spawn {   
-			waituntil {!(isnull (finddisplay 602)) && ((_this#1) isEqualTo backpackContainer cursorTarget or (!alive cursorTarget && cursorTarget isKindOf "man")) };
+//todo
+player addEventHandler ["InventoryOpened", { 
+		if((_this#1) isEqualTo backpackContainer cursorTarget)exitwith{
 			["You cannot look in players inventory's"] spawn CQC_fnc_Notification;
-			closeDialog 602
+			true
 		};
 		false
-	}
+	};
 ];
 
 player addEventHandler ["HandleHeal", {

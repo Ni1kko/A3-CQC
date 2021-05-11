@@ -35827,7 +35827,7 @@ class Mission
 			{
 				name="jstar__107";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35848,7 +35848,7 @@ class Mission
 			{
 				name="jstar__108";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35869,7 +35869,7 @@ class Mission
 			{
 				name="jstar__109";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -35890,7 +35890,7 @@ class Mission
 			{
 				name="jstar__110";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -36151,7 +36151,7 @@ class Mission
 			{
 				name="jstar__111";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{};player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;
@@ -36172,7 +36172,7 @@ class Mission
 			{
 				name="jstar__112";
 				condition="vehicle player in thisList";
-				onActivation="player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
+				onActivation="if(call(missionNamespace getVariable [""isAdmin"",{false}]))exitWith{}; player setPos (getMarkerPos ""respawn"");  " \n "    { " \n "        if(!(_x getVariable[""persistent"",false]))then{ " \n "            deleteVehicle _x " \n "        }; " \n "    } forEach thisList;";
 				sizeA=10;
 				sizeB=25;
 				sizeC=0;

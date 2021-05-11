@@ -68,7 +68,11 @@ switch (_mode) do {
 		private _location = _list lbData (lbCurSel _list);
 		private _locationName = _list lbText (lbCurSel _list);
 
+		//Temp fix for airport
 		player allowDamage true;
+		if(currentWeapon player <= 0)then{
+			player setAmmo [currentWeapon player,500];
+		};
 
 		switch (_locationName) do {
 
@@ -94,8 +98,9 @@ switch (_mode) do {
 				player allowDamage false;
 				{if ( _x in primaryWeaponMagazine player ) then { player removeMagazine _x }} forEach magazines player;
 				player setAmmo [currentWeapon player,0];
-				player addAction ["", { 
-				["Your gun is disabled until you spawn in a vehicle (Shift + 2)"] spawn CQC_fnc_Notification; 
+				player addAction ["", {
+					if(player distance2D [14779.1,16835.1,0.00143814] < 500)
+					["Your gun is disabled until you spawn in a vehicle (Shift + 2)"] spawn CQC_fnc_Notification; 
 				}, "", 0, false, true, "DefaultAction"];
 			};
 

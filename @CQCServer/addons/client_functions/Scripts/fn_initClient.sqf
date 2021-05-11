@@ -61,7 +61,7 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 		uiSleep 5;
 	};
 };
-  
+
 // Loads HUD
 [] spawn CQC_fnc_healthhud;
 ["Initialize"] call BIS_fnc_dynamicGroups; 

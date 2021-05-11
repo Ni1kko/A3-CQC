@@ -4,7 +4,6 @@ loadScreen = "textures\cqcimagenew.paa";
 overviewPicture = "textures\cqcimagenew.paa";
 skipLobby = 1;
 joinUnassigned = 0;
-respawnTemplates[] = {"CQC"};
 enableDebugConsole[] = {
 	"76561198048125586",
 	"76561197960272723",
