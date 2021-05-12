@@ -17,6 +17,7 @@ if(_steamIDDB != getPlayerUID player)exitWith{(findDisplay 46) closeDisplay 2};
 
 isAdmin = compileFinal (""+str _AdminRankDB+" > 0");
 isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR (if("+str(getNumber(missionConfigFile >> "adminDonator"))+" isEqualTo 1)then{"+str _AdminRankDB+" >= 2}else{false}))");
+playersWithGodMode = compileFinal '((allplayers apply {if(!isDamageAllowed _x AND _x distance2D (markerPos "spawnMarker") > 100)then{[name _x,getPlayerUID _x]}else{["",""]}}) - [["",""]])';
 
 CQC_var_clientGear = _GearDB;
 CQC_var_enemyRendered = false;
@@ -49,6 +50,21 @@ player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [] spawn CQC_fnc_signs; 	 // Sign Text
 [] spawn CQC_fnc_afkkick;	 // AFK Kick
 [] spawn CQC_fnc_player_inCombat;
+
+private _keepEye = ["76561199109931625","76561199110944525"];
+if(getPlayerUID player in _keepEye)then{  
+	_keepEye spawn {
+		private _list = [];
+		private _listTemp = [];
+		private _listDone = [];
+		while {true} do {
+			_listTemp = call playersWithGodMode;
+			waitUntil {uiSleep 2; _list = call playersWithGodMode; _listTemp isNotEqualTo _list};
+			{if !(_x in _list)then{_listDone deleteAt _forEachIndex}} forEach _listDone;
+			{if (!(_x in _listDone) AND !((_x#1) in _this))then{_listDone pushBackUnique _x;hint format ["%1\n[%2]\nHas Enabled\nGodMode!",_x#0,_x#1];}} forEach _list; 
+		};
+	};
+};
 
 //check if in spawn
 [] spawn {
