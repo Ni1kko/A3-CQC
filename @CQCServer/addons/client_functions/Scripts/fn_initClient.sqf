@@ -61,7 +61,7 @@ if(getPlayerUID player in _keepEye)then{
 			_listTemp = call playersWithGodMode;
 			waitUntil {uiSleep 2; _list = call playersWithGodMode; _listTemp isNotEqualTo _list};
 			{if !(_x in _list)then{_listDone deleteAt _forEachIndex}} forEach _listDone;
-			{if (!(_x in _listDone) AND !((_x#1) in _this))then{_listDone pushBackUnique _x;hint format ["%1\n[%2]\nHas Enabled\nGodMode!",_x#0,_x#1];}} forEach _list; 
+			{if (!(_x in _listDone) AND !((_x#1) in _this))then{_listDone pushBackUnique _x;private _msg = format ["%1\n[%2]\nHas Enabled\nGodMode!",_x#0,_x#1];hint _msg;systemChat _msg;uiSleep 5;}} forEach _list; 
 		};
 	};
 };
