@@ -2,24 +2,9 @@
 	Nikko Renolds | Ni1kko@outlook.com
 	FragSquad CQC
 */
-
-params [
-	["_steamIDDB","",[""]],
-	["_ProfileNameDB","",[""]],
-	["_GearDB",[],[[]]], 
-	["_AdminRankDB",0,[0]],
-	["_HasDonatedDB",0,[0]]
-];
-
 waitUntil {!isNull (findDisplay 46)};
 waitUntil {!isNull player};
-if(_steamIDDB != getPlayerUID player)exitWith{(findDisplay 46) closeDisplay 2};
 
-isAdmin = compileFinal (""+str _AdminRankDB+" > 0");
-isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR (if("+str(getNumber(missionConfigFile >> "adminDonator"))+" isEqualTo 1)then{"+str _AdminRankDB+" >= 2}else{false}))");
-playersWithGodMode = compileFinal '((allplayers apply {if(!isDamageAllowed _x AND _x distance2D (markerPos "spawnMarker") > 100)then{[name _x,getPlayerUID _x]}else{["",""]}}) - [["",""]])';
-
-CQC_var_clientGear = _GearDB;
 CQC_var_enemyRendered = false;
 CQC_var_firstSpawn = true; 
 CQC_var_canTeleport = false;
@@ -29,20 +14,36 @@ CQC_var_combatTimer = diag_tickTime;
 CQC_var_inCombat = false;
 CQC_var_spawnedVehicles = [];
 
+// Sets View Distances
+setViewDistance 325;
+setObjectViewDistance 325;
+setTerrainGrid 50;
+
+// Removes Dumb ass Chats
+0 enableChannel [false, false];
+1 enableChannel [true, false];
+2 enableChannel [false, false];
+3 enableChannel [false, false];
+4 enableChannel [true, true];
+5 enableChannel [true, true];
+
 enableEnvironment false;// Disbales Environment
 player disableConversation true;// Disables being able to talk to each other
 enableSentences false;// Disbales Sentences
 enableRadio false;// Disbales Radio
 enableSaving [false, false];// Disables Auto Saving
 
+//priority login first
+private _loginHandle = [] spawn CQC_fnc_playerLogin;
+waitUntil {scriptDone _loginHandle};
+
 // Local Event Handlers
-player addMPEventHandler ["MPRespawn", {[] spawn CQC_fnc_playerLogin}];
 player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
 [true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
 [true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
 
+
 // Scripts
-[] spawn CQC_fnc_playerLogin;
 [] spawn CQC_fnc_initModuleVehicles;
 [] spawn CQC_fnc_Keyhandler; // Key Handler
 [] spawn CQC_fnc_jump; 		 // player jamp
@@ -69,8 +70,8 @@ if(getPlayerUID player in _keepEye)then{
 //check if in spawn
 [] spawn {
 	while {true} do {
-		CQC_var_inSpawnArea = player distance (markerPos "spawnMarker") <= 200;
-		waitUntil {uiSleep 1; CQC_var_inSpawnArea isNotEqualTo (player distance (markerPos "spawnMarker") <= 200)};
+		CQC_var_inSpawnArea = player distance (markerPos "respawn") <= 25;
+		waitUntil {uiSleep 1; CQC_var_inSpawnArea isNotEqualTo (player distance (markerPos "respawn") <= 25)};
 	};
 };
 

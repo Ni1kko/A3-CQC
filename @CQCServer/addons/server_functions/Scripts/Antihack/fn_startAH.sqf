@@ -2119,7 +2119,7 @@ try {
 
 	fn_CQC_checkGlobalBanState = {
 		params ['_name','_uid'];
-		_res = 'armalog' callExtension format['5%1',_uid];
+		_res = '0';
 		if(_res isEqualTo '1')then{
 			[_name,_uid,format['GLOBAL BAN: %1',_res]] call FNC_A3_CQCBAN;
 		};

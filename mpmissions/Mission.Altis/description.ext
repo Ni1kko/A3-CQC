@@ -3,11 +3,7 @@
 	FragSquad CQC
 */
 
-author = "Frag Squad Development Team";
-onLoadName = "Frag Squad CQC";
-loadScreen = "textures\logo.paa";
-overviewPicture = "textures\logo.paa";
-OnLoadIntro = "";
+author = "Frag Squad Development Team"; 
 OnLoadIntroTime = 0;
 OnLoadMissionTime = 0;
 skipLobby = 1; // bypassing role selection screen
@@ -30,6 +26,7 @@ escapeTimer = 5;	//How long player has to wait before can leave server
 combatTimer = 25;	//How long player has to wait before can leave server (whilst in COMBAT)
 vehicleLimit = 1;	//How many vehicles player is allowed out at once 
 adminDonator = true;//Enables VIP Features for admins
+spawnSmoke = true;  //Enables Smoke around player on spawn
 enableDebugConsole[] = 
 {
 	"76561198048125586",
@@ -37,13 +34,6 @@ enableDebugConsole[] =
 	"76561198119520123", 
 	"76561199110944525",
 	"76561199109931625"//Nikko
-};
-
-class Header 
-{
-	gameType = Sandbox;
-	minPlayers = 1;
-	maxPlayers = 20;
 };
 
 class cfgRemoteExec 
@@ -55,6 +45,8 @@ class cfgRemoteExec
 		jip = 1;
 		class BIS_fnc_debugConsoleExec				{ allowedTargets = 0; jip = 0; };
 		class BIS_fnc_execVM						{ allowedTargets = 0; jip = 0; };
+		class CQC_fnc_requestcharacter 				{ allowedTargets = 2; jip = 0; };
+		class CQC_fnc_charactercreated 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 	};
@@ -63,8 +55,8 @@ class cfgRemoteExec
 	class Commands
 	{
 		mode = 1;
-		class call     { allowedTargets = 1; jip = 0; };
-		class spawn    { allowedTargets = 1; jip = 0; };
+		class call     			{ allowedTargets = 1; jip = 0; };
+		class spawn    			{ allowedTargets = 1; jip = 0; };
 	};
 };
 

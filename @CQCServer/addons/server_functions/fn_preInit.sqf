@@ -51,7 +51,7 @@ try {
 	} forEach (addonFiles [format["%1\",_clientAddonPrefix], ".sqf"]);
 
 	//Initialize Server
-	[[_clientFunctions,_compileFinal],_serverCommandPass,_isLiveServer] spawn (missionNamespace getVariable [format["%1_fnc_initServer",_scriptPrefix],{}]);
+	[[_clientFunctions,_isLiveServer],_serverCommandPass] spawn (missionNamespace getVariable [format["%1_fnc_initServer",_scriptPrefix],{}]);
 } catch {
 	diag_log format["!! FATIAL ERROR !! Server Halted!!! Due To (%1)", _exception];//Log exception
 	if _isLiveServer then{_serverCommandPass serverCommand "#shutdown"};//Server shutdown

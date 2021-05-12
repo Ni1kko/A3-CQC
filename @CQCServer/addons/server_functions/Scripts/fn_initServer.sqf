@@ -5,8 +5,7 @@
 
 params[
     ["_clientData",[[],false],[[]]],
-    ["_serverCommandPass","",[""]],
-	["_isLiveServer",true,[false]]
+    ["_serverCommandPass","",[""]]
 ];
 
 private _passwordAdmin = 'v1rd86Rtv9b';
@@ -23,7 +22,7 @@ if !([_serverCommandPass] call CQC_fnc_startDatabase)exitwith{
 _serverCommandPass serverCommand "#debug Database: Connected";
 
 //Add Connection Event Handlers
-CQC_var_ClientConnected = addMissionEventHandler ["PlayerConnected", CQC_fnc_onplayerconnected, [_clientData, _isLiveServer]];
+CQC_var_ClientConnected = addMissionEventHandler ["PlayerConnected", CQC_fnc_onplayerconnected, _clientData];
 CQC_var_ClientDisconnected = addMissionEventHandler ["PlayerDisconnected", CQC_fnc_onplayerdisconnected, []];
 
 if (is3DEN || is3DENMultiplayer || !isDedicated || !isServer || hasInterface) exitwith {

@@ -5,89 +5,33 @@
 
 //Args
 if (_this params [
-	["_id",-100,[0]],			// Number - is the unique DirectPlay ID. Quite useless as the number is too big for in-built string representation and gets rounded. It is also the same id used for user placed markers.
+	["_id",-100],			    // Number - is the unique DirectPlay ID. Quite useless as the number is too big for in-built string representation and gets rounded. It is also the same id used for user placed markers.
 	["_steamID","",[""]],		// String - is getPlayerUID of the joining player. In Arma 3 it is also the same as Steam ID.
 	["_ProfileName","",[""]],	// String - is profileName of the joining player.
 	["_didJip",false,[false]], 	// Boolean - is a flag that indicates whether or not the player joined after the mission has started (Joined In Progress). true when the player is JIP, otherwise false. (since Arma 3 v1.49)
 	["_ownerID",-100,[0]],		// Number - is owner id of the joining player. Can be used for kick or ban purposes or just for publicVariableClient. (since Arma 3 v1.49) 
-	["_idstr","",[""]]			// String - same as _id but in string format, so could be exactly compared to user marker ids. (since Arma 3 v1.95) 
-] isEqualTo false) exitWith {diag_log "Bad Args"; false};
-
-//User-Defined - custom passed args (since Arma 3 v2.04) 
-if (_thisArgs params [["_clientData",[[],false],[[]]],['_isLiveServer',true,[false]]] isEqualTo false) exitWith {diag_log "Bad Custom Args"; false};
+	["_idstr",""]			    // String - same as _id but in string format, so could be exactly compared to user marker ids. (since Arma 3 v1.95) 
+] isEqualTo false) exitWith {false};
 
 //Players only
-if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {diag_log "Bad OwnerID"; false};
+if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {false};
+if (_steamID isEqualTo "")exitWith{};
 
-//Check Profilename for bad chars
-_ProfileName = [_ProfileName] call CQC_fnc_database_nameSafe;
-
-//Check if in database
-private _databaseQuery = [_steamID] call CQC_fnc_sessionInsert;
-
-//Clear var
-missionNamespace setVariable [format["CQC_var_%1SessionTries",_steamID],0,true];
-
-//Failed adding client too database
-if(count _databaseQuery < 1)exitWith{
-	(format["Failed Too Add Client (%1)[%2]",_ProfileName,_steamID]) call CQC_fnc_database_log;
-};
-
-(format["(%1)[%2] Data Loaded",_ProfileName,_steamID]) call CQC_fnc_database_log;
-
-//clientdata from database
-_databaseQuery params [
-	["_steamIDDB",""],
-	["_ProfileNameDB",""],
-	["_KnownNamesDB",""],
-	["_GearDB",""],
-	["_AdminRankDB",0],
-	["_HasDonatedDB",0]
-];
-
-//parse data from database
-_KnownNamesDB = [_KnownNamesDB] call CQC_fnc_database_mresToArray;
-_GearDB = [_GearDB] call CQC_fnc_database_mresToArray;
-
-//Update name
-if( not(_ProfileName isEqualTo _ProfileNameDB))then{
-	_ProfileNameDB = _ProfileName;
-	["UPDATE", "Clients SET ProfileName='"+_ProfileNameDB+"' WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase; 
-};
-
-//Update known names
-if( not(_ProfileName in _KnownNamesDB))then{
-	_KnownNamesDB pushBackUnique _ProfileName;
-	["UPDATE", "Clients SET KnownNames='"+([_KnownNamesDB]call CQC_fnc_database_mresArray)+"' WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase; 
-};
- 
 //Send client preinit (DONT EDIT)
-[[_clientData,[
-	
-	_steamIDDB,
-	_ProfileNameDB,
-	_GearDB,
-	_AdminRankDB,
-	_HasDonatedDB
-]],{
+[_thisArgs,{
 	params [
-		["_clientData",[[],false]],
-		"_databaseData"
+		["_functions",[]],
+		["_final",false]
 	];
 
-	//Db Error... goodbye!	
-	if(isNil "_databaseData")exitwith{
-		(findDisplay 46) closeDisplay 2;
-	};
-
 	//initFunctions
-	{ 
-		missionNamespace setVariable [_x#0, ([compile (_x#1),compileFinal(_x#1)]select(_clientData#1))];
+	{
+		missionNamespace setVariable [_x#0,[compile(_x#1), compileFinal(_x#1)] select _final];
 		waitUntil{!isNil {missionNamespace getVariable (_x#0)}};
-	} forEach (_clientData#0);
+	} forEach _functions;
 
 	//initClient
-	_databaseData spawn CQC_fnc_initclient;
+	[] spawn CQC_fnc_initclient;
 }] remoteExec ["spawn",_ownerID];
 
 //Return

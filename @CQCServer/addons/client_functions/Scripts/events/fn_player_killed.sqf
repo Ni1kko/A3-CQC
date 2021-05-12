@@ -3,6 +3,8 @@
 	FragSquad CQC
 */
 
+if(!canSuspend)exitWith{_this spawn CQC_fnc_player_Killed};
+
 params [ "_victim", "_killer" ]; 
 
 //A mess needs looked at
