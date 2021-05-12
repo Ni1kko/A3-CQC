@@ -13,6 +13,7 @@ CQC_var_lastInventory = [objNull,[]];
 CQC_var_combatTimer = diag_tickTime;
 CQC_var_inCombat = false;
 CQC_var_spawnedVehicles = [];
+CQC_var_lastSpawnPos = "";
 
 // Sets View Distances
 setViewDistance 325;

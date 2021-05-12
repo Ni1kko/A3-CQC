@@ -11,14 +11,19 @@ switch (_mode) do {
 
 		_title ctrlSetText "Teleport Menu";
 
-		lbClear _list;
-		{
-			private _displayName = _x splitstring "_" joinstring " ";
-			_list lbAdd _displayName;
-			_list lbSetData [_foreachindex,_x];
+		_display displayAddEventHandler ["KeyUp", {
+			params ["_display", "_key", "_shift", "_ctrl", "_alt"];
+			private _pressed = false;
+			if(_key in [28,156,57])then{
+				["ButtonClick",[_display displayCtrl 3]] call CQC_fnc_displaySpawns;
+				_pressed = true;
+			};
+			_pressed
+		}];
 
-			preloadCamera (getMarkerPos(_x + "__combat_zone"));
-		} foreach [
+		lbClear _list;
+
+		private _zones = [
 			"OG_Arms",
 			"Church",
 			"Airport",
@@ -30,6 +35,26 @@ switch (_mode) do {
 			"Fed"
 		];
 
+		//donator last pos
+		if(CQC_var_lastSpawnPos != "" AND (call isDonator) AND CQC_var_inSpawnArea)then{
+			_zones = (["Last Position"] + _zones);
+		};
+
+		//add each zone
+		{
+			private _displayName = _x splitstring "_" joinstring " ";
+			if(_x isEqualTo "Last Position")then{
+				_displayName = format ["%1 (%2)",_displayName, CQC_var_lastSpawnPos];
+			};
+			_list lbAdd _displayName;
+			
+			_list lbSetData [_foreachindex,if(_x isEqualTo "Last Position")then{CQC_var_lastSpawnPos splitstring " " joinstring "_"}else{_x}];
+			preloadCamera (getMarkerPos(_x + "__combat_zone"));
+		} foreach _zones;
+
+		//select first so you can press enter
+		_list lbSetCurSel 0;
+
 		_button1 ctrlSetText "Exit";
 		_button1 ctrlAddEventHandler ["ButtonClick", {(ctrlParent (_this select 0)) closeDisplay 2}];
 
@@ -37,8 +62,7 @@ switch (_mode) do {
 		_button2 ctrlAddEventHandler ["ButtonClick",{["ButtonClick",_this] call CQC_fnc_displaySpawns}];
 
 		_display displayAddEventHandler ["MouseHolding",{["LBUpdate",_this] call CQC_fnc_displaySpawns}];
-		_display displayAddEventHandler ["MouseMoving",{["LBUpdate",_this] call CQC_fnc_displaySpawns}];
-
+		_display displayAddEventHandler ["MouseMoving",{["LBUpdate",_this] call CQC_fnc_displaySpawns}]; 
 	};
 
 	case "onUnload": {};
@@ -72,8 +96,11 @@ switch (_mode) do {
 		player allowDamage true;
 		player setAmmo [currentWeapon player,500];
 
+		if(_locationName isEqualTo "Last Position")then{
+			_locationName = CQC_var_lastSpawnPos;
+		};
+		
 		switch (_locationName) do {
-
 			case "OG Arms" : {
 				[]spawn CQC_fnc_spawn_og;
 			
@@ -155,6 +182,8 @@ switch (_mode) do {
 				["Please select a valid spawn."] spawn CQC_fnc_Notification;
 			};
 		};
+
+		CQC_var_lastSpawnPos = _locationName;
 	};
 };
 CQC_var_canTeleport = false;
