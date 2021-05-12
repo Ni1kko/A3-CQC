@@ -132,10 +132,12 @@ player addEventHandler ["FiredNear", {
 		"_ammo",     // ammo: String - Ammo used 
 		"_gunner"    // gunner: Object - gunner, whose weapons are fired
 	];
-
-	private _combatTimer = getNumber(missionConfigFile >> "combatTimer");
-	if(!CQC_var_inSpawnArea AND _combatTimer > 0)then{
-		CQC_var_combatTimer = diag_tickTime + _combatTimer;
+	
+	if(_distance < 30)then{
+		private _combatTimer = getNumber(missionConfigFile >> "combatTimer");
+		if(!CQC_var_inSpawnArea AND _combatTimer > 0)then{
+			CQC_var_combatTimer = diag_tickTime + _combatTimer;
+		};
 	};
 }];
 
