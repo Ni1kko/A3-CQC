@@ -22,22 +22,28 @@ respawnOnStart = 0;
 respawnButton = 1;
 
 //CQC Config
-escapeTimer = 3;			//How long player has to wait before can leave server
-combatTimer = 25;			//How long player has to wait before can leave server (whilst in COMBAT)
-vehicleLimit = 1;			//How many vehicles player is allowed out at once
-vehicleDeadCleanMins = 1;   //Is cleanup scaled in mins or secs
-vehicleDeadCleanUp = 1;     //How long till dead vehicles are removed
-vehicleUnusedCleanMins = 1; //Is cleanup scaled in mins or secs
-vehicleUnusedCleanUp = 3;   //How long till non used vehicles are removed
-bodyDeadCleanMins = 0;		//Is cleanup scaled in mins or secs	
-bodyDeadCleanUp = 3;		//How long till dead bodies are removed
-weaponCleanMins = 0;		//Is cleanup scaled in mins or secs	
-weaponCleanUp = 15;		    //How long till dropped weapons are removed
-adminDonator = true;		//Enables VIP Features for admins
-AFKKicker = true;			//Enables auto afk kick
-AFKKickTime = 15;			//How many mins should we wait before kicking (Timer resets on keypress)
-AFKAdminBypass = false;		//Enables auto afk kick bypass for admins
-spawnSmoke = false;  		//Enables smoke around player on spawn
+escapeTimer = 3;				//How long player has to wait before can leave server
+combatTimer = 25;				//How long player has to wait before can leave server (whilst in COMBAT)
+adminDonator = true;			//Enables VIP Features for admins
+autoReloadDonator = true;		//Enables VIP auto-reload
+AFKKicker = true;				//Enables auto afk kick
+AFKKickTime = 15;				//How many mins should we wait before kicking (Timer resets on keypress)
+AFKAdminBypass = false;			//Enables auto afk kick bypass for admins
+spawnSmoke = false;  			//Enables smoke around player on spawn
+vehicleLimit = 1;				//How many vehicles player is allowed out at once
+
+vehicleDeadCleanMins = true;    ///Is cleanup scaled in mins or secs (false = seconds | true = minuets)
+vehicleDeadCleanUp = 1;     	//How long till dead vehicles are removed
+
+vehicleUnusedCleanMins = true;  //Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+vehicleUnusedCleanUp = 3;   	//How long till non used vehicles are removed
+
+bodyDeadCleanMins = false;		//Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+bodyDeadCleanUp = 3;			//How long till dead bodies are removed
+
+weaponCleanMins = false;	 	//Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+weaponCleanUp = 15;		    	//How long till dropped weapons are removed
+
 
 class CQCSpawns 
 {

@@ -42,14 +42,24 @@ if (isNull (findDisplay 163)) then {
 
 	// Infinite Ammo (Case 2)
 	_ctrl lbAdd "Infinite ammo";
-	if ( CQC_var_infiniteAmmoActive ) then {
+	if (CQC_var_infiniteAmmoActive) then {
 		_ctrl lbSetColor [2, [0.259,0.961,0.596,1]];
 		_ctrl lbSetText [2, "Infinite Ammo [Active]"];
 	} else {
 		_ctrl lbSetColor [2, [1,1,1,1]];
 		_ctrl lbSetText [2, "Infinite Ammo"];
 	};
+
+	// Auto Reload (Case 3)
+	_ctrl lbAdd "Auto Reload";
+	if (CQC_var_autoReloadActive) then {
+		_ctrl lbSetColor [3, [0.259,0.961,0.596,1]];
+		_ctrl lbSetText [3, "Auto Reload [Active]"];
+	} else {
+		_ctrl lbSetColor [3, [1,1,1,1]];
+		_ctrl lbSetText [3, "Auto Reload"];
+	};
 	
-	// Spawn Mk200 (Case 3)
+	// Spawn Mk200 (Case 4)
 	_ctrl lbAdd "Get Mk200";
 };
