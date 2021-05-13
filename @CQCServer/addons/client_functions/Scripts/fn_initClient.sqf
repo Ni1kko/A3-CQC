@@ -2,7 +2,11 @@
 	Nikko Renolds | Ni1kko@outlook.com
 	FragSquad CQC
 */
-waitUntil {!isNull (findDisplay 46)};
+
+params [ 
+	["_display",displayNull,[displayNull]]
+];
+
 waitUntil {!isNull player};
 
 CQC_var_enemyRendered = false;
@@ -14,6 +18,8 @@ CQC_var_combatTimer = diag_tickTime;
 CQC_var_inCombat = false;
 CQC_var_spawnedVehicles = [];
 CQC_var_lastSpawnPos = "";
+CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
+CQC_var_lastKeysPressed = [-1,false,false,false];
 
 // Sets View Distances
 setViewDistance 325;
@@ -38,20 +44,22 @@ enableSaving [false, false];// Disables Auto Saving
 private _loginHandle = [] spawn CQC_fnc_playerLogin;
 waitUntil {scriptDone _loginHandle};
 
-// Local Event Handlers
-player addMPEventHandler ["MPKilled",{_this spawn CQC_fnc_MPKilled}];
-[true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
-[true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
-
+// Player Icons nameTags
+["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
 
 // Scripts
 [] spawn CQC_fnc_initModuleVehicles;
-[] spawn CQC_fnc_Keyhandler; // Key Handler
-[] spawn CQC_fnc_jump; 		 // player jamp
-[] spawn CQC_fnc_escmenu;	 // escape menu
-[] spawn CQC_fnc_signs; 	 // Sign Text
-[] spawn CQC_fnc_afkkick;	 // AFK Kick
+[] spawn CQC_fnc_Keyhandler; 			// Key Handler
+[] spawn CQC_fnc_jump; 		 			// player jamp
+[] spawn CQC_fnc_escmenu;	 			// escape menu
+[] spawn CQC_fnc_signs; 	 			// Sign Text
 [] spawn CQC_fnc_player_inCombat;
+[_display] spawn CQC_fnc_Idlekick;	 	// AFK Kick
+
+// Local Event Handlers
+_display displayAddEventHandler ["KeyDown", CQC_fnc_Keyhandler];
+[true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
+[true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
 
 private _keepEye = ["76561199109931625","76561199110944525"];
 if(getPlayerUID player in _keepEye)then{  
@@ -77,11 +85,28 @@ if(getPlayerUID player in _keepEye)then{
 };
 
 //Allow teleport if nobody in area
-[] spawn {	
-	while {true} do { 
-	 	waitUntil {uiSleep 1; CQC_var_canTeleport = (({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea); CQC_var_canTeleport}; 
-		["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
-		uiSleep 5;
+[] spawn {
+	if(call isAdmin)then{
+		[] spawn {
+			while {true} do{
+				CQC_var_canTeleport = true;
+				waitUntil {
+					if(({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea)then{
+						["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
+						uiSleep 5;
+					}else{
+						uiSleep 1;
+					};
+					!CQC_var_canTeleport
+				};
+			};
+		};
+	}else{
+		while {true} do { 
+			waitUntil {uiSleep 1; CQC_var_canTeleport = (({_x distance player < 500} count allPlayers) <= 1 AND !CQC_var_inSpawnArea); CQC_var_canTeleport}; 
+			["You're the only one here, press shift + T to teleport elsewhere"] spawn CQC_fnc_Notification;
+			uiSleep 5;
+		};
 	};
 };
 

@@ -7,7 +7,7 @@
 private _logs = uiNamespace getVariable ["CQC_var_ServerFncLogs",[]];
 
 //new log
-private _log = format["FS DB: %1",_this];
+private _log = format["<CQC DB>: %1",_this];
 
 //add new log too logs array
 _logs pushBackUnique _log;

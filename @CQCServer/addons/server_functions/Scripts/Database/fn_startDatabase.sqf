@@ -3,7 +3,7 @@
 	FragSquad CQC
 */
 
-if (call(uiNamespace getVariable ['Database_Initialized',{false}]))exitWith{
+if (isFinal "CQC_var_DatabaseLocked")exitWith{
     "Already Initialized" call CQC_fnc_database_log;
 };
 
@@ -47,15 +47,21 @@ if(_hiveSetup)then
         _hiveSetup = _exception;
     };
 
-    if(_hiveSetup)then{
-        //Lock [Database] from extDB3 config as databaase
-        diag_log str(['LOCK'] call CQC_fnc_callDatabase);
+    if(_hiveSetup)then{ 
+        try{ 
+            //Lock database
+            if ((['LOCK'] call CQC_fnc_callDatabase) isEqualTo [0]) throw false;
+        } catch {
+            _hiveSetup = _exception;
+        };
 
-        //Log succses
-        (format["Online [v%1]",_version]) call CQC_fnc_database_log;
+        if(_hiveSetup)then{
+            //
+            CQC_var_DatabaseLocked = compileFinal str(0 call CQC_fnc_getTimeDate);
 
-        //Allow server too contniue loading
-        missionNamespace setVariable ['CQC_var_DBonline', (compilefinal(str(true))),true];
+            //Log succses
+            (format["Online [v%1]",_version]) call CQC_fnc_database_log;
+        };
     };
 };
 

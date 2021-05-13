@@ -8,17 +8,13 @@ waitUntil {!isNull player};
 CQC_var_isHealing = false;
 character = objNull;
 
-// Player Icons nameTags
-["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
-["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
-
 //Get character
 private _stayRightThere = getPosATL player;
 [player] remoteExec ["CQC_fnc_requestcharacter",2];
 waitUntil { 
 	if(isNull character)then{
 		[["Loading Character","Downloading Character"]select CQC_var_firstSpawn] spawn CQC_fnc_Notification; 
-		if(player distance2D _stayRightThere > 3)then{
+		if(player distance2D _stayRightThere > 2)then{
 			player setPos _stayRightThere;
 			["Please Be Paitent..."] spawn CQC_fnc_Notification;
 		};
@@ -49,6 +45,7 @@ if(getNumber(missionConfigFile >> "spawnSmoke") isEqualTo 1)then{
 	};
 	waitUntil {scriptDone _spawnSmoke};
 };
+
 [["Character Loaded","Character Downloaded"]select CQC_var_firstSpawn] spawn CQC_fnc_Notification; 
 
 // Loads Kills
@@ -142,6 +139,8 @@ if ((call isDonator) AND count (CQC_var_clientGear) > 0) then {
 		[] call CQC_fnc_saveGear;
 	};
 };
+
+[character] remoteExec ["CQC_fnc_charactercreated",2];
 
 if(CQC_var_firstSpawn)then{
 	CQC_var_firstSpawn = false;

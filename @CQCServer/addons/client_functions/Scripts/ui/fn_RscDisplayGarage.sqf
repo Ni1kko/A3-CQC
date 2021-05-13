@@ -287,13 +287,15 @@ switch (_mode) do {
 		_className = _ctrlTreeVehicles tvData _curSel;
 
 		//--- Calculate spawn position
-		_pos = ( [ player, 15, getDir player ] call BIS_fnc_relPos );
+		_pos = [player,15,getDir player] call BIS_fnc_relPos;
+
+		if (isWeaponDeployed player) exitWith {
+			["Unable to spawn vehicle whilst bipod is deployed"] spawn CQC_fnc_Notification;
+		};
 
 		//--- Check for nearby entities
-		if ( count nearestObjects [ _pos, [ "Car", "Tank", "Air", "Ship" ], 10 ] > 0 ) exitWith {
-
+		if (count(nearestObjects [_pos,["Car","Tank","Air","Ship"],10]) > 0) exitWith {
 			["Unable to spawn vehicle near other vehicles"] spawn CQC_fnc_Notification;
-
 		};
 
 		//--- Create vehicle
@@ -330,10 +332,8 @@ switch (_mode) do {
 		};
 
 		//--- Create UAV AI
-		if ( getText ( configFile >> "CfgVehicles" >> _className >> "vehicleClass" ) isEqualTo "Autonomous" ) then {
-
-			createVehicleCrew _vehicle;
-
+		if ( getText ( configFile >> "CfgVehicles" >> _className >> "vehicleClass" ) isEqualTo "Autonomous" ) then { 
+			createVehicleCrew _vehicle; 
 		};
 		
 		{
@@ -341,109 +341,38 @@ switch (_mode) do {
 		} foreach [1,2,3,4,5];
 		
 		// add ammo back
-		player setAmmo [currentWeapon player,999];
-		
-		if (["arifle_ARX", currentWeapon player] call BIS_fnc_inString) then {
-			for  "_i" from 1 to 100 do { 
-	
-				Fn_Gear_CompatibleMagazines = {  
-					private _cls = configFile >> "CfgWeapons" >> currentWeapon player;  
-					private _res = [];  
-					{
-						_res pushBack (if (_x isEqualTo "this") then {
-							getArray(_cls >> "magazines")
-						} else {
-							getArray(_cls >> _x >> "magazines")});  
-					} forEach getArray (_cls >> "muzzles");  
+		private _weaponClasses = [currentWeapon player]; 
+		{_weaponClasses pushBackUnique _x} forEach [primaryWeapon player,secondaryWeapon player,handgunWeapon player]; 
+		if (true in (_weaponClasses apply {_x!="" AND !(_x in ["Binocular","Rangefinder"])})) then { 
 			
-					_res  
-				};  
-		
-				private _unt = player;  
-		
-				{ 
-					if (count _x > 0) then {  
-						{ if (count _x > 1) then {     
-							_unt addMagazine (_x#0)}  
-						} foreach (_x call Fn_Gear_CompatibleMagazines)   
-					}
-				} forEach [primaryWeapon _unt];  
-			};
+			_weaponClasses = _weaponClasses - [""]; 
+
+			//add 1 of each magazine for each weapon
+			{player addMagazine (selectRandom([_x] call CQC_fnc_getCompatibleMagazines))} forEach _weaponClasses; 
+
+			//add another upto 30 mags for each weapon
+			{
+				private _weaponMagazines = [_x] call CQC_fnc_getCompatibleMagazines;
+				for  "_i" from 0 to (30 / (_forEachIndex+1)) do { //1 weapon (upto 30 mags) | 2 weapons (upto 15 mags each) | 3 weapons (upto 10 mags each)   
+					//{player addMagazine _x} foreach _weaponMagazines;  
+					player addMagazine (selectRandom _weaponMagazines);
+				};
+			} forEach _weaponClasses; 
 		}; 
-		if (["LMG_",currentWeapon player] call BIS_fnc_inString) then {
-			for  "_i" from 1 to 100 do { 
-	
-				Fn_Gear_CompatibleMagazines = {  
-					private _cls = configFile >> "CfgWeapons" >> currentWeapon player;  
-					private _res = [];  
-					{_res pushBack 
-						(
-							if (_x isEqualTo "this") then {
-								getArray(_cls >> "magazines")
-							} else {
-								getArray(_cls >> _x >> "magazines")}
-						);  
-					} forEach getArray (_cls >> "muzzles");  
-			
-					_res  
-				};  
-		
-				private _unt = player;  
-		
-				{ 
-					if (count _x > 0) then {  
-						{ 
-							if (count _x > 0) then {     
-							_unt addMagazine (_x#1)}  
-						} foreach (_x call Fn_Gear_CompatibleMagazines)   
-					}  
-				} forEach [primaryWeapon _unt];  
-			};
-		} else {
-			for  "_i" from 1 to 100 do { 
- 
-				Fn_Gear_CompatibleMagazines = {  
-					private _cls = configFile >> "CfgWeapons" >> currentWeapon player;  
-					private _res = [];  
-					{
-						_res pushBack (
-						if (_x isEqualTo "this") then {
-							getArray(_cls >> "magazines")
-						} else {
-							getArray(_cls >> _x >> "magazines")}
-						);  
-					} forEach getArray (_cls >> "muzzles");  
-			
-					_res  
-				};  
-  
-				private _unt = player;  
-				
-				{
-					if (count _x > 0) then {  
-						{ 
-							if (count _x > 0) then {     
-							_unt addMagazine (_x#0)}  
-						} foreach (_x call Fn_Gear_CompatibleMagazines)   
-					}  
-				} forEach [primaryWeapon _unt];  
-			};
-		};
-		
+	 	 
 		player moveInAny _vehicle;
 
 		//--- Cleanup when killed
-		if ( CQC_ModuleVehicles_garageGC > -1 ) then { 
+		private _vehicleCleanUp = getNumber(missionConfigFile >> "vehicleCleanUp");
+		if (_vehicleCleanUp > 0) then { 
 			_vehicle addEventHandler [ "killed", {
 
 				//--- Remove vehicle from spawned array
 				CQC_var_spawnedVehicles = CQC_var_spawnedVehicles - [ _this#0 ];
 
 				//--- Cleanup unit with delay preference
-				[ _this#0, CQC_ModuleVehicles_garageGC ] call CQC_fnc_cleanupUnit;
-
-			} ];
-
+				[_this#0, getNumber(missionConfigFile >> "vehicleCleanUp")] call CQC_fnc_cleanupUnit;
+			}]; 
 		};
 
 		//--- Add vehicle to spawned array

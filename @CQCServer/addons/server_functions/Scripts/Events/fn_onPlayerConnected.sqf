@@ -31,7 +31,9 @@ if (_steamID isEqualTo "")exitWith{};
 	} forEach _functions;
 
 	//initClient
-	[] spawn CQC_fnc_initclient;
+	private _display = displayNull;
+	waitUntil {uiSleep 1; _display = findDisplay 46; !isNull _display};
+	[_display] spawn CQC_fnc_initclient;
 }] remoteExec ["spawn",_ownerID];
 
 //Return

@@ -1,38 +1,6 @@
 /*
-	
-	AUTHOR: aeroson
-	NAME: repetitive_cleanup.sqf
-	VERSION: 1.9
-	
-	DESCRIPTION:
-	Can delete everything that is not really needed 
-	dead bodies, dropped items, smokes, chemlights, explosives, empty groups
-	Works even on Altis, it eats only items which are/were 100m from all units
-	beware: if weapons on ground is intentional e.g. fancy weapons stack, it will delete them too
-	beware: if dead bodies are intentional it will delete them to
-	beware: if destroyed vehicles intentional it will delete them to
-	
-	USAGE:
-	in server's init
-	[
-		60, // seconds to delete dead bodies (0 means don't delete) 
-		5*60, // seconds to delete dead vehicles (0 means don't delete)
-		3*60, // seconds to delete immobile vehicles (0 means don't delete)
-		2*60, // seconds to delete dropped weapons (0 means don't delete)
-		10*60, // seconds to deleted planted explosives (0 means don't delete)
-		0 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-	] execVM 'repetitive_cleanup.sqf';	
-	
-	will delete dead bodies after 60 seconds (1 minute)
-	will delete dead vehicles after 5*60 seconds (5 minutes)
-	will delete immobile vehicles after 3*60 seconds (3 minutes)	
-	will delete weapons after 2*60 seconds (2 minutes)
-	will delete planted explosives after 10*60 seconds (10 minutes)
-	will not delete any smokes/chemlights since its disabled (set to 0)
-	
 	If you want something to withstand the clean up, paste this into it's init:
-	this setVariable["persistent",true];
-		
+	this setVariable["persistent",true];	
 */
 
 if (!isServer) exitWith {}; // isn't server         
@@ -40,31 +8,48 @@ if (!isServer) exitWith {}; // isn't server
 #define PUSH(A,B) A set [count (A),B];
 #define REM(A,B) A=A-[B];
 
-private ["_ttdBodies","_ttdVehiclesDead","_ttdVehiclesImmobile","_ttdWeapons","_ttdPlanted","_ttdSmokes","_addToCleanup","_unit","_objectsToCleanup","_timesWhenToCleanup","_removeFromCleanup"];
+private _deadBodyTimer = [_this,0,0,[0]] call BIS_fnc_param;
+private _deadBodyTimer = getNumber(missionConfigFile >> "bodyDeadCleanUp");
+if(_deadBodyTimer < 60 AND getNumber(missionConfigFile >> "bodyDeadCleanMins") isEqualTo 0)then{
+	60 - ((0.6 - parseNumber format ["0.%1",_deadBodyTimer])  * 100) 
+}else{
+	(_deadBodyTimer * 60)
+};
 
-_ttdBodies = [_this,0,0,[0]] call BIS_fnc_param;
-_ttdVehiclesDead = [_this,1,0,[0]] call BIS_fnc_param;
-_ttdVehiclesImmobile = [_this,2,0,[0]] call BIS_fnc_param;
-_ttdWeapons = [_this,3,0,[0]] call BIS_fnc_param;
-_ttdPlanted = [_this,4,0,[0]] call BIS_fnc_param;
-_ttdSmokes = [_this,5,0,[0]] call BIS_fnc_param;
+private _deadVehiclesTimer = getNumber(missionConfigFile >> "vehicleDeadCleanUp");
+if(_deadVehiclesTimer < 60 AND getNumber(missionConfigFile >> "vehicleDeadCleanMins") isEqualTo 0)then{
+	60 - ((0.6 - parseNumber format ["0.%1",_deadVehiclesTimer])  * 100) 
+}else{
+	(_deadVehiclesTimer * 60)
+};
 
-if ({_x > 0} count _this isEqualTo 0) exitWith {}; // all times are 0, we do not want to run this script at all
+private _abandonedVehiclesTimer = getNumber(missionConfigFile >> "vehicleUnusedCleanUp");
+if(_abandonedVehiclesTimer < 60 AND getNumber(missionConfigFile >> "vehicleUnusedCleanMins") isEqualTo 0)then{
+	60 - ((0.6 - parseNumber format ["0.%1",_abandonedVehiclesTimer])  * 100) 
+}else{
+	(_abandonedVehiclesTimer * 60)
+};
 
+private _droppedWeaponsTimer = getNumber(missionConfigFile >> "weaponCleanUp");
+if(_droppedWeaponsTimer < 60 AND getNumber(missionConfigFile >> "weaponCleanMins") isEqualTo 0)then{
+	60 - ((0.6 - parseNumber format ["0.%1",_droppedWeaponsTimer])  * 100) 
+}else{
+	(_droppedWeaponsTimer * 60)
+};
 
-_objectsToCleanup = [];
-_timesWhenToCleanup = [];
+private _objectsToCleanup = [];
+private _timesWhenToCleanup = [];
 
-_addToCleanup = {
-	_object = _this select 0;
+private _addToCleanup = {
+	private _object = _this#0;
 	if (!(_object getVariable["persistent",false])) then {
-		_newTime = (_this select 1)+time;
-		_index = _objectsToCleanup find _object;
+		private _newTime = (_this#1)+time;
+		private _index = _objectsToCleanup find _object;
 		if (_index isEqualTo -1) then {
 			PUSH(_objectsToCleanup,_object)
 			PUSH(_timesWhenToCleanup,_newTime)
 		} else {
-			_currentTime = _timesWhenToCleanup select _index;
+			_currentTime = _timesWhenToCleanup#_index;
 			if(_currentTime>_newTime) then {		
 				_timesWhenToCleanup set[_index, _newTime];
 			}; 
@@ -72,82 +57,77 @@ _addToCleanup = {
 	};
 };
 
-
-_removeFromCleanup = {
-	_object = _this select 0;
-	_index = _objectsToCleanup find _object;
+private _removeFromCleanup = {
+	private _object = _this#0;
+	private _index = _objectsToCleanup find _object;
 	if(_index != -1) then {
 		_objectsToCleanup set[_index, 0];
 		_timesWhenToCleanup set[_index, 0]; 
 	};			   
 };
 
-
 while {true} do {
-	sleep 10;	
+	uiSleep 10;	
+	
+	//near items to clean
 	{	
-	    _unit = _x;
+	    private _unit = _x;
 	    
-		if (_ttdWeapons > 0) then {
+		//Dropped weapons
+		if (_droppedWeaponsTimer > 0) then {
 			{
 				{ 	 
-					[_x, _ttdWeapons] call _addToCleanup;			
+					[_x, _droppedWeaponsTimer] call _addToCleanup;			
 				} forEach (getpos _unit nearObjects [_x, 100]);
 			} forEach ["WeaponHolder","GroundWeaponHolder","WeaponHolderSimulated"];
 		};
-		
-		if (_ttdPlanted > 0) then {
-			{
-				{ 
-					[_x, _ttdPlanted] call _addToCleanup;  
-				} forEach (getpos _unit nearObjects [_x, 100]);
-			} forEach ["TimeBombCore"];
-		};
-		
-		if (_ttdSmokes > 0) then {
-			{
-				{ 	 
-					[_x, _ttdSmokes] call _addToCleanup; 
-				} forEach (getpos _unit nearObjects [_x, 100]);
-			} forEach ["SmokeShell"];
-		};
-	
+
+		//active smokes 
+		{
+			{ 	 
+				[_x, 1] call _addToCleanup; 
+			} forEach (getpos _unit nearObjects [_x, 100]);
+		} forEach ["SmokeShell"];
 	} forEach allUnits;
 	
+	//dead groups
 	{
 		if ((count units _x) isEqualTo 0) then {
 			deleteGroup _x;
 		};
 	} forEach allGroups;
 	
-	if (_ttdBodies>0) then {
+	//dead bodies
+	if (_deadBodyTimer>0) then {
 		{
-			[_x, _ttdBodies] call _addToCleanup;
+			[_x, _deadBodyTimer] call _addToCleanup;
 		} forEach allDeadMen;
 	};	
 	
-	if (_ttdVehiclesDead>0) then {		
+	//dead vehicles
+	if (_deadVehiclesTimer>0) then {		
 		{
 			if(_x isEqualTo vehicle _x) then { // make sure its vehicle 	 
-				[_x, _ttdVehiclesDead] call _addToCleanup;
+				[_x, _deadVehiclesTimer] call _addToCleanup;
 			}; 
 		} forEach (allDead - allDeadMen); // all dead without dead men isEqualTo mostly dead vehicles
 	};
 	
-	if (_ttdVehiclesImmobile>0) then {		
+	//abandoned vehicles
+	if (_abandonedVehiclesTimer>0) then {		
 		{
 			if ({alive _x}count crew _x isEqualTo 0) then { 	 
-				[_x, _ttdVehiclesImmobile] call _addToCleanup;
+				[_x, _abandonedVehiclesTimer] call _addToCleanup;
 			} else {
 				[_x] call _removeFromCleanup;
 			}; 
 		} forEach vehicles;
 	};
 
-						
-	REM(_objectsToCleanup,0)
-	REM(_timesWhenToCleanup,0)
 
+	//cleanup							
+	REM(_objectsToCleanup,0)
+	REM(_timesWhenToCleanup,0) 
 	{        
 		if(isNull(_x)) then {
 			_objectsToCleanup set[_forEachIndex, 0];
@@ -159,9 +139,7 @@ while {true} do {
 				_timesWhenToCleanup set[_forEachIndex, 0];			 	
 			};
 		};	
-	} forEach _objectsToCleanup;
-	
+	} forEach _objectsToCleanup; 
 	REM(_objectsToCleanup,0)
-	REM(_timesWhenToCleanup,0)
-				
+	REM(_timesWhenToCleanup,0) 
 };

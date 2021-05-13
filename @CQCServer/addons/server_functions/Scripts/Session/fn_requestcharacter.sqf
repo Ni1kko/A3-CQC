@@ -71,6 +71,5 @@ _character setDir 356.399;
 	_character setCustomAimCoef 0.00;
 	_character addRating -1000000; 
 	_character setPos _characterPosition;//fucking arma
-	[_character] remoteExec ["CQC_fnc_charactercreated",2];
 	character = _character;
 }] remoteExec ["spawn",owner _ghost];

@@ -38,15 +38,9 @@ if (!isKeyActive "CQC_CustomProfile") exitwith {
 };
 
 publicVariable "CQC_fnc_compatibleItems";
+publicVariable "CQC_fnc_getTimeDate";
 
-[
-    1, // seconds to delete dead bodies (0 means don't delete) 
-    15, // seconds to delete dead vehicles (0 means don't delete)
-    60, // seconds to delete immobile vehicles (0 means don't delete)
-    1, // seconds to delete dropped weapons (0 means don't delete)
-    0, // seconds to deleted planted explosives (0 means don't delete)
-    1 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-] spawn CQC_fnc_repetitive_cleanup;
+[] spawn CQC_fnc_repetitive_cleanup;
 
 private _useAntiHack = getNumber(configFile >> "CfgPatches" >> "server_functions" >> "antiHack") isEqualTo 1;
 if(_useAntiHack)then{
