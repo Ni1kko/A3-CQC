@@ -142,6 +142,12 @@ if ((call isDonator) AND count (CQC_var_clientGear) > 0) then {
 
 [character] remoteExec ["CQC_fnc_charactercreated",2];
 
+if(profileNameSpace getVariable ["CQC_idleKicked",false])then{
+	profileNameSpace setVariable ["CQC_idleKicked",false];
+	saveprofileNameSpace;
+	["Welcome Back, You we're kicked for being idle"] spawn CQC_fnc_Notification;
+};
+
 if(CQC_var_firstSpawn)then{
 	CQC_var_firstSpawn = false;
 	if(call isDonator)then{

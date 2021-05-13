@@ -24,7 +24,7 @@ while {true} do {
 
         if(_diff mod 2 isEqualTo 0)then{
             if(_diff isEqualTo 0)then{
-                [format ["Idle kick in 60 seconds",_diff]] spawn CQC_fnc_Notification;
+                ["Idle kick in 60 seconds"] spawn CQC_fnc_Notification;
             }else{
                 [format ["Idle kick in %1 min",_diff]] spawn CQC_fnc_Notification;
             };
@@ -35,6 +35,8 @@ while {true} do {
     };
 
     if(_diff isEqualTo 0)then{
+        profileNameSpace setVariable ["CQC_idleKicked",true];
+        saveprofileNameSpace;
         _display closeDisplay 2;
     }else{
         [format ["Idle kick aborted",_diff]] spawn CQC_fnc_Notification; 
