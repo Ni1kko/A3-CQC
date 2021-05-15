@@ -26,7 +26,7 @@ escapeTimer = 3;				//How long player has to wait before can leave server
 combatTimer = 25;				//How long player has to wait before can leave server (whilst in COMBAT)
 adminDonator = true;			//Enables VIP Features for admins
 autoReloadDonator = true;		//Enables VIP auto-reload
-AFKKicker = true;				//Enables auto afk kick
+AFKKicker = false;				//Enables auto afk kick (needs FIXED)
 AFKKickTime = 15;				//How many mins should we wait before kicking (Timer resets on keypress)
 AFKAdminBypass = false;			//Enables auto afk kick bypass for admins
 spawnSmoke = false;  			//Enables smoke around player on spawn
@@ -88,6 +88,7 @@ class cfgRemoteExec
 		class CQC_fnc_charactercreated 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
+		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
 	};
 
 	// List of Commands allowed to be sent from client via remoteExec

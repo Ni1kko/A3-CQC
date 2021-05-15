@@ -8,10 +8,7 @@ private _renderDistance = getNumber(missionConfigFile >> 'tagRenderDistance');
 private _admins = missionNamespace getVariable ["CQCAdmins",[]];
 private _donators = missionNamespace getVariable ["CQCDonators",[]];
 private _devs = if(!isNil "CQC_DEVS")then{CQC_DEVS}else{getArray(missionConfigFile >> 'enableDebugConsole')};
-private _colorAdmin = getArray(missionConfigFile >> 'CQCColors' >> 'admin');
-private _colorDonator = getArray(missionConfigFile >> 'CQCColors' >> 'donator');
-private _colorPlayer = getArray(missionConfigFile >> 'CQCColors' >> 'player');
-private _colorDeveloper = getArray(missionConfigFile >> 'CQCColors' >> 'developer');
+ 
 private _targets = allPlayers;
 
 //Only admins and devs and vips see there own tag 
@@ -27,12 +24,8 @@ if((getPlayerUID player in (_admins + _donators + _devs)) isEqualTo false)then{
 	private _targetPosition = (_target modelToWorldVisual (_target selectionPosition "head"));
 	private _targetDistance = player distance2D _targetPosition;
 	private _targetPlayerUID = getPlayerUID _target;
-	private _targetColor = switch (true) do {
-		case (_targetPlayerUID in _devs): {_colorDeveloper};
-		case (_targetPlayerUID in _admins): {_colorAdmin};
-		case (_targetPlayerUID in _donators): {_colorDonator}; 
-		default {_colorPlayer};
-	};
+	private _targetRank = _targetPlayerUID call CQC_fnc_getPlayerRank;
+	private _targetColor = _targetPlayerUID call CQC_fnc_getPlayercolor;
 	
 	if((alive _targetVehicle) AND !(isObjectHidden _targetVehicle) AND !(lineIntersects [eyePos player, eyePos _targetVehicle, player, _targetVehicle])) then
 	{
@@ -50,30 +43,16 @@ if((getPlayerUID player in (_admins + _donators + _devs)) isEqualTo false)then{
 
 		if (_targetDistance < _renderDistance) then 
 		{
-	
-			switch (true) do 
-			{
-				case (_targetPlayerUID in _devs): 
-				{  
-					drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,"Developer",2,0.03,"PuristaMedium"];
-					_targetPosition set [2, (_targetPosition select 2) - 0.055];
-					drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,name _target,2,0.03,"PuristaMedium"];
-				};
-				case (_targetPlayerUID in _admins): 
-				{   
-					drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,"Admin",2,0.03,"PuristaMedium"]; 
-					_targetPosition set [2, (_targetPosition select 2) - 0.055];
-					drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,name _target,2,0.03,"PuristaMedium"];
-						
-				};
-				case (_targetPlayerUID in _donators): 
-				{  
-					drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,"VIP",2,0.03,"PuristaMedium"];
+			if(_targetPlayerUID in _admins || _targetPlayerUID in _devs)then {   
+				drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetRank,2,0.03,"PuristaMedium"]; 
+				_targetPosition set [2, (_targetPosition select 2) - 0.055];
+				drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,name _target,2,0.03,"PuristaMedium"];
+			}else{
+				if(_targetPlayerUID in _donators)then {  
+					drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetRank,2,0.03,"PuristaMedium"];
 					_targetPosition set [2, (_targetPosition select 2) - 0.055];
 					drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,"Player",2,0.03,"PuristaMedium"];
-				};
-				default 
-				{ 
+				}else{
 					drawIcon3D  [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,"Player",2,0.03,"PuristaMedium"];
 				};
 			};
