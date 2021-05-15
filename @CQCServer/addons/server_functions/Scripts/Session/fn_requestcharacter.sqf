@@ -25,10 +25,14 @@ _characterPosition set [2, 1];
 
 //create new group for character
 private _characterGroup = createGroup civilian;
+_characterGroup deleteGroupWhenEmpty true;
 
 //create new character
 private _character = _characterGroup createUnit [_characterType, [1,1,1], [], 0, "CAN_COLLIDE"];
 if(isNull _character)exitWith{[[],{(findDisplay 46) closeDisplay 2}] remoteExecCall ["spawn",owner _ghost]};
+
+//delete group
+[_character] joinSilent (grpNull);
 
 //prepare new character
 _character hideObjectGlobal true;

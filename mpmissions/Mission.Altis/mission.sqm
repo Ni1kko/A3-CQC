@@ -369,7 +369,7 @@ dlcs[]=
 randomSeed=10700589;
 class ScenarioData
 {
-	author="Fragsquad Developers";
+	author="Xlax#6622";
 	overviewText="FragSquad Custom CQC";
 	overviewTextLocked="FragSquad Custom CQC";
 	overViewPicture="textures\logo.paa";
@@ -558,7 +558,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="A3 - CQC  | FragSquad Custom CQC";
+		briefingName="A3 - Custom CQC";
 		overviewText="A3 CQC";
 		resistanceWest=0;
 		startWeather=0;
@@ -807,7 +807,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11145.417,0,8696.7832};
-			name="jstar_og_1";
+			name="CQC_Marker_Spawn_OG_Arms1";
 			type="Empty";
 			angle=119.93682;
 			id=2270;
@@ -817,7 +817,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11161.911,171.35974,8685.3916};
-			name="jstar_og_2";
+			name="CQC_Marker_Spawn_OG_Arms2";
 			type="Empty";
 			angle=294.40997;
 			id=2271;
@@ -827,7 +827,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11241.413,175.62695,8702.3877};
-			name="jstar_og_3";
+			name="CQC_Marker_Spawn_OG_Arms3";
 			type="Empty";
 			angle=63.936237;
 			id=2272;
@@ -837,7 +837,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11229.903,176.2467,8714.2578};
-			name="jstar_og_4";
+			name="CQC_Marker_Spawn_OG_Arms4";
 			type="Empty";
 			angle=98.463753;
 			id=2273;
@@ -847,7 +847,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11140.716,176.82394,8711.0918};
-			name="jstar_og_5";
+			name="CQC_Marker_Spawn_OG_Arms5";
 			type="Empty";
 			angle=232.6523;
 			id=2274;
@@ -856,7 +856,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11354.714,177.589,8611.3379};
-			name="jstar_og_no";
+			name="CQC_Marker_Spawn_OG_Armsno";
 			type="Empty";
 			id=2275;
 			atlOffset=19.731827;
@@ -865,7 +865,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11187.239,178.45132,8752.0293};
-			name="jstar_og_9";
+			name="CQC_Marker_Spawn_OG_Arms9";
 			type="Empty";
 			angle=175.651;
 			id=2278;
@@ -874,7 +874,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11213.97,182.41,8756.1846};
-			name="jstar_og_10";
+			name="CQC_Marker_Spawn_OG_Arms10";
 			type="Empty";
 			angle=16.617271;
 			id=2279;
@@ -884,7 +884,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11207.08,182.42458,8698.6338};
-			name="jstar_og_11";
+			name="CQC_Marker_Spawn_OG_Arms11";
 			type="Empty";
 			id=2280;
 		};
@@ -892,7 +892,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11246.242,173.19287,8738.3389};
-			name="jstar_og_12";
+			name="CQC_Marker_Spawn_OG_Arms12";
 			type="Empty";
 			angle=173.0287;
 			id=2281;
@@ -902,7 +902,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11137.112,159.59277,8731.7432};
-			name="jstar_og_6";
+			name="CQC_Marker_Spawn_OG_Arms6";
 			type="Empty";
 			angle=40.140301;
 			id=2282;
@@ -912,7 +912,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11230.217,182.383,8720.4658};
-			name="jstar_og_7";
+			name="CQC_Marker_Spawn_OG_Arms7";
 			type="Empty";
 			angle=266.74039;
 			id=2284;
@@ -922,7 +922,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8947.8408,0,7470.752};
-			name="jstar_church_1";
+			name="CQC_Marker_Spawn_Church1";
 			type="Empty";
 			id=2285;
 			atlOffset=-67.222267;
@@ -931,7 +931,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8932.4961,66.302277,7509.2686};
-			name="jstar_church_2";
+			name="CQC_Marker_Spawn_Church2";
 			type="Empty";
 			angle=179.9532;
 			id=2286;
@@ -940,7 +940,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8915.7725,67.299797,7492.4048};
-			name="jstar_church_3";
+			name="CQC_Marker_Spawn_Church3";
 			type="Empty";
 			angle=277.82343;
 			id=2287;
@@ -949,7 +949,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8934.9189,65.866882,7498.3979};
-			name="jstar_church_4";
+			name="CQC_Marker_Spawn_Church4";
 			type="Empty";
 			id=2288;
 		};
@@ -957,7 +957,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8951.2031,66.103027,7530.293};
-			name="jstar_church_5";
+			name="CQC_Marker_Spawn_Church5";
 			type="Empty";
 			angle=155.41869;
 			id=2289;
@@ -967,7 +967,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9010.542,63.636471,7532.5781};
-			name="jstar_church_6";
+			name="CQC_Marker_Spawn_Church6";
 			type="Empty";
 			id=2290;
 		};
@@ -975,7 +975,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9010.498,63.640045,7532.5928};
-			name="jstar_church_7";
+			name="CQC_Marker_Spawn_Church7";
 			type="Empty";
 			angle=241.23323;
 			id=2291;
@@ -984,7 +984,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8914.709,56.378326,7556.7939};
-			name="jstar_church_8";
+			name="CQC_Marker_Spawn_Church8";
 			type="Empty";
 			angle=122.60953;
 			id=2292;
@@ -994,7 +994,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9050.8701,60.662613,7464.2305};
-			name="jstar_church_9";
+			name="CQC_Marker_Spawn_Church9";
 			type="Empty";
 			angle=266.70117;
 			id=2293;
@@ -1003,7 +1003,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9007.7295,45.285156,7463.6885};
-			name="jstar_church_10";
+			name="CQC_Marker_Spawn_Church10";
 			type="Empty";
 			angle=289.07486;
 			id=2294;
@@ -1013,7 +1013,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8884.7754,64.761955,7497.8706};
-			name="jstar_church_11";
+			name="CQC_Marker_Spawn_Church11";
 			type="Empty";
 			angle=92.653618;
 			id=2295;
@@ -1022,7 +1022,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8945.2578,58.775547,7565.6177};
-			name="jstar_church_12";
+			name="CQC_Marker_Spawn_Church12";
 			type="Empty";
 			angle=187.68192;
 			id=2296;
@@ -1031,7 +1031,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8895.5869,55.042019,7455.9209};
-			name="jstar_church_13";
+			name="CQC_Marker_Spawn_Church13";
 			type="Empty";
 			angle=33.760921;
 			id=2297;
@@ -1041,7 +1041,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8955.7842,67.267822,7483.8428};
-			name="jstar_church_14";
+			name="CQC_Marker_Spawn_Church14";
 			type="Empty";
 			id=2298;
 		};
@@ -1049,7 +1049,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8989.4336,59.135925,7442.0029};
-			name="jstar_church_15";
+			name="CQC_Marker_Spawn_Church15";
 			type="Empty";
 			angle=318.31165;
 			id=2299;
@@ -1058,7 +1058,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14606.94,17.441772,16610.576};
-			name="jstar_airport_2";
+			name="CQC_Marker_Spawn_Airport2";
 			type="Empty";
 			angle=55.768654;
 			id=2301;
@@ -1068,7 +1068,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14821.704,18.082367,16801.115};
-			name="jstar_airport_3";
+			name="CQC_Marker_Spawn_Airport3";
 			type="Empty";
 			angle=240.27711;
 			id=2302;
@@ -1078,7 +1078,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14866.572,17.91,16770.209};
-			name="jstar_airport_4";
+			name="CQC_Marker_Spawn_Airport4";
 			type="Empty";
 			angle=217.24747;
 			id=2303;
@@ -1087,7 +1087,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14774.762,17.91,16833.814};
-			name="jstar_airport_5";
+			name="CQC_Marker_Spawn_Airport5";
 			type="Empty";
 			angle=135.20039;
 			id=2304;
@@ -1096,7 +1096,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14887.418,17.91,16739.211};
-			name="jstar_airport_6";
+			name="CQC_Marker_Spawn_Airport6";
 			type="Empty";
 			angle=221.16705;
 			id=2305;
@@ -1105,7 +1105,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14609.187,17.91,16731.924};
-			name="jstar_airport_7";
+			name="CQC_Marker_Spawn_Airport7";
 			type="Empty";
 			angle=133.48872;
 			id=2306;
@@ -1114,7 +1114,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14739.301,17.91,16816.871};
-			name="jstar_airport_8";
+			name="CQC_Marker_Spawn_Airport8";
 			type="Empty";
 			angle=119.33369;
 			id=2307;
@@ -1123,7 +1123,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14846.31,17.91,16785.803};
-			name="jstar_airport_9";
+			name="CQC_Marker_Spawn_Airport9";
 			type="Empty";
 			angle=244.73903;
 			id=2308;
@@ -1132,7 +1132,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14673.689,17.409332,16554.584};
-			name="jstar_airport_10";
+			name="CQC_Marker_Spawn_Airport10";
 			type="Empty";
 			angle=44.627472;
 			id=2309;
@@ -1142,7 +1142,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14577.465,18.685883,16632.344};
-			name="jstar_airport_11";
+			name="CQC_Marker_Spawn_Airport11";
 			type="Empty";
 			angle=42.760365;
 			id=2310;
@@ -1152,7 +1152,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14645.51,18.909363,16583.697};
-			name="jstar_airport_12";
+			name="CQC_Marker_Spawn_Airport12";
 			type="Empty";
 			angle=38.003387;
 			id=2311;
@@ -1162,7 +1162,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14807.025,17.969513,16818.051};
-			name="jstar_airport_13";
+			name="CQC_Marker_Spawn_Airport13";
 			type="Empty";
 			angle=242.68686;
 			id=2312;
@@ -1172,7 +1172,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14637.94,17.91,16767.662};
-			name="jstar_airport_14";
+			name="CQC_Marker_Spawn_Airport14";
 			type="Empty";
 			angle=139.96202;
 			id=2313;
@@ -1181,7 +1181,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14622.962,17.91,16747.486};
-			name="jstar_airport_15";
+			name="CQC_Marker_Spawn_Airport15";
 			type="Empty";
 			angle=119.9483;
 			id=2314;
@@ -1262,7 +1262,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16091.137,0,17022.623};
-			name="jstar_fed_1";
+			name="CQC_Marker_Spawn_Fed1";
 			type="Empty";
 			angle=197.49294;
 			id=2773;
@@ -1272,7 +1272,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16037.503,13.598257,16923.947};
-			name="jstar_fed_2";
+			name="CQC_Marker_Spawn_Fed2";
 			type="Empty";
 			angle=58.27216;
 			id=2774;
@@ -1281,7 +1281,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15980.27,14.02645,16915.48};
-			name="jstar_fed_3";
+			name="CQC_Marker_Spawn_Fed3";
 			type="Empty";
 			id=2775;
 		};
@@ -1289,7 +1289,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15957.171,14.115513,16945.865};
-			name="jstar_fed_4";
+			name="CQC_Marker_Spawn_Fed4";
 			type="Empty";
 			angle=73.441826;
 			id=2776;
@@ -1298,7 +1298,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15958.324,14.11,16979.084};
-			name="jstar_fed_5";
+			name="CQC_Marker_Spawn_Fed5";
 			type="Empty";
 			angle=133.1965;
 			id=2777;
@@ -1307,7 +1307,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15945.331,14.119558,16978.668};
-			name="jstar_fed_6";
+			name="CQC_Marker_Spawn_Fed6";
 			type="Empty";
 			angle=132.84959;
 			id=2778;
@@ -1316,7 +1316,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15948.788,14.122397,17013.354};
-			name="jstar_fed_7";
+			name="CQC_Marker_Spawn_Fed7";
 			type="Empty";
 			angle=26.743479;
 			id=2779;
@@ -1325,7 +1325,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15955.417,13.912712,17076.402};
-			name="jstar_fed_8";
+			name="CQC_Marker_Spawn_Fed8";
 			type="Empty";
 			angle=148.37341;
 			id=2780;
@@ -1334,7 +1334,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15993.349,13.732183,17099.982};
-			name="jstar_fed_9";
+			name="CQC_Marker_Spawn_Fed9";
 			type="Empty";
 			id=2781;
 			atlOffset=9.5367432e-007;
@@ -1343,7 +1343,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16095.864,13.446914,17137.225};
-			name="jstar_fed_10";
+			name="CQC_Marker_Spawn_Fed10";
 			type="Empty";
 			angle=187.70082;
 			id=2782;
@@ -1352,7 +1352,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16222.352,13.104961,17083.789};
-			name="jstar_fed_11";
+			name="CQC_Marker_Spawn_Fed11";
 			type="Empty";
 			angle=145.02762;
 			id=2783;
@@ -1361,7 +1361,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16189.666,13.273686,16988.031};
-			name="jstar_fed_12";
+			name="CQC_Marker_Spawn_Fed12";
 			type="Empty";
 			angle=253.18614;
 			id=2784;
@@ -1370,7 +1370,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16178.659,13.448776,17020.639};
-			name="jstar_fed_13";
+			name="CQC_Marker_Spawn_Fed13";
 			type="Empty";
 			id=2785;
 		};
@@ -1378,7 +1378,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16129.459,13.266557,16904.518};
-			name="jstar_fed_14";
+			name="CQC_Marker_Spawn_Fed14";
 			type="Empty";
 			angle=336.29346;
 			id=2786;
@@ -1387,7 +1387,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15188.006,13.685043,16814.852};
-			name="jstar_fed_15";
+			name="CQC_Marker_Spawn_Fed15";
 			type="Empty";
 			angle=77.409538;
 			id=2787;
@@ -1397,7 +1397,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11920.265,0,9387.4355};
-			name="jstar_gravia_1";
+			name="CQC_Marker_Spawn_Gravia1";
 			type="Empty";
 			angle=247.45329;
 			id=2790;
@@ -1407,7 +1407,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11848.656,17.555136,9257.1035};
-			name="jstar_gravia_2";
+			name="CQC_Marker_Spawn_Gravia2";
 			type="Empty";
 			angle=301.26694;
 			id=2791;
@@ -1417,7 +1417,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11587.742,16.375977,9342.4951};
-			name="jstar_gravia_3";
+			name="CQC_Marker_Spawn_Gravia3";
 			type="Empty";
 			angle=107.11619;
 			id=2792;
@@ -1427,7 +1427,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11926.831,15.913116,9312.2051};
-			name="jstar_gravia_4";
+			name="CQC_Marker_Spawn_Gravia4";
 			type="Empty";
 			angle=270.96082;
 			id=2793;
@@ -1437,7 +1437,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11620.074,16.98291,9432.8535};
-			name="jstar_gravia_5";
+			name="CQC_Marker_Spawn_Gravia5";
 			type="Empty";
 			angle=131.6568;
 			id=2794;
@@ -1447,7 +1447,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11804.279,19.880234,9501.5225};
-			name="jstar_gravia_6";
+			name="CQC_Marker_Spawn_Gravia6";
 			type="Empty";
 			angle=163.8568;
 			id=2795;
@@ -1457,7 +1457,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11696.211,22.868402,9489.2314};
-			name="jstar_gravia_7";
+			name="CQC_Marker_Spawn_Gravia7";
 			type="Empty";
 			angle=162.52602;
 			id=2796;
@@ -1467,7 +1467,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11600.32,24.905273,9214.2539};
-			name="jstar_gravia_8";
+			name="CQC_Marker_Spawn_Gravia8";
 			type="Empty";
 			angle=56.014011;
 			id=2797;
@@ -1477,7 +1477,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11768.325,24.750061,9144.1982};
-			name="jstar_gravia_9";
+			name="CQC_Marker_Spawn_Gravia9";
 			type="Empty";
 			angle=352.90158;
 			id=2798;
@@ -1487,7 +1487,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11602.78,25.256348,9392.5752};
-			name="jstar_gravia_10";
+			name="CQC_Marker_Spawn_Gravia10";
 			type="Empty";
 			angle=122.84002;
 			id=2799;
@@ -1497,7 +1497,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11649.876,23.321045,9163.0645};
-			name="jstar_gravia_11";
+			name="CQC_Marker_Spawn_Gravia11";
 			type="Empty";
 			angle=32.946835;
 			id=2800;
@@ -1507,7 +1507,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11837.873,22.746691,9453.9863};
-			name="jstar_gravia_12";
+			name="CQC_Marker_Spawn_Gravia12";
 			type="Empty";
 			angle=223.47261;
 			id=2801;
@@ -1517,7 +1517,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11644.341,21.514622,9473.5752};
-			name="jstar_gravia_13";
+			name="CQC_Marker_Spawn_Gravia13";
 			type="Empty";
 			angle=145.48378;
 			id=2802;
@@ -1527,7 +1527,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11740.408,21.756247,9512.4502};
-			name="jstar_gravia_14";
+			name="CQC_Marker_Spawn_Gravia14";
 			type="Empty";
 			angle=175.23904;
 			id=2803;
@@ -1537,7 +1537,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11586.594,25.400146,9279.1328};
-			name="jstar_gravia_15";
+			name="CQC_Marker_Spawn_Gravia15";
 			type="Empty";
 			angle=87.209473;
 			id=2804;
@@ -1717,7 +1717,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11161.873,176.595,8706.042};
-			name="jstar_og_8";
+			name="CQC_Marker_Spawn_OG_Arms8";
 			type="Empty";
 			id=2283;
 			atlOffset=-2.4250031;
@@ -6407,7 +6407,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23233.594,3.1900332,17446.949};
-			name="alecw_experimental_1";
+			name="CQC_Marker_Spawn_Experimental1";
 			type="Empty";
 			angle=30.19841;
 			id=3636;
@@ -6417,7 +6417,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23227.719,3.1900332,17481.609};
-			name="alecw_experimental_2";
+			name="CQC_Marker_Spawn_Experimental2";
 			type="Empty";
 			angle=151.29214;
 			id=3637;
@@ -6427,7 +6427,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23217.506,3.1900332,17504.52};
-			name="alecw_experimental_3";
+			name="CQC_Marker_Spawn_Experimental3";
 			type="Empty";
 			angle=225.45294;
 			id=3638;
@@ -6437,7 +6437,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23207.785,3.1900332,17493.682};
-			name="alecw_experimental_4";
+			name="CQC_Marker_Spawn_Experimental4";
 			type="Empty";
 			angle=126.85726;
 			id=3639;
@@ -6447,7 +6447,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23238.725,3.1899745,17465.797};
-			name="alecw_experimental_5";
+			name="CQC_Marker_Spawn_Experimental5";
 			type="Empty";
 			angle=97.03862;
 			id=3640;
@@ -6457,7 +6457,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23217.309,3.1900332,17453.375};
-			name="alecw_experimental_6";
+			name="CQC_Marker_Spawn_Experimental6";
 			type="Empty";
 			angle=359.90067;
 			id=3641;
@@ -6467,7 +6467,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23251.895,3.1900332,17473.57};
-			name="alecw_experimental_7";
+			name="CQC_Marker_Spawn_Experimental7";
 			type="Empty";
 			angle=273.25543;
 			id=3642;
@@ -6477,7 +6477,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23207.799,3.1900337,17444.979};
-			name="alecw_experimental_8";
+			name="CQC_Marker_Spawn_Experimental8";
 			type="Empty";
 			angle=151.73225;
 			id=3643;
@@ -6487,7 +6487,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23245.754,3.1900332,17442.594};
-			name="alecw_experimental_9";
+			name="CQC_Marker_Spawn_Experimental9";
 			type="Empty";
 			angle=12.567442;
 			id=3644;
@@ -6497,7 +6497,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23238.666,3.1900332,17461.572};
-			name="alecw_experimental_10";
+			name="CQC_Marker_Spawn_Experimental10";
 			type="Empty";
 			angle=225.45294;
 			id=3645;
@@ -6507,7 +6507,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23245.688,3.1900332,17451.588};
-			name="alecw_experimental_11";
+			name="CQC_Marker_Spawn_Experimental11";
 			type="Empty";
 			angle=225.45294;
 			id=3647;
@@ -6517,7 +6517,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23225.676,3.1899745,17462.418};
-			name="alecw_experimental_12";
+			name="CQC_Marker_Spawn_Experimental12";
 			type="Empty";
 			angle=225.45294;
 			id=3648;
@@ -6527,7 +6527,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23234.398,3.1899745,17465.75};
-			name="alecw_experimental_13";
+			name="CQC_Marker_Spawn_Experimental13";
 			type="Empty";
 			angle=353.95734;
 			id=3649;
@@ -6537,7 +6537,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23242.197,3.1900332,17490.352};
-			name="alecw_experimental_14";
+			name="CQC_Marker_Spawn_Experimental14";
 			type="Empty";
 			angle=225.45294;
 			id=3650;
@@ -6587,7 +6587,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23194.242,3.1900337,17451.51};
-			name="alecw_experimental_15";
+			name="CQC_Marker_Spawn_Experimental15";
 			type="Empty";
 			angle=51.080563;
 			id=3683;
@@ -6784,7 +6784,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23197.871,3.1900332,17482.908};
-			name="alecw_experimental_16";
+			name="CQC_Marker_Spawn_Experimental16";
 			type="Empty";
 			angle=92.443535;
 			id=3703;
@@ -17501,7 +17501,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14230.783,7.9199219,13065.249};
-			name="alecw_mushroom_1";
+			name="CQC_Marker_Spawn_Mushroom1";
 			type="Empty";
 			angle=166.62425;
 			id=3847;
@@ -17511,7 +17511,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14269.563,4.3001847,13038.146};
-			name="alecw_mushroom_2";
+			name="CQC_Marker_Spawn_Mushroom2";
 			type="Empty";
 			angle=359.70688;
 			id=3848;
@@ -17521,7 +17521,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14269.378,4.6484556,13024.307};
-			name="alecw_mushroom_3";
+			name="CQC_Marker_Spawn_Mushroom3";
 			type="Empty";
 			angle=166.62425;
 			id=3849;
@@ -17531,7 +17531,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14317.345,1.4293385,12950.146};
-			name="alecw_mushroom_4";
+			name="CQC_Marker_Spawn_Mushroom4";
 			type="Empty";
 			angle=69.934921;
 			id=3850;
@@ -17541,7 +17541,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14291.775,1.6748047,13004.653};
-			name="alecw_mushroom_5";
+			name="CQC_Marker_Spawn_Mushroom5";
 			type="Empty";
 			angle=80.684982;
 			id=3851;
@@ -17551,7 +17551,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14248.657,7.6707001,12978.317};
-			name="alecw_mushroom_6";
+			name="CQC_Marker_Spawn_Mushroom6";
 			type="Empty";
 			angle=166.62425;
 			id=3852;
@@ -17561,7 +17561,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14232.702,5.2160692,13020.155};
-			name="alecw_mushroom_7";
+			name="CQC_Marker_Spawn_Mushroom7";
 			type="Empty";
 			angle=1.7722511;
 			id=3853;
@@ -17571,7 +17571,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14334.052,2.4811676,13015.49};
-			name="alecw_mushroom_8";
+			name="CQC_Marker_Spawn_Mushroom8";
 			type="Empty";
 			angle=85.198235;
 			id=3854;
@@ -17581,7 +17581,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14338.463,3.3836994,13036.908};
-			name="alecw_mushroom_9";
+			name="CQC_Marker_Spawn_Mushroom9";
 			type="Empty";
 			angle=106.83125;
 			id=3855;
@@ -17591,7 +17591,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14388.895,0.85868955,13067.315};
-			name="alecw_mushroom_10";
+			name="CQC_Marker_Spawn_Mushroom10";
 			type="Empty";
 			angle=248.50383;
 			id=3856;
@@ -17601,7 +17601,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14325.316,2.7336245,13064.257};
-			name="alecw_mushroom_11";
+			name="CQC_Marker_Spawn_Mushroom11";
 			type="Empty";
 			angle=85.043121;
 			id=3857;
@@ -17611,7 +17611,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14294.51,2.5737236,13076.071};
-			name="alecw_mushroom_12";
+			name="CQC_Marker_Spawn_Mushroom12";
 			type="Empty";
 			angle=80.738579;
 			id=3858;
@@ -17621,7 +17621,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14286.224,2.5727928,13074.754};
-			name="alecw_mushroom_13";
+			name="CQC_Marker_Spawn_Mushroom13";
 			type="Empty";
 			angle=265.75635;
 			id=3859;
@@ -17631,7 +17631,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14266.952,2.9496803,13060.408};
-			name="alecw_mushroom_14";
+			name="CQC_Marker_Spawn_Mushroom14";
 			type="Empty";
 			angle=166.62425;
 			id=3860;
@@ -17641,7 +17641,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14229.419,6.7226563,13036.069};
-			name="alecw_mushroom_15";
+			name="CQC_Marker_Spawn_Mushroom15";
 			type="Empty";
 			angle=13.163499;
 			id=3862;
@@ -17651,7 +17651,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14654.588,17.91,16785.113};
-			name="jstar_airport_1";
+			name="CQC_Marker_Spawn_Airport1";
 			type="Empty";
 			angle=129.06978;
 			id=3863;
@@ -19417,7 +19417,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14350.644,1.4666011,13027.922};
-			name="alecw_mushroom_16";
+			name="CQC_Marker_Spawn_Mushroom16";
 			type="Empty";
 			angle=166.62425;
 			id=3990;
@@ -24945,7 +24945,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23707.807,3.1900001,18350.088};
-			name="alecw_quarantine_1";
+			name="CQC_Marker_Spawn_Quarantine1";
 			type="Empty";
 			angle=314.58939;
 			id=4277;
@@ -30537,7 +30537,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23729.107,3.1900001,18354.428};
-			name="alecw_quarantine_2";
+			name="CQC_Marker_Spawn_Quarantine2";
 			type="Empty";
 			angle=287.87381;
 			id=4442;
@@ -30546,7 +30546,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23719.076,3.1900001,18363.178};
-			name="alecw_quarantine_3";
+			name="CQC_Marker_Spawn_Quarantine3";
 			type="Empty";
 			angle=133.52589;
 			id=4443;
@@ -30555,7 +30555,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23729.777,3.1900001,18372.684};
-			name="alecw_quarantine_4";
+			name="CQC_Marker_Spawn_Quarantine4";
 			type="Empty";
 			angle=288.43481;
 			id=4444;
@@ -30564,7 +30564,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23727.811,3.1899996,18396.084};
-			name="alecw_quarantine_5";
+			name="CQC_Marker_Spawn_Quarantine5";
 			type="Empty";
 			angle=334.09717;
 			id=4445;
@@ -30574,7 +30574,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23731.877,3.1900001,18383.742};
-			name="alecw_quarantine_6";
+			name="CQC_Marker_Spawn_Quarantine6";
 			type="Empty";
 			angle=167.22229;
 			id=4446;
@@ -30583,7 +30583,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23712.359,3.1900001,18402.18};
-			name="alecw_quarantine_7";
+			name="CQC_Marker_Spawn_Quarantine7";
 			type="Empty";
 			angle=197.04004;
 			id=4447;
@@ -30592,7 +30592,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23702.912,3.1900001,18401.932};
-			name="alecw_quarantine_8";
+			name="CQC_Marker_Spawn_Quarantine8";
 			type="Empty";
 			angle=207.73051;
 			id=4448;
@@ -30601,7 +30601,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23690.588,3.1900001,18401.967};
-			name="alecw_quarantine_9";
+			name="CQC_Marker_Spawn_Quarantine9";
 			type="Empty";
 			angle=217.10754;
 			id=4449;
@@ -30610,7 +30610,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23685.779,3.1900001,18359.941};
-			name="alecw_quarantine_10";
+			name="CQC_Marker_Spawn_Quarantine10";
 			type="Empty";
 			angle=285.81134;
 			id=4450;
@@ -30619,7 +30619,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23678.51,3.1900001,18369.113};
-			name="alecw_quarantine_11";
+			name="CQC_Marker_Spawn_Quarantine11";
 			type="Empty";
 			angle=111.94567;
 			id=4451;
@@ -30628,7 +30628,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23663.457,3.1900001,18365.67};
-			name="alecw_quarantine_12";
+			name="CQC_Marker_Spawn_Quarantine12";
 			type="Empty";
 			angle=314.58939;
 			id=4452;
@@ -30637,7 +30637,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23660.371,3.1900001,18380.441};
-			name="alecw_quarantine_13";
+			name="CQC_Marker_Spawn_Quarantine13";
 			type="Empty";
 			angle=191.12787;
 			id=4453;
@@ -30646,7 +30646,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23675.473,3.1900001,18387.316};
-			name="alecw_quarantine_14";
+			name="CQC_Marker_Spawn_Quarantine14";
 			type="Empty";
 			angle=247.57834;
 			id=4454;
@@ -30655,7 +30655,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23682.838,3.1900005,18372.59};
-			name="alecw_quarantine_15";
+			name="CQC_Marker_Spawn_Quarantine15";
 			type="Empty";
 			angle=69.087944;
 			id=4455;
@@ -30665,7 +30665,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={23711.076,3.1900001,18384.623};
-			name="alecw_quarantine_16";
+			name="CQC_Marker_Spawn_Quarantine16";
 			type="Empty";
 			angle=45.169727;
 			id=4456;
@@ -34115,7 +34115,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11750.588,20.992001,9316.6338};
-			name="Capture_Sector";
+			name="CQC_Marker_Spawn_Capture_Sector1";
 			markerType="ELLIPSE";
 			type="ellipse";
 			colorName="ColorRed";
@@ -40317,7 +40317,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9603.7803,39.596001,9292.3291};
-			name="CQC_capturealpha_0";
+			name="CQC_Marker_Spawn_Capture_Alpha0";
 			type="Empty";
 			angle=47.052906;
 			id=5063;
@@ -40327,7 +40327,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9759.4932,53.265259,9348.3906};
-			name="CQC_capturealpha_1";
+			name="CQC_Marker_Spawn_Capture_Alpha1";
 			type="Empty";
 			angle=359.9476;
 			id=5064;
@@ -40337,7 +40337,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9789.5,58.851624,9367.7539};
-			name="CQC_capturealpha_2";
+			name="CQC_Marker_Spawn_Capture_Alpha2";
 			type="Empty";
 			angle=321.9129;
 			id=5065;
@@ -40347,7 +40347,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9807.1963,59.085438,9410.9707};
-			name="CQC_capturealpha_3";
+			name="CQC_Marker_Spawn_Capture_Alpha3";
 			type="Empty";
 			angle=303.2496;
 			id=5066;
@@ -40356,7 +40356,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9768.5049,53.93512,9444.8506};
-			name="CQC_capturealpha_4";
+			name="CQC_Marker_Spawn_Capture_Alpha4";
 			type="Empty";
 			angle=123.70415;
 			id=5067;
@@ -40366,7 +40366,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9600.957,45.564148,9366.8145};
-			name="CQC_capturealpha_5";
+			name="CQC_Marker_Spawn_Capture_Alpha5";
 			type="Empty";
 			angle=82.132156;
 			id=5068;
@@ -40376,7 +40376,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9893.208,42.81958,9292.5078};
-			name="CQC_capturealpha_6";
+			name="CQC_Marker_Spawn_Capture_Alpha6";
 			type="Empty";
 			angle=302.20819;
 			id=5069;
@@ -40386,7 +40386,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9882.085,47.120972,9409.1631};
-			name="CQC_capturealpha_7";
+			name="CQC_Marker_Spawn_Capture_Alpha7";
 			type="Empty";
 			angle=253.43391;
 			id=5070;
@@ -40396,7 +40396,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9858.7324,31.627869,9523.0313};
-			name="CQC_capturealpha_8";
+			name="CQC_Marker_Spawn_Capture_Alpha8";
 			type="Empty";
 			angle=204.47339;
 			id=5071;
@@ -40405,7 +40405,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9750.334,16.934608,9588.6309};
-			name="CQC_capturealpha_9";
+			name="CQC_Marker_Spawn_Capture_Alpha9";
 			type="Empty";
 			angle=168.61749;
 			id=5072;

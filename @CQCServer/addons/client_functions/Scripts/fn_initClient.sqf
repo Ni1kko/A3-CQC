@@ -21,6 +21,7 @@ CQC_var_lastSpawnPos = "";
 CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
 CQC_var_lastKeysPressed = [-1,false,false,false];
 CQC_var_autoReloadActive = false;
+CQC_var_airportActionID = -1;
 
 // Sets View Distances
 setViewDistance 325;

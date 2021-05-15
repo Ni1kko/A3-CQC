@@ -191,22 +191,22 @@ class CQC_Rsc_DisplayAdminTools
 	class infi_BTN10:RscButton_CQC
 	{
 		idc=10;
-		text="Alphabetical";
+		text="Name";
 		x=0.005 + safezoneX;
 		y=0.0379694 * safezoneH + safezoneY;
 		w=0.06 * safezoneW;
 		h=0.02 * safezoneH;
-		action="SortRangePlease=nil;SortAlphaPlease=true;SortGroupsPlease=nil;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
+		action="CQC_var_adminSortByDistance=nil;CQC_var_adminSortByName=true;CQC_var_adminSortByRank=nil;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
 	};
 	class infi_BTN11:RscButton_CQC
 	{
 		idc=11;
-		text="Groups";
+		text="Ranks";
 		x=0.01 + safezoneX + (0.06 * safezoneW);
 		y=0.0379694 * safezoneH + safezoneY;
 		w=0.06 * safezoneW;
 		h=0.02 * safezoneH;
-		action="SortAlphaPlease=nil;SortRangePlease=nil;SortGroupsPlease=true;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
+		action="CQC_var_adminSortByName=nil;CQC_var_adminSortByDistance=nil;CQC_var_adminSortByRank=true;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
 	};
 	class infi_BTN12:RscButton_CQC
 	{
@@ -216,7 +216,7 @@ class CQC_Rsc_DisplayAdminTools
 		y=0.0379694 * safezoneH + safezoneY;
 		w=0.06 * safezoneW;
 		h=0.02 * safezoneH;
-		action="SortAlphaPlease=nil;SortRangePlease=true;SortGroupsPlease=nil;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
+		action="CQC_var_adminSortByName=nil;CQC_var_adminSortByDistance=true;CQC_var_adminSortByRank=nil;[] call fnc_fill_CQC_Player;[] call fnc_setFocus;";
 	};
 	class infi_BTN20:RscButton_CQC
 	{

@@ -11,17 +11,28 @@ switch (_mode) do {
 
 		_title ctrlSetText "Teleport Menu";
 
-		private _zones = [
+		private _zones = [];
+		
+		{
+			if (getNumber(missionConfigFile >> "CQCSpawns" >> _x) isEqualTo 1) then {
+				_zones pushBackUnique _x;
+			};
+		}forEach [
 			"OG_Arms",
 			"Church",
 			"Airport",
 			"Experimental",
 			"Quarantine",
 			"Mushroom",
-			//"Capture_Sector",
-			//"Capture_Alpha",
+			"Gravia",
 			"Fed"
 		];
+		
+		 
+		//No zones enabled
+		if(count _zones isEqualTo 0)exitWith{
+			closeDialog 1;
+		};
 
 		//donator last pos
 		if(CQC_var_lastSpawnPos != "" AND (call isDonator) AND CQC_var_inSpawnArea)then{
@@ -81,110 +92,54 @@ switch (_mode) do {
 	};
 	case "ButtonClick": 
 	{
-		private _button = _params param [0,controlNull];
-		//_button ctrlEnable false;
+		private _button = _params param [0,controlNull]; 
 		private _display = ctrlParent _button;
-		private _list = _display displayCtrl 2;
-
+		private _list = _display displayCtrl 2; 
 		private _location = _list lbData (lbCurSel _list);
-		private _locationName = _list lbText (lbCurSel _list);
-
-		//Temp fix for airport
-		player allowDamage true;
-		player setAmmo [currentWeapon player,500];
+		private _locationName = _list lbText (lbCurSel _list); 
+		private _spawned = false;
 
 		if(_locationName isEqualTo "Last Position")then{
 			_locationName = CQC_var_lastSpawnPos;
 		};
-		
-		if (getNumber(missionConfigFile >> "CQCSpawns" >> (_locationName splitString " " joinString "_")) isEqualTo 0) exitWith {
+
+		private _markerSuffix = (_locationName splitString " " joinString "_");
+		  
+		if (getNumber(missionConfigFile >> "CQCSpawns" >> _markerSuffix) isEqualTo 0) exitWith {
 			[format["%1 is temporary disabled",_locationName]] spawn CQC_fnc_Notification;
 		};
-		
-		switch (_locationName) do 
+
+		switch _markerSuffix do 
 		{
-			case "OG Arms" : 
-			{
-				[]spawn CQC_fnc_spawn_og;
-			
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			case "Church" : 
-			{
-				[]spawn CQC_fnc_spawn_church;
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
 			case "Airport" : 
 			{ 
-				[]spawn CQC_fnc_spawn_airport;
-				["Airport is for MRAP decamping, don't roach"] spawn CQC_fnc_Notification;
-				player allowDamage false;
-				{if ( _x in primaryWeaponMagazine player ) then { player removeMagazine _x }} forEach magazines player;
-				player setAmmo [currentWeapon player,0];
-				//if(player distance2D [14779.1,16835.1,0.00143814] < 500)then{};
-				player addAction ["", { 
-					["Your gun is disabled until you spawn in a vehicle (Shift + 2)"] spawn CQC_fnc_Notification; 
-				}, "", 0, false, true, "DefaultAction"];
+				_spawned = [_markerSuffix, 1, 15] call CQC_fnc_handleSpawn;
+				if(_spawned)then{
+					["Airport is for MRAP decamping, don't roach"] spawn CQC_fnc_Notification;
+					player allowDamage false;
+					CQC_var_airportActionID = player addAction ["", {["Your gun is disabled until you spawn in a vehicle (Shift + 2)"] spawn CQC_fnc_Notification}, "", 0, false, true, "DefaultAction"];
+					[]spawn{
+						waitUntil{uiSleep 0.9; (player distance2D (getMarkerPos format ["CQC_Marker_Spawn_%11",_markerSuffix]) > 750)}; 
+						if(!CQC_var_inSpawnArea AND CQC_var_airportActionID != -1)then{
+							player allowDamage true;
+							player removeAction CQC_var_airportActionID;
+							CQC_var_airportActionID = -1;
+						};
+					};
+				};
 			};
-			case "Experimental" : 
+			case "OG_Arms" : 
 			{
-				[]spawn CQC_fnc_spawn_experimental;
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
+				_spawned = [_markerSuffix, 1, 12] call CQC_fnc_handleSpawn;
 			};
-			case "Quarantine" : 
+			default
 			{
-				[] spawn CQC_fnc_spawn_quarantine;
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			case "Mushroom" : 
-			{ 
-				[]spawn CQC_fnc_spawn_mushroom;
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			Case "Capture Sector" : 
-			{
-				[]spawn CQC_fnc_spawn_capture_sector;
-
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			Case "Capture Alpha" : 
-			{
-				[]spawn CQC_fnc_spawn_capture_alpha; 
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			Case "Fed" : 
-			{
-				[]spawn CQC_fnc_spawn_fed;
-				
-				{
-					player removeAction _x;
-				} foreach [1,2,3,4,5];
-			};
-			default 
-			{
-				["Please select a valid spawn."] spawn CQC_fnc_Notification;
+				_spawned = [_markerSuffix, 1, 15] call CQC_fnc_handleSpawn;
 			};
 		};
 
-		CQC_var_lastSpawnPos = _locationName;
+		if(_spawned)then{
+			CQC_var_lastSpawnPos = _locationName;
+		};
 	};
 };

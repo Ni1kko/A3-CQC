@@ -30,6 +30,7 @@ AFKKicker = true;				//Enables auto afk kick
 AFKKickTime = 15;				//How many mins should we wait before kicking (Timer resets on keypress)
 AFKAdminBypass = false;			//Enables auto afk kick bypass for admins
 spawnSmoke = false;  			//Enables smoke around player on spawn
+tagRenderDistance = 30; 		//How far vehicles start rendering (player are half of this value)
 vehicleLimit = 1;				//How many vehicles player is allowed out at once
 
 vehicleDeadCleanMins = true;    ///Is cleanup scaled in mins or secs (false = seconds | true = minuets)
@@ -44,18 +45,25 @@ bodyDeadCleanUp = 3;			//How long till dead bodies are removed
 weaponCleanMins = false;	 	//Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
 weaponCleanUp = 15;		    	//How long till dropped weapons are removed
 
-
 class CQCSpawns 
 {
 	OG_Arms = 1;		//Enable or Disable spawn zone
 	Church = 1;			//Enable or Disable spawn zone
-	Airport = 0;		//Enable or Disable spawn zone
+	Airport = 1;		//Enable or Disable spawn zone
 	Experimental = 1;	//Enable or Disable spawn zone
 	Quarantine = 1;		//Enable or Disable spawn zone
 	Mushroom = 1;		//Enable or Disable spawn zone
-	Capture_Sector = 0;	//Enable or Disable spawn zone
-	Capture_Alpha = 0;	//Enable or Disable spawn zone
+	Gravia = 0;			//Enable or Disable spawn zone
 	Fed = 1;			//Enable or Disable spawn zone
+};
+
+class CQCColors
+{
+	admin[] =   	{0.85, 0, 0, 1};
+	donator[] = 	{0.95, 0.45, 0, 1};
+	player[] =  	{1, 0.9, 0.9, 1};
+	developer[] =   {0.85, 0.35, 0.8, 1};
+	highlighted[] = {0.65, 0.75, 0.9, 1};
 };
 
 enableDebugConsole[] = 

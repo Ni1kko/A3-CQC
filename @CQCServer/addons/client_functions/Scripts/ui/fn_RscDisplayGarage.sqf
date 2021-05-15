@@ -310,16 +310,16 @@ switch (_mode) do {
 		clearBackpackCargoGlobal _vehicle;
 		
 		//--- Apply vehicle skin
-		if ( ctrlEnabled _ctrlComboSkin && { _curSelSkin > 0 } ) then {
+		if (ctrlEnabled _ctrlComboSkin && _curSelSkin > 0) then {
 
 			//--- Texture data
-			_texture = call compile( _ctrlComboSkin lbData _curSelSkin );
+			_texture = call compile(_ctrlComboSkin lbData _curSelSkin);
 
 			//--- Disable texture randomisation
-			_vehicle setVariable [ "BIS_enableRandomization", false ];
+			_vehicle setVariable ["BIS_enableRandomization", false];
 			
 			//--- Set vehicle texture
-			{ _vehicle setObjectTextureGlobal [_forEachIndex, _x ] } forEach _texture;
+			{_vehicle setObjectTextureGlobal [_forEachIndex, _x ]} forEach _texture;
 			
 			// --- Clears the stuff inside of the vehicle
 			_vehicle setVehicleAmmo 0;
@@ -328,38 +328,18 @@ switch (_mode) do {
 			clearMagazineCargoGlobal _vehicle;
 			clearItemCargoGlobal _vehicle;
 			clearBackpackCargoGlobal _vehicle;
-
 		};
 
 		//--- Create UAV AI
-		if ( getText ( configFile >> "CfgVehicles" >> _className >> "vehicleClass" ) isEqualTo "Autonomous" ) then { 
+		if (getText(configFile >> "CfgVehicles" >> _className >> "vehicleClass") isEqualTo "Autonomous") then { 
 			createVehicleCrew _vehicle; 
 		};
-		
-		{
-			player removeAction _x;
-		} foreach [1,2,3,4,5];
-		
-		// add ammo back
-		private _weaponClasses = [currentWeapon player]; 
-		{_weaponClasses pushBackUnique _x} forEach [primaryWeapon player,secondaryWeapon player,handgunWeapon player]; 
-		if (true in (_weaponClasses apply {_x!="" AND !(_x in ["Binocular","Rangefinder"])})) then { 
-			
-			_weaponClasses = _weaponClasses - [""]; 
+	  
+		if((CQC_var_lastSpawnPos isEqualTo "Airport") AND CQC_var_airportActionID >= 0)then{
+			player allowDamage true;
+			player removeAction CQC_var_airportActionID;
+		};
 
-			//add 1 of each magazine for each weapon
-			{player addMagazine (selectRandom([_x] call CQC_fnc_getCompatibleMagazines))} forEach _weaponClasses; 
-
-			//add another upto 30 mags for each weapon
-			{
-				private _weaponMagazines = [_x] call CQC_fnc_getCompatibleMagazines;
-				for  "_i" from 0 to (30 / (_forEachIndex+1)) do { //1 weapon (upto 30 mags) | 2 weapons (upto 15 mags each) | 3 weapons (upto 10 mags each)   
-					//{player addMagazine _x} foreach _weaponMagazines;  
-					player addMagazine (selectRandom _weaponMagazines);
-				};
-			} forEach _weaponClasses; 
-		}; 
-	 	 
 		player moveInAny _vehicle;
 
 		//--- Cleanup when killed
@@ -391,8 +371,5 @@ switch (_mode) do {
 
 		//--- Close display
 		closeDialog 1;
-
-		player allowDamage true;
 	};
-
 };
