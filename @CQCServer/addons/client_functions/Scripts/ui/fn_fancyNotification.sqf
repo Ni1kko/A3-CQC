@@ -92,7 +92,7 @@ _underscoreLoop = [_structuredTextStrUnderscore, _structuredTextStrNoUnderscore]
 player setVariable ["underScoreLoop", _underscoreLoop];
 
 
-sleep 5;
+sleep 7;
 
 terminate _underscoreLoop;
 player setVariable ["underScoreLoop", nil];
