@@ -17484,7 +17484,7 @@ class Mission
 			a=100;
 			b=100;
 			id=3845;
-			atlOffset=-0.041152477;
+			atlOffset=-0.042152477;
 		};
 		class Item311
 		{
@@ -23537,7 +23537,7 @@ class Mission
 			};
 			id=4105;
 			type="EmptyDetectorArea10x10";
-			atlOffset=0.041719437;
+			atlOffset=0.042719437;
 		};
 		class Item529
 		{

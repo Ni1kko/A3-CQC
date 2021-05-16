@@ -489,19 +489,19 @@ try {
 			if(_tokenreceived isEqualTo '')exitWith
 			{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + 'AdminReq tokenreceived is empty (v0.0.4)';
+				_log = _mytime + 'AdminReq tokenreceived is empty (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			if(count _array < 2)exitWith
 			{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + format['AdminReq bad array: %1 (v0.0.4)',_array];
+				_log = _mytime + format['AdminReq bad array: %1 (v0.042)',_array];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			if(_clientNetID isEqualTo '')exitWith
 			{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + 'AdminReq clientNetID is empty (v0.0.4)';
+				_log = _mytime + 'AdminReq clientNetID is empty (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			}; 
 
@@ -509,7 +509,7 @@ try {
 			if(!isPlayer _ObjFromNetID)exitWith
 			{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + 'AdminReq _ObjFromNetID is Null (v0.0.4)';
+				_log = _mytime + 'AdminReq _ObjFromNetID is Null (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			_clientID = (owner _ObjFromNetID);
@@ -519,7 +519,7 @@ try {
 			_uid_by_token = missionNameSpace getVariable [format['""+_uid_by_token+""%1',_tokenreceived],''];
 			if(!(_clientUID isEqualTo _uid_by_token) || (_clientUID isEqualTo ''))exitWith
 			{
-				_log = format['%1(%2) | AdminReq - Bad PUID / Token: Token received [%3] belongs to [%4] and not [%2] (v0.0.4)',_clientName,_clientUID,_tokenreceived,_uid_by_token];
+				_log = format['%1(%2) | AdminReq - Bad PUID / Token: Token received [%3] belongs to [%4] and not [%2] (v0.042)',_clientName,_clientUID,_tokenreceived,_uid_by_token];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 
@@ -531,7 +531,7 @@ try {
 			if!(_ObjFromNetID isEqualTo _playerObj)then
 			{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + format['AdminReq _playerObj != _ObjFromNetID - %1/2  (v0.0.4)',_playerObj,_ObjFromNetID];
+				_log = _mytime + format['AdminReq _playerObj != _ObjFromNetID - %1/2  (v0.042)',_playerObj,_ObjFromNetID];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 				_playerObj = _ObjFromNetID;
 			};
@@ -1653,7 +1653,7 @@ try {
 			_input = _this;
 			if(isNil '_input')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + 'FNC_AH_KICKLOGSPAWN _this is Nil (v0.0.4)';
+				_log = _mytime + 'FNC_AH_KICKLOGSPAWN _this is Nil (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			['SYSTEMLOG',format['(FNC_AH_KICKLOGSPAWN) %1',_this]] call CQC_fnc_ahLog; 
@@ -1661,24 +1661,24 @@ try {
 			_tokenreceived = _this select 0;
 			if(isNil '_tokenreceived')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + '_tokenreceived _this is Nil (v0.0.4)';
+				_log = _mytime + '_tokenreceived _this is Nil (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			if(typeName _tokenreceived != 'STRING')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + format['_tokenreceived wrong type %1 (v0.0.4)',typeName _tokenreceived];
+				_log = _mytime + format['_tokenreceived wrong type %1 (v0.042)',typeName _tokenreceived];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			
 			_arraysent = _this select 1;
 			if(isNil '_arraysent')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + '_arraysent _this is Nil (v0.0.4)';
+				_log = _mytime + '_arraysent _this is Nil (v0.042)';
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			if(typeName _arraysent != 'ARRAY')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + format['_arraysent wrong type %1 (v0.0.4)',typeName _arraysent];
+				_log = _mytime + format['_arraysent wrong type %1 (v0.042)',typeName _arraysent];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			
@@ -1687,7 +1687,7 @@ try {
 			if(isNil '_netId')then{_netId='';};
 			if(typeName _netId != 'STRING')exitWith{
 				_mytime = call CQC_fnc_serverUpTime;
-				_log = _mytime + format['_netId wrong type %1 (v0.0.4)',typeName _netId];
+				_log = _mytime + format['_netId wrong type %1 (v0.042)',typeName _netId];
 				['SURVEILLANCELOG',_log] call CQC_fnc_ahLog;
 			};
 			_objectFromNetId = objectFromNetId _netId;

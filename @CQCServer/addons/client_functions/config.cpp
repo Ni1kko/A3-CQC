@@ -13,6 +13,6 @@ class CfgPatches
 		requiredAddons[] = {};
 		units[] = {};
 		weapons[] = {};
-		fileVersion = 0.041;
+		fileVersion = 0.042;
 	};
 };
