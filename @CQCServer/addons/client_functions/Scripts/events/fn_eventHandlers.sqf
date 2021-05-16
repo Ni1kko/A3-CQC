@@ -95,8 +95,6 @@ player addEventHandler ["InventoryClosed", {
 		["_player",objNull,[objNull]], 
 		["_inventorycontainer",objNull]
 	];
- 
-	_player switchMove "";
 
 	private _curInventory = [_player,getUnitLoadout _player];
 
