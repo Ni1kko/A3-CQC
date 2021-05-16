@@ -458,7 +458,7 @@ try {
 
 		"+_server_setTokenR+" = compileFinal (""
 			params[['_uid','',['']]]; 
-			_token = [] call "+_randomVarsFnc+";
+			_token = ['_token'] call "+_randomVarsFnc+";
 			missionNameSpace setVariable [format['"+_token_by_uid+"%1',_uid],_token];
 			missionNameSpace setVariable [format['"+_uid_by_token+"%1',_token],_uid];
 			_token
@@ -2885,7 +2885,8 @@ try {
 		throw false;
 	};
 	
-	//-- Admin Menu 
+	//-- Admin Menu
+	_runCheck = false;
 	_expression = " 
 		fnc_admin_c = compile 'compile _this';
 		fnc_admin_cc = compile 'call compile _this';
@@ -7510,7 +7511,7 @@ try {
 		['SYSTEMLOG',_runCheck] call CQC_fnc_ahLog;
 		throw false;
 	}; 
-	['SYSTEMLOG','adminpayload compiled and ran..'] call CQC_fnc_ahLog;
+	['SYSTEMLOG','adminpayload compiled..'] call CQC_fnc_ahLog;
 }catch{
 	['SYSTEMLOG',"Error antihack wont start"] call CQC_fnc_ahLog;
 	_noErrors = _exception;
