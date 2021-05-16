@@ -14,7 +14,7 @@ params [
 	["_altHeld",false] 
 ];
 
-private ["_step"];
+private ["_step","_stopPropagation"];
 CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
 CQC_var_lastKeysPressed = _this select [1,4];
 
@@ -26,6 +26,7 @@ if (_pressedKey in (actionKeys "TacticalView")) exitWith
 	true
 };
 
+_stopPropagation = false;
 
 switch (_pressedKey) do  
 { 
