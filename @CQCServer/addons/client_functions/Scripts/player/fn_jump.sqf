@@ -1,24 +1,43 @@
-private["_unit","_vel","_dir","_v1","_v2","_anim"];
-_unit = param [0,ObjNull,[ObjNull]];
-_run = param [1,true,[false]];
-if(isNull _unit) exitWith {}; //Bad data
-if(local _unit && !_run) exitWith {}; //Ahh
+if (!hasInterface) exitWith {};
 
-//if(animationState _unit == "AovrPercMrunSrasWrflDf") exitWith {};
-if(animationState _unit == "AovrPercMrunSrasWrflDf_amovpercmsprsnonwnondf_amovppnemstpsnonwnondnon") exitWith {};
-_velocity = velocity _unit;
+SL_jumpBaseHeight = 1.80;
+SL_jumpMaxHeight = 3.50;
+SL_jumpBaseSpeed = 0.40;
+SL_jumpAnimation = "AovrPercMrunSrasWrflDf";
 
-if(local _unit) then {
-	_v1 = 3.82;
-	_v2 = .4;
-	_dir = direction player;
-	_vel = velocity _unit;
-	_unit setVelocity[(_vel select 0)+(sin _dir*_v2),(_vel select 1)+(cos _dir*_v2),(_vel select 2)+_v1];
+"SL_fn_jumpOverAnim" addPublicVariableEventHandler {
+	(_this select 1) spawn SL_fn_doAnim;
 };
 
-_anim = animationState _unit;
-_unit switchMove "AovrPercMrunSrasWrflDf";
-if(local _unit) then {
-	waitUntil{animationState _unit != "AovrPercMrunSrasWrflDf"};
+SL_fn_doAnim = {    
+    params ["_unit","_velocity","_direction","_speed","_height","_anim"];
+	_unit setVelocity [(_velocity select 0) + (sin _direction * _speed), (_velocity select 1) + (cos _direction * _speed), ((_velocity select 2) * _speed) + _height];
 	_unit switchMove _anim;
 };
+
+SL_fn_jumpOver = {
+	params ["_displayCode","_keyCode","_isShift","_isCtrl","_isAlt"];
+	_handled = false;
+	if ((_keyCode isEqualTo 57 || _keyCode isEqualTo 47 && { _isShift }) && (animationState player != SL_jumpAnimation) && speed player > 1) then {
+		if ((player isEqualTo vehicle player) && (isTouchingGround player) && ((stance player isEqualTo "STAND") || (stance player isEqualTo "CROUCH"))) exitWith {
+			private _height = (SL_jumpBaseHeight - (load player)) max SL_jumpMaxHeight;
+			private _velocity = velocity player;
+			private _direction = direction player;
+			private _speed = SL_jumpBaseSpeed;
+			player setVelocity [(_velocity select 0) + (sin _direction * _speed), (_velocity select 1) + (cos _direction * _speed), ((_velocity select 2) * _speed) + _height];
+			SL_fn_jumpOverAnim = [player,_velocity,_direction,_speed,_height,SL_jumpAnimation];
+			publicVariable "SL_fn_jumpOverAnim";
+			if (currentWeapon player isEqualTo "") then {
+				player switchMove SL_jumpAnimation;
+				player playMoveNow SL_jumpAnimation;
+			} else {
+				player switchMove SL_jumpAnimation;
+			};
+			_handled = true;
+		};
+	};
+	_handled
+};
+
+waituntil {!(isNull (findDisplay 46))};
+(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call SL_fn_jumpOver;"];
