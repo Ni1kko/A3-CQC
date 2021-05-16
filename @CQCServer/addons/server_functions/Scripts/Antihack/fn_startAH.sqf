@@ -366,7 +366,7 @@ try {
 		while{_variable=='' || _variable in (uiNamespace getVariable ['"+_randomVarsVar+"',[]])}do{      
 			_variable = _prefix + ([_variN,false] call CQC_fnc_newVar);
 		};
-		uiNamespace setVariable ['"+_randomVarsVar+"',(uiNamespace getVariable ['"+_randomVarsVar+"',[]]) + [_variable]];
+		uiNamespace setVariable ['"+_randomVarsVar+"',(((uiNamespace getVariable ['"+_randomVarsVar+"',[]]) + [_variable]) call BIS_fnc_arrayShuffle)];
 		['RANDOMVARLOG',format['%1 => %2',_variN,_variable]] call CQC_fnc_ahLog;
 		_variable
 	")];
