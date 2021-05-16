@@ -23,7 +23,6 @@ switch _mode do {
 			"   H: Heal",
 			"   Shift + Space: Vault",
 			"   Shift + H: Holster weapon",
-			"   Shift + 1: Spawn Mags/Item Menu",
 			"   Shift + O: Increase ear plug level",
 			"   Ctrl  + O: Decrease ear plug level",
 			"   Alt   + O: Toggle ear plugs",

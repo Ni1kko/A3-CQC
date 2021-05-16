@@ -104,8 +104,6 @@ class cfgRemoteExec
 #include "ui\CQC_Rsc_DisplayAdminTools.hpp"
 #include "ui\CQC_Rsc_DisplayGarage.hpp"
 #include "ui\CQC_Rsc_DisplayHelp.hpp"
-#include "ui\CQC_Rsc_DisplayItem.hpp"
-#include "ui\CQC_Rsc_DisplayItems.hpp"
 #include "ui\CQC_Rsc_DisplayOptions.hpp"
 #include "ui\CQC_Rsc_DisplayProgress.hpp"
 #include "ui\CQC_Rsc_DisplaySpawns.hpp"

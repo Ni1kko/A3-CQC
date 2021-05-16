@@ -70,16 +70,6 @@ switch (_pressedKey) do {
 		};
 	};
 	
-	// Item Menu (Shift + 1)
-	case 2: {
-		if (_shiftHeld) then {
-			if(!dialog) then {
-				createDialog "CQC_Rsc_DisplayItem";
-				_overrideKey = true;
-			};
-		};
-	};
-	
 	// Garage Menu (Shift + 2)
 	case 3: {
 		if (_shiftHeld) then {
