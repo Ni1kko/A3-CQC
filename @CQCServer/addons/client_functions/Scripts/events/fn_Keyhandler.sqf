@@ -18,6 +18,7 @@ private ["_step"];
 CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
 CQC_var_lastKeysPressed = _this select [1,4];
 
+#include "\a3\ui_f\hpp\definedikcodes.inc"
 
 if (_pressedKey in (actionKeys "TacticalView")) exitWith 
 {
