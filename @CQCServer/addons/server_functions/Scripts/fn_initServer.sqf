@@ -12,6 +12,25 @@ private _passwordAdmin = 'v1rd86Rtv9b';
 
 private _logNew = compile 'diag_log "";{diag_log format ["<CQC> %1",_x];if(_forEachIndex mod 2 isEqualTo 0)then{diag_log ""}}forEach _this;diag_log ""; true';
 
+//Version Check
+private _patches = (configFile >> "CfgPatches");
+private _missionVersion = (missionConfigFile >> "fileVersion");
+private badVersion = false;
+{
+    private _addonVersion = (_patches >> _x >> "fileVersion");
+    if(_missionVersion isNotEqualTo _addonVersion)exitWith{
+        _badVersion = true;
+    };
+} forEach ["server_functions","client_functions"];
+
+if (_badVersion) exitwith {
+    if(["Server File Error","Aborting scope","Server File Version Mismatch","Please make sure you packed `server_functions` AND `client_functions` AND 'Mission.Altis' into a pbo"] call _logNew)then{
+        _serverCommandPass serverCommand "#shutdown";
+    };
+};
+
+CQC_var_currentVersion = compileFinal str _missionVersion;
+
 // Start DB
 if !([_serverCommandPass] call CQC_fnc_startDatabase)exitwith{
     if(["Database: Error occured","Server: Shutting Down"] call _logNew)then{
