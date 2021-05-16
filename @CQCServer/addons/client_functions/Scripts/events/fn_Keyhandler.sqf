@@ -2,7 +2,10 @@
 	Nikko Renolds | Ni1kko@outlook.com
 	FragSquad CQC
 */
- 
+
+
+disableSerialization;
+
 params [ 
 	["_display",displayNull], 
 	["_pressedKey",-100], 
@@ -11,26 +14,111 @@ params [
 	["_altHeld",false] 
 ];
 
-private _overrideKey = false;
+private ["_step"];
+CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
+CQC_var_lastKeysPressed = _this select [1,4];
 
-switch (_pressedKey) do {
-	// Repair Cancel
-	case 1: {
-		closeDialog 2;
-		closeDialog 7529;
-		closeDialog 7612;
-		if (jstar_in_use) then { jstar_in_use = false; _overrideKey = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then { CQC_var_isHealing = false; closeDialog 2; _overrideKey = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
 
-	//block zeus (y)
-	case 21: { 
-		_overrideKey = true;
+if (_pressedKey in (actionKeys "TacticalView")) exitWith 
+{
+	["Tactical view is disabled on this server"] spawn CQC_fnc_Notification;
+	true
+};
+
+
+switch (_pressedKey) do  
+{ 
+	//-- row 1
+	case DIK_ESCAPE: 
+	{ 
+		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
 	};
+	case DIK_F1:  {  }; 
+	case DIK_F2:  { _stopPropagation = true; }; 
+	case DIK_F3:  { };
+	case DIK_F4:  { _stopPropagation = true; };
+	case DIK_F5:  { _stopPropagation = true; };
+	case DIK_F6:  { _stopPropagation = true; };
+	case DIK_F7:  { _stopPropagation = true; }; 
+	case DIK_F8:  { _stopPropagation = true; }; 
+	case DIK_F9:  { _stopPropagation = true; }; 
+	case DIK_F10: { _stopPropagation = true; }; 
+	case DIK_F11: { _stopPropagation = true; }; 
+	case DIK_F12: { };  
 	
-	// Earplugs (O)
-	case 24: {
+	//-- row 2
+	case DIK_GRAVE: 
+	{
+		if(profileNamespace getVariable ["CQC_var_tagsShown",false])then{
+			["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
+			["Player Tags Hidden"] spawn CQC_fnc_Notification;
+			profileNamespace setVariable ["CQC_var_tagsShown",false];
+		}else{
+			["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
+			["Player Tags Shown"] spawn CQC_fnc_Notification;
+			profileNamespace setVariable ["CQC_var_tagsShown",true];
+		};
+		saveprofileNamespace;
+		_stopPropagation = true;
+	};
+	case DIK_1: { _stopPropagation = true; };
+	case DIK_2: 
+	{ 
+		if (_shiftHeld) then {
+			if (vehicle player != player) exitWith {["You're in a vehicle so you cannot access the menu"] spawn CQC_fnc_Notification;};
+			if (player distance fragsquad_shop < 15) exitWith {["You can't spawn vehicles in spawn."] spawn CQC_fnc_Notification;};
+			if (player distance experimental_marker < 150) exitWith {["You can't spawn vehicles at experimental."] spawn CQC_fnc_Notification;};
+			if (player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
+			if (CQC_var_isHealing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
+			if !(dialog) then {
+				createDialog "CQC_Rsc_DisplayGarage"; 
+			};
+		};
+		_stopPropagation = true;
+	};
+	case DIK_3: { _stopPropagation = true; };
+	case DIK_4: { _stopPropagation = true; };
+	case DIK_5: 
+	{
+		[] spawn CQC_fnc_checkPlayerStats;
+		_stopPropagation = true;
+	};
+	case DIK_6: 
+	{
+		if (call isDonator) then {
+			call CQC_fnc_VIPMenu; 
+		};
+		_stopPropagation = true;
+	};
+	case DIK_7: { _stopPropagation = true; };
+	case DIK_8: { _stopPropagation = true; };   
+	case DIK_9: { _stopPropagation = true; };
+	case DIK_0: { _stopPropagation = true; }; 
+	case DIK_BACK: { }; 
+	case DIK_HOME: { _stopPropagation = true; };
 
+	//-- row 3 
+	case DIK_Q: { };
+	case DIK_W:
+	{ 
+		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
+	};
+	case DIK_E: { };
+	case DIK_R: { };
+	case DIK_T: 
+	{
+		if (_shiftHeld && !_ctrlHeld && CQC_var_canTeleport)  then {
+			createDialog "CQC_Rsc_DisplaySpawns";
+			_stopPropagation = true;
+		};
+	};
+	case DIK_Y: { _stopPropagation = true; };//block zeus (y)
+	case DIK_U: { _stopPropagation = true; };
+	case DIK_I: { };
+	case DIK_O: 
+	{
 		private _resource = "CQC_Rsc_MuteIcon";
 
 		if (!_altHeld && !_ctrlHeld && _shiftHeld) then {
@@ -68,108 +156,76 @@ switch (_pressedKey) do {
 				["Earplugs removed"] spawn CQC_fnc_Notification; 0 fadeSound 1; player setVariable ["Earplugs", 0]; player setVariable ["Plugs", false]; (_resource call BIS_fnc_rscLayer) cutText ["","PLAIN"];
 			};
 		};
+
+		if(_altHeld || _ctrlHeld || _altHeld) then{
+			_stopPropagation = true;
+		};
 	};
+	case DIK_P: { _stopPropagation = true; };
+	case DIK_END: { _stopPropagation = true; };
 	
-	// Garage Menu (Shift + 2)
-	case 3: {
-		if (_shiftHeld) then {
-			if (vehicle player != player) exitWith {["You're in a vehicle so you cannot access the menu"] spawn CQC_fnc_Notification;};
-			if (player distance fragsquad_shop < 15) exitWith {["You can't spawn vehicles in spawn."] spawn CQC_fnc_Notification;};
-			if (player distance experimental_marker < 150) exitWith {["You can't spawn vehicles at experimental."] spawn CQC_fnc_Notification;};
-			if (player distance quarantine_marker < 250) exitWith {["You can't spawn vehicles at quarantine."] spawn CQC_fnc_Notification;};
-			if (CQC_var_isHealing) exitWith {["Wait until you're done healing."] spawn CQC_fnc_Notification;};
-			if !(dialog) then {
-				createDialog "CQC_Rsc_DisplayGarage";
-				_overrideKey = true;
-			};
-		};
+	//-- row 4 
+	case DIK_A:
+	{
+		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
 	};
-
-	// Admin Heal (Shift + 3)
-	case 4: {
-		if !(_shiftHeld) exitWith {};
-		if (diag_tickTime < (uiNamespace getVariable ['tag_cooldown',-1])) exitWith {
-			["Not so fast criminal scum"] spawn CQC_fnc_Notification;
-		};
-		
-		_cooldown = 3; 	// cooldown duration in seconds
-		uiNamespace setVariable ['tag_cooldown',(diag_tickTime + _cooldown)];
-		
-		if (call isAdmin)then {
-			player setDamage 0;
-			["Player healed"] spawn CQC_fnc_Notification;
-			_overrideKey = true;
-		};
+	case DIK_S:
+	{
+		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
 	};
-	
-	// VIP menu (Shift + 6)
-	case 7: {
-		if (call isDonator) then {
-			call CQC_fnc_VIPMenu;
-			_overrideKey = true;
-		};
+	case DIK_D:
+	{
+		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
 	};
-
-	// Toogle ESP (`)
-	case 41: {
-		if(profileNamespace getVariable ["CQC_var_tagsShown",false])then{
-			["CQC_ESPHook", "OnEachFrame"] call BIS_fnc_removeStackedEventHandler;
-			["Player Tags Hidden"] spawn CQC_fnc_Notification;
-			profileNamespace setVariable ["CQC_var_tagsShown",false];
-		}else{
-			["CQC_ESPHook", "OnEachFrame", CQC_fnc_nameTags] call BIS_fnc_addStackedEventHandler;
-			["Player Tags Shown"] spawn CQC_fnc_Notification;
-			profileNamespace setVariable ["CQC_var_tagsShown",true];
-		};
-		saveprofileNamespace;
-	};
-
-	// Check Stats (F5)
-	case 63: {
-		[] spawn CQC_fnc_checkPlayerStats;
-	};
-
-	// H (Heal) & Shift + H (Holster) & Ctrl + H (Pull Out Gun From Holster)
-	case 35: {
+	case DIK_F: { }; 
+	case DIK_G: { };
+	case DIK_H: 
+	{
 		if (!_shiftHeld && !_ctrlHeld) then {
 			if (player isEqualTo vehicle player AND damage player != 0) then {
 				[] spawn CQC_fnc_healPlayer;
-				["Healing WIP lol"] spawn CQC_fnc_Notification;
+				["Healing WIP lol"] spawn CQC_fnc_Notification; 
 			};
 		};
 		
 		if (_shiftHeld && !_ctrlHeld && !(currentWeapon player isEqualTo "")) then {
 			jstar_holster = currentWeapon player;
 			player action ["SwitchWeapon", player, player, 100];
-			player switchCamera cameraView;
-			_overrideKey = true;
+			player switchCamera cameraView; 
 		};
 
 		if (!_shiftHeld && _ctrlHeld && !isNil "jstar_holster" && {!(jstar_holster isEqualTo "")}) then {
 			if (jstar_holster in [primaryWeapon player,secondaryWeapon player,handgunWeapon player]) then {
-				player selectWeapon jstar_holster;
-			};
-		_overrideKey = true;
+				player selectWeapon jstar_holster; 
+			}; 
 		};
+
+		_stopPropagation = true;
 	};
-	
-	// Tactical View Key
-	case 83: {
-		if ((_this select 1) in (actionKeys "TacticalView")) then {
-			["Tactical view is disabled on this server"] spawn CQC_fnc_Notification;
-			_overrideKey = true;
-		};
+	case DIK_J: { _stopPropagation = true; };
+	case DIK_K: { _stopPropagation = true; };
+	case DIK_L: { _stopPropagation = true; };
+
+	//-- row 5 
+	case DIK_Z: { };
+	case DIK_X: { };
+	case DIK_C: { };
+	case DIK_V: { };
+	case DIK_B: { _stopPropagation = true; };
+	case DIK_N: { };
+	case DIK_M: { };
+
+	//-- row 6 
+	case DIK_LWIN:  { };
+	case DIK_SPACE: 
+	{
+		_stopPropagation = true;
 	};
-	
-	// Spawn Menu (Shift + T)
-	case 20: {
-		if (_shiftHeld && !_ctrlHeld && CQC_var_canTeleport)  then {
-			createDialog "CQC_Rsc_DisplaySpawns";
-		};
-	};
+	case DIK_PRIOR: { _stopPropagation = true; };
+	case DIK_NEXT:  { _stopPropagation = true; };
 };
 
-CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
-CQC_var_lastKeysPressed = _this select [1,4];
-
-_overrideKey;
+_stopPropagation;
