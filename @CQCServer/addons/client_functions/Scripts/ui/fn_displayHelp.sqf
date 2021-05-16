@@ -21,13 +21,13 @@ switch _mode do {
 			"",
 			"   User Controls:",
 			"   H: Heal",
-			"   Shift + Space: Vault",
+			"   Shift + Space: Jump",
 			"   Shift + H: Holster weapon",
 			"   Shift + O: Increase ear plug level",
 			"   Ctrl  + O: Decrease ear plug level",
 			"   Alt   + O: Toggle ear plugs",
 			"   Shift + 2: Vehicle Menu",
-			"   F5: Show Player KDA Stats",
+			"   Shift + 5: Show Player KDA Stats",
 			"",
 			""
 		] joinString "<br/>");

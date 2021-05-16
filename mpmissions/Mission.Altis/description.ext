@@ -87,6 +87,7 @@ class cfgRemoteExec
 		class CQC_fnc_requestcharacter 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_charactercreated 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
+		class CQC_fnc_jump 							{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
 	};

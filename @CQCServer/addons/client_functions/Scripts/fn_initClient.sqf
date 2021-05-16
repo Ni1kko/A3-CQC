@@ -52,7 +52,6 @@ waitUntil {scriptDone _loginHandle};
 // Scripts
 [] spawn CQC_fnc_initModuleVehicles;
 [] spawn CQC_fnc_Keyhandler; 			// Key Handler
-[] spawn CQC_fnc_jump; 		 			// player jamp
 [] spawn CQC_fnc_escmenu;	 			// escape menu
 [] spawn CQC_fnc_signs; 	 			// Sign Text
 [] spawn CQC_fnc_player_inCombat;
