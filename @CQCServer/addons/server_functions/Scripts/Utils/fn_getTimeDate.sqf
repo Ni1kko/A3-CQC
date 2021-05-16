@@ -15,7 +15,7 @@ if((_dateNow#1) >= 4 AND (_dateNow#1) <= 10 )then{
 if(parseNumber(_timeNow#0) <= 9) then{
 	_timeNow set [0, format["0%1",_timeNow#0]];
 };
-if(parseNumber(_timeNow#1) <= 9) then{
+if((_timeNow#1) <= 9) then{
 	_timeNow set [1, format["0%1",_timeNow#1]];
 };
 
