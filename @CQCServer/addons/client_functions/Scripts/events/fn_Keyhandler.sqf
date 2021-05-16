@@ -224,7 +224,7 @@ switch (_pressedKey) do
 	case DIK_SPACE: 
 	{
 		if (_shiftHeld) then{
-			[player, (speed player > 1 AND (player isEqualTo vehicle player) AND (isTouchingGround player) AND (stance player in ["STAND","CROUCH"]))] remoteExecCall ["CQC_fnc_jump",-2];
+			[] call CQC_fnc_jump;
 		};
 		_stopPropagation = true;
 	};

@@ -1,29 +1,31 @@
 /*
-	Nikko Renolds | Ni1kko@outlook.com
-	FragSquad CQC
+    Name: fn_jump.sqf
+    Author: Maihym & Nikko
+    Description: Makes the player jump.
+
+    Parameters:
+    NONE
 */
 
-private["_unit","_vel","_dir","_v1","_v2","_anim"];
-_unit = param [0,ObjNull,[ObjNull]];
-_run = param [1,true,[false]];
-if(isNull _unit) exitWith {}; //Bad data
-if(local _unit && !_run) exitWith {}; //Ahh
- 
-//if(animationState _unit == "AovrPercMrunSrasWrflDf") exitWith {};
-if(animationState _unit == "AovrPercMrunSrasWrflDf_amovpercmsprsnonwnondf_amovppnemstpsnonwnondnon") exitWith {};
-_velocity = velocity _unit;
+if ((animationState player isEqualTo "AovrPercMrunSrasWrflDf") || !(isTouchingGround player) || !(stance player isEqualTo "STAND") || !(speed player > 2) || {((velocity player) select 2) > 2.5} || {time - (player getVariable ["CQC_var_jumpActionTime",0]) < 2.5}) exitWith {};
 
-if(local _unit) then {
-	_v1 = 3.82;
-	_v2 = .4;
-	_dir = direction player;
-	_vel = velocity _unit;
-	_unit setVelocity[(_vel select 0)+(sin _dir*_v2),(_vel select 1)+(cos _dir*_v2),(_vel select 2)+_v1];
-};
+player setVariable ["CQC_var_jumpActionTime",time];
 
-_anim = animationState _unit;
-_unit switchMove "AovrPercMrunSrasWrflDf";
-if(local _unit) then {
-	waitUntil{animationState _unit != "AovrPercMrunSrasWrflDf"};
-	_unit switchMove _anim;
+_oldpos = getPosATL player;  
+_v1 = 3.82;
+_v2 = .4;
+_dir = direction player;
+_vel = velocity player;
+player setVelocity[(_vel select 0)+(sin _dir*_v2),(_vel select 1)+(cos _dir*_v2),(_vel select 2)+_v1];
+
+[player, "AovrPercMrunSrasWrflDf"] remoteExec ["switchMove", 0];
+
+[player,_oldpos] spawn {
+    waitUntil {
+        if ((getPos (_this#0) select 2) > 4) then {
+            _this#0 setposATL _this#1;
+            _this#0 setVelocity [0, 0, 0];
+        };
+        animationState (_this#0) != "AovrPercMrunSrasWrflDf";
+    };
 };
