@@ -14,10 +14,10 @@ private _logNew = compile 'diag_log "";{diag_log format ["<CQC> %1",_x];if(_forE
 
 //Version Check
 private _patches = (configFile >> "CfgPatches");
-private _missionVersion = (missionConfigFile >> "fileVersion");
+private _missionVersion = getNumber(missionConfigFile >> "fileVersion");
 private _badVersion = false;
 {
-    private _addonVersion = (_patches >> _x >> "fileVersion");
+    private _addonVersion = getNumber(_patches >> _x >> "fileVersion");
     if(_missionVersion isNotEqualTo _addonVersion)exitWith{
         _badVersion = true;
     };
