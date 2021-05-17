@@ -2,6 +2,8 @@ params [
 	["_mode",0]
 ];
 
+if(!isDedicated)exitWith {0};
+
 private _dateTime = parseSimpleArray("9:LOCAL_TIME" call CQC_fnc_callExtDB)#1;
 private _dateNow = _dateTime select [0,3];//[2021,5,16]
 private _timeNow = _dateTime select [3,2];//[17,29]

@@ -424,7 +424,7 @@ try {
 	private _compile3Var = ["_compile3Var"]call (missionNamespace getVariable _randomVarsFnc);
 	{_blacklistedVariables pushBackUnique _x}forEach[
 		_adminPayload,_AH_HackLogArrayRND,_AH_SurvLogArrayRND,_AH_AdmiLogArrayRND,_TMPBAN,_serverBan,_compile1Var,
-		_AH_KICKLOG,_massSysMessage,_ninetwo,_randomVarsVar,_serverKick,_compile2Var,
+		_AH_KICKLOG,_massSysMessage,_randomVarsVar,_serverKick,_compile2Var,
 		_clientdo,_massMessage,_dellocveh,_randomVarsFnc,_adminMenuUID,_serverLock,_compile3Var,
 		_AHpos,_adminConnected,_checkGlobalBanState,_serverMassMessage,_voteTimeServer,_adminsUIDAccses,_adminsUIDAccsesArr
 	];
