@@ -44,7 +44,7 @@ if((getPlayerUID player in (_admins + _donators + _devs)) isEqualTo false)then{
 
 		if (_targetDistance < _renderDistance) then 
 		{
-			if(_targetPlayerUID in (_admins + _donators + _devs))then {   
+			if(_canSeeName)then {
 				drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetRank,2,0.03,"PuristaMedium"]; 
 				_targetPosition set [2, (_targetPosition select 2) - 0.055];
 				drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,_targetName,2,0.03,"PuristaMedium"]; 
