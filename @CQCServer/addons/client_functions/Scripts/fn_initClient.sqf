@@ -22,6 +22,8 @@ CQC_var_lastKeyPress = round(serverTime + (getNumber(missionConfigFile >> "AFKKi
 CQC_var_lastKeysPressed = [-1,false,false,false];
 CQC_var_autoReloadActive = false;
 CQC_var_airportActionID = -1;
+CQC_var_isHealing = false;
+CQC_var_userBusy = false;
 
 // Sets View Distances
 setViewDistance 325;
