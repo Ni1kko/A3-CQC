@@ -60,7 +60,7 @@ if(_hiveSetup)then
             CQC_var_DatabaseLocked = compileFinal str(0 call CQC_fnc_getTimeDate);
 
             //Log succses
-            (format["Online [v%1]",_version]) call CQC_fnc_database_log;
+            (format["Online [v%1] Connection Established @ %2",_version,(call CQC_var_DatabaseLocked)]) call CQC_fnc_database_log;
         };
     };
 };

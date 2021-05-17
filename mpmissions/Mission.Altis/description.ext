@@ -22,13 +22,14 @@ respawnOnStart = 0;
 respawnButton = 1;
 
 //CQC Config
-fileVersion = 0.042;
+fileVersion = 0.043;
 escapeTimer = 3;				//How long player has to wait before can leave server
 combatTimer = 25;				//How long player has to wait before can leave server (whilst in COMBAT)
 adminDonator = true;			//Enables VIP Features for admins
 autoReloadDonator = true;		//Enables VIP auto-reload
 AFKKicker = false;				//Enables auto afk kick (needs FIXED)
 AFKKickTime = 15;				//How many mins should we wait before kicking (Timer resets on keypress)
+AFKKickTimeNotify = 2;          //How often do idle messages appear
 AFKAdminBypass = false;			//Enables auto afk kick bypass for admins
 spawnSmoke = false;  			//Enables smoke around player on spawn
 tagRenderDistance = 30; 		//How far vehicles start rendering (player are half of this value)

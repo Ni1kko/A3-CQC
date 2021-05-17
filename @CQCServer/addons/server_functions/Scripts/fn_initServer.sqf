@@ -57,7 +57,6 @@ if (!isKeyActive "CQC_CustomProfile") exitwith {
 };
 
 publicVariable "CQC_fnc_compatibleItems";
-publicVariable "CQC_fnc_getTimeDate";
 
 [] spawn CQC_fnc_repetitive_cleanup;
 

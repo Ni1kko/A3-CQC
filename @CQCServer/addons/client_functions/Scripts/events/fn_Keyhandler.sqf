@@ -15,7 +15,7 @@ params [
 ];
 
 private ["_step","_stopPropagation"];
-CQC_var_lastKeyPress = ((-1 call CQC_fnc_getTimeDate) + getNumber(missionConfigFile >> "AFKKickTime"));
+CQC_var_lastKeyPress = round(serverTime + (getNumber(missionConfigFile >> "AFKKickTime") * 60));
 CQC_var_lastKeysPressed = _this select [1,4];
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
@@ -28,17 +28,16 @@ if (_pressedKey in (actionKeys "TacticalView")) exitWith
 
 _stopPropagation = false;
 
+if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
+if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
+
 switch (_pressedKey) do  
 { 
 	//-- row 1
-	case DIK_ESCAPE: 
-	{ 
-		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
-	case DIK_F1:  {  }; 
-	case DIK_F2:  { _stopPropagation = true; }; 
-	case DIK_F3:  { };
+	case DIK_ESCAPE: { };
+	case DIK_F1:  { _stopPropagation = true; };
+	case DIK_F2:  { _stopPropagation = true; };
+	case DIK_F3:  { _stopPropagation = true; };
 	case DIK_F4:  { _stopPropagation = true; };
 	case DIK_F5:  { _stopPropagation = true; };
 	case DIK_F6:  { _stopPropagation = true; };
@@ -64,7 +63,11 @@ switch (_pressedKey) do
 		saveprofileNamespace;
 		_stopPropagation = true;
 	};
-	case DIK_1: { _stopPropagation = true; };
+	case DIK_1: {
+		if(count(weapons player) > 0)then{
+			player selectWeapon (weapons player)#0;
+		};
+	};
 	case DIK_2: 
 	{ 
 		if (_shiftHeld) then {
@@ -76,20 +79,43 @@ switch (_pressedKey) do
 			if !(dialog) then {
 				createDialog "CQC_Rsc_DisplayGarage"; 
 			};
+		}else{
+			if(count(weapons player) > 1)then{
+				player selectWeapon (weapons player)#1;
+			};
 		};
 		_stopPropagation = true;
 	};
-	case DIK_3: { _stopPropagation = true; };
-	case DIK_4: { _stopPropagation = true; };
+	case DIK_3: {
+		if(count(weapons player) > 2)then{
+			player selectWeapon (weapons player)#2;
+		};
+	};
+	case DIK_4: { 
+		if(count(weapons player) > 3)then{
+			player selectWeapon (weapons player)#3;
+		};
+		_stopPropagation = true; 
+	};
 	case DIK_5: 
 	{
-		[] spawn CQC_fnc_checkPlayerStats;
-		_stopPropagation = true;
+		if (_shiftHeld) then {
+			[] spawn CQC_fnc_checkPlayerStats;
+			_stopPropagation = true;
+		}else{
+			if(count(weapons player) > 4)then{
+				player selectWeapon (weapons player)#4;
+			};
+		};
 	};
 	case DIK_6: 
 	{
-		if (call isDonator) then {
+		if (_shiftHeld AND (call isDonator)) then {
 			call CQC_fnc_VIPMenu; 
+		}else{
+			if(count(weapons player) > 5)then{
+				player selectWeapon (weapons player)#5;
+			};
 		};
 		_stopPropagation = true;
 	};
@@ -102,11 +128,7 @@ switch (_pressedKey) do
 
 	//-- row 3 
 	case DIK_Q: { };
-	case DIK_W:
-	{ 
-		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
+	case DIK_W: { };
 	case DIK_E: { };
 	case DIK_R: { };
 	case DIK_T: 
@@ -167,21 +189,9 @@ switch (_pressedKey) do
 	case DIK_END: { _stopPropagation = true; };
 	
 	//-- row 4 
-	case DIK_A:
-	{
-		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
-	case DIK_S:
-	{
-		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
-	case DIK_D:
-	{
-		if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-		if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
-	};
+	case DIK_A: { };
+	case DIK_S: { };
+	case DIK_D: { };
 	case DIK_F: { }; 
 	case DIK_G: { };
 	case DIK_H: 
@@ -216,7 +226,7 @@ switch (_pressedKey) do
 	case DIK_X: { };
 	case DIK_C: { };
 	case DIK_V: { };
-	case DIK_B: { _stopPropagation = true; };
+	case DIK_B: { };
 	case DIK_N: { };
 	case DIK_M: { };
 
@@ -226,8 +236,8 @@ switch (_pressedKey) do
 	{
 		if (_shiftHeld) then{
 			[] call CQC_fnc_jump;
-		};
-		_stopPropagation = true;
+			_stopPropagation = true;
+		}; 
 	};
 	case DIK_PRIOR: { _stopPropagation = true; };
 	case DIK_NEXT:  { _stopPropagation = true; };
