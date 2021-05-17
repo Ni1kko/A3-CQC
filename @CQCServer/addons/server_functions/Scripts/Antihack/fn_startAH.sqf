@@ -90,7 +90,7 @@ private _badVarWhitelist =
 
 private _blacklistedSteamIDS = 
 [
-
+	'76561198101617389'//Arogant checky prick about vip features. (Perma banned | By: Nikko | On: 17/May/2021) 
 ];
 
 private _blacklistedVariables =
@@ -98,7 +98,7 @@ private _blacklistedVariables =
 	'bis_fnc_dbg_reminder_value','bis_fnc_dbg_reminder','bis_menu_groupcommunication','bis_fnc_addcommmenuitem_menu','gtp',
 	'rscspectator','rscspectator_hints','rscspectator_display','rscspectator_playericon','gunrestrain',
 	'rscspectator_view','rscspectator_map','rscspectator_vision','rscspectator_keys','gspawnv',
-	'rscspectator_interface','gmoney','gkillall',	'time','servertime','myplayeruid','hhahaaaaar','charliesheenkeybinds','kickoff',
+	'rscspectator_interface','gmoney','gkillall','time','servertime','myplayeruid','hhahaaaaar','charliesheenkeybinds','kickoff',
 	'yolo','runonce','notakeybind','action1','supa_licenses','autokick','wallaisseikun','mainmenu','anarray',
 	'gefclose','gefwhite','gefred','gefgreen','gefcyan','firsthint','new_queued','fn_exec','fnd_fnc_select','fnx3','antihackkick','tele','dmap','goldens_global_shit_yeah','glass911_run',
 	'geardialog_create','lystokeypress','thirtysix','ly_swaggerlikeus','jkeyszz','n2','boxofmagic','mainscripts','dmc_fnc_4danews','CQCbypass','exec_text','vehicle_dblclick','init_main',
