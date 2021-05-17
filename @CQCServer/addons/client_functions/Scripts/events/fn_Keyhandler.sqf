@@ -28,12 +28,16 @@ if (_pressedKey in (actionKeys "TacticalView")) exitWith
 
 _stopPropagation = false;
 
-[] call CQC_fnc_stopProgress;
+if !(_pressedKey in []) exitWith 
+{
+	["Tactical view is disabled on this server"] spawn CQC_fnc_Notification;
+	true
+};
 
 switch (_pressedKey) do  
 { 
 	//-- row 1
-	case DIK_ESCAPE: { };
+	case DIK_ESCAPE: { [] call CQC_fnc_stopProgress; _stopPropagation = true; };
 	case DIK_F1:  { _stopPropagation = true; };
 	case DIK_F2:  { _stopPropagation = true; };
 	case DIK_F3:  { _stopPropagation = true; };
@@ -64,7 +68,9 @@ switch (_pressedKey) do
 	};
 	case DIK_1: {
 		if(count(weapons player) >= 1)then{
-			player selectWeapon (weapons player)#0
+			[] call CQC_fnc_stopProgress; 
+			_stopPropagation = true;
+			player selectWeapon (weapons player)#0;
 		};
 	};
 	case DIK_2: 
@@ -80,6 +86,7 @@ switch (_pressedKey) do
 			};
 		}else{
 			if(count(weapons player) >= 2)then{
+				[] call CQC_fnc_stopProgress; 
 				player selectWeapon (weapons player)#1;
 			};
 		};
@@ -87,11 +94,14 @@ switch (_pressedKey) do
 	};
 	case DIK_3: {
 		if(count(weapons player) >= 3)then{
+			[] call CQC_fnc_stopProgress; 
 			player selectWeapon (weapons player)#2;
 		};
+		_stopPropagation = true;
 	};
 	case DIK_4: { 
 		if(count(weapons player) >= 4)then{
+			[] call CQC_fnc_stopProgress; 
 			player selectWeapon (weapons player)#3;
 		};
 		_stopPropagation = true; 
@@ -101,11 +111,13 @@ switch (_pressedKey) do
 		if (_shiftHeld) then {
 			[] spawn CQC_fnc_checkPlayerStats;
 			_stopPropagation = true;
-		}else{
+		}else{ 
 			if(count(weapons player) >= 5)then{
+				[] call CQC_fnc_stopProgress; 
 				player selectWeapon (weapons player)#5;
 			};
 		};
+		_stopPropagation = true; 
 	};
 	case DIK_6: 
 	{
@@ -113,6 +125,7 @@ switch (_pressedKey) do
 			call CQC_fnc_VIPMenu; 
 		}else{
 			if(count(weapons player) >= 6)then{
+				[] call CQC_fnc_stopProgress;
 				player selectWeapon (weapons player)#6;
 			};
 		};
@@ -127,7 +140,7 @@ switch (_pressedKey) do
 
 	//-- row 3 
 	case DIK_Q: { };
-	case DIK_W: { };
+	case DIK_W: { [] call CQC_fnc_stopProgress; };
 	case DIK_E: { };
 	case DIK_R: { };
 	case DIK_T: 
@@ -188,13 +201,15 @@ switch (_pressedKey) do
 	case DIK_END: { _stopPropagation = true; };
 	
 	//-- row 4 
-	case DIK_A: { };
-	case DIK_S: { };
-	case DIK_D: { };
+	case DIK_A: { [] call CQC_fnc_stopProgress; };
+	case DIK_S: { [] call CQC_fnc_stopProgress; };
+	case DIK_D: { [] call CQC_fnc_stopProgress; };
 	case DIK_F: { }; 
 	case DIK_G: { };
 	case DIK_H: 
 	{
+		[] call CQC_fnc_stopProgress; 
+		
 		if (!_shiftHeld && !_ctrlHeld) then {
 			if (player isEqualTo vehicle player AND damage player != 0) then {
 				[] spawn CQC_fnc_healPlayer;
