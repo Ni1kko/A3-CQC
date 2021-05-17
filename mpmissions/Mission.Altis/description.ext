@@ -98,6 +98,7 @@ class cfgRemoteExec
 		mode = 1;
 		class call     			{ allowedTargets = 1; jip = 0; };
 		class spawn    			{ allowedTargets = 1; jip = 0; };
+		class switchmove    	{ allowedTargets = 1; jip = 0; };
 	};
 };
 
