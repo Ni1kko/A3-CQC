@@ -2,7 +2,9 @@ params [
 	["_mode",0]
 ];
 
-private _dateTime = systemTimeUTC;
+//"9:LOCAL_TIME" call CQC_fnc_callExtDB
+
+/*private _dateTime = systemTimeUTC;
 private _dateNow = _dateTime select [0,3];
 private _timeNow = _dateTime select [3,2];
 
@@ -36,8 +38,9 @@ _dateNow set [1, switch (_dateNow#1) do {
 
 _timeNow = _timeNow joinString ":";
 _dateNow = _dateNow joinString " ";
-    
-if(_mode isEqualTo -1)exitWith{parseNumber((_timeNow splitString ":" apply {parseNumber _x}) joinString "")};
-if(_mode isEqualTo 1)exitWith{_timeNow};
-if(_mode isEqualTo 2)exitWith{_dateNow};
-format ["%1 (%2)",_timeNow,_dateNow];
+*/    
+if(_mode isEqualTo -1)exitWith{/*parseNumber((_timeNow splitString ":" apply {parseNumber _x}) joinString "")*/0};
+if(_mode isEqualTo 1)exitWith{/*_timeNow*/"0"};
+if(_mode isEqualTo 2)exitWith{/*_dateNow*/"0"};
+//format ["%1 (%2)",_timeNow,_dateNow];
+"0"
