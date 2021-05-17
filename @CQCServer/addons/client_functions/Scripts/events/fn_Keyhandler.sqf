@@ -31,10 +31,10 @@ _stopPropagation = false;
 switch (_pressedKey) do  
 { 
 	//-- row 1
-	case DIK_ESCAPE: { [] call CQC_fnc_stopProgress; _stopPropagation = true; };
-	case DIK_F1:  { _stopPropagation = true; };
+	case DIK_ESCAPE: { [] call CQC_fnc_stopProgress;  };
+	case DIK_F1:  { };
 	case DIK_F2:  { _stopPropagation = true; };
-	case DIK_F3:  { _stopPropagation = true; };
+	case DIK_F3:  { };
 	case DIK_F4:  { _stopPropagation = true; };
 	case DIK_F5:  { _stopPropagation = true; };
 	case DIK_F6:  { _stopPropagation = true; };
