@@ -27,13 +27,7 @@ if (_pressedKey in (actionKeys "TacticalView")) exitWith
 };
 
 _stopPropagation = false;
-
-if !(_pressedKey in []) exitWith 
-{
-	["Tactical view is disabled on this server"] spawn CQC_fnc_Notification;
-	true
-};
-
+ 
 switch (_pressedKey) do  
 { 
 	//-- row 1
@@ -209,7 +203,7 @@ switch (_pressedKey) do
 	case DIK_H: 
 	{
 		[] call CQC_fnc_stopProgress; 
-		
+
 		if (!_shiftHeld && !_ctrlHeld) then {
 			if (player isEqualTo vehicle player AND damage player != 0) then {
 				[] spawn CQC_fnc_healPlayer;
