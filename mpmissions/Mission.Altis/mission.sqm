@@ -2795,7 +2795,7 @@ class Mission
 		class Item143
 		{
 			dataType="Marker";
-			position[]={17490.043,14.463,13202.586};
+			position[]={17490.042,14.463,13202.586};
 			name="tyrone_pygros_10";
 			type="Empty";
 			angle=222.43028;
@@ -17484,7 +17484,7 @@ class Mission
 			a=100;
 			b=100;
 			id=3845;
-			atlOffset=-0.043152477;
+			atlOffset=-0.041152477;
 		};
 		class Item311
 		{
@@ -23537,7 +23537,7 @@ class Mission
 			};
 			id=4105;
 			type="EmptyDetectorArea10x10";
-			atlOffset=0.043719437;
+			atlOffset=0.041719437;
 		};
 		class Item529
 		{

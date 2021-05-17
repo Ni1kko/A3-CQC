@@ -794,7 +794,7 @@ class CQC_RscTree
 	y = 0;
 	w = 0.1;
 	h = 0.2;
-	rowHeight = 0.0439091;
+	rowHeight = 0.0429091;
 	colorSelectBackground[] = {0,0,0,0.5};
 	colorLines[] = {0,0,0,0};
 	borderSize = 0;
