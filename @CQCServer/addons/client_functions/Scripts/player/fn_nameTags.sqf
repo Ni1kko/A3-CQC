@@ -8,7 +8,7 @@ private _renderDistance = getNumber(missionConfigFile >> 'tagRenderDistance');
 private _admins = missionNamespace getVariable ["CQCAdmins",[]];
 private _donators = missionNamespace getVariable ["CQCDonators",[]];
 private _devs = if(!isNil "CQC_DEVS")then{CQC_DEVS}else{getArray(missionConfigFile >> 'enableDebugConsole')};
- 
+private _canSeeName = getPlayerUID player in (_admins + _devs + _donators);
 private _targets = allPlayers;
 
 //Only admins and devs and vips see there own tag 
@@ -26,6 +26,7 @@ if((getPlayerUID player in (_admins + _donators + _devs)) isEqualTo false)then{
 	private _targetPlayerUID = getPlayerUID _target;
 	private _targetRank = _targetPlayerUID call CQC_fnc_getPlayerRank;
 	private _targetColor = _targetPlayerUID call CQC_fnc_getPlayercolor;
+	private _targetName = ["Player", name _target] select _canSeeName;
 	
 	if((alive _targetVehicle) AND !(isObjectHidden _targetVehicle) AND !(lineIntersects [eyePos player, eyePos _targetVehicle, player, _targetVehicle])) then
 	{
@@ -43,20 +44,14 @@ if((getPlayerUID player in (_admins + _donators + _devs)) isEqualTo false)then{
 
 		if (_targetDistance < _renderDistance) then 
 		{
-			if(_targetPlayerUID in _admins || _targetPlayerUID in _devs)then {   
+			if(_targetPlayerUID in (_admins + _donators + _devs))then {   
 				drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetRank,2,0.03,"PuristaMedium"]; 
 				_targetPosition set [2, (_targetPosition select 2) - 0.055];
-				drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,name _target,2,0.03,"PuristaMedium"];
+				drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,_targetName,2,0.03,"PuristaMedium"]; 
 			}else{
-				if(_targetPlayerUID in _donators)then {  
-					drawIcon3D [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetRank,2,0.03,"PuristaMedium"];
-					_targetPosition set [2, (_targetPosition select 2) - 0.055];
-					drawIcon3D ["",_targetColor,_targetPosition,0.65,0.65,0,"Player",2,0.03,"PuristaMedium"];
-				}else{
-					drawIcon3D  [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,"Player",2,0.03,"PuristaMedium"];
-				};
-			};
-		 
+				drawIcon3D  [_targetIcon,_targetColor,_targetPosition,0.65,0.65,0,_targetName,2,0.03,"PuristaMedium"];
+			}; 
+		 	
 			_rendered = true; 
 		};
 	};
