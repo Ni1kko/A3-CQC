@@ -5,7 +5,8 @@
 
 waitUntil {!isNull player};  
 
-CQC_var_isHealing = false;
+[] call CQC_fnc_stopProgress;
+
 character = objNull;
 
 //Get character

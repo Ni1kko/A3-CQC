@@ -8,7 +8,7 @@ if ((cursorTarget isKindOf "Car" OR cursorTarget isKindOf "Air") and (player dis
 	player action ["SwitchWeapon", player, player, 100];
 	_RepairValue = 0;
 	disableSerialization;
-	jstar_in_use = true;
+	CQC_var_userBusy = true;
 
 	with uiNamespace do {
 		_bar = findDisplay 46 ctrlCreate ["RscProgress", 5]; 
@@ -23,7 +23,7 @@ if ((cursorTarget isKindOf "Car" OR cursorTarget isKindOf "Air") and (player dis
 			if(animationState player != "AmovPknlMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon_Putdown") then {player playMoveNow "AmovPknlMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon_Putdown"};
 			
 			if (!alive player) exitWith {ctrlDelete ((findDisplay 46) displayCtrl 5);};
-			if (!jstar_in_use) exitWith {ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "stop";};
+			if (!CQC_var_userBusy) exitWith {ctrlDelete ((findDisplay 46) displayCtrl 5); player switchMove "stop";};
 			if (_RepairValue > 0.99) exitWith {
 				animRepeat = false;
 				player action ["SwitchWeapon", player, player, 100];
@@ -31,7 +31,7 @@ if ((cursorTarget isKindOf "Car" OR cursorTarget isKindOf "Air") and (player dis
 				titleFadeOut 2;
 				cursorTarget setDamage 0;
 				player switchMove "stop";
-				jstar_in_use = false;
+				CQC_var_userBusy = false;
 				ctrlDelete ((findDisplay 46) displayCtrl 5);
 			};
 		};

@@ -28,8 +28,7 @@ if (_pressedKey in (actionKeys "TacticalView")) exitWith
 
 _stopPropagation = false;
 
-if (jstar_in_use) then {for "_i" from 0 to 2 do {closeDialog _i}; jstar_in_use = false; _stopPropagation = true; ["Repair Stopped"] spawn CQC_fnc_Notification;};
-if (CQC_var_isHealing) then {for "_i" from 0 to 2 do {closeDialog _i}; CQC_var_isHealing = false; closeDialog 2; _stopPropagation = true; ["Healing stopped"] spawn CQC_fnc_Notification;};
+[] call CQC_fnc_stopProgress;
 
 switch (_pressedKey) do  
 { 
@@ -64,8 +63,8 @@ switch (_pressedKey) do
 		_stopPropagation = true;
 	};
 	case DIK_1: {
-		if(count(weapons player) > 0)then{
-			player selectWeapon (weapons player)#0;
+		if(count(weapons player) >= 1)then{
+			player selectWeapon (weapons player)#0
 		};
 	};
 	case DIK_2: 
@@ -80,19 +79,19 @@ switch (_pressedKey) do
 				createDialog "CQC_Rsc_DisplayGarage"; 
 			};
 		}else{
-			if(count(weapons player) > 1)then{
+			if(count(weapons player) >= 2)then{
 				player selectWeapon (weapons player)#1;
 			};
 		};
 		_stopPropagation = true;
 	};
 	case DIK_3: {
-		if(count(weapons player) > 2)then{
+		if(count(weapons player) >= 3)then{
 			player selectWeapon (weapons player)#2;
 		};
 	};
 	case DIK_4: { 
-		if(count(weapons player) > 3)then{
+		if(count(weapons player) >= 4)then{
 			player selectWeapon (weapons player)#3;
 		};
 		_stopPropagation = true; 
@@ -103,8 +102,8 @@ switch (_pressedKey) do
 			[] spawn CQC_fnc_checkPlayerStats;
 			_stopPropagation = true;
 		}else{
-			if(count(weapons player) > 4)then{
-				player selectWeapon (weapons player)#4;
+			if(count(weapons player) >= 5)then{
+				player selectWeapon (weapons player)#5;
 			};
 		};
 	};
@@ -113,8 +112,8 @@ switch (_pressedKey) do
 		if (_shiftHeld AND (call isDonator)) then {
 			call CQC_fnc_VIPMenu; 
 		}else{
-			if(count(weapons player) > 5)then{
-				player selectWeapon (weapons player)#5;
+			if(count(weapons player) >= 6)then{
+				player selectWeapon (weapons player)#6;
 			};
 		};
 		_stopPropagation = true;
@@ -226,7 +225,7 @@ switch (_pressedKey) do
 	case DIK_X: { };
 	case DIK_C: { };
 	case DIK_V: { };
-	case DIK_B: { };
+	case DIK_B: { _stopPropagation = true; };
 	case DIK_N: { };
 	case DIK_M: { };
 
