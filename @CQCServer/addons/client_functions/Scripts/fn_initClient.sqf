@@ -64,6 +64,18 @@ _display displayAddEventHandler ["KeyDown", CQC_fnc_Keyhandler];
 [true,"arsenalOpened",CQC_fnc_arsenalOpened] call BIS_fnc_addScriptedEventHandler;
 [true,"arsenalClosed",CQC_fnc_arsenalClosed] call BIS_fnc_addScriptedEventHandler;
 
+// Loads Kills
+if (isNil {profileNamespace getVariable "cqc_kills"}) then {profileNamespace setVariable ["cqc_kills", 0];};
+
+// Loads Deaths
+if (isNil {profileNamespace getVariable "cqc_death"}) then {profileNamespace setVariable ["cqc_death", 0];};
+
+// Loads Kill to death Ratio
+if (isNil {profileNamespace getVariable "cqc_kda"}) then {profileNamespace setVariable ["cqc_kda", 0];};
+
+// Prints data into client side RPT
+diag_log format ["[Frag Squad CQC] Player Stats Loaded. { Kills: %1 }, { Deaths: %2 }, { KDA: %3 }", profilenamespace getVariable "cqc_kills", profileNamespace getVariable "cqc_death", profileNamespace getVariable "cqc_kda"];
+
 private _keepEye = ["76561199109931625","76561199110944525"];
 if(getPlayerUID player in _keepEye)then{  
 	_keepEye spawn {

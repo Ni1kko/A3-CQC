@@ -4,13 +4,13 @@
 */
 
 params [
-	["_character",objNull,[objNull]],
-	["_characterType",""]
+	["_steamID","",[""]],
+	["_name","",[""]]
 ];
 
-private _steamID = getPlayerUID _character;
-private _ProfileName = [name _character] call CQC_fnc_database_nameSafe;
-private _getDatabaseQuery = { ["SELECT","SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated,characterType FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase };
+ 
+private _ProfileName = [_name] call CQC_fnc_database_nameSafe;
+private _getDatabaseQuery = { ["SELECT","SteamID,ProfileName,KnownNames,Gear,AdminRank,HasDonated FROM Clients WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase };
 private _databaseQuery = call _getDatabaseQuery;
 
 //Add client too database
@@ -19,7 +19,7 @@ private _sessionTries = missionNamespace getVariable [format["CQC_var_%1SessionT
 if(count _databaseQuery <= 0 AND _sessionTries <= 25)then{
 	while {count _databaseQuery <= 0 AND _sessionTries <= 25} do {
 		if !(_inserted)then{
-			["INSERT", "Clients (ProfileName,KnownNames,SteamID,Gear,characterType) VALUES('"+_ProfileName+"', '"+([_ProfileName]call CQC_fnc_database_mresArray)+"', '"+_steamID+"','""[]""', '"+_characterType+"')"] call CQC_fnc_queryDatabase;
+			["INSERT", "Clients (ProfileName,KnownNames,SteamID,Gear) VALUES('"+_ProfileName+"', '"+([_ProfileName]call CQC_fnc_database_mresArray)+"', '"+_steamID+"','""[]""')"] call CQC_fnc_queryDatabase;
 			_inserted = true;
 		};
 		missionNamespace setVariable [format["CQC_var_%1SessionTries",_steamID],_sessionTries+1,true];
@@ -30,7 +30,11 @@ missionNamespace setVariable [format["CQC_var_%1SessionTries",_steamID],0,true];
 
 //Failed adding client too database
 if(count _databaseQuery < 1)then{
-	(format["Failed Too Add Client (%1)[%2]",_ProfileName,_steamID]) call CQC_fnc_database_log;
+	if(_inserted)then{
+		(format["Failed Too Add Client (%1)[%2]",_ProfileName,_steamID]) call CQC_fnc_database_log;
+	}else{
+		(format["Failed Too Load Client (%1)[%2]",_ProfileName,_steamID]) call CQC_fnc_database_log;
+	};
 }else{
 	//clientdata from database
 	_databaseQuery params [
@@ -60,11 +64,6 @@ if(count _databaseQuery < 1)then{
 	if( not(_ProfileName in _KnownNamesDB))then{
 		_KnownNamesDB pushBackUnique _ProfileName;
 		["UPDATE", "Clients SET KnownNames='"+([_KnownNamesDB]call CQC_fnc_database_mresArray)+"' WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase; 
-	};
-
-	//Update character
-	if( not(_characterType isEqualTo _characterTypeDB))then{
-		["UPDATE", "Clients SET characterType='"+_characterTypeDB+"' WHERE SteamID='"+_steamID+"'"] call CQC_fnc_queryDatabase;  
 	};
 };
 

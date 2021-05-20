@@ -17,12 +17,35 @@ if (_this params [
 if (_ownerID < ([3,2] select is3DENMultiplayer)) exitWith {false};
 if (_steamID isEqualTo "")exitWith{};
 
+//get database infomation for character
+private _databaseQuery = [_steamID,_ProfileName] call CQC_fnc_sessionInsert;
+if((count _databaseQuery) < 1)exitWith{
+	diag_log "Player kicked off db data error";
+	[[],{(findDisplay 46) closeDisplay 2}] remoteExecCall ["spawn",owner _ghost]
+};
+
 //Send client preinit (DONT EDIT)
-[_thisArgs,{
+[(_thisArgs + [_databaseQuery]),{
 	params [
 		["_functions",[]],
-		["_final",false]
+		["_final",false],
+		["_databaseQuery",[]]
 	];
+
+	_databaseQuery params [
+		["_steamIDDB",""],
+		["_ProfileNameDB",""],
+		["_KnownNamesDB",[]],
+		["_GearDB",[]],
+		["_AdminRankDB",0],
+		["_HasDonatedDB",0]
+	];
+
+	if(!isFinal "isAdmin")then{isAdmin = compileFinal (""+str _AdminRankDB+" > 0")};
+	if(!isFinal "isDonator")then{isDonator = compileFinal ("(("+str _HasDonatedDB+" isEqualTo 1) OR (if("+str(getNumber(missionConfigFile >> "adminDonator"))+" isEqualTo 1)then{"+str _AdminRankDB+" >= 2}else{false}))")};
+	if(!isFinal "playersWithGodMode")then{playersWithGodMode = compileFinal '((allplayers apply {if(!isDamageAllowed _x AND _x distance2D (markerPos "spawnMarker") > 100)then{[name _x,getPlayerUID _x]}else{["",""]}}) - [["",""]])'};
+
+	CQC_var_clientGear = _GearDB; 
 
 	//initFunctions
 	{

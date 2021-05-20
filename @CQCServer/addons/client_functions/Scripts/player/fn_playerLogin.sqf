@@ -7,23 +7,6 @@ waitUntil {!isNull player};
 
 [] call CQC_fnc_stopProgress;
 
-character = objNull;
-
-//Get character
-private _stayRightThere = getPosATL player;
-[player] remoteExec ["CQC_fnc_requestcharacter",2];
-waitUntil { 
-	if(isNull character)then{
-		[["Loading Character","Downloading Character"]select CQC_var_firstSpawn] spawn CQC_fnc_Notification; 
-		if(player distance2D _stayRightThere > 2)then{
-			player setPos _stayRightThere;
-			["Please Be Paitent..."] spawn CQC_fnc_Notification;
-		};
-		uiSleep 3;
-	};
-	!isNull character
-};
-
 if(getNumber(missionConfigFile >> "spawnSmoke") isEqualTo 1)then{
 	private _spawnSmoke = [] spawn {
 		private _particles = []; 
@@ -47,34 +30,26 @@ if(getNumber(missionConfigFile >> "spawnSmoke") isEqualTo 1)then{
 	waitUntil {scriptDone _spawnSmoke};
 };
 
-[["Character Loaded","Character Downloaded"]select CQC_var_firstSpawn] spawn CQC_fnc_Notification; 
-
-// Loads Kills
-if (isNil {profileNamespace getVariable "cqc_kills"}) then {profileNamespace setVariable ["cqc_kills", 0];};
-
-// Loads Deaths
-if (isNil {profileNamespace getVariable "cqc_death"}) then {profileNamespace setVariable ["cqc_death", 0];};
-
-// Loads Kill to death Ratio
-if (isNil {profileNamespace getVariable "cqc_kda"}) then {profileNamespace setVariable ["cqc_kda", 0];};
+player switchCamera "EXTERNAL";
+player enableFatigue false; 
+player setCustomAimCoef 0.00;
+player addRating -1000000; 
 
 // Updates the variables
-character setUnitTrait ["Medic",true];
-character setVariable ["cqc_kills", profileNamespace getVariable "cqc_kills"];
-character setVariable ["cqc_death", profileNamespace getVariable "cqc_death"];
-character setVariable ["cqc_kda", profileNamespace getVariable "cqc_kda"];
-character setVariable ["Earplugs",0];
-character setVariable ["Plugs",false];
+player setUnitTrait ["Medic",true];
+player setVariable ["cqc_kills", profileNamespace getVariable "cqc_kills"];
+player setVariable ["cqc_death", profileNamespace getVariable "cqc_death"];
+player setVariable ["cqc_kda", profileNamespace getVariable "cqc_kda"];
+player setVariable ["Earplugs",0];
+player setVariable ["Plugs",false];
 
-// Prints data into client side RPT
-diag_log format ["[Frag Squad CQC] Player Stats Loaded. { Kills: %1 }, { Deaths: %2 }, { KDA: %3 }", profilenamespace getVariable "cqc_kills", profileNamespace getVariable "cqc_death", profileNamespace getVariable "cqc_kda"];
 
 [] spawn CQC_fnc_eventHandlers;
 [] spawn CQC_fnc_initActions;// scroll actions
 
 //Temp Check If Not In DB
 if !(call isAdmin) then{  
-	if (getplayeruid character in [
+	if (getplayeruid player in [
 		// Staff Team
 		'76561198119520123', // Callum HD
 		'76561198334203836', // Tom Cliffoff
@@ -94,7 +69,7 @@ if !(call isAdmin) then{
 
 //Temp Check If Not In DB
 if!(call isDonator)then{ 
-	if (getplayeruid character in [
+	if (getplayeruid player in [
 		'76561198393606454', // Yab (Friend)
 		'76561198276144474', // Liamm
 		'76561198092176053', // TyRant
@@ -129,19 +104,18 @@ if!(call isDonator)then{
 
 // Custom Loadout Bullshit
 if ((call isDonator) AND count (CQC_var_clientGear) > 0) then {
-	character setUnitLoadout CQC_var_clientGear;
+	player setUnitLoadout CQC_var_clientGear;
 }else{
 	private _customLoadout = profileNamespace getVariable [ "CQC_Custom_Loadout", [] ];
 	if ( count (_customLoadout) > 0) then {
-		character setUnitLoadout _customLoadout;
+		player setUnitLoadout _customLoadout;
 	}else{
 		//fail safe (no custom, no db saved)
-		character setUnitLoadout [[],[],[],["U_C_Poloshirt_tricolour",[]],["V_PlateCarrier2_blk",[]],[],"H_Hat_brown","",["Rangefinder","","","",[],[],""],["ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",""]];
+		player setUnitLoadout [[],[],[],["U_C_Poloshirt_tricolour",[]],["V_PlateCarrier2_blk",[]],[],"H_Hat_brown","",["Rangefinder","","","",[],[],""],["ItemMap","ItemGPS","ItemRadio","ItemCompass","ItemWatch",""]];
 		[] call CQC_fnc_saveGear;
 	};
 };
 
-[character] remoteExec ["CQC_fnc_charactercreated",2];
 
 if(profileNameSpace getVariable ["CQC_idleKicked",false])then{
 	profileNameSpace setVariable ["CQC_idleKicked",false];

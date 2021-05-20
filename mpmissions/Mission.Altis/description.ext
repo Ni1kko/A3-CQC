@@ -85,9 +85,7 @@ class cfgRemoteExec
 		mode = 1;
 		jip = 1;
 		class BIS_fnc_debugConsoleExec				{ allowedTargets = 0; jip = 0; };
-		class BIS_fnc_execVM						{ allowedTargets = 0; jip = 0; };
-		class CQC_fnc_requestcharacter 				{ allowedTargets = 2; jip = 0; };
-		class CQC_fnc_charactercreated 				{ allowedTargets = 2; jip = 0; };
+		class BIS_fnc_execVM						{ allowedTargets = 0; jip = 0; }; 
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
