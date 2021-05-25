@@ -19,7 +19,7 @@ _OPEN_ADMIN_MENU_KEY = 0x3B;
 /*  Terrain Grid Value   */ _TGV = 50;		/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 ~35 is good performance and grass :) */
 /*  ViewDistance Value   */ _VDV = 1000;
 /*  ObjectViewDistance   */ _VOV = 800;
-/*  Local Vehicle Check  */ _LVC = true;	/* true or false */
+/*  Local Vehicle Check  */ _LVC = false;	/* true or false */
 /*  unitRecoil checks    */ _URC = false;	/* true or false */
 /*  Check Vision Mode    */ _CVM = true;	/* true or false */
 /*  Use Memoryhack check */ _UMH = true;	/* true or false */ 
@@ -374,7 +374,7 @@ try {
 	//random vars
 	private _adminbox = ["_adminbox"] call (missionNamespace getVariable _randomVarsFnc); 
 	private _FNC_AH_KICKLOG = ["_FNC_AH_KICKLOG"] call (missionNamespace getVariable _randomVarsFnc);
-	private _FNC_AH_KICKLOGSPAWN = ["_FNC_AH_KICKLOGSPAWN"] call (missionNamespace getVariable _randomVarsFnc);
+	private _FNC_AH_KICKFROMSERVER = ["_FNC_AH_KICKFROMSERVER"] call (missionNamespace getVariable _randomVarsFnc);
 	private _adminMenuRequest = ["_adminMenuRequest"] call (missionNamespace getVariable _randomVarsFnc);
 	private _netRequestVar = ["_netRequestVar"] call (missionNamespace getVariable _randomVarsFnc);
 	private _token_by_uid = ["_token_by_uid"] call (missionNamespace getVariable _randomVarsFnc);
@@ -1648,7 +1648,7 @@ try {
 		};
 		"+_FNC_AH_KICKLOG+" = compileFinal ([_FNC_AH_KICKLOG] call CQC_fnc_tooExpression);
 	  
-		_FNC_AH_KICKLOGSPAWN = {
+		_FNC_AH_KICKFROMSERVER = {
 			private['_input','_tokenreceived','_arraysent','_netId','_objectFromNetId','_objectName','_objectUID','_name','_puid','_result','_foundtokenid','_puidfound','_belongstoname'];
 			_input = _this;
 			if(isNil '_input')exitWith{
@@ -1718,7 +1718,7 @@ try {
 			_arraysent set [1,_puid];
 			_arraysent call "+_FNC_AH_KICKLOG+";
 		};
-		"+_FNC_AH_KICKLOGSPAWN+" = compileFinal ([_FNC_AH_KICKLOGSPAWN] call CQC_fnc_tooExpression);
+		"+_FNC_AH_KICKFROMSERVER+" = compileFinal ([_FNC_AH_KICKFROMSERVER] call CQC_fnc_tooExpression);
 		 
 		CQC_PlayerConnected_id = addMissionEventHandler ['PlayerConnected',{
 			params['_id','_uid','_name','_jip','_owner'];
@@ -2742,7 +2742,7 @@ try {
 				if(time > _timer0)then
 				{
 					_timer0 = time + 20; 
-					'"+_AH_KICKLOG+"' addPublicVariableEventHandler {(_this select 1) call "+_FNC_AH_KICKLOGSPAWN+";};
+					'"+_AH_KICKLOG+"' addPublicVariableEventHandler {(_this select 1) call "+_FNC_AH_KICKFROMSERVER+";};
 					['',_DO_THIS_MORE_OFTEN,-2,_DO_THIS_MORE_OFTEN_ID] call CQC_fnc_remoteExec; 
 					{deleteVehicle _x;} forEach allMines;
 					{deleteVehicle _x;} forEach allUnitsUAV;  
