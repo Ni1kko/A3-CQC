@@ -140,18 +140,35 @@ switch (_mode) do {
 
 		if(_spawned)then{
 			
-			{
-				private _mags = [_x] call BIS_fnc_compatibleMagazines;
-				{
-					private _mag = _x;
-					player addMagazine [_mag, 999];
-				} forEach _mags;
-			}forEach [
-				primaryWeapon player, 
-				handgunWeapon player, 
-				secondaryWeapon player
-			];
+			private _gun1 =primaryWeapon player;
+			private _gun2 =handgunWeapon player;
+			private _gun3 =secondaryWeapon player;
 
+			_olivers_soup = 7;
+
+			if(_gun1 != "" || _gun2 != "" || _gun3 != "")then{
+				if(_gun3 != "")then{
+					_olivers_soup = _olivers_soup + 3
+				}; 
+				if(_gun2 != "")then{
+					_olivers_soup = _olivers_soup + 5
+				};
+				if(_gun1 != "")then{
+					_olivers_soup = _olivers_soup + 7
+				};
+				for "_can_i_have_some_more_sir" from 0 to _olivers_soup do {
+					{
+						private _mags = [_x] call BIS_fnc_compatibleMagazines;
+						{
+							private _mag = _x;
+							player addMagazine [_mag, 999];
+						} forEach _mags;
+					}forEach [
+						_gun1,_gun2,_gun3
+					];
+				};
+			};
+			
 			CQC_var_lastSpawnPos = _locationName;
 		};
 	};
