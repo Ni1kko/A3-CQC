@@ -139,6 +139,19 @@ switch (_mode) do {
 		};
 
 		if(_spawned)then{
+			
+			{
+				private _mags = [_x] call BIS_fnc_compatibleMagazines;
+				{
+					private _mag = _x;
+					player addMagazine [_mag, 999];
+				} forEach _mags;
+			}forEach [
+				primaryWeapon player, 
+				handgunWeapon player, 
+				secondaryWeapon player
+			];
+
 			CQC_var_lastSpawnPos = _locationName;
 		};
 	};

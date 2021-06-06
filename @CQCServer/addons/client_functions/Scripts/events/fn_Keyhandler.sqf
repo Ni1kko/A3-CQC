@@ -233,7 +233,13 @@ switch (_pressedKey) do
 	case DIK_Z: { };
 	case DIK_X: { };
 	case DIK_C: { };
-	case DIK_V: { };
+	case DIK_V: 
+	{ 
+		if (_shiftHeld) then{
+			[] call CQC_fnc_jump;
+			_stopPropagation = true;
+		}; 
+	};
 	case DIK_B: { _stopPropagation = true; };
 	case DIK_N: { };
 	case DIK_M: { };

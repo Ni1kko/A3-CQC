@@ -114,7 +114,7 @@ while {true} do {
 	};
 	
 	//abandoned vehicles
-	if (_abandonedVehiclesTimer>0) then {		
+	/*if (_abandonedVehiclesTimer>0) then {		
 		{
 			if ({alive _x}count crew _x isEqualTo 0) then { 	 
 				[_x, _abandonedVehiclesTimer] call _addToCleanup;
@@ -122,7 +122,7 @@ while {true} do {
 				[_x] call _removeFromCleanup;
 			}; 
 		} forEach vehicles;
-	};
+	};*/
 
 
 	//cleanup							
