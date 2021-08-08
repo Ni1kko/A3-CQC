@@ -22,7 +22,7 @@ respawnOnStart = 0;
 respawnButton = 1;
 
 //CQC Config
-fileVersion = 0.050;
+fileVersion = 0.043;
 escapeTimer = 3;				//How long player has to wait before can leave server
 combatTimer = 10;				//How long player has to wait before can leave server (whilst in COMBAT)
 adminDonator = true;			//Enables VIP Features for admins
