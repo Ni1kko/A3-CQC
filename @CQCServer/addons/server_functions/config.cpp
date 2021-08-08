@@ -16,7 +16,7 @@ class CfgPatches
 		requiredAddons[] = {"client_functions"};
 		units[] = {};
 		weapons[] = {};
-		fileVersion = 0.043;
+		fileVersion = 0.050;
 		antiHack = true;
 	};
 };

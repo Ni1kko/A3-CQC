@@ -445,21 +445,21 @@ try {
 	];
 	
 	//Pre init
-	private _runCheck = false;
-	private _expressions = [];
+	private _1 = false;
+	private _a = [];
 
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_AH_HackLogArrayRND+" = [];
 		"+_AH_SurvLogArrayRND+" = [];
 		"+_AH_AdmiLogArrayRND+" = [];
 		"+_adminsA+" = "+str _admins+"; 
 		"+_serverLocked+" = false;
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		publicVariable '"+_adminsA+"';
 		publicVariable '"+_serverLocked+"';
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_server_setTokenR+" = compileFinal (""
 			params[['_uid','',['']]]; 
 			_token = ['_token'] call "+_randomVarsFnc+";
@@ -468,7 +468,7 @@ try {
 			_token
 		""); 
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_checkGlobalBanState+" = compileFinal (""
 			params ['_name','_uid'];
 			_res = '0';
@@ -481,7 +481,7 @@ try {
 			};
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_adminMenuRequest+" = compileFinal (""
 			_allPlayers = ""+_adminsA+"";
 			_locDevs = ""+str _devs+"";
@@ -1045,7 +1045,7 @@ try {
 			};
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_adminConnected+" = compileFinal (""
 			params['_id','_uid','_name','_jip','_owner','_admins','_admin','_isNormal'];
 			if (_owner < 3) exitwith {};
@@ -1242,7 +1242,7 @@ try {
 			] remoteExecCall ['spawn',_owner,false];
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_serverMassMessage+" = compileFinal (""
 			private['_msg','_unit'];
 			_msg = _this select 0;
@@ -1251,7 +1251,7 @@ try {
 			(owner _unit) publicVariableClient '""+_massMessage+""';
 		"");
 	");
-	_expressions pushBack (" 
+	_a pushBack (" 
 		"+_voteTimeServer+" = compileFinal ("" 
 			_clientUID = _this select 0;
 			_vote = _this select 1;
@@ -1323,7 +1323,7 @@ try {
 			};
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_serverKick+" = compileFinal (""
 			params[
 				['_name','',['']],
@@ -1350,7 +1350,7 @@ try {
 			};
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_serverLock+" = compileFinal (""
 			params[ 
 				['_lock',true,[false]]
@@ -1367,7 +1367,7 @@ try {
 			publicVariable '""+_serverLocked+""';
 		"");
 	");
-	_expressions pushBack ("
+	_a pushBack ("
 		"+_serverBan+" = compileFinal (""
 			params[['_name',''],['_uid',''],['_reason','']];
 
@@ -1392,7 +1392,7 @@ try {
 			};
 		"");
 	");
-	_expressions pushBack ("		
+	_a pushBack ("		
 		'"+_netRequestVar+"' addPublicVariableEventHandler {(_this select 1) call "+_adminMenuRequest+";};
 
 		['SYSTEMLOG','preinit compiled and ran..'] call CQC_fnc_ahLog;
@@ -1403,16 +1403,16 @@ try {
 	");
 
 	//-- Load Pre init
-	_runCheck = [] call compile (_expressions joinString ""); 
-	if(isNil {_runCheck}) exitWith {
-		['SYSTEMLOG',_runCheck] call CQC_fnc_ahLog;
+	_1 = [] call compile (_a joinString ""); 
+	if(isNil {_1}) exitWith {
+		['SYSTEMLOG',"Preinit not compiled"] call CQC_fnc_ahLog;
 		throw false;
 	};
 
 	//-- Build Anti Hack
-	_runCheck = false;
-	_expressions = [];
-	_expressions pushBack ("
+	private _2 = false;
+	private _b = [];
+	_b pushBack ("
 		CQC_fnc_serverBanTemp = {
 			params[['_name',''],['_uid',''],['_reason','']];
 
@@ -1438,7 +1438,8 @@ try {
 			[_name,_uid,-10,format['TEMP BAN: %1',_reason]] call "+_serverKick+";
 		};
 		CQC_fnc_serverBanTemp = compileFinal ([CQC_fnc_serverBanTemp] call CQC_fnc_tooExpression);
-  
+	");
+	_b pushBack ("
 		_fnc_CQC_PlayerLog = {
 			params[['_uid',''],['_name',''],['_owner',-10]];
 			if (_owner < 3) exitwith {};
@@ -1465,7 +1466,8 @@ try {
 			} forEach ['thirtysix','le hippo','infis'];
 		};
 		fnc_CQC_PlayerLog = compileFinal ([_fnc_CQC_PlayerLog] call CQC_fnc_tooExpression);
-
+	");
+	_b pushBack ("
 		_FNC_AH_KICKLOG = {
 			params[['_name',''],['_puid',''],['_what','']];
 			if((_name != '')&&(_puid == ''))then
@@ -1515,35 +1517,31 @@ try {
 						_veh = vehicle _plrObj;
 						_vehstype = typeOf _veh;
 						if(_plrObj != _veh)then
-						{
-	"); 
-	if(_UVC)then{ 
-		_expressions pushBack  ("
-			if((!("+str _UVW+") && {_vehstype in "+str _ForbiddenVehicles+"}) || (("+str _UVW+") && {!(_vehstype in "+str _VehicleWhiteList+")}))then
-			{
-				_crew = crew _veh;
-				if(_crew isEqualTo [])then
-				{
-					_log = format['BadVehicle (S-UVC+LVC): %1',_vehstype];
-					['SERVER','SERVER','HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
-					_veh call CQC_fnc_deleteObject;
-				}
-				else
-				{
-					if(call{{if((getPlayerUID _x) in "+_adminsA+")exitWith{true};false} forEach _crew;})exitWith{};
-					
-					_log = format['BadVehicle (S-UVC+LVC): %1',_vehstype];
-					{
-						_name = name _x;
-						_puid = getPlayerUID _x;
-						[_name,_puid,'HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
-					} forEach _crew;
-					_veh call CQC_fnc_deleteObject;
-				};
-			};
-		");
-	};
-	_expressions pushBack ("
+						{ 
+							if("+str _UVC+")then{
+								if((!("+str _UVW+") && {_vehstype in "+str _ForbiddenVehicles+"}) || (("+str _UVW+") && {!(_vehstype in "+str _VehicleWhiteList+")}))then
+								{
+									_crew = crew _veh;
+									if(_crew isEqualTo [])then
+									{
+										_log = format['BadVehicle (S-UVC+LVC): %1',_vehstype];
+										['SERVER','SERVER','HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
+										_veh call CQC_fnc_deleteObject;
+									}
+									else
+									{
+										if(call{{if((getPlayerUID _x) in "+_adminsA+")exitWith{true};false} forEach _crew;})exitWith{};
+										
+										_log = format['BadVehicle (S-UVC+LVC): %1',_vehstype];
+										{
+											_name = name _x;
+											_puid = getPlayerUID _x;
+											[_name,_puid,'HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
+										} forEach _crew;
+										_veh call CQC_fnc_deleteObject;
+									};
+								};
+							}; 
 						};
 						if(!isNull _veh)then
 						{
@@ -1658,7 +1656,8 @@ try {
 			};
 		};
 		"+_FNC_AH_KICKLOG+" = compileFinal ([_FNC_AH_KICKLOG] call CQC_fnc_tooExpression);
-	  
+	");
+	_b pushBack ("  
 		_FNC_AH_KICKFROMSERVER = {
 			private['_input','_tokenreceived','_arraysent','_netId','_objectFromNetId','_objectName','_objectUID','_name','_puid','_result','_foundtokenid','_puidfound','_belongstoname'];
 			_input = _this;
@@ -1730,7 +1729,8 @@ try {
 			_arraysent call "+_FNC_AH_KICKLOG+";
 		};
 		"+_FNC_AH_KICKFROMSERVER+" = compileFinal ([_FNC_AH_KICKFROMSERVER] call CQC_fnc_tooExpression);
-		 
+	");
+	_b pushBack ("	 
 		CQC_PlayerConnected_id = addMissionEventHandler ['PlayerConnected',{
 			params['_id','_uid','_name','_jip','_owner'];
 			if(count _uid < 17)then
@@ -1785,7 +1785,8 @@ try {
 				[_uid,_name,_owner] call fnc_CQC_PlayerLog;  
 			};
 		}];
-		
+	");
+	_b pushBack ("	
 		CQC_PlayerDisconnected_id = addMissionEventHandler ['PlayerDisconnected',{
 			params['_id','_uid','_name','_jip','_owner'];
 			_mytime = call CQC_fnc_serverUpTime;
@@ -1796,7 +1797,8 @@ try {
 			_log = _mytime + format['Disconnected: %1(%2 - %3) - time: %4 - serverFPS: %5',_name,_uid,_owner,time,diag_fps];
 			['CONNECTLOG',_log] call CQC_fnc_ahLog;
 		}];
-		
+	");
+	_b pushBack ("	
 		_AH_MAIN_BLOCK = {
 			waitUntil{uiSleep 1;getClientStateNumber >= 10 && !isNull findDisplay 46};
 			params ['_name','_puid','_admin','_isNormal','_admins'];
@@ -2535,40 +2537,35 @@ try {
 		
 						if(!isNull player)then
 						{
-	"); 
-	if(_CVM)then{ 
-		_expressions pushBack ("
-			if(player == vehicle player)then
-			{
-				private['_curwep','_pvision','_primWeapItems','_pitems'];
-				_curwep=currentWeapon player;
-				_pvision=currentVisionMode player;
-				_primWeapItems=primaryWeaponItems player;
-				_pitems=items player;
-				if('Rangfinder_mas_h' in _pitems)exitWith{};
-				if((_pvision > 1)&&(call _fnc_hasTV))then
-				{
-					_log = format['BadVisionMode: Thermal (%1) current weapon: %2 | weaponsItems player: %3',_pvision,_curwep,weaponsItems player];
-					[_name,_puid,'HLOG',toArray(_log)] call "+_AHKickLog+";
-					(findDisplay 46)closeDisplay 0;
-				};
-			};
-		"); 
-	}; 
-	if(_LVC)then{ 
-		_expressions pushBack ("
-			_veh = vehicle player;
-			if(!(player isEqualTo _veh) && !(_vehptype isEqualTo (typeOf _veh)))then
-			{
-				_vehptype = typeOf _veh;
-				if((toLower _vehptype) find 'chute' == -1)then
-				{
-					[_name,_puid,'LVC',player,_vehptype,mapGridPosition _veh] call "+_AHKickLog+";
-				};
-			};
-		"); 
-	}; 
-	_expressions pushBack ("
+ 
+							if("+str _CVM+")then{  
+								if(player == vehicle player)then
+								{
+									private['_curwep','_pvision','_primWeapItems','_pitems'];
+									_curwep=currentWeapon player;
+									_pvision=currentVisionMode player;
+									_primWeapItems=primaryWeaponItems player;
+									_pitems=items player;
+									if('Rangfinder_mas_h' in _pitems)exitWith{};
+									if((_pvision > 1)&&(call _fnc_hasTV))then
+									{
+										_log = format['BadVisionMode: Thermal (%1) current weapon: %2 | weaponsItems player: %3',_pvision,_curwep,weaponsItems player];
+										[_name,_puid,'HLOG',toArray(_log)] call "+_AHKickLog+";
+										(findDisplay 46)closeDisplay 0;
+									};
+								}; 
+							}; 
+							if("+str _LVC+")then{  
+								_veh = vehicle player;
+								if(!(player isEqualTo _veh) && !(_vehptype isEqualTo (typeOf _veh)))then
+								{
+									_vehptype = typeOf _veh;
+									if((toLower _vehptype) find 'chute' == -1)then
+									{
+										[_name,_puid,'LVC',player,_vehptype,mapGridPosition _veh] call "+_AHKickLog+";
+									};
+								}; 
+							};  
 						}; 
 						uiSleep 2;
 					 
@@ -2681,7 +2678,8 @@ try {
 			"+_AH_RunCheckENDVAR+" = 'k';
 		};
 		"+_AH_MAIN_BLOCK+" = _AH_MAIN_BLOCK;
-
+	");
+	_b pushBack ("
 		[] spawn { 
 			private _admins = "+str _admins+"; 
 
@@ -2794,36 +2792,32 @@ try {
 							
 							_puidPlayerObject = _x getVariable['PUID','-1'];
 							if!(_puidPlayerObject isEqualTo _uid)then{ _x setVariable['PUID',_uid]; };
-							
-	"); 
-	if(_UVC)then{ 
-		_expressions pushBack ("
-			_veh = objectParent _x;
-			if(!isNull _veh)then
-			{
-				if(_veh getVariable ['"+_vehicle_needs_check+"',true])then
-				{
-					_veh setVariable ['"+_vehicle_needs_check+"',false];
-					
-					_type = typeOf _veh;
-					if((!("+str _UVW+") && {_type in "+str _ForbiddenVehicles+"}) || (("+str _UVW+") && {!(_type in "+str _VehicleWhiteList+")}))then
-					{
-						_crew = crew _veh;
-						if(call{{if((getPlayerUID _x) in "+_adminsA+")exitWith{true};false} forEach _crew;})exitWith{};
-						
-						_log = format['BadVehicle (S-UVC): %1',_type];
-						{
-							_xname = name _x;
-							_xuid = getPlayerUID _x;
-							[_xname,_xuid,'HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
-						} forEach _crew;
-						_veh call CQC_fnc_deleteObject;
-					};
-				};
-			};
-		"); 
-	}; 
-	_expressions pushBack ("
+ 
+							if("+str _UVC+")then{  
+								_veh = objectParent _x;
+								if(!isNull _veh)then
+								{
+									if(_veh getVariable ['"+_vehicle_needs_check+"',true])then
+									{
+										_veh setVariable ['"+_vehicle_needs_check+"',false];
+										
+										_type = typeOf _veh;
+										if((!("+str _UVW+") && {_type in "+str _ForbiddenVehicles+"}) || (("+str _UVW+") && {!(_type in "+str _VehicleWhiteList+")}))then
+										{
+											_crew = crew _veh;
+											if(call{{if((getPlayerUID _x) in "+_adminsA+")exitWith{true};false} forEach _crew;})exitWith{};
+											
+											_log = format['BadVehicle (S-UVC): %1',_type];
+											{
+												_xname = name _x;
+												_xuid = getPlayerUID _x;
+												[_xname,_xuid,'HLOG',toArray(_log)] call "+_FNC_AH_KICKLOG+";
+											} forEach _crew;
+											_veh call CQC_fnc_deleteObject;
+										};
+									};
+								}; 
+							};
 						};
 					} forEach allPlayers;
 				};
@@ -2834,7 +2828,8 @@ try {
 
 			['HACKLOG',format['%1 - LOOP - BROKEN!',time]] call CQC_fnc_ahLog;
 		};
-
+	");
+	_b pushBack ("
 		[
 			'',
 			{
@@ -2893,21 +2888,21 @@ try {
 	");
 	
 	//-- Load Anti Hack
-	_runCheck = [] call compile (_expressions joinString ""); 
-	if(isNil {_runCheck}) exitWith {
-		['SYSTEMLOG',_runCheck] call CQC_fnc_ahLog;
+	_2 = [] call compile (_b joinString ""); 
+	if(isNil {_2}) exitWith {
+		['SYSTEMLOG',"Antihack not compiled"] call CQC_fnc_ahLog;
 		throw false;
 	};
 	
 	//-- Admin Menu
-	_runCheck = false;
-	_expressions = [];
-	_expressions pushBack (" 
+	private _3 = false;
+	private _c = [];
+	_c pushBack (" 
 		fnc_admin_c = compile 'compile _this';
 		fnc_admin_cc = compile 'call compile _this';
 		fnc_admin_ccc = compile 'if(!isNil {call compile _this})then{call compile _this}else{''ANY''}';
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_createctrl = {
 			params['_display','_type','_idc'];
 			ctrlDelete (_display displayCtrl _idc);
@@ -3041,7 +3036,7 @@ try {
 		};
 		['SYSTEMLOG','config data loaded..'] call CQC_fnc_ahLog;
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_setFocus = {
 			disableSerialization;
 			ctrlSetFocus ((findDisplay MAIN_DISPLAY_ID) displayCtrl LEFT_CTRL_ID);
@@ -3848,7 +3843,7 @@ try {
 			_btn ctrlCommit 0;
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_FULLinit = {
 			disableSerialization;
 			if(isNull findDisplay MAIN_DISPLAY_ID)then
@@ -4002,7 +3997,7 @@ try {
 			(uiNamespace getVariable 'RscHTML_CQC_Admin') ctrlShow true;
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_fill_HackLog = {
 			disableSerialization;
 			_ctrl = (findDisplay MAIN_DISPLAY_ID) displayCtrl RIGHT_CTRL_ID;
@@ -4530,7 +4525,7 @@ try {
 			SELECTED_TARGET_PLAYER
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_toggleables = {
 			switch (_this) do {
 				case 'CQC Player ESP 1':{call CQC_fnc_infiESP_player1;};
@@ -5052,7 +5047,7 @@ try {
 			_log call FN_SHOW_LOG;
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_TP2ME = {
 			_unit = _this select 0;
 			_pos = player modelToWorld [0,12,0];
@@ -5125,7 +5120,7 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_add_loadout = {
 			_select = _this select 0;
 			_wset = player;
@@ -5525,7 +5520,7 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_CQC_A3UnlAmmo = {
 			if(isNil 'unlimAmmRun')then
 			{
@@ -5761,7 +5756,7 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		zeus_attack = {
 			_target = _this select 0;
 			_pos = screenToWorld [0.5,0.5];
@@ -6028,7 +6023,7 @@ try {
 			[8,player,_target] call fnc_AdminReq;
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_HealTarget = {
 			_target = _this select 0;
 			if(typeName _target != 'OBJECT')then
@@ -6239,7 +6234,7 @@ try {
 			if(alive _x)then{name _x}else{_x getVariable['playerName','unknown']}
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_draw3dhandlerPLAYER1 = ""
 			if(!isNull cameraOn)then
 			{
@@ -6444,7 +6439,7 @@ try {
 			} forEach allDeadMen;
 		"";
 	");
-	_expressions pushBack ("  
+	_c pushBack ("  
 		fnc_call_single_esps = {
 			if(!isNil'CQCEspEHVAR')then{
 				removeMissionEventHandler ['Draw3D',CQCEspEHVAR];
@@ -6506,7 +6501,7 @@ try {
 			call fnc_call_single_esps;
 		};
 	");
-	_expressions pushBack (" 
+	_c pushBack (" 
 		fnc_draw_MapIcons = {
 			if!(visibleMap || dialog)exitWith{};
 			private['_ctrl'];
@@ -6849,7 +6844,7 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_CQC_vehboostKeydown = {
 			_key = _this select 1;
 			_shiftState = _this select 2;
@@ -7029,7 +7024,7 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ("
+	_c pushBack ("
 		fnc_startEMP = {
 			CALLED_EMP = true;
 			_log = 'Click on the Map position for the EMP!';
@@ -7201,8 +7196,8 @@ try {
 			};
 		};
 	");
-	_expressions pushBack ([CQC_fnc_debugConsole] call CQC_fnc_tooExpression);
-	_expressions pushBack (" 
+	_c pushBack ([CQC_fnc_debugConsole] call CQC_fnc_tooExpression);
+	_c pushBack (" 
 		[] spawn {
 			waituntil { !(isNull findDisplay 46) }; 
 			if(isNil 'OPEN_ADMIN_MENU_KEY')then{OPEN_ADMIN_MENU_KEY = 0x3B;};
@@ -7546,9 +7541,10 @@ try {
 		"+_compile3Var+" = toString [67,81,67];
 		true
 	");
-	uiNamespace setVariable [_adminPayload,compileFinal (_expressions joinString "")];
-	if(typeName(uiNamespace getVariable _adminPayload) isNotEqualTo "CODE") exitWith {
-		['SYSTEMLOG',_runCheck] call CQC_fnc_ahLog;
+	uiNamespace setVariable [_adminPayload,compileFinal (_c joinString "")];
+	_3 = (isNil {_3}|| {(uiNamespace getVariable _adminPayload) isNotEqualType {}});
+	if(_3) exitWith {
+		['SYSTEMLOG',"Adminmenu not compiled"] call CQC_fnc_ahLog;
 		throw false;
 	};
 	
