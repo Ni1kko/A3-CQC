@@ -1,0 +1,13 @@
+[] execVM 'repetitive_cleanup.sqf';
+0 setFog 0;
+forceWeatherChange;
+999999 setFog 0;
+enableEnvironment false;
+setTerrainGrid 50;
+setViewDistance 500;
+execVM "clearCrates.sqf";
+execVM "addLoadouts.sqf";
+execVM "jumpscript.sqf";
+execVM "killEnemy.sqf";
+sleep 1200;
+"end1" call BIS_fnc_endMission; // failMission "end1";
