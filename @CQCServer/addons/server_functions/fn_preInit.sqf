@@ -22,6 +22,17 @@ private _compileFinal = ([_config, "compileFinal", 1] call BIS_fnc_returnConfigE
 private _isLiveServer = (!("Dev" in servername) || !_compileFinal);
 private _serverCommandPass = 'ggfhryy3$$';
 
+private _missionID = switch (missionName) do {
+    case "blackwater": {5};
+    case "church": {4};
+    case "fed": {3};
+    case "gravia": {2};
+    case "ogcartel": {1};
+    default {0};
+};
+
+if(_missionID in [1,2,3,4,5])exitWith{};
+
 try {
 	//Lock server at start 
 	if (_isLiveServer AND !(_serverCommandPass serverCommand "#lock") OR !(_serverCommandPass serverCommand "#exec users")) throw "Error: Server Command Password INCORECT!";
