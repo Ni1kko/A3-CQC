@@ -5,7 +5,7 @@ fn_Animation =
     _unit = _this select 0;
     _anim = _this select 1;
     _unit switchMove _anim;// PLAY ANIMATION JUMP
-    //_unit playMovenow _anim;
+    _unit playMovenow _anim;
 };
 
 dokeyDown={
