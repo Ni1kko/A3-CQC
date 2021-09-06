@@ -6,7 +6,7 @@
 author = "Frag Squad Development Team"; 
 OnLoadIntroTime = 0;
 OnLoadMissionTime = 0;
-skipLobby = 1; // bypassing role selection screen
+skipLobby = 0; // bypassing role selection screen
 joinUnassigned = 0; // 0: disabled - 1: enabled. Default: 1
 showWatch = 0; // 0: disabled - 1: enabled. Default: 1
 allowProfileGlasses = 0;
@@ -92,6 +92,7 @@ class cfgRemoteExec
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
+		class fn_animation 							{ allowedTargets = 2; jip = 0; };
 	};
 
 	// List of Commands allowed to be sent from client via remoteExec
