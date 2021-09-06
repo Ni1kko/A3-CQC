@@ -1,0 +1,3523 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=513;
+	class ItemIDProvider
+	{
+		nextID=180;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={21164.611,45.777397,19259.746};
+		dir[]={-0.87276626,-0.32570508,0.36362004};
+		up[]={-0.30066615,0.94546747,0.12526642};
+		aside[]={0.38459122,-4.7730282e-008,0.92309952};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Structures_F_Walls",
+	"A3_Structures_F_Mil_Fortification",
+	"A3_Characters_F",
+	"A3_Weapons_F",
+	"A3_Characters_F_Heads",
+	"A3_Characters_F_Orange_Facewear",
+	"A3_Weapons_F_Items",
+	"A3_Ui_F",
+	"A3_Modules_F_Curator_Curator",
+	"A3_Structures_F_EPC_Dominants_GhostHotel",
+	"A3_Weapons_F_Ammoboxes"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=8;
+		class Item0
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Characters_F_Orange";
+			name="Arma 3 Orange - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item6
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Structures_F_EPC";
+			name="Arma 3 Win Episode - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=9419182;
+class ScenarioData
+{
+	author="Xlax";
+	class Header
+	{
+		gameType="TDM";
+		minPlayers=1;
+		maxPlayers=30;
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="None";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="FragSquad CQC | Blackwater Map";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=82;
+		class Item0
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21018.236,18.597483,19288.643};
+				angles[]={0,4.4587607,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=5;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item1
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21019.119,18.648752,19284.775};
+				angles[]={0,4.473115,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=6;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item2
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21019.963,18.636932,19280.895};
+				angles[]={0,4.5327244,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=7;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item3
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21020.539,18.573538,19277.033};
+				angles[]={0,4.6031218,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=8;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21020.744,18.506807,19273.164};
+				angles[]={0,4.6938524,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=9;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item5
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21020.477,18.427368,19270.977};
+				angles[]={0,1.0151219,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=10;
+			type="Land_Mil_WallBig_Corner_F";
+		};
+		class Item6
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20937.486,17.37462,19347.68};
+				angles[]={0,3.697047,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=11;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20934.063,17.352276,19349.773};
+				angles[]={0,3.7078598,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=12;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20847.729,12.686456,19255.229};
+				angles[]={0,2.0244443,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=13;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20848.621,12.70212,19257.035};
+				angles[]={0,1.9932156,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=14;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20918.586,16.957027,19148.375};
+				angles[]={0,0.32625988,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=15;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20914.873,16.563868,19149.555};
+				angles[]={0,0.30843669,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=16;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item12
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20928.453,16.343519,19348.217};
+				angles[]={0,2.1376798,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=17;
+			type="Land_Canal_Wall_Stairs_F";
+			atlOffset=2.2752151;
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20924.449,17.131466,19342.465};
+				angles[]={0,5.2386932,6.2805333};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=22;
+			type="Land_HBarrier_Big_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20898.711,16.679487,19337.82};
+				angles[]={0,3.6420467,0.013327583};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=25;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20997.479,17.005249,19146.174};
+				angles[]={0,4.7097301,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=34;
+			type="Land_Canal_Wall_Stairs_F";
+			atlOffset=1.884594;
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20999.326,17.619907,19140.957};
+				angles[]={0,4.741837,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=37;
+			type="Land_HBarrierWall4_F";
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21014.355,16.884809,19161.602};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=38;
+			type="Land_Canal_Wall_Stairs_F";
+			atlOffset=1.7641544;
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21005.887,18.060001,19160.783};
+				angles[]={0,3.1719909,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=40;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20998.51,18.060001,19155.795};
+				angles[]={0,4.755023,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=41;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21001.721,18.060001,19160.758};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=42;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20999.539,16.817223,19155.703};
+				angles[]={0,4.7410145,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=60;
+			type="Land_Canal_Wall_Stairs_F";
+			atlOffset=1.6965675;
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21005.813,19.863998,19160.789};
+				angles[]={0,3.1607883,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=64;
+			type="Land_HBarrier_Big_F";
+			atlOffset=0.2918129;
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20900.877,12.548565,19203.428};
+				angles[]={0,5.8414879,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=65;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item24
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20907.887,12.554239,19206.787};
+				angles[]={0,5.8414879,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=66;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item25
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21050.285,21.791557,19297.395};
+				angles[]={0,1.6132853,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=69;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=4.1726933;
+		};
+		class Item26
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21049.32,34.038761,19293.508};
+				angles[]={0,0.02143498,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=70;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=1.0721436;
+		};
+		class Item27
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21049.857,26.190941,19297.469};
+				angles[]={0,1.6132853,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=71;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item28
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21104.43,10.88986,19374.688};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayer=1;
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=73;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21102.371,10.681389,19372.926};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=74;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21105.014,10.663484,19371.859};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=75;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21105.844,10.665359,19371.783};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=76;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21106.662,10.67595,19371.738};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=77;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21105.164,10.76948,19372.973};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=78;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21105.982,10.781125,19372.93};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=79;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21106.813,10.790252,19372.852};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=80;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21102.514,10.597065,19371.961};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=81;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21103.332,10.617829,19371.916};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=82;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21104.195,10.643013,19371.904};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=83;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21103.482,10.723962,19373.029};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=84;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21104.301,10.745339,19372.984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=85;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21101.574,10.6796,19373.203};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=86;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21101.664,10.579864,19372.051};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+							};
+							map="ItemMap";
+						};
+					};
+					id=87;
+					type="O_Survivor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=72;
+			atlOffset=-9.5367432e-007;
+		};
+		class Item29
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21107.322,11.452946,19381.025};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=89;
+					type="B_Competitor_F";
+					atlOffset=0.0013723373;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21105.936,11.591063,19383.691};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=90;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21106.516,11.648709,19384.469};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=91;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21106.83,11.56657,19383.039};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=92;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21107.41,11.624248,19383.816};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=93;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21107.172,11.520342,19382.178};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=94;
+					type="B_Competitor_F";
+					atlOffset=0.0007314682;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21107.752,11.5774,19382.955};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=95;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21108.129,11.485865,19381.357};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=96;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21108.736,11.545141,19382.152};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=97;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.02;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21108.967,11.469628,19380.855};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=98;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21109.547,11.527195,19381.631};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=99;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21110.199,11.445394,19380.111};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=100;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21110.779,11.503071,19380.889};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=101;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21110.977,11.407259,19379.463};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=102;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={21111.557,11.476772,19380.24};
+						angles[]={0,3.7256322,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player - TS.CompetitivePvP.com";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_Competitor";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_Rangemaster_belt";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Shades_Black";
+							headgear="H_Cap_headphones";
+						};
+					};
+					id=103;
+					type="B_Competitor_F";
+					atlOffset=-9.5367432e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=88;
+			atlOffset=0.0013723373;
+		};
+		class Item30
+		{
+			dataType="Trigger";
+			position[]={20964.021,15.906213,19337.699};
+			angle=5.2828035;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=70;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=115;
+			type="EmptyDetector";
+		};
+		class Item31
+		{
+			dataType="Trigger";
+			position[]={20876.785,14.22406,19321.297};
+			angle=0.54768425;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=65;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=116;
+			type="EmptyDetector";
+		};
+		class Item32
+		{
+			dataType="Trigger";
+			position[]={20831.992,11.811262,19235.725};
+			angle=3.577781;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=65;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=117;
+			type="EmptyDetector";
+		};
+		class Item33
+		{
+			dataType="Trigger";
+			position[]={20855.484,13.332701,19163.018};
+			angle=5.0649953;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=65;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=118;
+			type="EmptyDetector";
+		};
+		class Item34
+		{
+			dataType="Trigger";
+			position[]={20919.498,15.060273,19141.893};
+			angle=5.0087967;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=25;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=119;
+			type="EmptyDetector";
+		};
+		class Item35
+		{
+			dataType="Trigger";
+			position[]={20955.67,16.498936,19133.334};
+			angle=-1.442873;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=15;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=120;
+			type="EmptyDetector";
+		};
+		class Item36
+		{
+			dataType="Trigger";
+			position[]={21000.883,16.837479,19132.186};
+			angle=-1.5854175;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=30;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=121;
+			type="EmptyDetector";
+			atlOffset=1.9073486e-006;
+		};
+		class Item37
+		{
+			dataType="Trigger";
+			position[]={21024.428,16.99346,19184.836};
+			angle=3.1215734;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=122;
+			type="EmptyDetector";
+		};
+		class Item38
+		{
+			dataType="Trigger";
+			position[]={21024.793,16.949881,19249.738};
+			angle=0.067236431;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=15;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=123;
+			type="EmptyDetector";
+		};
+		class Item39
+		{
+			dataType="Trigger";
+			position[]={21026.639,16.98032,19278.396};
+			angle=0.051845364;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=15;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=124;
+			type="EmptyDetector";
+		};
+		class Item40
+		{
+			dataType="Trigger";
+			position[]={21023.131,16.832745,19292.783};
+			angle=5.9938431;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for leaving the map!"";";
+				sizeA=5;
+				sizeB=10;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=125;
+			type="EmptyDetector";
+		};
+		class Item41
+		{
+			dataType="Trigger";
+			position[]={20923.232,15.924713,19334.318};
+			angle=2.1256537;
+			class Attributes
+			{
+				name="Opfor_Protection";
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="[] call FSCQC_Degen_Enable;";
+				onDeactivation="[] call FSCQC_Degen_Disable;";
+				sizeA=20;
+				sizeB=30;
+				repeatable=1;
+				activationType="NOT PRESENT";
+				activationBy="WEST";
+				isRectangle=1;
+			};
+			id=126;
+			type="EmptyDetectorAreaR50";
+			atlOffset=9.5367432e-007;
+		};
+		class Item42
+		{
+			dataType="Trigger";
+			position[]={20998.711,16.85,19160.174};
+			angle=1.5618246;
+			class Attributes
+			{
+				name="Blufor_Protection";
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="[] call FSCQC_Degen_Enable;";
+				onDeactivation="[] call FSCQC_Degen_Disable;";
+				sizeA=25;
+				sizeB=25;
+				repeatable=1;
+				activationType="NOT PRESENT";
+				activationBy="EAST";
+				isRectangle=1;
+			};
+			id=127;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item43
+		{
+			dataType="Marker";
+			position[]={20998.695,16.85,19160.119};
+			name="Blufor_Protection_Region";
+			markerType="RECTANGLE";
+			type="rectangle";
+			colorName="ColorBlue";
+			fillName="DiagGrid";
+			a=25;
+			b=25;
+			angle=89.612968;
+			id=130;
+		};
+		class Item44
+		{
+			dataType="Marker";
+			position[]={20923.08,14.948242,19334.412};
+			name="Blufor_Protection_Region_1";
+			markerType="RECTANGLE";
+			type="rectangle";
+			colorName="ColorRed";
+			fillName="DiagGrid";
+			a=20;
+			b=30;
+			angle=301.47089;
+			id=131;
+			atlOffset=-0.97687531;
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21093.271,10.750252,19375.73};
+				angles[]={6.200707,0,0.0039967569};
+			};
+			id=135;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="#adminLogged";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20904.631,16.859982,19334.721};
+				angles[]={6.2805333,3.6420467,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=136;
+			type="Land_HBarrier_Big_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20918.197,17.14814,19342.135};
+				angles[]={0,3.6420467,6.2805333};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=137;
+			type="Land_HBarrier_Big_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20908.857,17.178076,19338.604};
+				angles[]={6.2818484,5.3108082,0.014664836};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=138;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20906.549,17.387901,19337.439};
+				angles[]={6.2352223,0.52393842,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=139;
+			type="Land_GH_Stairs_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item50
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20908.867,18.869129,19338.688};
+				angles[]={0,5.3108082,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=140;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.6908102;
+		};
+		class Item51
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20904.016,18.808601,19335.256};
+				angles[]={0,3.5985675,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=141;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.9733095;
+		};
+		class Item52
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20898.326,18.571575,19338.098};
+				angles[]={0,3.5985675,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=142;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.8972158;
+		};
+		class Item53
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20928.068,20.269764,19353.75};
+				angles[]={0,3.697047,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=143;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=2.8576584;
+		};
+		class Item54
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20931.275,20.166794,19351.604};
+				angles[]={0,3.7404902,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=144;
+			type="Land_Mil_WallBig_4m_F";
+		};
+		class Item55
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20934.557,20.209583,19349.557};
+				angles[]={0,3.697047,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=145;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=1.4171638;
+		};
+		class Item56
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20894.826,20.477135,19339.736};
+				angles[]={0,2.1071632,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=146;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=1.2809258;
+		};
+		class Item57
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20892.865,20.50721,19336.414};
+				angles[]={0,2.1071632,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=147;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=3.5574245;
+		};
+		class Item58
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20896.771,20.446426,19343.066};
+				angles[]={0,2.1071632,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=148;
+			type="Land_Mil_WallBig_4m_F";
+			atlOffset=1.1009598;
+		};
+		class Item59
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20905.305,17.345461,19338.146};
+				angles[]={6.2352223,0.52393842,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=149;
+			type="Land_GH_Stairs_F";
+		};
+		class Item60
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20904.213,17.308525,19338.771};
+				angles[]={6.2352223,0.52393842,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=150;
+			type="Land_GH_Stairs_F";
+			atlOffset=2.7656555e-005;
+		};
+		class Item61
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20902.969,17.266169,19339.479};
+				angles[]={6.2352223,0.52393842,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=151;
+			type="Land_GH_Stairs_F";
+		};
+		class Item62
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20901.836,17.230665,19340.186};
+				angles[]={6.2352219,0.4755235,0.061256278};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=154;
+			type="Land_GH_Stairs_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item63
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20900.559,17.183214,19340.83};
+				angles[]={6.2352223,0.4755235,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=155;
+			type="Land_GH_Stairs_F";
+		};
+		class Item64
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20899.438,17.141905,19341.402};
+				angles[]={6.2352223,0.4755235,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=156;
+			type="Land_GH_Stairs_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item65
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20898.16,17.094543,19342.049};
+				angles[]={6.2352223,0.4755235,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=157;
+			type="Land_GH_Stairs_F";
+		};
+		class Item66
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20897.271,17.060465,19342.473};
+				angles[]={6.2352223,0.4755235,0.061256282};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=158;
+			type="Land_GH_Stairs_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item67
+		{
+			dataType="Marker";
+			position[]={21010.893,16.85,19149.666};
+			name="respawn_WEST";
+			type="respawn_unknown";
+			id=159;
+		};
+		class Item68
+		{
+			dataType="Marker";
+			position[]={20921.973,15.946912,19351.943};
+			name="respawn_EAST";
+			type="respawn_unknown";
+			id=160;
+		};
+		class Item69
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20912.045,16.678505,19342.512};
+				angles[]={6.2805333,0.50076032,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=164;
+			type="Land_HBarrier_1_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item70
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20912.893,16.675329,19343.439};
+				angles[]={6.2805333,0.50076032,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=165;
+			type="Land_HBarrier_1_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item71
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20913.623,16.671688,19343.902};
+				angles[]={6.2805333,1.9143491,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=166;
+			type="Land_HBarrier_1_F";
+		};
+		class Item72
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20913.646,17.552425,19343.902};
+				angles[]={0,5.0496645,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=167;
+			type="Land_HBarrier_1_F";
+			atlOffset=0.88089561;
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20912.93,17.556644,19343.43};
+				angles[]={0,0.50076032,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=168;
+			type="Land_HBarrier_1_F";
+			atlOffset=0.88160133;
+		};
+		class Item74
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20912.063,17.544825,19342.449};
+				angles[]={0,0.50076032,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=169;
+			type="Land_HBarrier_1_F";
+			atlOffset=0.86647606;
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20997.555,19.793732,19151.969};
+				angles[]={0,0.060168251,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=171;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.7337322;
+		};
+		class Item76
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20989.68,19.787785,19152.303};
+				angles[]={0,0.060168251,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=172;
+			type="Land_HBarrier_Big_F";
+			atlOffset=1.7277851;
+		};
+		class Item77
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21007.18,17.742422,19153.033};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="RedCrate";
+			};
+			id=175;
+			type="C_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item78
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20912.83,16.987585,19354.412};
+				angles[]={6.2605309,2.4230058,6.2778621};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="BlueCrate";
+			};
+			id=176;
+			type="C_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item79
+		{
+			dataType="Trigger";
+			position[]={20893.857,28.552858,19226.85};
+			angle=3.5186005;
+			class Attributes
+			{
+				condition="(player in thislist) || (vehicle player != player && {vehicle player in thislist})";
+				onActivation="player setDamage 1; hint ""You have been killed for trying to go on top of a dome!"";";
+				sizeA=25;
+				sizeB=25;
+				sizeC=10;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+			};
+			id=177;
+			type="EmptyDetector";
+			atlOffset=14.586349;
+		};
+		class Item80
+		{
+			dataType="Marker";
+			position[]={20921.967,15.94711,19351.947};
+			name="Opfor_Spawn";
+			text="Opfor Spawn";
+			type="mil_box";
+			colorName="ColorRed";
+			id=178;
+		};
+		class Item81
+		{
+			dataType="Marker";
+			position[]={21010.887,16.85,19149.666};
+			name="Blufor_Spawn";
+			text="Blufor Spawn";
+			type="mil_box";
+			colorName="ColorBlue";
+			id=179;
+		};
+	};
+};
