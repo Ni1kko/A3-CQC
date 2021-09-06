@@ -6,7 +6,7 @@
 author = "Frag Squad Development Team"; 
 OnLoadIntroTime = 0;
 OnLoadMissionTime = 0;
-skipLobby = 0; // bypassing role selection screen
+skipLobby = 1; // bypassing role selection screen
 joinUnassigned = 0; // 0: disabled - 1: enabled. Default: 1
 showWatch = 0; // 0: disabled - 1: enabled. Default: 1
 allowProfileGlasses = 0;
@@ -92,7 +92,8 @@ class cfgRemoteExec
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
-		class fn_animation							{ allowedTargets = 2; jip = 0; };
+		class bis_fnc_call 							{ allowedTargets = 2; jip = 0; };
+		class fn_animation 							{ allowedTargets = 2; jip = 0; };
 	};
 
 	// List of Commands allowed to be sent from client via remoteExec
@@ -102,14 +103,11 @@ class cfgRemoteExec
 		class call     			{ allowedTargets = 1; jip = 0; };
 		class spawn    			{ allowedTargets = 1; jip = 0; };
 		class switchmove    	{ allowedTargets = 1; jip = 0; };
-		class fn_animation		{ allowedTargets = 2; jip = 0; };
-		class playMovenow		{ allowedTargets = 2; jip = 0; };
-	};
+		class playMovenow    	{ allowedTargets = 1; jip = 0; };
 	};
 };
 
 #include "ui\CQC_Rsc_BaseDefines.hpp" 
-#include "ui\infiSTAR_AdminMenu.hpp"
 #include "ui\CQC_Rsc_DisplayAdminTools.hpp"
 #include "ui\CQC_Rsc_DisplayGarage.hpp"
 #include "ui\CQC_Rsc_DisplayHelp.hpp"
@@ -125,7 +123,7 @@ class CfgDebriefing
 	{
 		title = "Changing maps";
 		subtitle = "Map created by Geo";
-		description = "Thank you for playing on FragSquad CQC";
+		description = "Thank you for playing on Google's CQC, If you would like to make your own map contact me and I'll teach you.";
 	};
 };
 
