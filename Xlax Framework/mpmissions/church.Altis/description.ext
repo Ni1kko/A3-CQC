@@ -1,0 +1,136 @@
+/*
+	Nikko Renolds | Ni1kko@outlook.com
+	FragSquad CQC
+*/
+
+author = "Frag Squad Development Team"; 
+OnLoadIntroTime = 0;
+OnLoadMissionTime = 0;
+skipLobby = 1; // bypassing role selection screen
+joinUnassigned = 0; // 0: disabled - 1: enabled. Default: 1
+showWatch = 0; // 0: disabled - 1: enabled. Default: 1
+allowProfileGlasses = 0;
+allowFunctionsRecompile = 0; // 0: disabled - 1: enabled. Default: 0
+disabledAI = 1;
+showGroupIndicator = 0; // 0: disabled - 1: enabled. Default: 0
+enableItemsDropping = 0;// Disable dropping items while swimming
+briefing = 0;// Briefing will still be displayed until all clients are connected and done loading :(
+debriefing = 0;// Defines if the debriefing is shown or not at the end of the mission. 
+respawn = "BASE";
+respawnTemplates[] = {"MenuPosition"};
+respawnDelay = 3;
+respawnDialog = 0;
+respawnOnStart = 1;
+respawnButton = 1;
+
+//CQC Config
+fileVersion = 0.050;
+escapeTimer = 3;				//How long player has to wait before can leave server
+combatTimer = 10;				//How long player has to wait before can leave server (whilst in COMBAT)
+adminDonator = true;			//Enables VIP Features for admins
+autoReloadDonator = false;		//Enables VIP auto-reload
+AFKKicker = true;				//Enables auto afk kick (needs FIXED)
+AFKKickTime = 15;				//How many mins should we wait before kicking (Timer resets on keypress)
+AFKKickTimeNotify = 2;          //How often do idle messages appear
+AFKAdminBypass = false;			//Enables auto afk kick bypass for admins
+spawnSmoke = false;  			//Enables smoke around player on spawn
+tagRenderDistance = 30; 		//How far vehicles start rendering (player are half of this value)
+vehicleLimit = 1;				//How many vehicles player is allowed out at once
+
+vehicleDeadCleanMins = true;    ///Is cleanup scaled in mins or secs (false = seconds | true = minuets)
+vehicleDeadCleanUp = 1;     	//How long till dead vehicles are removed
+
+vehicleUnusedCleanMins = true;  //Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+vehicleUnusedCleanUp = 3;   	//How long till non used vehicles are removed
+
+bodyDeadCleanMins = false;		//Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+bodyDeadCleanUp = 3;			//How long till dead bodies are removed
+
+weaponCleanMins = false;	 	//Is cleanup scaled in mins or secs	(false = seconds | true = minuets)
+weaponCleanUp = 15;		    	//How long till dropped weapons are removed
+
+class CQCSpawns 
+{
+	OG_Arms = 1;		//Enable or Disable spawn zone
+	Church = 1;			//Enable or Disable spawn zone
+	Airport = 1;		//Enable or Disable spawn zone
+	Experimental = 1;	//Enable or Disable spawn zone
+	Quarantine = 1;		//Enable or Disable spawn zone
+	Mushroom = 1;		//Enable or Disable spawn zone
+	Gravia = 0;			//Enable or Disable spawn zone
+	Fed = 1;			//Enable or Disable spawn zone
+};
+
+class CQCColors
+{
+	admin[] =   	{0.85, 0, 0, 1};
+	donator[] = 	{0.95, 0.45, 0, 1};
+	player[] =  	{1, 0.9, 0.9, 1};
+	developer[] =   {0.85, 0.35, 0.8, 1};
+	highlighted[] = {0.65, 0.75, 0.9, 1};
+};
+
+enableDebugConsole[] = 
+{
+	"76561198048125586",
+	"76561197960272723",
+	"76561198119520123", 
+	"76561199110944525",
+	"76561199109931625"//Nikko
+};
+
+class cfgRemoteExec 
+{
+	// List of Functions allowed to be sent from client via remoteExec
+	class Functions
+	{
+		mode = 1;
+		jip = 1;
+		class BIS_fnc_debugConsoleExec				{ allowedTargets = 0; jip = 0; };
+		class BIS_fnc_execVM						{ allowedTargets = 0; jip = 0; };
+		class BIS_fnc_curatorRespawn				{ allowedTargets = 0; jip = 0; }; 
+		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
+		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
+		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
+	};
+
+	// List of Commands allowed to be sent from client via remoteExec
+	class Commands
+	{
+		mode = 1;
+		class call     			{ allowedTargets = 1; jip = 0; };
+		class spawn    			{ allowedTargets = 1; jip = 0; };
+		class switchmove    	{ allowedTargets = 1; jip = 0; };
+	};
+};
+
+#include "ui\CQC_Rsc_BaseDefines.hpp" 
+#include "ui\infiSTAR_AdminMenu.hpp"
+#include "ui\CQC_Rsc_DisplayAdminTools.hpp"
+#include "ui\CQC_Rsc_DisplayGarage.hpp"
+#include "ui\CQC_Rsc_DisplayHelp.hpp"
+#include "ui\CQC_Rsc_DisplayOptions.hpp"
+#include "ui\CQC_Rsc_DisplayProgress.hpp"
+#include "ui\CQC_Rsc_DisplaySpawns.hpp"
+#include "ui\CQC_Rsc_DisplayTitles.hpp"
+
+ 
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Changing maps";
+		subtitle = "Map created by Geo";
+		description = "Thank you for playing on FragSquad CQC, If you would like to make your own map contact me and I'll teach you.";
+	};
+};
+
+
+class CfgSounds {
+  sounds[] = {};
+  class killsound {
+    name = "killsound";
+    sound[] = {"\sounds\killsound.ogg", 1, 1};
+    titles[] = {0, ""};
+  };
+};
