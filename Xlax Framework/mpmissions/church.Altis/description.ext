@@ -101,9 +101,6 @@ class cfgRemoteExec
 		class call     			{ allowedTargets = 1; jip = 0; };
 		class spawn    			{ allowedTargets = 1; jip = 0; };
 		class switchmove    	{ allowedTargets = 1; jip = 0; };
-		class fn_animation		{ allowedTargets = 2; jip = 0; };
-		class playMovenow		{ allowedTargets = 2; jip = 0; };
-	};
 	};
 };
 
@@ -124,7 +121,7 @@ class CfgDebriefing
 	{
 		title = "Changing maps";
 		subtitle = "Map created by Geo";
-		description = "Thank you for playing on FragSquad CQC";
+		description = "Thank you for playing on FragSquad CQC, If you would like to make your own map contact me and I'll teach you.";
 	};
 };
 
