@@ -92,7 +92,7 @@ class cfgRemoteExec
 		class CQC_fnc_playerAddKill 				{ allowedTargets = 1; jip = 0; };
 		class CQC_fnc_UpdateDatabase 				{ allowedTargets = 2; jip = 0; };
 		class CQC_fnc_ahLog 						{ allowedTargets = 2; jip = 0; };
-		class fn_animation							{ allowedTargets = 2; jip = 0; };
+		class fn_animation 							{ allowedTargets = 2; jip = 0; };
 	};
 
 	// List of Commands allowed to be sent from client via remoteExec
